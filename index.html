@@ -454,6 +454,14 @@ body.pantry-theme #pageTopButton{background:#3d7950}
   }
 }
 </style>
+
+<style>
+/* v22: Match favorite-list heading and view toggle to recipe-list typography in landscape only. */
+@media (orientation:landscape) and (min-width:700px){
+ #favoritesPage .recipe-list-heading h2{font-size:clamp(21px,2vw,27px)}
+ #favoritesPage #favoriteViewToggle{font-size:clamp(16px,1.45vw,20px)}
+}
+</style>
 </head><body><header id="appHeader" class="coco-header"><div class="headerrow"><button class="brand-home" onclick="logoHome()" aria-label="レシピリストへ"><img id="appLogo" class="brand-mark" alt="CocoMemo ロゴ"><span class="brand-copy"><img id="appTitle" class="brand-title" alt="CocoMemo"><small id="appTaglineJa">レシピ集めて、おいしさいっぱい。</small><span id="appTaglineEn" class="brand-english">Collect. Create. Make it delicious.</span></span></button><button class="settings-gear" onclick="showSettings()" aria-label="管理画面を開く" title="管理画面">⚙️</button></div></header><nav id="appNav" class="app-nav" aria-label="アプリ内ナビゲーション"><button data-nav="list" onclick="navList()"><span class="nav-icon">▤</span><span id="navListText">レシピリスト</span></button><button data-nav="second" onclick="navSecond()"><span class="nav-icon" id="navSecondIcon">★</span><span id="navSecondText">お気に入りレシピ</span></button><button data-nav="add" onclick="navAdd()"><span class="nav-icon">＋</span><span id="navAddText">レシピを追加</span></button><button data-nav="sister" onclick="navSister()"><img id="navSisterImg" alt="Pantrymo"><span id="navSisterText">Pantrymo</span></button></nav><main><section id="home"><div class="panel"><h2>🔎 レシピを探す</h2>
 <div class="recipe-search-input"><input id="search" type="text" enterkeyhint="done" placeholder="料理名・材料・器具・時間で検索"><button id="searchTextClear" type="button" aria-label="検索文字を消去" title="検索文字を消去" onclick="clearSearchText()" class="hidden">×</button></div>
 <div class="recipe-search-controls">
