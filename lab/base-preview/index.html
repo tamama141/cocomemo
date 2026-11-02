@@ -1,0 +1,529 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CocoMemo｜画面仕様反映・確認用版</title><style>
+:root{--bg:#fbf8f1;--ink:#3c4035;--muted:#7a8071;--green:#58745b;--pale:#eaf0e5;--line:#e6e4da;--orange:#d99b58}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Noto Sans JP',sans-serif;font-size:15px}header{background:#fffdf8;border-bottom:1px solid var(--line);padding:18px 18px 12px;position:sticky;top:0;z-index:3}header h1{font-family:serif;font-size:25px;margin:0;color:var(--green);letter-spacing:.07em}header small{color:var(--muted)}main{max-width:720px;margin:auto;padding:18px 16px 100px}.panel,.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;margin-bottom:14px;box-shadow:0 2px 10px #3a473308}h2{font-size:18px;margin:0 0 13px}h3{font-size:16px;margin:18px 0 9px;color:var(--green)}p{line-height:1.7}input,textarea,select{font:inherit;color:inherit;border:1px solid #d9ded5;border-radius:10px;background:#fff;padding:11px;width:100%}textarea{min-height:90px;resize:vertical;line-height:1.6}button{font:inherit;cursor:pointer;border:0;border-radius:11px;padding:10px 13px;background:var(--pale);color:var(--green);font-weight:650}button.primary{background:var(--green);color:white}button.danger{background:#fce9e5;color:#ad5145}button:disabled{opacity:.45}button.small{font-size:12px;padding:6px 9px}.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.grow{flex:1}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.chip{border-radius:99px;padding:6px 11px;background:#f1f3ed;color:#5b705b;font-size:12px;border:1px solid #e0e8da}.chip.on{background:var(--green);color:white}.chip.main-label{background:#f8e4d3;color:#995326;border-color:#e9c8aa;font-weight:650}.muted{color:var(--muted);font-size:13px}.card{display:flex;gap:13px;align-items:center;cursor:pointer;padding:13px}.thumb{width:77px;height:77px;border-radius:12px;background:linear-gradient(145deg,#f5ead9,#e6eddc);display:grid;place-items:center;font-size:34px;flex:none;object-fit:cover}.card strong{display:block;font-size:15px;margin-bottom:5px;line-height:1.4}.card .chips{margin:5px 0}.card .chip{padding:3px 7px}.floating{position:fixed;right:18px;bottom:20px;z-index:5;box-shadow:0 5px 18px #52644b4d}.hidden{display:none!important}.section{border-top:1px solid var(--line);padding-top:13px;margin-top:17px}.ingredients{display:grid;gap:4px}.ingredient{display:flex;align-items:center;gap:10px;padding:9px 3px;border-bottom:1px solid #f0f0eb}.ingredient input{width:20px;height:20px;accent-color:var(--green)}.ingredient span:last-child{margin-left:auto;text-align:right}.step{display:flex;gap:12px;margin:15px 0;line-height:1.8}.num{flex:none;border-radius:50%;width:28px;height:28px;display:grid;place-items:center;background:var(--pale);color:var(--green);font-weight:bold}.photo{width:100%;max-height:260px;object-fit:cover;border-radius:14px;margin:10px 0}.field{margin:13px 0}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}.split{height:calc(100dvh - 168px);min-height:390px;display:flex;flex-direction:column;gap:8px}.split .materials{height:38%;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px}.split .directions{flex:1;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px}.split.collapsed .materials{height:auto;max-height:50px;overflow:hidden}.split.collapsed .directions{flex:1}.split .ingredients{font-size:13px}.editor-list{display:grid;gap:7px}.editor-row{display:flex;gap:6px}.editor-row input:first-child{flex:2;min-width:0}.editor-row input:nth-child(2){flex:1;min-width:0}.editor-row button{flex:none}.sticky-action{position:sticky;bottom:0;background:var(--bg);padding:10px 0}.notice{padding:10px;background:#fff6e7;border-radius:10px;font-size:13px}.date{font-size:12px;color:var(--muted)}details summary{cursor:pointer;font-weight:700;color:var(--green)}.empty{text-align:center;padding:28px;color:var(--muted)}.scale{width:65px;text-align:center} .splithead{display:flex;justify-content:space-between;align-items:center;margin:0 0 5px} .splithead h3{margin:0}
+
+:root{--bg:#fff8ef;--ink:#4c392c;--muted:#907965;--green:#b85e26;--pale:#fff0de;--line:#eedbca;--orange:#c66c30}header{padding:9px 15px 8px;background:#fff8ee}.brand-home{background:transparent;padding:0;text-align:left}.brand-home h1{font-family:system-ui,'Noto Sans JP',sans-serif;font-size:23px;font-weight:750;letter-spacing:.015em}header small{font-size:11px}main{padding-top:12px}.panel{padding:14px}h3{margin:12px 0 7px}p{line-height:1.48;margin:7px 0}.step{margin:8px 0;line-height:1.5;gap:8px}.section{margin-top:11px;padding-top:10px}.ingredient{padding:7px 9px;border-radius:9px;cursor:pointer;gap:7px;user-select:none}.ingredient.checked{background:#f4d6b5;box-shadow:inset 0 2px 5px #8b542c40;color:#8b4d28}.ingredient.checked span:first-child{text-decoration:none}.ingredient span:last-child{margin-left:auto}.picker{position:relative;margin:7px 0}.pickerbox{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fffaf5;max-height:240px;overflow:auto}.pickerbox label{display:flex;align-items:center;gap:8px;padding:3px 7px;border-bottom:1px solid #f2e8dd;line-height:1.25}.pickerbox input{width:19px;height:19px;accent-color:var(--green)}.pickerbox button{width:100%;margin-top:7px}.labelpreview{display:flex;gap:5px;flex-wrap:wrap;margin:6px 0}.headerrow{display:flex;align-items:center;justify-content:space-between;gap:10px}.headerrow button{white-space:nowrap}.scale-select{width:auto;min-width:105px;padding:8px 34px 8px 12px;border:1px solid #e4c9b0;border-radius:12px;background:#fffaf4;color:#76513a;font-weight:600;font-size:13px;box-shadow:0 2px 5px #7d4c2510;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#b87545 50%),linear-gradient(135deg,#b87545 50%,transparent 50%);background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}#sort{font-size:13px;font-weight:600;color:#76513a;background:#fffaf4;border:1px solid #e4c9b0;border-radius:12px;padding:9px 30px 9px 12px;box-shadow:0 2px 5px #7d4c2510;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#b87545 50%),linear-gradient(135deg,#b87545 50%,transparent 50%);background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}.scale-custom{width:95px!important;padding:7px}.manage-label{display:flex;align-items:center;gap:9px;margin:6px 0;padding:6px 2px;border-bottom:1px solid var(--line)}.manage-label .drag-handle{background:transparent;color:var(--muted);font-size:20px;padding:5px;cursor:grab;touch-action:none}.manage-label.dragging{opacity:.45}.manage-label.drag-over{border-top:3px solid var(--orange)}.manage-label .manage-icon{font-size:23px;background:#fff6ec;min-width:45px;padding:6px}.manage-label .manage-name{flex:1;text-align:left;background:transparent;color:var(--ink);font-size:15px;font-weight:550;padding:8px 4px}.manage-label .manage-remove{background:transparent;color:#a56d56;font-size:21px;padding:4px 12px}.manage-label button:focus-visible{outline:2px solid var(--green)}.manage-add-icon{width:62px;flex:none;text-align:center}.manage-add-name{flex:1;min-width:0}.modal-backdrop{position:fixed;inset:0;background:#2d211db3;z-index:20;display:flex;align-items:center;justify-content:center;padding:18px}.modal-card{width:100%;max-width:420px;background:#fffaf5;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 12px 36px #0003}.modal-card h2{margin:0 0 8px}.modal-card p{color:var(--muted);font-size:13px;margin:0 0 14px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.modal-card input{text-align:left}.modal-card .emoji-input{text-align:center;font-size:24px;width:86px}.autosize-memo{min-height:0!important;resize:none;overflow-y:hidden;display:block;line-height:1.6;padding:10px 11px}.modal-backdrop.hidden{display:none!important}.choice-menu{position:relative}.choice-menu-button{font:inherit;font-size:13px;font-weight:600;color:#76513a;background:#fffaf5;border:1px solid #e4c9b0;border-radius:12px;padding:9px 12px;text-align:left;box-shadow:0 2px 5px #7d4c2510;display:flex;align-items:center;justify-content:space-between;gap:12px}.choice-menu-list{position:absolute;z-index:8;top:calc(100% + 5px);left:0;right:0;min-width:100%;border:1px solid var(--line);border-radius:12px;padding:7px;background:#fffaf5;box-shadow:0 8px 22px #59351b20;max-height:240px;overflow:auto}.choice-menu-list button{display:block;width:100%;text-align:left;background:transparent;color:var(--ink);font-weight:500;border-radius:8px;padding:9px 10px;white-space:nowrap}.choice-menu-list button[aria-selected="true"]{background:#f4d6b5;color:#8b4d28;font-weight:700}.choice-menu-list button:active{background:#f4d6b5}
+
+.auth-panel{border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0;background:#fffaf5}.auth-status{font-size:13px;color:var(--muted);margin:6px 0}.google-btn{width:100%;background:#fff;color:var(--ink);border:1px solid var(--line)}
+
+/* Responsive first pass: mobile, tablet, Echo Show and desktop */
+main{width:min(100%,1180px);padding:clamp(12px,2.2vw,28px) clamp(12px,2vw,24px) 110px}
+header{padding:clamp(10px,1.6vw,18px) clamp(12px,2vw,24px)}
+button,input,textarea,select{min-height:42px}button.small{min-height:34px}.pickerbox input{min-height:0}
+#cards{display:grid;grid-template-columns:1fr;gap:0}
+#cards.view-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:12px}
+#cards.view-grid .card{margin:0;align-items:center;min-width:0;height:100%;flex-direction:row;position:relative;padding:12px;gap:12px}
+#cards.view-grid .thumb{width:clamp(58px,25%,100px);height:auto;aspect-ratio:1/1;max-height:100px;border-radius:10px;font-size:26px;flex:none}
+#cards.view-grid .card .grow{width:auto;flex:1;min-width:0;align-self:center}
+#cards.view-grid .card strong{overflow-wrap:anywhere}
+#cards.view-grid .card>span:last-child{position:static;flex:none}
+#cards.view-grid .card .muted{padding-right:0}
+#cards.view-grid .card>span:last-child{position:absolute;right:14px;bottom:14px}
+#cards.view-grid .card .muted{padding-right:16px}
+/* v23: display-mode toggle retains the same appearance in both states */
+#detail{min-width:0}
+#detail .section:has(>.ingredients){ }
+@media(min-width:760px){
+  #detail{padding:clamp(18px,2.5vw,30px)}
+  #detail .section:has(>.ingredients){display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.4fr);column-gap:28px;align-items:start}
+  #detail .section:has(>.ingredients)>h3:nth-of-type(1),#detail .section:has(>.ingredients)>.ingredients,#detail .section:has(>.ingredients)>.row{grid-column:1}
+  #detail .section:has(>.ingredients)>h3:nth-of-type(2),#detail .section:has(>.ingredients)>.step{grid-column:2}
+  #detail .split{grid-column:1/-1;flex-direction:row;height:min(68vh,720px)}
+  #detail .split .materials{height:auto;width:40%;max-height:100%}
+  #detail .split .directions{min-width:0}
+  #editPage .panel{padding:clamp(18px,2.5vw,30px)}
+  #editPage .field{max-width:100%}
+}
+@media(min-width:1050px){
+  #home>.panel:first-child{display:grid;grid-template-columns:minmax(260px,1fr) minmax(0,2fr);gap:0 18px;align-items:start}
+  #home>.panel:first-child>h2{grid-column:1/-1}
+  #home>.panel:first-child>#search{grid-column:1/-1;margin-bottom:8px}
+  #cards.view-grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+}
+@media(max-width:420px){header h1{font-size:21px}main{padding-left:10px;padding-right:10px}.panel{padding:12px}.row>*{max-width:100%}.editor-row{flex-wrap:wrap}.editor-row input{min-width:0}}
+
+/* Final responsive adjustments from real-device review */
+.recipe-list-heading{align-items:center;flex-wrap:nowrap;gap:10px}
+.recipe-list-heading h2{font-size:clamp(15px,2vw,18px);white-space:nowrap}
+#viewToggle{flex:none;margin:0;white-space:nowrap}
+.choice-menu-list button{padding:7px 10px;line-height:1.25;min-height:34px}
+.detail-hero{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:start}
+.detail-title{font-size:23px;line-height:1.4;margin:0 0 8px;overflow-wrap:anywhere}
+.detail-photo{width:100%;max-height:260px;margin:0;object-fit:cover}
+.detail-columns{display:grid;grid-template-columns:minmax(0,1fr);gap:0;align-items:start}
+.detail-left,.detail-right,.detail-full{min-width:0}
+.detail-left>.section:first-child,.detail-right>.section:first-child{margin-top:11px}
+.detail-right .section{margin-top:11px}
+.detail-columns .split{height:auto;min-height:0;display:flex;flex-direction:column}
+.detail-columns .split .materials{height:auto;max-height:45vh;overflow:auto}
+.detail-columns .split .directions{overflow:visible}
+.detail-columns .split-directions-hidden{display:none}
+@media (min-width:700px){
+ .detail-hero.has-photo{grid-template-columns:minmax(0,3fr) minmax(130px,1fr);gap:18px}
+ .detail-photo{max-height:240px;aspect-ratio:1/1}
+ .detail-columns{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+ .detail-left>.section:first-child,.detail-right>.section:first-child{margin-top:11px}
+}
+@media (max-width:520px){.recipe-list-heading h2{font-size:15px}.recipe-list-heading #viewToggle{font-size:11px;padding:6px 8px}.detail-title{font-size:21px}}
+
+/* 横向きスマホで「材料を固定」を使うときは、材料と作り方を左右に配置 */
+@media (orientation: landscape) and (max-height: 600px) and (min-width: 500px){
+  #detail .detail-columns.split-active{display:block}
+  #detail .detail-columns.split-active .detail-left{min-width:0}
+  #detail .split{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);
+    gap:10px;
+    width:100%;
+    height:calc(100dvh - 190px);
+    min-height:220px;
+    flex-direction:initial;
+  }
+  #detail .split .materials,
+  #detail .split .directions{
+    width:auto;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    overflow:auto;
+    padding:9px;
+  }
+  #detail .split .materials{grid-column:1}
+  #detail .split .directions{grid-column:2}
+  #detail .split .splithead{gap:5px;align-items:center}
+  #detail .split .splithead h3,
+  #detail .split .directions h3{font-size:16px;margin:0 0 7px}
+  #detail .split .splithead button{font-size:13px;padding:6px 8px}
+  #detail .split .ingredient{gap:6px;padding:7px 4px;font-size:15px}
+  #detail .split .ingredient span:last-child{white-space:nowrap}
+  #detail .split .step{gap:8px;margin:10px 0;font-size:15px;line-height:1.55}
+  #detail .split .num{width:26px;height:26px}
+  #detail .split.collapsed .materials{height:auto;max-height:54px;overflow:hidden}
+}
+/* 材料固定時の折りたたみは、縦横どちらでも見出しとボタンを残す */
+#detail .split.collapsed .materials{height:auto;max-height:54px;overflow:hidden;flex:none}
+#detail .split.collapsed .materials .ingredients{display:none}
+#detail .split:not(.collapsed) .materials .ingredients{display:grid}
+#detail .split .materials,#detail .split .directions{min-width:0}
+@media (orientation:portrait), (max-width:499px){
+  #detail .split{width:100%;}
+  #detail .split.collapsed .materials{max-height:54px;}
+}
+
+/* Pantrymo brand mark */
+.pantrymo-brand{display:flex;align-items:center;gap:14px;padding:12px 14px;margin:16px 0 10px;background:#fffaf0;border:1px solid #e8dcc4;border-radius:14px}
+.pantrymo-brand img{display:block;width:88px;height:88px;object-fit:contain;border-radius:10px;flex:none}
+.pantrymo-brand-copy{min-width:0}
+.pantrymo-brand-copy strong{display:block;color:#234b32;font-size:18px;letter-spacing:.02em}
+.pantrymo-brand-copy p{margin:4px 0 0;color:#53634f;font-size:13px;line-height:1.4}
+@media(max-width:420px){.pantrymo-brand{gap:10px;padding:10px}.pantrymo-brand img{width:70px;height:70px}.pantrymo-brand-copy strong{font-size:16px}}
+
+.pantry-page-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}.pantry-page-head .jar{font-size:46px;line-height:1}.pantry-page-head h2{margin:0;color:#234b32}.pantry-form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(80px,.55fr);gap:8px}.pantry-form-grid>*{min-width:0}.pantry-item{display:flex;align-items:center;gap:10px;padding:12px 2px;border-bottom:1px solid var(--line)}.pantry-item-main{flex:1;min-width:0}.pantry-item-name{font-weight:700;overflow-wrap:anywhere}.pantry-item-date{display:block;color:var(--muted);font-size:11px;margin-top:2px}.shopping-hidden{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}.pantry-item-meta{font-size:13px;color:var(--muted);margin-top:3px}.pantry-item-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.pantry-item-actions button{padding:6px 8px;font-size:12px}.pantry-tag{display:inline-block;background:#eaf1e9;color:#234b32;border-radius:999px;padding:3px 8px;font-size:12px;margin:3px 4px 0 0}.pantry-filter-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pantry-filter-row input{flex:1;min-width:120px}.pantry-filter-row select{flex:1;min-width:130px}@media(max-width:420px){.pantry-form-grid{grid-template-columns:1fr 1fr}.pantry-item{align-items:flex-start}.pantry-item-actions{max-width:105px}}
+
+/* Pantrymo inventory and shopping list */
+.pantry-toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.pantry-toolbar .primary{flex:1;min-width:140px}
+.pantry-group-title{width:100%;display:flex;justify-content:space-between;align-items:center;text-align:left;background:#edf2e9;color:#234b32;border:1px solid #d5e0d1;font-weight:700;margin-top:12px}
+.pantry-item{gap:6px;padding:8px 0;align-items:center}
+.pantry-item-main{min-width:0;flex:1}
+.pantry-item-name{font-size:14px;line-height:1.3}.pantry-name-line{display:flex;align-items:baseline;gap:8px;min-width:0}.pantry-name-line .pantry-item-name{flex:1;min-width:0}.pantry-qty-right{font-size:13px;color:var(--muted);white-space:nowrap}.pantry-item-date{display:block}
+.pantry-item-date{display:block;color:var(--muted);font-size:11px;margin-top:2px}.shopping-hidden{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}.pantry-item-meta{font-size:12px;line-height:1.3}
+.pantry-item-actions{display:flex;flex-wrap:nowrap;gap:3px;align-items:center;max-width:none;flex:none}
+.pantry-item-actions button{min-width:32px;min-height:34px;padding:4px 6px;font-size:16px;line-height:1}
+.pantry-freeze{border-radius:9px;min-width:34px;padding:5px!important}
+.pantry-freeze.active{background:#dceefa;border-color:#8bb9d5}
+.pantry-move{border-radius:8px;min-width:28px;padding:4px!important}
+.pantry-sort-handle{border:0;background:transparent;color:#66736a;font-size:20px;padding:4px!important;min-width:25px;cursor:grab;touch-action:none}.pantry-item.dragging{opacity:.45}.pantry-item.drag-over{border-top:3px solid var(--green)}
+.pantry-row-left{display:flex;align-items:center;gap:5px;min-width:0;flex:1}
+.pantry-row-left .pantry-item-main{flex:1}
+.pantry-subhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.pantry-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pantry-tabs button{flex:1;min-width:120px}
+.pantry-shopping-item{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line)}
+.pantry-shopping-main{flex:1;min-width:0;overflow-wrap:anywhere}
+.pantry-shopping-actions{display:flex;gap:4px;flex:none}
+.pantry-shopping-actions button{min-width:32px;padding:5px;font-size:16px}
+.pantry-empty{padding:20px 8px;text-align:center;color:var(--muted)}
+@media(max-width:480px){.pantry-item{gap:4px}.pantry-item-actions button{min-width:29px;padding:4px;font-size:15px}.pantry-row-left{gap:3px}.pantry-item-name{font-size:13px}.pantry-item-date{display:block;color:var(--muted);font-size:11px;margin-top:2px}.shopping-hidden{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}.pantry-item-meta{font-size:11px}}
+
+/* Header brand logos */
+.brand-home{display:flex;align-items:center;gap:9px;min-width:0}
+.brand-home .brand-mark{width:52px;height:52px;object-fit:contain;flex:none;border-radius:50%;aspect-ratio:1}
+.brand-home .brand-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.brand-home h1{margin:0;line-height:1.12}
+.brand-home small{display:block;font-size:11px;line-height:1.25;margin-top:3px}
+.brand-home .brand-english{display:block;font-size:10px;line-height:1.2;letter-spacing:.01em;color:var(--muted);margin-top:2px}
+@media(max-width:420px){.brand-home{gap:6px}.brand-home .brand-mark{width:42px;height:42px}.brand-home h1{font-size:21px}.brand-home small{font-size:10px}.brand-home .brand-english{font-size:9px}}
+
+.pantry-qty-below{font-size:13px;color:var(--muted);margin-top:2px;min-height:1em}.pantry-date-right{font-weight:500;white-space:nowrap;margin:0 0 0 auto;padding-left:6px}.pantry-name-line .pantry-item-name{flex:1;min-width:0}.pantry-filter-row select,#pantrySort{font-size:13px;font-weight:600;color:#76513a;background-color:#fffaf4;border:1px solid #e4c9b0;border-radius:12px;padding:9px 30px 9px 12px;box-shadow:0 2px 5px #7d4c2510;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#b87545 50%),linear-gradient(135deg,#b87545 50%,transparent 50%);background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;background-size:5px 5px;background-repeat:no-repeat}.pantry-filter-row select option,#pantrySort option{background:#fffaf5;color:#4c392c;font-weight:500;padding:9px}.pantry-filter-row select option:checked,#pantrySort option:checked{background:#f4d6b5;color:#8b4d28;font-weight:700}
+
+/* Pantrymo dropdowns use the same custom opened menu as CocoMemo */
+.pantry-custom-select{position:relative;display:inline-block;min-width:125px}
+.pantry-custom-select .choice-menu-button{width:100%;min-height:42px}
+.pantry-custom-select .choice-menu-list{min-width:100%;right:0;left:auto}
+.pantry-custom-select .choice-menu-list button{min-height:38px}
+.pantry-custom-select .choice-menu-list button[aria-selected="true"]{background:#f4d6b5;color:#8b4d28;font-weight:700}
+.pantry-custom-select select{position:absolute!important;opacity:0!important;pointer-events:none!important;width:1px!important;height:1px!important;padding:0!important;border:0!important}
+
+
+.settings-section h3{margin:12px 0 6px}
+#manageLabels .row,#managePantryCategories .row{gap:6px!important;margin:4px 0!important;min-height:36px}
+#manageLabels .row>* ,#managePantryCategories .row>*{padding-top:5px;padding-bottom:5px}
+#managePantryCategories .category-name{cursor:pointer;flex:1;min-width:0;padding:7px 10px!important;background:#f7f4ee;border-radius:8px}
+#managePantryCategories .drag-category{cursor:grab;touch-action:none;padding:5px 8px!important}
+#managePantryCategories .row.dragging{opacity:.45}
+
+#managePantryCategories .category-manage-row{display:flex;align-items:center;gap:6px;min-height:36px;margin:4px 0}
+#managePantryCategories .category-manage-row .drag-handle,
+#managePantryCategories .category-manage-row .manage-name,
+#managePantryCategories .category-manage-row .manage-remove{height:36px;box-sizing:border-box}
+#managePantryCategories .category-manage-row .manage-name{flex:1;min-width:0;text-align:left;justify-content:flex-start;background:transparent;border:0;border-radius:8px;padding:5px 10px}
+
+.settings-accordion-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;padding:11px 13px;margin:6px 0;border:1px solid var(--line);border-radius:10px;background:#fff8ed;color:#9d542d;font-weight:700;font-size:16px}
+.settings-accordion-toggle .settings-arrow{font-size:14px;color:#987b67}
+.settings-accordion-toggle[aria-expanded="true"] .settings-arrow{transform:rotate(180deg)}
+.settings-section{padding:0 2px 8px}
+#manageLabels .manage-label,#managePantryCategories .category-manage-row{min-height:32px!important;height:32px!important;margin:3px 0!important}
+#manageLabels .manage-label>* ,#managePantryCategories .category-manage-row>*{height:32px!important;min-height:32px!important;padding-top:3px!important;padding-bottom:3px!important;box-sizing:border-box}
+#managePantryCategories .category-manage-row .manage-name{padding-left:10px!important}
+
+#managePantryCategories .category-manage-row{position:relative}
+#managePantryCategories .category-manage-row.drop-before::before,
+#managePantryCategories .category-manage-row.drop-after::after{content:"";position:absolute;left:0;right:0;height:4px;background:#b9632f;border-radius:3px;z-index:10;pointer-events:none}
+#managePantryCategories .category-manage-row.drop-before::before{top:-3px}
+#managePantryCategories .category-manage-row.drop-after::after{bottom:-3px}
+#managePantryCategories .category-manage-row.dragging{opacity:.35}
+#managePantryCategories .category-manage-row.drop-target{background:#fff0dc;border-radius:9px}
+
+/* v12 shared chrome: brand and navigation */
+#appHeader{position:relative;z-index:3;padding:9px 15px;background:#fff4e8;border-bottom:0}
+#appHeader.pantry-header{background:#eaf6ec}
+#appHeader .headerrow{display:flex;align-items:center;gap:12px}
+#appHeader .brand-home{flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:transparent;padding:0;text-align:left}
+#appHeader .brand-mark{width:53px;height:53px;object-fit:contain;flex:none;border-radius:50%}
+#appHeader .brand-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0;gap:2px}
+#appHeader .brand-title{width:min(190px,100%);height:28px;object-fit:contain;object-position:left center}
+#appHeader .brand-copy small{font-size:11px;line-height:1.25;margin:0;color:#805c43}
+#appHeader .brand-english{font-size:10px;line-height:1.25;color:#805c43;margin:0}
+#appHeader.pantry-header .brand-copy small,#appHeader.pantry-header .brand-english{color:#4e7658}
+#appHeader .settings-gear{flex:none;background:transparent;font-size:25px;padding:8px;color:#8b5c37}
+#appHeader.pantry-header .settings-gear{color:#3d7950}
+.app-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:6px max(10px,calc((100vw - 1120px)/2));background:#fff8f0;border-bottom:1px solid #ecd9c5}
+.app-nav.pantry-nav{background:#f1faf2;border-color:#cfe5d3}
+.app-nav button{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;min-width:0;min-height:54px;padding:5px 2px;background:transparent;color:#8b6d55;font-size:11px;line-height:1.2;border-radius:10px}
+.app-nav.pantry-nav button{color:#55725c}
+.app-nav button.active{background:#f4d9c1;color:#9a4b20}
+.app-nav.pantry-nav button.active{background:#d5ead9;color:#28683b}
+.app-nav .nav-icon{font-size:19px;line-height:22px}
+.app-nav img{width:23px;height:23px;object-fit:contain}
+@media(max-width:420px){#appHeader .brand-mark{width:44px;height:44px}#appHeader .brand-title{width:155px;height:24px}#appHeader .brand-copy small{font-size:10px}#appHeader .brand-english{font-size:9px}.app-nav button{font-size:10px}}
+@media(min-width:900px){main{max-width:1080px;padding:22px 24px 110px}#detailPage .step,#detailPage .ingredient{font-size:clamp(17px,1.5vw,22px)}#detailPage p{font-size:clamp(17px,1.5vw,21px)}#detailPage button{min-height:42px}}
+
+/* v13: device-reviewed brand, navigation, and landscape readability */
+body.pantry-theme{background:#eff9f1}
+#appHeader .brand-mark{width:clamp(60px,7vw,76px);height:clamp(60px,7vw,76px)}
+#appHeader .brand-home{gap:10px;min-width:0}
+#appHeader .brand-title{width:clamp(160px,19vw,215px);height:auto;max-width:100%}
+#appHeader .settings-gear{font-size:28px}
+.app-nav{overflow-x:hidden;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;box-sizing:border-box}
+.app-nav button{font-size:clamp(11px,2.9vw,15px);min-height:70px;padding:8px 1px;overflow:hidden;overflow-wrap:anywhere;text-align:center}
+.app-nav .nav-icon{font-size:clamp(24px,5vw,31px);line-height:1.15}
+.app-nav img{width:clamp(29px,5.5vw,36px);height:clamp(29px,5.5vw,36px)}
+@media(max-width:420px){
+ #appHeader .brand-mark{width:60px;height:60px}
+ #appHeader .brand-title{width:clamp(125px,38vw,170px);height:auto}
+ #appHeader .brand-copy small{font-size:10px}
+ #appHeader .brand-english{font-size:9px}
+ .app-nav button{font-size:clamp(10px,2.75vw,12px)}
+}
+@media(orientation:landscape) and (min-width:700px){
+ #appHeader .brand-mark{width:clamp(76px,7.5vw,105px);height:clamp(76px,7.5vw,105px)}
+ #appHeader .brand-copy{display:grid;grid-template-columns:max-content minmax(0,1fr);grid-template-rows:auto auto;column-gap:clamp(14px,2.5vw,32px);align-items:center}
+ #appHeader .brand-title{grid-column:1;grid-row:1/3;width:clamp(215px,22vw,310px);height:auto}
+ #appHeader .brand-copy small{grid-column:2;grid-row:1;font-size:clamp(14px,1.35vw,19px);align-self:end}
+ #appHeader .brand-english{grid-column:2;grid-row:2;font-size:clamp(12px,1.1vw,16px);align-self:start}
+ #appHeader .settings-gear{font-size:32px}
+ .app-nav button{font-size:clamp(14px,1.3vw,18px);min-height:78px}
+ .app-nav .nav-icon{font-size:30px}
+ .app-nav img{width:36px;height:36px}
+ main{max-width:calc(100% - 44px);width:100%;padding:24px 22px 110px}
+ #home .panel,#home .card{font-size:clamp(17px,1.6vw,22px)}
+ #home .panel h2,#home .recipe-list-heading h2{font-size:clamp(21px,2vw,27px)}
+ #home .card strong{font-size:clamp(19px,1.85vw,25px)}
+ #home .card .muted{font-size:clamp(15px,1.35vw,19px)}
+ #home button,#home input,#home select{font-size:clamp(16px,1.45vw,20px)}
+ #home .card{min-height:105px}
+ #detailPage .detail-title{font-size:clamp(27px,2.5vw,36px)}
+ #detailPage .ingredient,#detailPage .step{font-size:clamp(21px,1.9vw,27px);line-height:1.65}
+ #detailPage h3{font-size:clamp(22px,2vw,29px)}
+ #detailPage p{font-size:clamp(19px,1.8vw,25px)}
+ #detailPage button,#detailPage select{font-size:clamp(16px,1.5vw,21px);min-height:46px}
+}
+
+/* v14: compact portrait chrome, v13 logo, fixed header and page-top control */
+#appHeader{position:sticky;top:0;z-index:15;padding:9px 15px;}
+#appHeader .settings-gear{font-size:23px;padding:6px}
+.app-nav{overflow-x:hidden;grid-template-columns:repeat(4,minmax(0,1fr))}
+.app-nav button{font-size:11px;min-height:54px;padding:3px 1px;gap:1px;overflow-wrap:anywhere}
+.app-nav .nav-icon{font-size:30px;line-height:32px}
+.app-nav img{width:33px;height:33px}
+#pageTopButton{position:fixed;right:18px;bottom:20px;z-index:16;width:46px;height:46px;padding:0;border-radius:50%;background:#c66c30;color:white;box-shadow:0 4px 15px #0003;display:grid;place-items:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,visibility .18s}
+#pageTopButton.is-visible{opacity:.92;visibility:visible;pointer-events:auto}
+body.pantry-theme #pageTopButton{background:#3d7950}
+#pageTopButton svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:420px){
+ #appHeader .brand-title{width:155px;height:24px}
+ .app-nav button{font-size:10px;min-height:54px;padding:3px 1px}
+ .app-nav .nav-icon{font-size:29px;line-height:31px}
+ .app-nav img{width:32px;height:32px}
+}
+@media(orientation:landscape) and (min-width:700px){
+ #appHeader .settings-gear{font-size:29px}
+ .app-nav button{font-size:clamp(14px,1.3vw,18px);min-height:78px;padding:8px 1px;gap:3px}
+ .app-nav .nav-icon{font-size:38px;line-height:40px}
+ .app-nav img{width:42px;height:42px}
+}
+</style><meta name="theme-color" content="#f6a623">
+<style>
+/* v15: favorites; keep approved header and navigation layout unchanged */
+#cards .card,#favoriteCards .card{position:relative}
+.favorite-star{border:0;background:transparent;color:#c57a13;font-size:27px;line-height:1;cursor:pointer;flex:none;padding:8px;min-width:42px;min-height:42px;position:relative;z-index:1}
+.favorite-star[aria-pressed="true"]{color:#e7a11d}
+.favorite-detail-heading{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.favorite-detail-heading .detail-title{flex:1;min-width:0}
+.favorite-detail-star{font-size:32px}
+#favoriteCards .card{cursor:pointer}
+</style>
+
+<style>
+/* v16: recipe discovery and list/card display; no pantry layout changes */
+.recipe-search-controls{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:8px;align-items:start;margin:9px 0 5px}
+.recipe-search-controls .choice-menu{min-width:0;margin:0;position:relative}
+.recipe-search-controls .choice-menu-button{display:flex;align-items:center;justify-content:space-between;gap:5px;width:100%;min-width:0;height:43px;padding:8px 10px;border:1px solid #e4c9b0;border-radius:11px;background:#fffaf4;color:#76513a;font-size:13px;white-space:nowrap}
+.recipe-search-controls .choice-menu-button span:first-child{overflow:hidden;text-overflow:ellipsis}
+.recipe-search-controls .choice-menu-list{z-index:30;width:max(100%,190px);max-width:min(86vw,300px)}
+.recipe-search-controls #filterPicker label{cursor:pointer}
+.recipe-search-controls .recipe-clear{height:43px;min-height:43px;padding:8px 10px;font-size:12px;border:1px solid #e4c9b0;background:#fffaf4;color:#76513a;white-space:nowrap}
+#cards,#favoriteCards{display:grid;grid-template-columns:1fr;gap:0}
+#cards.view-grid,#favoriteCards.view-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:12px}
+#cards .card,#favoriteCards .card{position:relative;min-width:0;padding-right:52px;align-items:center}
+#cards .card .recipe-card-title,#favoriteCards .card .recipe-card-title{display:none}
+#cards .card .recipe-card-meta,#favoriteCards .card .recipe-card-meta{min-width:0}
+#cards .card .date,#favoriteCards .card .date{font-size:inherit}
+#cards .card .favorite-star,#favoriteCards .card .favorite-star{position:absolute;top:5px;right:5px;z-index:2;font-size:23px}
+#cards .card .thumb:not(img),#favoriteCards .card .thumb:not(img){font-size:clamp(37px,5vw,62px)}
+#cards.view-grid .card,#favoriteCards.view-grid .card{margin:0;position:relative;min-width:0;height:100%;padding:12px 52px 12px 12px;display:flex;align-items:center;gap:12px}
+#cards.view-grid .card .grow,#favoriteCards.view-grid .card .grow{min-width:0;flex:1}
+#cards.view-grid .card .thumb,#favoriteCards.view-grid .card .thumb{width:clamp(58px,25%,100px);height:auto;aspect-ratio:1/1;max-height:100px;flex:none}
+#cards.view-grid .card .favorite-star,#favoriteCards.view-grid .card .favorite-star{font-size:32px}
+@media(orientation:landscape) and (min-width:600px){
+ #cards .card .recipe-card-meta,#favoriteCards .card .recipe-card-meta{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+ #cards .card .recipe-card-meta .chips,#favoriteCards .card .recipe-card-meta .chips{margin:0;min-width:0}
+ #cards .card .recipe-card-meta .muted,#favoriteCards .card .recipe-card-meta .muted{white-space:nowrap}
+ #cards .card .favorite-star,#favoriteCards .card .favorite-star{font-size:36px}
+ #cards.view-grid .card .favorite-star,#favoriteCards.view-grid .card .favorite-star{font-size:38px}
+}
+@media(orientation:portrait) and (max-width:699px){
+ #cards.view-grid,#favoriteCards.view-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #cards.view-grid .card,#favoriteCards.view-grid .card{display:grid;grid-template-columns:minmax(0,43%) minmax(0,1fr);grid-template-rows:auto 1fr;gap:6px;padding:9px;align-items:start}
+ #cards.view-grid .card .recipe-card-title,#favoriteCards.view-grid .card .recipe-card-title{display:block;grid-column:1/-1;grid-row:1;min-height:3.75em;line-height:1.25;font-size:13px;padding-right:28px;overflow:hidden}
+ #cards.view-grid .card .recipe-card-title strong,#favoriteCards.view-grid .card .recipe-card-title strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;overflow-wrap:anywhere}
+ #cards.view-grid .card .recipe-list-title,#favoriteCards.view-grid .card .recipe-list-title{display:none}
+ #cards.view-grid .card .thumb,#favoriteCards.view-grid .card .thumb{grid-column:1;grid-row:2;width:100%;height:auto;max-height:none;aspect-ratio:1/1;font-size:clamp(28px,8vw,44px)}
+ #cards.view-grid .card .grow,#favoriteCards.view-grid .card .grow{grid-column:2;grid-row:2;width:100%;min-width:0;align-self:start}
+ #cards.view-grid .card .recipe-card-meta,#favoriteCards.view-grid .card .recipe-card-meta{display:flex;flex-direction:column;align-items:flex-start;gap:5px;font-size:11px;overflow-wrap:anywhere}
+ #cards.view-grid .card .chips,#favoriteCards.view-grid .card .chips{margin:0;gap:3px}
+ #cards.view-grid .card .chip,#favoriteCards.view-grid .card .chip{font-size:10px;padding:3px 5px;max-width:100%;overflow-wrap:anywhere}
+ #cards.view-grid .card .muted,#favoriteCards.view-grid .card .muted{font-size:11px;overflow-wrap:anywhere}
+ #cards.view-grid .card .favorite-star,#favoriteCards.view-grid .card .favorite-star{top:1px;right:1px;font-size:23px;padding:5px;min-width:35px;min-height:35px}
+}
+@media(max-width:380px){.recipe-search-controls{gap:5px}.recipe-search-controls .choice-menu-button{font-size:11px;padding:7px 5px}.recipe-search-controls .recipe-clear{font-size:11px;padding:7px 5px}}
+</style>
+<style>
+/* v17: search controls and landscape list/card repair */
+#home>.panel{display:block;min-width:0}
+.recipe-search-input{position:relative}
+.recipe-search-input #search{padding-right:44px}
+#searchTextClear{position:absolute;right:7px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#856a55;font-size:23px;font-weight:400;width:34px;height:36px;min-width:34px;padding:0;display:grid;place-items:center}
+.recipe-search-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;align-items:start;margin:10px 0 0}
+.recipe-search-controls .choice-menu{min-width:0;width:100%;position:relative}
+.recipe-search-controls .choice-menu-button{width:100%;max-width:100%;height:43px;min-width:0;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.recipe-search-controls .choice-menu-button span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.recipe-search-controls .choice-menu-list{width:max(100%,210px);max-width:min(86vw,350px);z-index:35}
+.recipe-search-bottom{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-top:9px;min-width:0}
+.recipe-search-bottom #filters{display:flex;flex-wrap:wrap;align-items:center;gap:5px;flex:1;min-width:0;margin:0}
+.recipe-search-bottom #filters .chip{white-space:normal;overflow-wrap:anywhere;max-width:100%}
+.recipe-search-bottom .recipe-clear{flex:none;align-self:flex-start;white-space:nowrap;border:1px solid #e4c9b0;background:#fffaf4;color:#76513a;font-size:13px;min-height:34px;padding:6px 13px}
+#home>.recipe-list-heading{width:100%}
+#cards,#favoriteCards{min-width:0;width:100%}
+#cards:not(.view-grid),#favoriteCards:not(.view-grid){display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+#cards.view-grid,#favoriteCards.view-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr));gap:12px}
+@media(orientation:landscape) and (min-width:700px){
+ #home>.panel{width:100%}
+ #cards:not(.view-grid),#favoriteCards:not(.view-grid){grid-template-columns:minmax(0,1fr)}
+ #cards.view-grid,#favoriteCards.view-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ #cards.view-grid .card,#favoriteCards.view-grid .card{min-width:0;padding:13px 55px 13px 13px}
+ #cards.view-grid .card .grow,#favoriteCards.view-grid .card .grow{min-width:0}
+ #cards.view-grid .card .recipe-card-meta,#favoriteCards.view-grid .card .recipe-card-meta{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;min-width:0}
+ #cards.view-grid .card .recipe-card-meta .chips,#favoriteCards.view-grid .card .recipe-card-meta .chips{display:flex;flex-wrap:wrap;min-width:0;gap:5px}
+ #cards.view-grid .card .recipe-card-meta .chip,#favoriteCards.view-grid .card .recipe-card-meta .chip{white-space:nowrap;overflow-wrap:normal;word-break:normal;max-width:none}
+ #cards.view-grid .card .recipe-card-meta .muted,#favoriteCards.view-grid .card .recipe-card-meta .muted{white-space:nowrap}
+ #cards .card .recipe-card-meta .chip,#favoriteCards .card .recipe-card-meta .chip{word-break:normal;overflow-wrap:normal}
+}
+@media(orientation:portrait) and (max-width:699px){
+ #cards.view-grid,#favoriteCards.view-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style><style>
+/* v18: isolate search layout from legacy landscape flex rules */
+#home > .panel{display:block!important; width:100%; box-sizing:border-box}
+#home > .panel > .recipe-search-input{display:block!important;width:100%;max-width:none;position:relative;box-sizing:border-box}
+#home > .panel > .recipe-search-input > #search{display:block;width:100%;max-width:none;box-sizing:border-box}
+#home > .panel > .recipe-search-controls{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:620px;box-sizing:border-box;align-items:start;margin:12px 0 0}
+#home > .panel > .recipe-search-bottom{display:flex!important;justify-content:space-between;align-items:flex-start;gap:12px;width:100%;box-sizing:border-box;margin-top:10px}
+#home > .panel > .recipe-search-bottom > #filters{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:5px}
+#home > .panel > .recipe-search-bottom > .recipe-clear{margin-left:auto;flex:none}
+#home .recipe-search-controls .choice-menu-button{min-width:0;width:100%;box-sizing:border-box}
+#home .recipe-search-controls .choice-menu-button span:first-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* list: labels and duration left, date independently right-aligned */
+@media (orientation:landscape) and (min-width:700px){
+ #cards:not(.view-grid) .card,#favoriteCards:not(.view-grid) .card{display:flex;align-items:center;min-width:0;width:100%;box-sizing:border-box}
+ #cards:not(.view-grid) .card .grow,#favoriteCards:not(.view-grid) .card .grow{min-width:0;flex:1}
+ #cards:not(.view-grid) .card .recipe-card-meta,#favoriteCards:not(.view-grid) .card .recipe-card-meta{display:flex;flex-direction:row;align-items:center;gap:12px;min-width:0;width:100%;flex-wrap:wrap}
+ #cards:not(.view-grid) .card .recipe-card-meta .chips,#favoriteCards:not(.view-grid) .card .recipe-card-meta .chips{flex:0 1 auto;min-width:0;display:flex;flex-wrap:wrap;gap:5px}
+ #cards:not(.view-grid) .card .recipe-card-meta .muted:not(.date),#favoriteCards:not(.view-grid) .card .recipe-card-meta .muted:not(.date){flex:0 1 auto;min-width:0;overflow-wrap:anywhere;white-space:normal}
+ #cards:not(.view-grid) .card .recipe-card-meta .date,#favoriteCards:not(.view-grid) .card .recipe-card-meta .date{margin-left:auto;white-space:nowrap;flex:none;text-align:right}
+}
+/* card view: title across top, image lower left, metadata lower right, both orientations */
+#cards.view-grid .card,#favoriteCards.view-grid .card{display:grid!important;grid-template-columns:minmax(0,43%) minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;column-gap:9px;row-gap:8px;align-items:start;box-sizing:border-box;min-width:0;padding:12px!important;height:100%;position:relative}
+#cards.view-grid .card .recipe-card-title,#favoriteCards.view-grid .card .recipe-card-title{display:block!important;grid-column:1/-1;grid-row:1;min-width:0;min-height:3.75em;line-height:1.25;padding-right:38px;overflow:hidden;box-sizing:border-box}
+#cards.view-grid .card .recipe-card-title strong,#favoriteCards.view-grid .card .recipe-card-title strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;overflow-wrap:anywhere}
+#cards.view-grid .card .recipe-list-title,#favoriteCards.view-grid .card .recipe-list-title{display:none!important}
+#cards.view-grid .card .thumb,#favoriteCards.view-grid .card .thumb{grid-column:1;grid-row:2;width:100%;height:auto;max-height:none;aspect-ratio:1/1;min-width:0;object-fit:cover;align-self:start}
+#cards.view-grid .card .grow,#favoriteCards.view-grid .card .grow{grid-column:2;grid-row:2;min-width:0;width:100%;align-self:start}
+#cards.view-grid .card .recipe-card-meta,#favoriteCards.view-grid .card .recipe-card-meta{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:7px!important;min-width:0;width:100%;flex-wrap:nowrap!important}
+#cards.view-grid .card .recipe-card-meta .chips,#favoriteCards.view-grid .card .recipe-card-meta .chips{display:flex;flex-wrap:wrap;gap:4px;min-width:0;width:100%;margin:0}
+#cards.view-grid .card .recipe-card-meta .chip,#favoriteCards.view-grid .card .recipe-card-meta .chip{white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal!important;max-width:100%!important;box-sizing:border-box}
+#cards.view-grid .card .recipe-card-meta .muted,#favoriteCards.view-grid .card .recipe-card-meta .muted{white-space:normal!important;overflow-wrap:anywhere!important;word-break:normal;max-width:100%;min-width:0;margin:0!important}
+#cards.view-grid .card .recipe-card-meta .date,#favoriteCards.view-grid .card .recipe-card-meta .date{margin-left:0!important;text-align:left!important}
+#cards.view-grid .card .favorite-star,#favoriteCards.view-grid .card .favorite-star{position:absolute;top:3px;right:3px}
+@media(orientation:landscape) and (min-width:700px){
+ #cards.view-grid,#favoriteCards.view-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ #cards.view-grid .card .recipe-card-title,#favoriteCards.view-grid .card .recipe-card-title{font-size:clamp(17px,1.55vw,23px)}
+ #cards.view-grid .card .recipe-card-meta,#favoriteCards.view-grid .card .recipe-card-meta{font-size:clamp(13px,1.1vw,17px)}
+}
+@media(orientation:portrait) and (max-width:699px){
+ #cards.view-grid,#favoriteCards.view-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #cards.view-grid .card,#favoriteCards.view-grid .card{padding:9px!important;column-gap:6px;row-gap:6px}
+ #cards.view-grid .card .recipe-card-title,#favoriteCards.view-grid .card .recipe-card-title{padding-right:28px;font-size:13px}
+ #cards.view-grid .card .recipe-card-meta,#favoriteCards.view-grid .card .recipe-card-meta{gap:5px!important}
+}
+</style>
+<style>
+/* v19: preserve v18 approved card internals; correct only list alignment, grid count, search controls */
+#home > .panel > .recipe-search-controls{display:flex!important;justify-content:flex-end;align-items:flex-start;gap:10px;width:100%;max-width:none;flex-wrap:wrap}
+#home > .panel > .recipe-search-controls > .choice-menu{flex:0 0 auto!important;width:auto!important;min-width:0!important;max-width:100%;margin:0}
+#home .recipe-search-controls .choice-menu-button{width:auto!important;min-width:0!important;max-width:100%;white-space:nowrap;gap:12px;padding-left:13px;padding-right:12px}
+#home .recipe-search-controls .choice-menu-button span:first-child{overflow:visible;text-overflow:clip;white-space:nowrap}
+/* Restore responsive column count instead of fixed two columns. */
+@media(orientation:landscape) and (min-width:700px){
+ #cards.view-grid,#favoriteCards.view-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,245px),1fr))!important}
+ /* Keep the date under the star at the outer right edge, separate from labels and time. */
+ #cards:not(.view-grid) .card,#favoriteCards:not(.view-grid) .card{position:relative;padding-right:10px}
+ #cards:not(.view-grid) .card .recipe-card-meta,#favoriteCards:not(.view-grid) .card .recipe-card-meta{padding-right:120px;box-sizing:border-box;min-height:34px}
+ #cards:not(.view-grid) .card .recipe-card-meta .date,#favoriteCards:not(.view-grid) .card .recipe-card-meta .date{position:absolute;right:10px;bottom:9px;margin:0!important;text-align:right;white-space:nowrap;max-width:115px}
+}
+</style>
+<style>
+/* v20: search controls only; keep v19 recipe layouts untouched. */
+#home .landscape-search-clear{display:none}
+@media (orientation:landscape) and (min-width:700px){
+ #home>.panel>.recipe-search-input{display:block;width:100%;clear:both}
+ #home>.panel>.recipe-search-controls{display:flex!important;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:10px;width:100%;max-width:none;margin:10px 0 0}
+ #home .landscape-search-clear{display:inline-flex;align-items:center;justify-content:center;flex:none;white-space:nowrap;min-height:43px;margin:0}
+ #home .portrait-search-clear{display:none}
+ #home>.panel>.recipe-search-bottom{margin-top:0;min-height:0;padding:0}
+ #home>.panel>.recipe-search-bottom:has(#filters:empty){display:none!important}
+}
+</style>
+<style>
+/* v21: Match favorite recipe titles to the approved landscape recipe-list typography. */
+@media (orientation:landscape) and (min-width:700px) {
+  #favoriteCards .card .recipe-list-title,
+  #favoriteCards.view-grid .card .recipe-card-title strong {
+    font-size:clamp(19px,1.85vw,25px);
+    font-weight:700;
+  }
+}
+</style>
+
+<style>
+/* v22: Match favorite-list heading and view toggle to recipe-list typography in landscape only. */
+@media (orientation:landscape) and (min-width:700px){
+ #favoritesPage .recipe-list-heading h2{font-size:clamp(21px,2vw,27px)}
+ #favoritesPage #favoriteViewToggle{font-size:clamp(16px,1.45vw,20px)}
+}
+</style>
+<link rel="stylesheet" href="adopted.css"><link rel="stylesheet" href="ui.css"></head><body><header id="appHeader" class="coco-header"><div class="headerrow"><button class="brand-home" onclick="logoHome()" aria-label="レシピリストへ"><img id="appLogo" class="brand-mark" alt="CocoMemo ロゴ"><span class="brand-copy"><img id="appTitle" class="brand-title" alt="CocoMemo"><small id="appTaglineJa">レシピ集めて、おいしさいっぱい。</small><span id="appTaglineEn" class="brand-english">Collect. Create. Make it delicious.</span></span></button><button class="settings-gear" onclick="showSettings()" aria-label="管理画面を開く" title="管理画面">⚙️</button></div></header><nav id="appNav" class="app-nav" aria-label="アプリ内ナビゲーション"><button data-nav="list" onclick="navList()"><span class="nav-icon">▤</span><span id="navListText">レシピリスト</span></button><button data-nav="second" onclick="navSecond()"><span class="nav-icon" id="navSecondIcon">★</span><span id="navSecondText">お気に入りレシピ</span></button><button data-nav="add" onclick="navAdd()"><span class="nav-icon">＋</span><span id="navAddText">レシピを追加</span></button><button data-nav="sister" onclick="navSister()"><img id="navSisterImg" alt="Pantrymo"><span id="navSisterText">Pantrymo</span></button></nav><main><section id="home"><div class="panel"><h2>🔎 レシピを探す</h2>
+<div class="recipe-search-input"><input id="search" type="text" enterkeyhint="done" placeholder="料理名・材料・器具・時間で検索"><button id="searchTextClear" type="button" aria-label="検索文字を消去" title="検索文字を消去" onclick="clearSearchText()" class="hidden">×</button></div>
+<div class="recipe-search-controls">
+<div class="choice-menu" id="filterMenu"><button class="choice-menu-button" id="filterPickerToggle" aria-expanded="false" aria-controls="filterPicker" onclick="toggleChoiceMenu('filterPicker','filterPickerToggle')"><span>🏷 ラベルで検索</span><span>▾</span></button><div id="filterPicker" class="choice-menu-list pickerbox hidden"></div></div>
+<div class="choice-menu" id="sortMenu"><button class="choice-menu-button" id="sortMenuToggle" aria-expanded="false" onclick="toggleChoiceMenu('sortMenuList','sortMenuToggle')"><span id="sortMenuLabel">新しいものから</span><span>▾</span></button><div class="choice-menu-list pickerbox hidden" id="sortMenuList" role="listbox"><button type="button" data-sort="new" aria-selected="true" onclick="chooseSort('new')">登録日が新しいものから</button><button type="button" data-sort="old" aria-selected="false" onclick="chooseSort('old')">登録日が古いものから</button><button type="button" data-sort="mainLabel" aria-selected="false" onclick="chooseSort('mainLabel')">メインラベル</button></div></div>
+<button class="recipe-clear landscape-search-clear" type="button" onclick="clearSearch()">クリア</button></div><div class="recipe-search-bottom"><div id="filters" class="labelpreview"></div><button class="recipe-clear portrait-search-clear" onclick="clearSearch()">クリア</button></div></div>
+<div class="row recipe-list-heading" style="justify-content:space-between;margin:18px 0 10px"><h2 style="margin:0">📒 レシピリスト <span id="count"></span></h2><button id="viewToggle" aria-pressed="false" onclick="toggleRecipeView()" class="small" title="表示方法を切り替え">▦ カード表示</button></div><div id="cards"></div></section>
+<section id="favoritesPage" class="hidden"><div class="row recipe-list-heading" style="justify-content:space-between;margin:18px 0 10px"><h2 style="margin:0">★ お気に入りレシピ</h2><button id="favoriteViewToggle" aria-pressed="false" onclick="toggleRecipeView()" class="small" title="表示方法を切り替え">▦ カード表示</button></div><div id="favoriteCards"></div></section>
+<section id="importPage" class="hidden"><div class="row"><button onclick="goBack()">戻る</button></div><div class="panel" style="margin-top:14px"><h2>📝 レシピを貼り付け</h2><p class="muted">ココさんの文章を丸ごと貼り付けて、必要なところを直してから解析してね。</p><textarea id="raw" style="height:46dvh;min-height:240px" placeholder="ここにレシピを貼り付け"></textarea><div class="row" style="margin-top:12px"><button class="primary grow" onclick="parseImport()">✨ レシピを解析</button></div><p class="muted">解析は端末内で実行。書式によっては読み取りに失敗するので、次の画面で確認してね。</p></div></section>
+<section id="editPage" class="hidden"><div class="row"><button onclick="cancelEdit()">戻る</button><button id="backRaw" onclick="backToRaw()">元の文章を修正</button></div><div class="panel" style="margin-top:14px"><h2 id="editHeading">レシピを確認・編集</h2><div class="field"><label>料理名</label><input id="eTitle"></div><div class="field"><label>紹介文</label><textarea id="eDesc"></textarea></div><div class="field"><label>調理時間</label><input id="eTime"></div><div class="field"><label>基本分量の表記（例：2〜3人分、パウンド型1台分）</label><input id="eServingsLabel"></div><h3>🏷 ラベル</h3><div class="picker"><button id="editPickerToggle" aria-expanded="false" aria-controls="editPicker" onclick="togglePicker('editPicker')">ラベルを選択 ▼</button><div id="editPicker" class="pickerbox hidden"></div><div id="editLabels" class="labelpreview"></div></div><div class="field"><label>メインラベル</label><select id="eMainLabel"></select></div><h3>🥕 材料</h3><div id="eIngredients" class="editor-list"></div><button style="margin-top:8px" onclick="addIngredient()">＋ 材料</button><h3>🍳 使用する器具</h3><textarea id="eTools" placeholder="1行に1つ"></textarea><h3>📖 作り方</h3><div id="eSteps" class="editor-list"></div><button style="margin-top:8px" onclick="addStep()">＋ 手順</button><h3>💡 Tips</h3><textarea id="eTips" placeholder="1行に1つ"></textarea><h3>📝 メモ</h3><textarea id="eMemo" class="autosize-memo" rows="1" placeholder="作ってみた感想や、次回変えたいこと"></textarea><h3>📷 写真（任意）</h3><div id="photoPreview"></div><input id="photoInput" type="file" accept="image/*"><div class="row" style="margin-top:8px"><button onclick="removePhoto()">写真を削除</button><span class="muted">画像の貼り付けにも対応（対応ブラウザのみ）</span></div><div class="notice" style="margin-top:12px">登録時の分量を×1として保存するよ。倍率はレシピ詳細で変更できるよ。</div><div class="sticky-action"><button class="primary" style="width:100%" onclick="saveRecipe()">💾 レシピを保存</button></div></div></section>
+<section id="detailPage" class="hidden"><div class="row"><button onclick="goHome()">レシピリストへ</button><span class="grow"></span><button onclick="editCurrent()">✎ 編集</button><button class="danger" onclick="deleteCurrent()">削除</button></div><div id="detail" class="panel" style="margin-top:14px"></div></section>
+<section id="pantryPage" class="hidden">
+<div class="panel"><div class="pantry-page-head"><span class="jar">🫙</span><div><h2>Pantrymo</h2><p class="muted" style="margin:4px 0 0">食材すっきり、ムダなくおいしく。</p></div></div>
+<div class="pantry-toolbar"><button class="primary" onclick="openPantryRegister()">＋ 食材を登録</button><button onclick="showShopping()">🛒 買物リスト <span id="shoppingCount"></span></button></div>
+<div class="pantry-subhead"><h3 style="margin:8px 0">📦 在庫リスト <span id="pantryCount"></span></h3><div class="row" style="gap:6px"><div class="choice-menu pantry-custom-select" id="pantrySortMenu"><button type="button" class="choice-menu-button" id="pantrySortToggle" aria-expanded="false" onclick="toggleChoiceMenu('pantrySortMenuList','pantrySortToggle')"><span id="pantrySortLabel">古い順</span><span>▾</span></button><div class="choice-menu-list hidden" id="pantrySortMenuList" role="listbox"><button type="button" aria-selected="true" onclick="choosePantrySort('old')">古い順</button><button type="button" aria-selected="false" onclick="choosePantrySort('new')">新しい順</button><button type="button" aria-selected="false" onclick="choosePantrySort('name')">名前順</button></div><select id="pantrySort" aria-label="並び順"><option value="old">古い順</option><option value="new">新しい順</option><option value="name">名前順</option></select></div></div></div>
+<div class="pantry-filter-row" style="margin:10px 0"><input id="pantrySearch" placeholder="食材を検索"><div class="choice-menu pantry-custom-select" id="pantryFilterMenu"><button type="button" class="choice-menu-button" id="pantryFilterToggle" aria-expanded="false" onclick="toggleChoiceMenu('pantryFilterMenuList','pantryFilterToggle')"><span id="pantryFilterLabel">すべてのカテゴリ</span><span>▾</span></button><div class="choice-menu-list hidden" id="pantryFilterMenuList" role="listbox"><button type="button" aria-selected="true" onclick="choosePantryFilter('all','すべてのカテゴリ')">すべてのカテゴリ</button><button type="button" aria-selected="false" onclick="choosePantryFilter('野菜','野菜')">野菜</button><button type="button" aria-selected="false" onclick="choosePantryFilter('肉・魚','肉・魚')">肉・魚</button><button type="button" aria-selected="false" onclick="choosePantryFilter('卵・乳製品','卵・乳製品')">卵・乳製品</button><button type="button" aria-selected="false" onclick="choosePantryFilter('主食','主食')">主食</button><button type="button" aria-selected="false" onclick="choosePantryFilter('調味料','調味料')">調味料</button><button type="button" aria-selected="false" onclick="choosePantryFilter('冷凍食品','冷凍食品')">冷凍食品</button><button type="button" aria-selected="false" onclick="choosePantryFilter('その他','その他')">その他</button></div><select id="pantryFilter"><option value="all">すべてのカテゴリ</option><option>野菜</option><option>肉・魚</option><option>卵・乳製品</option><option>主食</option><option>調味料</option><option>冷凍食品</option><option>その他</option></select></div></div>
+<div id="pantryList"></div><p class="muted" style="margin-top:12px">確認用：在庫もメモリ内のみ。再読み込みでリセットします。</p></div></section>
+<section id="pantryRegisterPage" class="hidden"><div class="panel"><div class="pantry-page-head"><span class="jar">🫙</span><div><h2>食材を登録</h2><p class="muted">在庫に追加する食材を入力してね。</p></div></div><div class="field"><label for="pantryBulk">まとめて入力（1行に1食材）</label><textarea id="pantryBulk" rows="3" placeholder="例：トマト 3個&#10;豚こま 500g&#10;かぼちゃ 1個"></textarea><p class="muted">カテゴリは食材名から自動判定。登録前に確認できるよ。</p></div><div class="row"><button class="primary" onclick="addPantryBulk()">＋ 入力した食材を追加</button><button onclick="clearPantryInput()">クリア</button></div><hr style="margin:18px 0;border:0;border-top:1px solid var(--line)"><h3>1件ずつ登録</h3><div class="pantry-form-grid"><input id="pantryName" placeholder="食材名（例：玉ねぎ）" aria-label="食材名"><input id="pantryQty" placeholder="数量（任意）" aria-label="数量"><input id="pantryUnit" placeholder="単位（任意）" aria-label="単位"><select id="pantryCategory" aria-label="カテゴリ"><option value="野菜">野菜</option><option value="肉・魚">肉・魚</option><option value="卵・乳製品">卵・乳製品</option><option value="主食">主食</option><option value="調味料">調味料</option><option value="冷凍食品">冷凍食品</option><option value="その他">その他</option></select></div><label style="display:flex;gap:8px;align-items:center;margin:10px 0"><input id="pantryFrozen" type="checkbox" style="width:20px"> 冷凍中</label><div class="row"><button class="primary" onclick="addPantryItem()">在庫に登録</button><button onclick="showPantry()">キャンセル</button></div></div></section>
+<section id="shoppingPage" class="hidden"><div class="panel"><div class="pantry-page-head"><span class="jar">🛒</span><div><h2>買物リスト</h2><p class="muted">買うものをまとめておこう。</p></div></div><div class="pantry-toolbar"><button class="primary" onclick="openShoppingAdd()">＋ 買うものを追加</button><button onclick="showPantry()">📦 在庫リストへ</button></div><div id="shoppingList"></div></div></section>
+<section id="shoppingAddPage" class="hidden"><div class="panel"><h2 id="shoppingFormTitle">買うものを追加</h2><div class="field"><label for="shoppingName">買うもの</label><input id="shoppingName" placeholder="例：牛乳、洗剤、電池"></div><div class="field"><label for="shoppingNote">メモ（任意）</label><input id="shoppingNote" placeholder="例：詰め替え用"></div><div class="field"><label for="shoppingCategory">カテゴリ</label><div class="choice-menu pantry-custom-select" id="shoppingCategoryMenu"><button type="button" class="choice-menu-button" id="shoppingCategoryToggle" aria-expanded="false" onclick="toggleChoiceMenu('shoppingCategoryMenuList','shoppingCategoryToggle')"><span id="shoppingCategoryLabel">野菜</span><span>▾</span></button><div class="choice-menu-list hidden" id="shoppingCategoryMenuList" role="listbox"><button type="button" aria-selected="false" onclick="chooseShoppingCategory('野菜')">野菜</button><button type="button" aria-selected="false" onclick="chooseShoppingCategory('肉・魚')">肉・魚</button><button type="button" aria-selected="false" onclick="chooseShoppingCategory('卵・乳製品')">卵・乳製品</button><button type="button" aria-selected="false" onclick="chooseShoppingCategory('主食')">主食</button><button type="button" aria-selected="false" onclick="chooseShoppingCategory('調味料')">調味料</button><button type="button" aria-selected="false" onclick="chooseShoppingCategory('冷凍食品')">冷凍食品</button><button type="button" aria-selected="true" onclick="chooseShoppingCategory('その他')">その他</button></div><select id="shoppingCategory"><option>野菜</option><option>肉・魚</option><option>卵・乳製品</option><option>主食</option><option>調味料</option><option>冷凍食品</option><option>その他</option></select></div></div><div class="row"><button class="primary" onclick="saveShoppingItem()">保存</button><button onclick="showShopping()">キャンセル</button></div></div></section>
+<section id="settingsPage" class="hidden"><button onclick="goBack()">戻る</button><div class="panel" style="margin-top:14px"><h2>⚙ データ管理</h2>
+<div class="settings-accordion">
+<button type="button" class="settings-accordion-toggle" aria-expanded="false" onclick="toggleSettingsSection('labels')"><span>🏷 ラベル管理</span><span class="settings-arrow">▼</span></button>
+<div class="settings-section hidden" data-setting-section="labels"><p class="muted">項目名をタップして編集、×で削除できます。三本線で並べ替えできます。</p><div id="manageLabels"></div><div class="row"><input id="manageNewIcon" class="manage-add-icon" value="🏷️" aria-label="新しいラベルのアイコン"><input id="manageNewLabel" class="manage-add-name" placeholder="新しいラベル名"><button onclick="addManagedLabel()">＋ 追加</button></div></div>
+<button type="button" class="settings-accordion-toggle" aria-expanded="false" onclick="toggleSettingsSection('categories')"><span>🥬 食材カテゴリ管理</span><span class="settings-arrow">▼</span></button>
+<div class="settings-section hidden" data-setting-section="categories">
+<p class="muted">項目名をタップして編集、×で削除できます。三本線で並べ替えできます。</p>
+<div id="managePantryCategories"></div>
+<div class="row compact-manage-add" style="gap:8px;align-items:center;margin:6px 0 12px">
+<input id="newPantryCategory" placeholder="新しいカテゴリ名" aria-label="新しい食材カテゴリ" style="flex:1;min-width:0">
+<button onclick="addPantryCategory()">＋ 追加</button>
+</div></div>
+<button type="button" class="settings-accordion-toggle" aria-expanded="false" onclick="toggleSettingsSection('login')"><span>☁️ Googleログイン・端末間同期</span><span class="settings-arrow">▼</span></button>
+<div class="settings-section hidden" data-setting-section="login"><div class="auth-panel"><div id="authStatus" class="auth-status">未ログイン（現在のデータはこのブラウザ内に保存されています）</div><button id="googleLoginBtn" class="google-btn" onclick="googleLogin()">Googleでログイン</button><button id="googleLogoutBtn" class="hidden" onclick="googleLogout()">ログアウト</button><p class="muted">同期を使うには、Firebaseの設定が必要です。設定が完了すると、ログインしたアカウント専用のクラウド領域にレシピとラベルを保存します。</p></div><div class="pantrymo-brand"><img src="data:image/webp;base64,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" alt="Pantrymo ロゴ"><div class="pantrymo-brand-copy"><strong>Pantrymo</strong><p>食材すっきり、ムダなくおいしく。</p></div></div></div>
+<button type="button" class="settings-accordion-toggle" aria-expanded="false" onclick="toggleSettingsSection('backup')"><span>💾 バックアップ・復元</span><span class="settings-arrow">▼</span></button>
+<div class="settings-section hidden" data-setting-section="backup"><p class="muted">現在のデータはこのブラウザ内に保存されます。Firebase設定後はGoogleログインと端末間同期を利用できます。設定前も定期的にバックアップしてください。</p><button onclick="exportData()">⬇ バックアップを保存（JSON）</button><div class="field"><label>バックアップファイル</label><input id="restoreFile" type="file" accept="application/json,.json"></div><fieldset style="border:1px solid var(--line);border-radius:12px;padding:12px;margin:12px 0"><legend>復元するデータを選択</legend><label style="display:flex;gap:9px;align-items:center;margin:8px 0"><input id="restoreRecipes" type="checkbox" checked style="width:20px"> レシピ・ラベル</label><label style="display:flex;gap:9px;align-items:center;margin:8px 0"><input id="restorePantry" type="checkbox" checked style="width:20px"> 在庫・食材カテゴリ</label><label style="display:flex;gap:9px;align-items:center;margin:8px 0"><input id="restoreShopping" type="checkbox" checked style="width:20px"> 買物リスト</label><p class="muted">選んだデータだけを置き換えます。未選択・バックアップにない項目は保持し、空配列は空に置き換えます。食材カテゴリの名前と並び順も保存・復元します。</p></fieldset><button onclick="restoreData()">選択したデータを復元</button></div></div></section><section id="labPage" class="hidden"><section id="l_lab"><h2>📝 レシピラボ</h2><div class="tabs lab-tabs" role="tablist" aria-label="レシピラボのメニュー"><button id="l_thinkTab" class="on" role="tab" aria-selected="true" aria-controls="l_thinkView" onclick="Lab.switchTab('think')">AIとレシピを考える</button><button id="l_saveTab" role="tab" aria-selected="false" aria-controls="l_saveView" onclick="Lab.switchTab('save')">自分でレシピを入力</button></div><div id="l_saveView" class="hidden"><h3>自分でレシピを入力</h3><button onclick="Lab.startNew()">まとめて入力から開始</button><button onclick="Lab.startNew(true)">個別入力から開始</button></div><div id="l_thinkView"><h3>1. 使いたい食材</h3><textarea class="field" id="l_foods" placeholder="例：かぼちゃ、豚肉"></textarea><div class="clear-row"><button class="clear-btn" onclick="Lab.clearField('foods')">クリア</button></div><label class="check"><input type="checkbox" id="l_attach" onchange="Lab.updateValid()">Pantrymoの全食材も添付</label><p class="count" id="l_count" hidden>現在の食材：12件（サンプル）</p><h3>2. 作りたい料理の希望</h3><textarea class="field" id="l_wish" placeholder="例：夕飯のメインおかず、20分以内で作りたい"></textarea><div class="clear-row"><button class="clear-btn" onclick="Lab.clearField('wish')">クリア</button></div><h3>3. AIにレシピを考えてもらう</h3><p class="hint preview-hint">使いたい食材と希望から、AIにレシピを考えてもらう依頼文を選択します。タップして内容を確認し、コピーしてAIに送信してください。</p><div class="list" id="l_labList"></div><button class="secondary add" onclick="Lab.openEditor(null)">＋ 依頼文を追加</button><p class="hint rule">※「使いたい食材」「希望」「Pantrymoの食材リスト」のいずれか1つが必要です。</p><p class="warning" id="l_inputWarning" role="status">食材か希望を入力するか、Pantrymoの食材リストを添付してください。</p><button id="l_copy" class="primary" onclick="Lab.copyPrompt()">依頼文をコピー</button><h3>4. AIにレシピを出力してもらう</h3><p class="hint">AIのレシピを、保存できる書式で出力してもらう指示文です。コピーしてAIに送信してください。</p><pre class="format-box" id="l_formatPrompt">いまのレシピを、以下の形式で出力してください。
+
+1. レシピは1品につき1つの `text` コードブロックにまとめる。
+2. 項目は次の順番で記載する。
+   - 料理名：
+   - 紹介文：
+   - 調理時間：
+   - 使う器具：
+   - 材料（2〜3人分）：
+   - 手順：
+   - ワンポイント：
+3. 使う器具は「・器具名」の形式で、1行に1つずつ記載する。
+4. 材料は「・材料名：分量」の形式で、1行に1つずつ記載する。
+5. 手順は「1. 」「2. 」のように番号を付ける。
+6. ワンポイントは「・」で始める。
+7. コードブロック内に挨拶、Markdown装飾、余分な見出しや説明を入れない。
+8. 複数のレシピを出力する場合は、レシピごとにコードブロックを分ける。
+
+以上の形式を守り、レシピ本文だけを出力してください。</pre><button class="primary same-copy" onclick="Lab.copyFormatPrompt()">指示文をコピー</button><h3>5. AIのレシピを保存する</h3><p class="hint">AIが出力したレシピをコピーして下欄に貼り付け、レシピを取り込みます。</p><textarea id="l_recipePaste" class="field paste-field" placeholder="AIが出力したレシピをここに貼り付けてください"></textarea><div class="clear-row"><button class="clear-btn" onclick="Lab.clearPaste()">クリア</button></div><button class="primary same-copy" onclick="Lab.importRecipe()">レシピを取り込む</button><p class="hint">取り込んだ内容を確認・修正してから保存します。貼り付けた原文は保持します。</p></div></section><section id="l_editor" class="hidden"><button class="back" onclick="Lab.showLab()">← レシピラボに戻る</button><h2 id="l_editorTitle">依頼文を追加</h2><label class="editlabel" for="l_editName">依頼文の名前</label><input class="editinput" id="l_editName" placeholder="例：時短レシピ用"><label class="editlabel" for="l_editBody">依頼文の本文</label><textarea class="field edittextarea" id="l_editBody"></textarea><p class="hint">本文の後ろに、入力した食材・希望・チェックしたPantrymoの食材リストが自動で追加されます。</p><button class="primary" onclick="Lab.saveEditor()">保存</button></section><div id="l_toast" class="toast hidden" role="status" aria-live="polite"></div><div class="overlay hidden" id="l_overlay" onclick="Lab.closeDialog(event)"><div class="dialog" role="dialog" aria-modal="true" aria-label="依頼文の内容"><div class="dialog-head"><b id="l_dialogTitle"></b><button id="l_dialogSelect" class="dialog-select" onclick="Lab.selectFromDialog()">選択</button><button class="close" onclick="Lab.hideDialog()" aria-label="閉じる">×</button></div><pre id="l_dialogText"></pre></div></div><div class="menu hidden" id="l_menu" role="menu"><div class="menu-box" id="l_menuBox"></div></div>
+</section><section id="draftPage" class="hidden"><button onclick="goHome()">← レシピリスト</button><h2>下書き</h2><div id="draftList"></div></section>
+<section id="cookPage" class="hidden"><div id="cookToolbar"><button onclick="endCooking()">〈 戻る</button><button id="cookTitle" onclick="cookMenu()"></button><button onclick="cookHelp()">？</button></div><div id="cookChoices" class="hidden"></div><div id="cookBody"><div id="cookMaterials"></div><button id="cookDivider" onclick="foldCooking()" aria-label="材料欄を収納・展開">◀</button><div id="cookDirections"></div></div><div id="cookTips"></div></section>
+<section id="loginPage" class="hidden"><button onclick="goHome()">戻る</button><div class="panel"><h2>ログイン（メモリ内デモ）</h2><p>本物の資格情報は入力しないでください。</p><label>メールアドレス<input id="demoEmail" type="email" value="demo@example.invalid"></label><label>パスワード<input id="demoPassword" type="password" value="demo-only"></label><button onclick="document.getElementById('demoPassword').type=document.getElementById('demoPassword').type==='password'?'text':'password'">表示／非表示</button><button onclick="demoLogin()">ログイン</button><button onclick="appAlert('再設定メールは未接続です。送信しません。')">パスワード再設定</button><button disabled>新規登録（準備中）</button></div></section>
+<div id="contextMenu" class="choice-menu-list hidden"></div>
+<div id="actionOverlay" class="modal-backdrop hidden" onclick="if(event.target===this)closeAction()"><div class="modal-card"><h2 id="actionTitle"></h2><div id="actionContent"></div></div></div>
+<div id="demoNotice" role="status">確認用：架空データ・メモリ内のみ／再読み込みでリセット</div>
+</main><button id="pageTopButton" type="button" aria-label="ページの先頭へ戻る" title="ページの先頭へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14M12 20V8m-6 6 6-6 6 6"/></svg></button><div id="deleteModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="deleteModalTitle"><div class="modal-card"><h2 id="deleteModalTitle">レシピを削除</h2><p id="deleteModalHelp" style="font-size:15px;line-height:1.6"></p><div class="modal-actions"><button onclick="closeDeleteModal()">キャンセル</button><button class="danger" onclick="confirmDeleteRecipe()">削除する</button></div></div></div>
+<div id="messageModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="messageModalTitle"><div class="modal-card"><h2 id="messageModalTitle">お知らせ</h2><p id="messageModalText" style="font-size:15px;white-space:pre-wrap;line-height:1.6"></p><div class="modal-actions" id="messageModalActions"><button class="primary" onclick="closeMessageModal(true)">OK</button></div></div></div>
+<div id="labelModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="labelModalTitle"><div class="modal-card"><h2 id="labelModalTitle">ラベルを変更</h2><p id="labelModalHelp">内容を入力してね。</p><input id="labelModalInput" aria-label="変更内容"><div class="modal-actions"><button onclick="closeLabelModal()">キャンセル</button><button class="primary" onclick="saveLabelModal()">保存</button></div></div></div>
+<div id="pantryEditModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="pantryEditTitle"><div class="modal-card"><h2 id="pantryEditTitle">在庫を編集</h2><p>食材名・数量・単位・カテゴリをまとめて変更できるよ。</p><div class="field"><label for="pantryEditName">食材名</label><input id="pantryEditName"></div><div class="pantry-form-grid"><div class="field"><label for="pantryEditQty">数量</label><input id="pantryEditQty" placeholder="任意"></div><div class="field"><label for="pantryEditUnit">単位</label><input id="pantryEditUnit" placeholder="個、g など"></div></div><div class="field"><label for="pantryEditCategory">カテゴリ</label><div class="choice-menu pantry-custom-select" id="pantryEditCategoryMenu"><button type="button" class="choice-menu-button" id="pantryEditCategoryToggle" aria-expanded="false" onclick="toggleChoiceMenu('pantryEditCategoryMenuList','pantryEditCategoryToggle')"><span id="pantryEditCategoryLabel">野菜</span><span>▾</span></button><div class="choice-menu-list hidden" id="pantryEditCategoryMenuList" role="listbox"><button type="button" aria-selected="false" onclick="choosePantryEditCategory('野菜')">野菜</button><button type="button" aria-selected="false" onclick="choosePantryEditCategory('肉・魚')">肉・魚</button><button type="button" aria-selected="false" onclick="choosePantryEditCategory('卵・乳製品')">卵・乳製品</button><button type="button" aria-selected="false" onclick="choosePantryEditCategory('主食')">主食</button><button type="button" aria-selected="false" onclick="choosePantryEditCategory('調味料')">調味料</button><button type="button" aria-selected="false" onclick="choosePantryEditCategory('冷凍食品')">冷凍食品</button><button type="button" aria-selected="true" onclick="choosePantryEditCategory('その他')">その他</button></div><select id="pantryEditCategory"><option>野菜</option><option>肉・魚</option><option>卵・乳製品</option><option>主食</option><option>調味料</option><option>冷凍食品</option><option>その他</option></select></div></div><label style="display:flex;align-items:center;gap:8px;margin-top:8px"><input id="pantryEditFrozen" type="checkbox" style="width:20px;height:20px"> 冷凍保存する ❄️</label><div class="modal-actions"><button onclick="closePantryEdit()">キャンセル</button><button class="primary" onclick="savePantryEdit()">保存</button></div></div></div><div id="stockRestoreModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="stockRestoreTitle"><div class="modal-card"><h2 id="stockRestoreTitle">在庫に戻す</h2><p>買物リストの食材を、設定した内容で在庫に追加するよ。</p><div class="field"><label for="stockRestoreName">食材名</label><input id="stockRestoreName"></div><div class="pantry-form-grid"><div class="field"><label for="stockRestoreQty">数量</label><input id="stockRestoreQty" placeholder="任意"></div><div class="field"><label for="stockRestoreUnit">単位</label><input id="stockRestoreUnit" placeholder="個、g など"></div></div><div class="field"><label for="stockRestoreCategory">カテゴリ</label><select id="stockRestoreCategory"><option>野菜</option><option>肉・魚</option><option>卵・乳製品</option><option>主食</option><option>調味料</option><option>冷凍食品</option><option>その他</option></select></div><label style="display:flex;align-items:center;gap:8px"><input id="stockRestoreFrozen" type="checkbox" style="width:20px;height:20px"> 冷凍保存する ❄️</label><div class="modal-actions"><button onclick="closeStockRestore()">キャンセル</button><button class="primary" onclick="confirmStockRestore()">在庫に追加</button></div></div></div>
+<script src="fixtures.js"></script><script src="memory.js"></script><script src="original-core.js"></script><script src="adopted.js"></script><script src="lab.js"></script><script src="ui.js"></script></body></html>

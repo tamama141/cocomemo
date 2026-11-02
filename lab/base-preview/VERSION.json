@@ -1,0 +1,19 @@
+{
+  "id": "DEV-COCOMEMO-UI-20261102-001",
+  "ui_base_commit": "1f38fc3f4e5eba3e9bb938abe71a8acd8671b85a",
+  "publication_base_commit": "4e25093c5571056bd024612e7190f35aa0fd8162",
+  "branch": "dev/cocomemo-ui-20261102-001",
+  "mode": "fictional-memory-only; reload resets",
+  "runtime": [
+    "index.html",
+    "original-core.js",
+    "fixtures.js",
+    "memory.js",
+    "adopted.js",
+    "adopted.css",
+    "lab.js",
+    "lab.css",
+    "ui.js",
+    "ui.css"
+  ]
+}
