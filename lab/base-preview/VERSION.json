@@ -16,6 +16,6 @@
     "ui.js",
     "ui.css"
   ],
-  "revision": "DEV-COCOMEMO-UI-20261102-001-R1",
-  "revision_base_commit": "1154cef85eda3c4ecb7b4d944f923d291ef5c78f"
+  "revision": "DEV-COCOMEMO-UI-20261104-001",
+  "revision_base_commit": "e1fb1e3206081561175a62380bdbb77af611171d"
 }
