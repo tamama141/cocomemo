@@ -14,8 +14,10 @@
     "lab.js",
     "lab.css",
     "ui.js",
-    "ui.css"
+    "ui.css",
+    "pantry.js",
+    "pantry.css"
   ],
-  "revision": "DEV-COCOMEMO-UI-20261104-001",
-  "revision_base_commit": "e1fb1e3206081561175a62380bdbb77af611171d"
+  "revision": "DEV-PANTRYMO-UI-20261104-002",
+  "revision_base_commit": "0f0c9e28a33344f1006f9b88522f568ba2643484"
 }

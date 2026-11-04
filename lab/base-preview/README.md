@@ -12,9 +12,9 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Open http://127.0.0.1:8765/ . The title is `CocoMemo｜画面仕様反映・確認用版`.
 
-The runtime consists of `index.html`, `original-core.js`, `fixtures.js`, `memory.js`, `adopted.js`, `adopted.css`, `lab.js`, `lab.css`, `ui.js`, and `ui.css`. Serve these files together. `tests/` and version/hash documents are not needed for the runtime. The existing root app is separate; do not replace its files with this directory.
+The runtime consists of `index.html`, `original-core.js`, `fixtures.js`, `memory.js`, `adopted.js`, `adopted.css`, `lab.js`, `lab.css`, `ui.js`, `ui.css`, `pantry.js`, and `pantry.css`. Serve these files together. `tests/` and version/hash documents are not needed for the runtime. The existing root app is separate; do not replace its files with this directory.
 
-The inherited brand images remain embedded in the original runtime source. No new app PNGs are included. The application has four main menu entries and retains the existing Pantrymo and shopping interactions.
+The inherited brand images remain embedded in the original runtime source. No new app PNGs are included. The application has four main menu entries and includes the fictional-memory Pantrymo food, shopping, registration review and two-way transfer UI.
 
 ## Source and checks
 
@@ -33,3 +33,7 @@ node tests/viewports.cjs
 The boundary checks optionally accept `ORIENTED_PHOTO`, a generated JPEG with EXIF orientation, to exercise image orientation. The viewport checks optionally accept `BASELINE_URL`, a separate local memory-only baseline, for before/after captures. Checks write artifacts outside the source tree by default. They are development checks, not independent QA or real-device certification.
 
 Real offline copies, authentication/UID isolation, synchronization, migration, JSON compatibility and failure recovery require separate implementation and validation. A memory update or simulated account error is not proof of cloud persistence or successful authentication.
+
+## Pantrymo targeted development check
+
+Run `node tests/pantry20261104.cjs` with the same environment variables above and `PREVIEW_URL` pointing at this preview (default port 8775 for this check). It checks changed food/shopping flows, transfer failures and retries, and adjacent shared navigation. Transfers retain committed destination IDs so a failed source deletion retries without duplicate registration. Legacy hidden records are retained without conversion. Real persistence and synchronization remain unconnected.

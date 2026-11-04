@@ -6,7 +6,7 @@ function makeRow(t,manage){const row=document.createElement('div');row.className
 function render(){for(const [id,manage] of [['labList',false]]){const list=el(id);list.replaceChildren(...templates.map(t=>makeRow(t,manage)))}updateValid()}
 function clearField(id){el(id).value="";updateValid();el(id).focus()}
 function updateValid(){el('count').hidden=!el('attach').checked;el('count').textContent='現在の食材：'+pantryItems().length+'件';const valid=!!(el('foods').value.trim()||el('wish').value.trim()||(el('attach').checked&&pantryItems().length>0));el('copy').disabled=!valid;el('inputWarning').hidden=valid}
-function getLatestPantrySample(){/* デモ：架空の最新食材をコピー操作時に取得する想定。本番ではPantrymoから読み直す */return pantryTextNow()}
+function getLatestPantrySample(){/* Copy-time fictional memory only; real device-copy/sync is unconnected. */return pantryTextNow()}
 function compose(t,pantryText=pantryTextNow()){const parts=[t.body];const food=el('foods').value.trim(),wish=el('wish').value.trim();if(food)parts.push('【使いたい食材】\n'+food);if(wish)parts.push('【希望】\n'+wish);if(el('attach').checked&&pantryItems().length>0)parts.push(pantryText);return parts.join('\n\n')}
 function showDialog(t,manage){dialogTemplateId=t.id;el('dialogTitle').textContent=t.name;el('dialogText').textContent=manage?t.body:compose(t);el('dialogSelect').textContent=selected===t.id?'選択中':'選択';el('dialogSelect').disabled=selected===t.id;el('overlay').classList.remove('hidden')}
 function selectFromDialog(){if(dialogTemplateId===null)return;selected=dialogTemplateId;hideDialog();render()}
@@ -50,7 +50,7 @@ async function copyTextSafely(value){
   return ok;
 }
 async function copyFormatPrompt(){const ok=await copyTextSafely(el('formatPrompt').textContent);showToast(ok?'コピーしました':'コピーできませんでした')}
-async function copyPrompt(){if(el('copy').disabled)return;const t=templates.find(x=>x.id===selected)||templates[0];const content=compose(t,getLatestPantrySample());const ok=await copyTextSafely(content);showToast(ok?'コピーしました':'コピーできませんでした')}
+async function copyPrompt(){if(el('copy').disabled)return;if(el('attach').checked&&!await UI.ask('架空の食材を添付しますか？','端末コピー・クラウド同期は未接続です。クラウドの最新情報ではなく、この画面の架空メモリ内の食材を使います。','この食材で続ける','キャンセル'))return;const t=templates.find(x=>x.id===selected)||templates[0];const content=compose(t,getLatestPantrySample());const ok=await copyTextSafely(content);showToast(ok?'コピーしました':'コピーできませんでした')}
 let toastTimer;function showToast(message){const t=el('toast');t.textContent=message;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2000)}
 document.addEventListener('pointerdown',e=>{if(!el('menu').classList.contains('hidden')&&!el('menu').contains(e.target)&&!e.target.closest('.dots'))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();hideDialog()}});el('foods').addEventListener('input',updateValid);el('wish').addEventListener('input',updateValid);render();
 
