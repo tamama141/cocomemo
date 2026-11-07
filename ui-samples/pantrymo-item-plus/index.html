@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#345d4b">
-<title>Pantrymo｜アイテムプラス・UIサンプル v6</title>
+<title>Pantrymo｜アイテムプラス・UIサンプル v7</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#2e342f;background:#f5f7f3;font-size:15px}*{box-sizing:border-box}button,select,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #579879;outline-offset:2px}[hidden]{display:none!important}.wrap{max-width:920px;margin:auto;background:#fbfcfa;min-height:100dvh;padding:13px 15px 95px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dbe5dc;padding:5px 0 13px}.brand{color:#3c6550;font-weight:850;font-size:23px;letter-spacing:-.6px}.tiny{font-size:11px;color:#777}.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:13px 0 24px}.nav div{border:1px solid #cfdcd1;border-radius:10px;text-align:center;padding:11px 3px;font-size:clamp(11px,2.9vw,14px);color:#537260;background:white;min-width:0}.nav .active{background:#e1eee5;color:#2d6042;font-weight:700;border-color:#a8cfb4}.heading{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:0 0 12px}.heading h1{font-size:21px;margin:0;color:#365f48}.hint{color:#67756a;font-size:12px}.card{border:1px solid #dbe5da;border-radius:12px;background:#fff;padding:13px;margin:13px 0;box-shadow:0 2px 7px #1e482808}.lab{display:block;color:#42634e;font-size:13px;font-weight:700;margin-bottom:8px}.dest{display:grid;grid-template-columns:1fr 1fr;gap:8px}.dest button{background:#f8faf8;border:1px solid #cddbcf;border-radius:9px;padding:12px 6px;font-weight:650;color:#48614c}.dest button.active{color:white;background:#527b60;border-color:#527b60}.destnote{font-size:12px;color:#69776d;margin-top:9px}.inputbox{width:100%;min-height:120px;resize:vertical;border:1px solid #b9cbbd;border-radius:10px;background:#fff;padding:12px;line-height:1.7;font-size:15px;color:#263b2c}.inputbox::placeholder{color:#8c9890;opacity:1;font-size:13px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}.btn{border:none;border-radius:9px;padding:11px 15px;font-weight:700}.primary{background:#3f7452;color:#fff}.soft{color:#45694d;background:#e8f1e9}.outline{background:#fff;color:#55705a;border:1px solid #cbd9cd}.meta{color:#6c7d70;font-size:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.section-head h2{margin:0;font-size:16px;color:#365f48}.row{border:1px solid #d9e4da;background:white;border-radius:9px;margin:7px 0;overflow:hidden}.rowline{display:grid;grid-template-columns:25px minmax(75px,1.6fr) minmax(65px,.75fr) minmax(95px,1.25fr) 38px;gap:5px;align-items:center;min-height:50px;padding:5px 7px}.rowline input[type=checkbox]{width:17px;height:17px;accent-color:#4f7c5b}.rowline input:not([type=checkbox]),.rowline select{border:1px solid transparent;border-bottom:1px dashed #c9d8cc;border-radius:2px;background:#fff;color:#293a2d;padding:7px 2px;min-width:0;width:100%;font-size:14px}.rowline select{font-size:12px;color:#47624c}.rowline input:focus,.rowline select:focus{border-color:#85a996;border-radius:5px}.more{border:0;background:transparent;font-size:22px;font-weight:900;color:#466b50;width:36px;height:38px;border-radius:8px;line-height:1}.detail-line{background:#f0f6f0;color:#49684f;border-top:1px solid #e0eadf;padding:6px 12px 8px 34px;font-size:12px}.detail-line:empty{display:none}.save-row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}.notice{background:#f3f6e8;border:1px solid #d9e2c7;border-radius:8px;padding:10px;color:#636f40;font-size:12px;line-height:1.6}.footerline{color:#6e7f70;font-size:12px;padding:12px 2px}dialog{border:0;border-radius:14px;padding:0;width:min(440px,calc(100vw - 26px));box-shadow:0 14px 50px #132e2545}dialog::backdrop{background:#192d2460}.modal-head{display:flex;justify-content:space-between;align-items:center;background:#e8f1e8;padding:13px 17px;color:#315d41;font-weight:750}.close{background:transparent;border:0;font-size:26px;line-height:1;color:#486952}.modal-body{padding:16px}.field{display:block;font-size:13px;color:#435b49;font-weight:650;margin-bottom:13px}.field input,.field select{display:block;width:100%;padding:10px;margin-top:6px;border:1px solid #cadbcb;border-radius:8px;background:white;color:#303a30}.checkfield{display:flex;gap:10px;align-items:center;font-size:14px;margin:12px 0}.checkfield input{accent-color:#4c805e;width:18px;height:18px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.status{margin:10px 0 0;color:#3b754d;font-size:13px}.preview-badge{font-size:11px;background:#eef3ed;padding:3px 7px;border-radius:7px;color:#6c776d}.sample-name{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sample-cell{font-size:12px;color:#526657;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.empty{border:1px dashed #c9d9ca;border-radius:10px;padding:14px;color:#68786b;font-size:13px} @media (min-width:700px){.wrap{padding:18px 25px 100px}.nav{gap:12px}.nav div{padding:14px 5px}.inputbox{min-height:130px}.rowline{grid-template-columns:30px minmax(125px,1.75fr) minmax(90px,.8fr) minmax(130px,1.2fr) 48px;gap:12px}.rowline input:not([type=checkbox]),.rowline select{font-size:16px}.rowline select{font-size:14px}.more{font-size:23px}.heading h1{font-size:24px}}
 
@@ -98,11 +98,44 @@ body.echo-view .edit-buttons button{height:54px;font-size:20px}
 body.echo-view #deleteMessage{font-size:20px}
 body.echo-view .notice,body.echo-view .footerline{font-size:15px}
 @media(max-width:750px){body.echo-view #rows{grid-template-columns:1fr}body.echo-view .wrap{padding:10px 12px 45px}body.echo-view .nav div{font-size:14px}body.echo-view .edit-row.one{grid-template-columns:minmax(0,1fr) 65px 78px}body.echo-view .edit-row.two,body.echo-view .edit-row.three{grid-template-columns:140px minmax(0,1fr)}body.echo-view .edit-switches{width:140px}body.echo-view .edit-switch{width:67px;font-size:12px}}
+
+/* v7: same-page mock; category dropdown common layout, independent size mode */
+.edit-row.two{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}
+.edit-row.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+.edit-row.two .cat-field{grid-column:1}
+.edit-row.two .edit-switches{display:contents}
+.edit-row.two .edit-switches[hidden]{display:none!important}
+.edit-row.two .edit-switch{width:100%;min-width:0;height:35px;padding:0 3px;justify-self:stretch}
+.edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))}
+.edit-row.two.wish-mode .edit-switches{display:none!important}
+.edit-row.three.wish-mode{display:none}
+.cat-picker{position:relative;min-width:0}
+.cat-trigger{display:flex;align-items:center;justify-content:space-between;gap:7px;width:100%;min-width:0;max-width:100%;margin-top:3px;height:35px;border:1px solid #cbdccc;border-radius:7px;background:white;color:#2b4633;font-size:13px;padding:5px 7px;text-align:left;cursor:pointer}
+.cat-trigger span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cat-menu{position:absolute;z-index:40;top:100%;left:0;min-width:100%;max-width:min(420px,calc(100vw - 32px));max-height:min(300px,50vh);overflow:auto;background:#fff;border:2px solid #85b497;border-radius:8px;box-shadow:0 7px 25px #0002}
+.cat-menu[hidden]{display:none!important}
+.cat-option{display:block;width:100%;text-align:left;white-space:normal;overflow-wrap:anywhere;border:0;border-bottom:1px solid #e0e9e1;background:#fff;color:#2b4633;padding:10px 12px;font-size:14px;cursor:pointer}
+.cat-option[aria-selected=true],.cat-option:focus-visible{background:#e4f3e8}
+#dateWrap{min-width:0}
+#stockDate{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+.custom-date-open{display:block;width:100%;height:35px;min-width:0;margin-top:3px;border:1px solid #cbdccc;border-radius:7px;background:white;color:#2b4633;text-align:left;padding:5px 7px;font-size:13px}
+.date-picker-fields{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:8px}
+.date-picker-fields label{font-size:15px;color:#456c50;min-width:0}
+.date-picker-fields select{display:block;width:100%;min-width:0;margin-top:5px;height:46px;font-size:18px;background:#fff;border:1px solid #cbdccc;border-radius:7px}
+body.echo-view .edit-row.two{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}
+body.echo-view .edit-row.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.echo-view .edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.echo-view .edit-row.two .edit-switches{display:contents}
+body.echo-view .edit-row.two .edit-switches[hidden]{display:none!important}
+body.echo-view .edit-row.two .edit-switch{width:100%;min-width:0;height:52px;font-size:18px}
+body.echo-view .cat-trigger,body.echo-view .custom-date-open{height:52px;font-size:20px;padding:7px 10px}
+body.echo-view .cat-option{font-size:20px;padding:14px 16px}
+@media(max-width:750px){body.echo-view .edit-row.two{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}body.echo-view .edit-row.three{grid-template-columns:repeat(2,minmax(0,1fr))}body.echo-view .edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))}body.echo-view .edit-row.two .edit-switch{width:100%;font-size:12px}}
 </style>
 </head>
 <body>
 <main class="wrap">
-<header class="top"><span class="brand">Pantrymo</span><button class="echo-switch" type="button" id="echoSwitch" aria-pressed="false">Echo Show表示：OFF</button></header>
+<header class="top"><span class="brand">Pantrymo</span><button class="echo-switch" type="button" id="echoSwitch" aria-pressed="false">拡大表示：OFF</button></header>
 <nav class="nav" aria-label="メインメニュー"><div>ストックリスト</div><div>マイウィッシュ</div><div class="active">アイテムプラス</div><div>CocoMemo</div></nav>
 
 <section class="card"><span class="lab">追加先を選択</span><div class="dest" role="group" aria-label="追加先"><button id="stockButton" class="active" type="button" aria-pressed="true">ストックリスト</button><button id="wishButton" type="button" aria-pressed="false">マイウィッシュ</button></div><div id="destnote" class="destnote">食材をストックリストへ追加します。</div></section>
@@ -117,14 +150,15 @@ body.echo-view .notice,body.echo-view .footerline{font-size:15px}
 </main>
 <dialog id="detailDialog" aria-label="アイテムの編集"><div class="modal-head"><span id="modalTitle">アイテムを編集</span><button class="close" aria-label="閉じる" type="button" id="closeModal">×</button></div><div class="modal-body"><div class="edit-grid">
 <div class="edit-row one"><label class="mini-field">アイテム名<input id="editName" type="text"></label><label class="mini-field">数量<input id="editAmount" type="text" inputmode="decimal"></label><label class="mini-field">単位<input id="editUnit" type="text"></label></div>
-<div class="edit-row two"><div id="stockSwitches" class="edit-switches"><button id="priorityToggle" class="edit-switch" aria-pressed="false" type="button"><span class="glyph">💫</span><span class="state">OFF</span></button><button id="frozenToggle" class="edit-switch frozen" aria-pressed="false" type="button"><span class="glyph">❄️</span><span class="state">OFF</span></button></div><label class="mini-field">カテゴリ<select id="editCat"></select></label></div>
-<div class="edit-row three"><label class="mini-field" id="dateWrap">ストック日<input id="stockDate" type="date"></label><label class="mini-field">メモ<input id="memo" type="text" ></label></div>
+<div class="edit-row two"><label class="mini-field cat-field">カテゴリ<div class="cat-picker"><select id="editCat" hidden aria-hidden="true" tabindex="-1"></select><button type="button" id="editCatButton" class="cat-trigger" aria-expanded="false" aria-haspopup="listbox"><span id="editCatText">カテゴリ未定</span><span aria-hidden="true">⌄</span></button><div id="editCatMenu" class="cat-menu" role="listbox" hidden></div></div></label><div id="stockSwitches" class="edit-switches"><button id="priorityToggle" class="edit-switch" aria-pressed="false" type="button"><span class="glyph">💫</span><span class="state">OFF</span></button><button id="frozenToggle" class="edit-switch frozen" aria-pressed="false" type="button"><span class="glyph">❄️</span><span class="state">OFF</span></button></div></div>
+<div class="edit-row three"><label class="mini-field">メモ<input id="memo" type="text"></label><label class="mini-field" id="dateWrap">ストック日<input id="stockDate" type="date"><button id="customDateOpen" class="custom-date-open" type="button" hidden>日付を選択 ▾</button></label></div>
 </div><button id="clearDate" type="button" class="date-clear">日付を解除</button><div class="edit-buttons"><button type="button" id="cancelModal">取消</button><button type="button" class="delete" id="deleteInModal">削除</button><button type="button" class="commit" id="applyModal">変更</button></div></div></dialog>
+<dialog id="datePickerDialog" aria-label="ストック日を選択"><div class="modal-head">ストック日を選択<button class="close" id="datePickerClose" type="button" aria-label="閉じる">×</button></div><div class="modal-body"><div class="date-picker-fields"><label>年<select id="dateYear"></select></label><label>月<select id="dateMonth"></select></label><label>日<select id="dateDay"></select></label></div><div class="edit-buttons" style="grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px"><button id="datePickerCancel" type="button">取消</button><button id="datePickerClear" type="button">解除</button><button id="datePickerOK" type="button" class="commit">決定</button></div></div></dialog>
 <dialog id="deleteDialog"><div class="modal-head"><span>削除の確認</span><button class="close" aria-label="閉じる" type="button" id="closeDelete">×</button></div><div class="modal-body"><p id="deleteMessage">このアイテムを確認リストから削除します。削除すると元に戻せません。よろしいですか？</p><div class="edit-buttons" style="grid-template-columns:1fr 1fr"><button type="button" id="cancelDelete">キャンセル</button><button type="button" class="delete" id="confirmDelete">削除</button></div></div></dialog>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
-function setEchoMode(on){document.body.classList.toggle('echo-view',on);$('echoSwitch').setAttribute('aria-pressed',String(on));$('echoSwitch').textContent='Echo Show表示：'+(on?'ON':'OFF')}
+function setEchoMode(on){document.body.classList.toggle('echo-view',on);$('echoSwitch').setAttribute('aria-pressed',String(on));$('echoSwitch').textContent='拡大表示：'+(on?'ON':'OFF')}
 $('echoSwitch').onclick=()=>setEchoMode(!document.body.classList.contains('echo-view'));
 setEchoMode(new URLSearchParams(location.search).get('echo')==='1');
 const categories=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
@@ -165,17 +199,41 @@ root.querySelectorAll('[data-amount]').forEach(el=>{el.onchange=()=>{const it=fi
 function find(id){return items.find(x=>x.id===Number(id))}
 document.addEventListener('pointerdown',e=>{if(qtyOpen!==-1&&!e.target.closest('.qty-editor,.item-qty')){qtyOpen=-1;render()}});
 $('editCat').innerHTML=categories.map(c=>`<option value="${safe(c)}">${safe(c)}</option>`).join('');
+const catBtn=$('editCatButton'),catMenu=$('editCatMenu');
+function syncCategory(){ $('editCatText').textContent=$('editCat').value||'カテゴリ未定'; }
+function closeCategory(){catMenu.hidden=true;catBtn.setAttribute('aria-expanded','false');}
+function chooseCategory(cat){$('editCat').value=cat;syncCategory();closeCategory();catBtn.focus();}
+categories.forEach(cat=>{const b=document.createElement('button');b.type='button';b.className='cat-option';b.setAttribute('role','option');b.textContent=cat;b.onclick=()=>chooseCategory(cat);catMenu.append(b)});
+catBtn.onclick=()=>{const open=catMenu.hidden;catMenu.hidden=!open;catBtn.setAttribute('aria-expanded',String(open));catMenu.querySelectorAll('[role=option]').forEach(b=>b.setAttribute('aria-selected',String(b.textContent===$('editCat').value)));};
+document.addEventListener('pointerdown',e=>{if(!e.target.closest('.cat-picker'))closeCategory();});
+catBtn.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){e.preventDefault();catMenu.hidden=false;catBtn.setAttribute('aria-expanded','true');const current=[...catMenu.children].find(b=>b.textContent===$('editCat').value);(current||catMenu.firstChild)?.focus()}});
+catMenu.addEventListener('keydown',e=>{const bs=[...catMenu.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(e.key==='Escape'){closeCategory();catBtn.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();bs[Math.max(0,Math.min(bs.length-1,i+(e.key==='ArrowDown'?1:-1)))].focus()}});
+syncCategory();
+const silk=/Silk/i.test(navigator.userAgent);
+const dateInput=$('stockDate'),dateOpen=$('customDateOpen');
+if(silk){dateInput.hidden=true;dateOpen.hidden=false;}
+function dateLabel(){dateOpen.textContent=(dateInput.value?dateInput.value.replaceAll('-','/'):'日付未設定')+' ▾';}
+dateLabel();
+function dateOptions(){const y=$('dateYear'),m=$('dateMonth');const yr=new Date().getFullYear();for(let i=yr-20;i<=yr+20;i++)y.add(new Option(i+'年',i));for(let i=1;i<=12;i++)m.add(new Option(i+'月',i));}
+function updateDays(){const y=Number($('dateYear').value),m=Number($('dateMonth').value),d=$('dateDay'),old=Number(d.value)||1,max=new Date(y,m,0).getDate();d.innerHTML='';for(let i=1;i<=max;i++)d.add(new Option(i+'日',i));d.value=String(Math.min(old,max));}
+dateOptions();$('dateYear').onchange=updateDays;$('dateMonth').onchange=updateDays;
+dateOpen.onclick=()=>{const vals=(dateInput.value||new Date().toLocaleDateString('sv-SE')).split('-').map(Number);$('dateYear').value=String(vals[0]);$('dateMonth').value=String(vals[1]);updateDays();$('dateDay').value=String(vals[2]);$('datePickerDialog').showModal();};
+function closeDatePicker(){close('datePickerDialog')}
+$('datePickerClose').onclick=$('datePickerCancel').onclick=closeDatePicker;
+$('datePickerClear').onclick=()=>{dateInput.value='';dateLabel();closeDatePicker()};
+$('datePickerOK').onclick=()=>{const y=$('dateYear').value,m=$('dateMonth').value.padStart(2,'0'),d=$('dateDay').value.padStart(2,'0');dateInput.value=y+'-'+m+'-'+d;dateLabel();closeDatePicker()};
+
 function toggleVisual(id,on){$(id).setAttribute('aria-pressed',String(on));$(id).querySelector('.state').textContent=on?'ON':'OFF'}
 $('priorityToggle').onclick=()=>toggleVisual('priorityToggle',$('priorityToggle').getAttribute('aria-pressed')!=='true');
 $('frozenToggle').onclick=()=>toggleVisual('frozenToggle',$('frozenToggle').getAttribute('aria-pressed')!=='true');
-function openDetail(id){const it=find(id);if(!it)return;editing=id;qtyOpen=-1;render();$('modalTitle').textContent='アイテムを編集';$('editName').value=it.name;$('editAmount').value=it.amount;$('editUnit').value=it.unit;$('editCat').value=it.cat;toggleVisual('priorityToggle',it.priority);toggleVisual('frozenToggle',it.frozen);$('stockDate').value=it.date;$('memo').value=it.memo;$('stockSwitches').hidden=dest!=='stock';$('dateWrap').hidden=dest!=='stock';$('clearDate').hidden=dest!=='stock';
+function openDetail(id){const it=find(id);if(!it)return;editing=id;qtyOpen=-1;render();$('modalTitle').textContent='アイテムを編集';$('editName').value=it.name;$('editAmount').value=it.amount;$('editUnit').value=it.unit;$('editCat').value=it.cat;syncCategory();closeCategory();toggleVisual('priorityToggle',it.priority);toggleVisual('frozenToggle',it.frozen);$('stockDate').value=it.date;dateLabel();$('memo').value=it.memo;$('stockSwitches').hidden=dest!=='stock';$('dateWrap').hidden=dest!=='stock';$('clearDate').hidden=dest!=='stock';
 const r2=document.querySelector('.edit-row.two'),r3=document.querySelector('.edit-row.three');
 const memoField=$('memo').closest('label');
 r2.classList.toggle('wish-mode',dest==='wish');r3.classList.toggle('wish-mode',dest==='wish');
-if(dest==='wish')r2.append(memoField);else r3.append(memoField);
+if(dest==='wish')r2.append(memoField);else r3.insertBefore(memoField,r3.firstElementChild);
 $('detailDialog').showModal()}
 function close(id){if($(id).open)$(id).close()}
-$('closeModal').onclick=$('cancelModal').onclick=()=>{close('detailDialog');editing=-1};$('clearDate').onclick=()=>{$('stockDate').value=''};
+$('closeModal').onclick=$('cancelModal').onclick=()=>{close('detailDialog');editing=-1};$('clearDate').onclick=()=>{$('stockDate').value='';dateLabel()};
 $('applyModal').onclick=()=>{const it=find(editing);if(!it)return;const name=clean($('editName').value);if(!name){alert('アイテム名を入力してください。');return}it.name=name;it.amount=clean($('editAmount').value);it.unit=clean($('editUnit').value);it.cat=$('editCat').value;if(dest==='stock'){it.priority=$('priorityToggle').getAttribute('aria-pressed')==='true';it.frozen=$('frozenToggle').getAttribute('aria-pressed')==='true';it.date=$('stockDate').value}it.memo=$('memo').value;close('detailDialog');editing=-1;render()};
 $('deleteInModal').onclick=()=>{if(editing<0)return;const it=find(editing);if(!it)return;deleteIndex=editing;$('deleteMessage').textContent='「'+it.name+'」を確認リストから削除します。削除すると元に戻せません。よろしいですか？';close('detailDialog');$('deleteDialog').showModal()};
 $('closeDelete').onclick=$('cancelDelete').onclick=()=>{close('deleteDialog');deleteIndex=-1};
