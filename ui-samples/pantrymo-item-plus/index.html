@@ -728,8 +728,16 @@ $('wishEditMove').onclick=()=>{
  if(amount!==''&&(!Number.isFinite(Number(amount))||Number(amount)<0)){alert('数量は0以上にしてください。');return}
  if(wishCategory==='日用品ほか'){alert('日用品ほかは移動できません。');return}
  if(wishItems.some(x=>x.id!==it.id&&x.name===name&&x.cat===wishCategory)){alert('同名・同カテゴリの項目があります。');return}
- Object.assign(it,{name,amount,unit:clean($('wishEditUnit').value),cat:wishCategory,memo:$('wishEditMemo').value});
- const id=it.id;closeWishEdit();renderWish();beginWishMove([id])
+ const id=it.id;beginWishMove([id]);
+ // Draft changes are only for the move review; cancelling never changes the Wish item.
+ if($('wishMoveDialog').open&&wishMoveDraft.length){
+   Object.assign(wishMoveDraft[0],{name,amount,unit:clean($('wishEditUnit').value),cat:wishCategory,memo:$('wishEditMemo').value});
+   $('wishMoveItems').querySelector('b').textContent=name;
+   $('wishMoveItems').querySelector('small').textContent=wishCategory;
+   $('wishMoveItems').querySelector('[data-move-amount]').value=amount;
+   $('wishMoveItems').querySelector('[data-move-unit]').value=clean($('wishEditUnit').value);
+   closeWishEdit()
+ }
 };
 $('wishMoveClose').onclick=$('wishMoveCancel').onclick=()=>close('wishMoveDialog');
 $('wishMoveCommit').onclick=()=>{
