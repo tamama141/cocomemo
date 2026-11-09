@@ -402,12 +402,12 @@ const guess=n=>categories[known[clean(n)]??16];
 const units=['パック','ケース','ボトル','キロ','グラム','リットル','切れ','袋','本','個','枚','束','缶','箱','玉','粒','丁','房','杯','kg','ml','g','L'];
 function parseAmount(str){const m=clean(str).match(/^([0-9０-９]+(?:[.．][0-9０-９]+)?)\s*(.*)$/);return m?{amount:m[1].replace(/[０-９]/g,c=>String(c.charCodeAt(0)-65296)).replace('．','.'),unit:m[2]}:{amount:'',unit:''}}
 function parsePart(text){const t=clean(text).replace(/\u3000/g,' ');if(!t)return null;const re=new RegExp('^(.*?)\\s*([0-9０-９]+(?:[.．][0-9０-９]+)?)\\s*('+units.join('|')+')\\s*$','i');const m=t.match(re);const name=m&&clean(m[1])?clean(m[1]):t;return {id:0,name,amount:m&&clean(m[1])?parseAmount(m[2]).amount:'',unit:m&&clean(m[1])?m[3]:'',cat:guess(name),priority:false,frozen:false,date:'',memo:''}}
-let nextId=1;function newItem(str){let it=parsePart(str);if(it)it.id=nextId++;return it}
+let nextId=1;function newItem(str){let it=parsePart(str);if(it){it.id=nextId++;if(it.amount!==''&&Number(it.amount)===0){it.amount='';it.unit=''}}return it}
 function setDest(v){dest=v;if(typeof syncPlusCategories==='function')syncPlusCategories();for(const [key,id] of [['stock','stockButton'],['wish','wishButton']]){$(id).classList.toggle('active',v===key);$(id).setAttribute('aria-pressed',String(v===key))}$('saveButton').textContent=(v==='stock'?'ストックリスト':'マイウィッシュ')+'に追加';$('saveStatus').textContent='';qtyOpen=-1;render()}
 $('stockButton').onclick=()=>setDest('stock');$('wishButton').onclick=()=>setDest('wish');
 
 $('parseButton').onclick=()=>{const list=$('itemsText').value.split(/[、,\r\n]+/).map(newItem).filter(Boolean);if(!list.length){$('parseStatus').textContent='アイテムを入力してください。';return}items=list;qtyOpen=-1;$('parseStatus').textContent=items.length+'件のアイテムを確認リストに表示しました。';$('saveStatus').textContent='';render()};
-function qtyText(it){return (it.amount?it.amount+(it.unit||''):'')}
+function qtyText(it){return it.amount!==''&&Number(it.amount)>0?it.amount+(it.unit||''):''}
 function extra(it){const out=[];if(dest==='stock'&&it.date){const d=it.date.split('-');out.push('ストック日 '+Number(d[1])+'/'+Number(d[2]))}if(it.memo)out.push('メモ：'+it.memo);return out.join(' ・ ')}
 function render(){const root=$('rows');const active=document.activeElement;const keepId=active?.dataset?.name;const start=active?.selectionStart??null;const end=active?.selectionEnd??null;
 root.innerHTML='';
@@ -430,7 +430,7 @@ root.querySelectorAll('[data-step]').forEach(el=>el.onclick=()=>{const it=find(e
 root.querySelectorAll('[data-amount]').forEach(el=>{el.onchange=()=>{const it=find(el.dataset.amount);if(!it)return;const value=clean(el.value);if(value!==''&&(!Number.isFinite(Number(value))||Number(value)<0)){el.value=it.amount;return}it.amount=value&&Number(value)!==0?value:'';if(!it.amount)it.unit='';const editor=el.closest('.qty-editor');editor.querySelector('.qty-unit').textContent=it.unit;const button=el.closest('.item-row').querySelector('[data-qty]');if(button)button.textContent=qtyText(it);};el.onkeydown=e=>{if(e.key==='Enter'){el.blur();qtyOpen=-1;render()}}});
 }
 function find(id){return items.find(x=>x.id===Number(id))}
-document.addEventListener('pointerdown',e=>{if(qtyOpen!==-1&&!e.target.closest('#rows .qty-editor,#rows .item-qty')){qtyOpen=-1;render()}if(wishQuantityOpen!==null&&!e.target.closest('#wishRows .wish-quantity-editor,#wishRows [data-wish-qty]')){wishQuantityOpen=null;renderWish()}});
+document.addEventListener('click',e=>{if(qtyOpen!==-1&&!e.target.closest('#rows .qty-editor,#rows .item-qty')){qtyOpen=-1;render()}if(wishQuantityOpen!==null&&!e.target.closest('#wishRows .wish-quantity-editor,#wishRows [data-wish-qty]')){wishQuantityOpen=null;renderWish()}});
 function syncPlusCategories(){const prev=$('editCat').value,opts=dest==='wish'?wishCategories:categories;$('editCat').innerHTML=opts.map(c=>'<option value="'+safe(c)+'">'+safe(c)+'</option>').join('');$('editCat').value=opts.includes(prev)?prev:'カテゴリ未定'}
 syncPlusCategories();
 const catBtn=$('editCatButton'),catMenu=$('editCatMenu'),categoryDialog=$('categoryPickerDialog');
@@ -523,7 +523,7 @@ if(dest==='wish')r2.append(memoField);else r3.insertBefore(memoField,r3.firstEle
 $('detailDialog').showModal()}
 function close(id){if($(id).open)$(id).close()}
 $('closeModal').onclick=$('cancelModal').onclick=()=>{close('detailDialog');editing=-1};$('clearDate').onclick=()=>{$('stockDate').value='';dateLabel()};
-$('applyModal').onclick=()=>{const it=find(editing);if(!it)return;const name=clean($('editName').value);if(!name){alert('アイテム名を入力してください。');return}it.name=name;it.amount=clean($('editAmount').value);it.unit=clean($('editUnit').value);it.cat=$('editCat').value;if(dest==='stock'){it.priority=$('priorityToggle').getAttribute('aria-pressed')==='true';it.frozen=$('frozenToggle').getAttribute('aria-pressed')==='true';it.date=$('stockDate').value}it.memo=$('memo').value;close('detailDialog');editing=-1;render()};
+$('applyModal').onclick=()=>{const it=find(editing);if(!it)return;const name=clean($('editName').value);if(!name){alert('アイテム名を入力してください。');return}it.name=name;it.amount=clean($('editAmount').value);it.unit=clean($('editUnit').value);if(dest==='stock'&&it.amount!==''&&Number(it.amount)===0){it.amount='';it.unit=''}it.cat=$('editCat').value;if(dest==='stock'){it.priority=$('priorityToggle').getAttribute('aria-pressed')==='true';it.frozen=$('frozenToggle').getAttribute('aria-pressed')==='true';it.date=$('stockDate').value}it.memo=$('memo').value;close('detailDialog');editing=-1;render()};
 $('deleteInModal').onclick=()=>{if(editing<0)return;const it=find(editing);if(!it)return;deleteIndex=editing;$('deleteMessage').textContent='「'+it.name+'」を確認リストから削除します。削除すると元に戻せません。よろしいですか？';close('detailDialog');$('deleteDialog').showModal()};
 $('closeDelete').onclick=$('cancelDelete').onclick=()=>{close('deleteDialog');deleteIndex=-1};
 $('confirmDelete').onclick=()=>{items=items.filter(x=>x.id!==deleteIndex);deleteIndex=-1;editing=-1;close('deleteDialog');render();$('saveStatus').textContent='確認リスト内のアイテムを削除しました（デモ）。'};
