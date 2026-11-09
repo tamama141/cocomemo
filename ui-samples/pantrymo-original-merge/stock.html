@@ -214,6 +214,15 @@ window.addEventListener('message',e=>{
   render();notifyStock();
   window.parent.postMessage({channel:'stock-added',requestId:d.requestId,done,refused},location.origin);return
  }
+ if(d.op==='stock-update'){
+   const existing=pantryData.find(x=>x.id===d.id),entry=d.row;
+   if(!existing||!entry?.name?.trim()||pantryData.some(x=>x.id!==d.id&&x.name===entry.name.trim()&&x.cat===entry.cat)){
+     window.parent.postMessage({channel:'stock-update-failed',requestId:d.requestId},location.origin);return;
+   }
+   Object.assign(existing,{name:entry.name.trim(),cat:entry.cat,qty:(entry.qty||'')+(entry.qty?entry.unit||'':''),unit:entry.unit||'',date:entry.date||'',priority:!!entry.priority,frozen:!!entry.frozen,memo:entry.memo||''});
+   expanded.add(existing.cat);render();notifyStock();
+   window.parent.postMessage({channel:'stock-updated',requestId:d.requestId},location.origin);return;
+ }
  if(d.op==='stock-remove'){
    for(const id of d.ids||[]){const idx=pantryData.findIndex(x=>x.id===id);if(idx>=0)pantryData.splice(idx,1)}
    render();notifyStock();
