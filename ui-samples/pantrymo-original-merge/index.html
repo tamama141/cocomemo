@@ -16,13 +16,15 @@ dialog{border:0;border-radius:14px;padding:0;width:min(570px,calc(100vw - 22px))
 .move-extra{margin-top:8px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}.move-extra button{border:1px solid #d1e0d3;border-radius:7px;background:#f6faf6;padding:6px;color:#59715d}.move-extra button.on{background:#e2f0e4;border-color:#9ac8a2}.move-extra label{margin-left:auto;font-size:11px;color:#607862}.move-extra input{display:block;border:1px solid #caddce;border-radius:6px;padding:6px;width:130px;font-size:12px}
 .reg{font-size:11px;color:#b14e3c;padding:5px 1px}.explain{font-size:12px;line-height:1.7;color:#667d6c}.status{margin:10px 0;color:#4b745b;font-size:13px}.placeholder{padding:20px;background:white;border:1px solid #deeadf;border-radius:10px}
 @media(min-width:700px){.grid{gap:10px}.frame{max-width:100%}}@media(max-width:400px){main{padding-inline:9px}.grid{gap:5px}.field input,.field select{padding:7px 6px}.switches button{min-width:45px}.tag{font-size:9px}}
+/* Pumpkin palette for integrated sample */
+:root{background:#fff9f0;color:#222b23}main{background:#fffaf4}.brand{color:#104d32}nav button{color:#15472f;border-color:#d5cbbd;background:#fffdf9}nav button.active{background:#104d32;color:#fff;border-color:#104d32}.head{color:#104d32}.primary{background:#e77b07;border-color:#e77b07;color:white}.soft{background:#fff5dd;color:#164631;border-color:#e1d0a9}input::placeholder,textarea::placeholder{color:#a0a6a0!important;opacity:1}.switches button,.move-extra button{min-width:78px;min-height:40px;white-space:nowrap}.switches button.on,.move-extra button.on{background:#ffda90;border-color:#e6a13b;color:#473017}.count-field{display:flex;align-items:center;gap:2px;min-width:0}.count-field input{flex:1;min-width:0;width:40px;text-align:center;padding:2px}.count-field .count-step{flex:none;border:1px solid #b4cbb6;background:#e4f1e5;color:#155238;border-radius:7px;width:27px;height:36px;padding:0;font-size:19px}.move-fields label .count-field{margin-top:3px}.move-fields label .count-field input{margin:0}.move-fields .count-field .count-step{width:25px;height:34px}dialog:focus{outline:none}
 </style></head><body><main>
 <header><span class="brand">Pantrymo</span><span class="tag">原本ベース・統合比較 v1</span></header>
 <nav aria-label="画面切り替え"><button type="button" class="active" data-nav="stock">ストックリスト</button><button type="button" data-nav="wish">マイウィッシュ</button><button type="button" data-nav="plus">アイテムプラス</button><button type="button" data-nav="coco">CocoMemo</button></nav>
 <iframe id="frame-stock" title="ストックリスト 原本ベース" class="frame" src="stock.html"></iframe>
 <iframe id="frame-wish" title="マイウィッシュ・アイテムプラス 原本ベース" class="frame" src="wish-plus.html" hidden></iframe>
 <section id="coco-placeholder" hidden class="placeholder">CocoMemoの画面・データは、今回のPantrymo比較サンプルでは変更していません。</section>
-<p class="notice">この比較版は、採用済み画面の原本を複製して統合したものです。操作・データはこのページの架空データのみ。再読み込みでリセットされ、端末保存・Firebase・アプリ本体には書き込みません。元の採用済みHTMLも変更していません。</p>
+
 <p class="status" id="global-status" role="status"></p>
 </main>
 <dialog id="add-dialog" aria-label="1品追加"><div class="head"><span id="add-title">1品追加</span><button class="x" id="add-x" type="button" aria-label="閉じる">×</button></div><div class="body">
@@ -30,36 +32,41 @@ dialog{border:0;border-radius:14px;padding:0;width:min(570px,calc(100vw - 22px))
 <div class="grid two"><label class="field">カテゴリ<select id="add-cat"></select></label><div class="switches" id="add-flags"><button id="add-priority" type="button">💫 OFF</button><button id="add-frozen" type="button">❄️ OFF</button></div></div>
 <div class="grid third"><label class="field">メモ<input id="add-memo" placeholder="任意"></label><label class="field" id="date-field">ストック日<input id="add-date" type="date"></label></div>
 <p class="error" id="add-error"></p><div class="actions"><button class="soft" id="stock-one-move" hidden>マイウィッシュへ移動</button><button class="soft" id="add-cancel">取消</button><button class="primary" id="add-save">登録</button></div></div></dialog>
-<dialog id="move-dialog" aria-label="ストックへの移動を確認"><div class="head">ストックリストへ移動<button class="x" id="move-x" aria-label="閉じる">×</button></div><div class="body"><p class="explain">数量は空欄から開始。必要なら入力してね。単位はマイウィッシュから引き継ぎます。右端の×は今回の移動から除外します。</p><div id="move-items"></div><p class="status" id="move-status"></p><div class="actions"><button class="soft" id="move-cancel">キャンセル</button><button class="primary" id="move-save">移動を確定</button></div></div></dialog>
+<dialog id="move-dialog" aria-label="ストックへの移動を確認"><div class="head">ストックリストへ移動<button class="x" id="move-x" aria-label="閉じる">×</button></div><div class="body"><div id="move-items"></div><p class="status" id="move-status"></p><div class="actions"><button class="soft" id="move-cancel">キャンセル</button><button class="primary" id="move-save">移動を確定</button></div></div></dialog>
 <dialog id="duplicate-dialog" aria-label="登録済みのご案内"><div class="head">ご案内</div><div class="body"><p class="explain">ストックリストに登録済みのものは、移動できません。<br>確認リストから除外するか、品名またはカテゴリを変更して下さい。</p><div class="actions"><button class="primary" id="duplicate-ok">OK</button></div></div></dialog>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id),origin=location.origin;
 const stockFrame=$('frame-stock'),wishFrame=$('frame-wish');
-const food=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
+const food=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・パン・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
 const cats=[...food.slice(0,-1),'日用品ほか','カテゴリ未定'];
 let stock=[],wish=[],mode='stock',newTarget='stock',priority=false,frozen=false,editingStockId=null,review=[],requests=new Map(),sequence=1;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const k=x=>String(x.name||'').trim()+'\u001f'+x.cat;
 const day=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const has=x=>stock.some(y=>k(y)===k(x));
+const fmtDate=x=>{const m=String(x||"").match(/^(?:\d{4}[-/])?(\d{1,2})[-/](\d{1,2})$/);return m?m[1]+"/"+m[2]:""};
+let editingOriginalDate="",editingInitialISO="";
 function send(f,op,payload={}){if(f.contentWindow)f.contentWindow.postMessage({scope:'pan-bridge',op,...payload},origin)}
 function toast(t){$('global-status').textContent=t}
 function setMode(v){mode=v;stockFrame.hidden=v!=='stock';wishFrame.hidden=v!=='wish'&&v!=='plus';$('coco-placeholder').hidden=v!=='coco';document.querySelectorAll('[data-nav]').forEach(b=>b.classList.toggle('active',b.dataset.nav===v));if(v==='wish'||v==='plus')send(wishFrame,'wish-view',{view:v});}
 document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>setMode(b.dataset.nav));
+function syncFrameViewport(frame){const r=frame.getBoundingClientRect(),top=Math.max(0,-r.top),height=Math.max(100,Math.min(r.height-top,innerHeight-Math.max(0,r.top)));send(frame,'viewport',{visibleTop:top,visibleHeight:height})}
+const syncViewports=()=>{syncFrameViewport(stockFrame);syncFrameViewport(wishFrame)};window.addEventListener('scroll',syncViewports,{passive:true});window.addEventListener('resize',syncViewports);
 function resizeFrame(frame){
- try{const doc=frame.contentDocument;if(!doc)return;const resize=()=>{const box=doc.querySelector('.app,.wrap')||doc.body;const h=box.scrollHeight;const next=Math.max(650,h+8);if(Math.abs(parseFloat(frame.style.height||0)-next)>3)frame.style.height=next+'px'};new ResizeObserver(resize).observe(doc.body);resize()}catch(e){console.warn('Frame resize unavailable',e)}
+ try{const doc=frame.contentDocument;if(!doc)return;const resize=()=>{const box=doc.querySelector('.app,.wrap')||doc.body;const h=box.scrollHeight;const next=Math.max(650,h+8);if(Math.abs(parseFloat(frame.style.height||0)-next)>3)frame.style.height=next+'px'};new ResizeObserver(()=>{resize();syncFrameViewport(frame)}).observe(doc.body);resize();syncFrameViewport(frame)}catch(e){console.warn('Frame resize unavailable',e)}
 }
 stockFrame.onload=()=>{resizeFrame(stockFrame);send(stockFrame,'stock-get')};
 wishFrame.onload=()=>{resizeFrame(wishFrame);send(wishFrame,'wish-view',{view:mode==='wish'?'wish':'plus'});send(wishFrame,'wish-get')};
 function fmtUnit(x){if(x.unit)return x.unit;return String(x.qty||'').match(/(?:パック|ケース|ボトル|キロ|グラム|リットル|切れ|袋|本|個|枚|束|缶|箱|玉|粒|丁|房|杯|kg|ml|g|L)$/)?.[0]||''}
-function openAdd(target,row=null){newTarget=target;editingStockId=row?.id??null;priority=!!row?.priority;frozen=!!row?.frozen;
+function openAdd(target,row=null){editingOriginalDate=row?.date||"";editingInitialISO=editingOriginalDate?(editingOriginalDate.match(/^\d{4}-/)?editingOriginalDate:day().slice(0,4)+"-"+fmtDate(editingOriginalDate).split("/").map(x=>x.padStart(2,"0")).join("-")):"";newTarget=target;editingStockId=row?.id??null;priority=!!row?.priority;frozen=!!row?.frozen;
  $('add-title').textContent=target==='stock'?(row?'ストックを編集':'ストックリストに1品追加'):'マイウィッシュに1品追加';
  $('add-name').value=row?.name||'';$('add-qty').value=row?.qty?String(row.qty).match(/^\d+(?:\.\d+)?/)?.[0]||'':'';$('add-unit').value=row?fmtUnit(row):'';$('add-memo').value=row?.memo||'';
  const el=$('add-cat');el.replaceChildren(...(target==='stock'?food:cats).map(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;return o}));el.value=row?.cat||'カテゴリ未定';
- $('add-date').value=row?.date?.match(/^\d{4}-/)?row.date:day();$('date-field').hidden=target!=='stock';$('add-flags').hidden=target!=='stock';$('add-error').textContent='';flip();$('add-save').textContent=row?'変更':'登録';$('stock-one-move').hidden=!(target==='stock'&&row);$('add-dialog').showModal();$('add-x').focus({preventScroll:true})
+ $('add-date').value=row?editingInitialISO:day();$('date-field').hidden=target!=='stock';$('add-flags').hidden=target!=='stock';$('add-error').textContent='';flip();$('add-save').textContent=row?'変更':'登録';$('stock-one-move').hidden=!(target==='stock'&&row);$('add-dialog').showModal();requestAnimationFrame(()=>$('add-dialog').focus({preventScroll:true}))
 }
 function flip(){$('add-priority').textContent='💫 '+(priority?'ON':'OFF');$('add-frozen').textContent='❄️ '+(frozen?'ON':'OFF');$('add-priority').classList.toggle('on',priority);$('add-frozen').classList.toggle('on',frozen)}
+function addCounter(id){const input=$(id),box=document.createElement('span');box.className='count-field';input.parentNode.insertBefore(box,input);box.append(input);for(const [txt,step] of [['−',-1],['＋',1]]){const b=document.createElement('button');b.type='button';b.className='count-step';b.textContent=txt;b.onclick=()=>{input.value=String(Math.max(0,(Number(input.value)||0)+step));input.dispatchEvent(new Event('input',{bubbles:true}))};box.insertBefore(b,step<0?input:null)}}addCounter('add-qty');
 $('add-priority').onclick=()=>{priority=!priority;flip()};$('add-frozen').onclick=()=>{frozen=!frozen;flip()};
 $('add-x').onclick=$('add-cancel').onclick=()=>$('add-dialog').close();
 $('stock-one-move').onclick=()=>{const row=stock.find(x=>x.id===editingStockId);if(!row)return;request('wish-from-stock',wishFrame,{rows:[row]},{type:'stock-to-wish',ids:[row.id]});$('add-dialog').close()};
@@ -68,7 +75,7 @@ $('add-save').onclick=()=>{
  const name=$('add-name').value.trim(),qty=$('add-qty').value.trim(),cat=$('add-cat').value;
  if(!name){$('add-error').textContent='品名を入力してください。';return}
  if(qty&&!/^\d+(?:\.\d+)?$/.test(qty)){$('add-error').textContent='数量は数字か空欄で入力してください。';return}
- const x={name,cat,qty,unit:$('add-unit').value.trim(),memo:$('add-memo').value,priority,frozen,date:$('add-date').value};
+ const x={name,cat,qty,unit:$('add-unit').value.trim(),memo:$('add-memo').value,priority,frozen,date:editingStockId!==null&&$('add-date').value===editingInitialISO?editingOriginalDate:$('add-date').value};
  if(newTarget==='stock'){
   if(stock.some(y=>k(y)===k(x)&&y.id!==editingStockId)){$('add-error').textContent='登録済みです。品名またはカテゴリを変更して下さい。';return}
   if(editingStockId!==null){
@@ -99,7 +106,7 @@ function drawReview(){
  });
  root.querySelectorAll('[data-mname]').forEach(el=>el.oninput=()=>{review[+el.dataset.mname].name=el.value;updateDupes()});
  root.querySelectorAll('[data-mcat]').forEach(el=>el.onchange=()=>{review[+el.dataset.mcat].cat=el.value;drawReview()});
- root.querySelectorAll('[data-mqty]').forEach(el=>el.oninput=()=>review[+el.dataset.mqty].qty=el.value);
+ root.querySelectorAll('[data-mqty]').forEach(el=>{el.oninput=()=>review[+el.dataset.mqty].qty=el.value;const box=document.createElement('span');box.className='count-field';el.parentNode.insertBefore(box,el);box.append(el);for(const [txt,step] of [['−',-1],['＋',1]]){const b=document.createElement('button');b.type='button';b.className='count-step';b.textContent=txt;b.onclick=()=>{el.value=String(Math.max(0,(Number(el.value)||0)+step));el.dispatchEvent(new Event('input'))};box.insertBefore(b,step<0?el:null)}});
  root.querySelectorAll('[data-munit]').forEach(el=>el.oninput=()=>review[+el.dataset.munit].unit=el.value);
  root.querySelectorAll('[data-mdate]').forEach(el=>el.onchange=()=>review[+el.dataset.mdate].date=el.value);
  root.querySelectorAll('[data-mpriority]').forEach(el=>el.onclick=()=>{review[+el.dataset.mpriority].priority=!review[+el.dataset.mpriority].priority;drawReview()});
@@ -112,7 +119,7 @@ function updateDupes(){for(const el of $('move-items').querySelectorAll('[data-m
 }
 $('move-save').onclick=()=>{
  const eligible=review.filter((x,i)=>!x.excluded&&x.name.trim()&&!duplicated(i)&&(!x.qty||/^\d+(?:\.\d+)?$/.test(x.qty)));
- if(eligible.length)request('stock-add',stockFrame,{rows:eligible},{type:'wish-to-stock'});
+ if(eligible.length)request('stock-add',stockFrame,{rows:eligible},{type:'wish-to-stock',duplicates:review.some((x,i)=>!x.excluded&&duplicated(i))});
  else{$('move-dialog').close();toast('移動可能な品目はありません。元のマイウィッシュは残しています。')}
 };
 window.addEventListener('message',e=>{
@@ -127,8 +134,8 @@ window.addEventListener('message',e=>{
    if(d.channel==='stock-added'){
      const meta=requests.get(d.requestId);requests.delete(d.requestId);if(!meta)return;
      if(meta.type==='single-stock'||meta.type==='stock-edit-add'){$('add-dialog').close();toast('ストックリストへ登録しました（模擬）');return}
-     if(meta.type==='plus-to-stock'){send(wishFrame,'plus-result',{added:d.done.filter(x=>x!==null).length,refused:d.refused});toast('アイテムプラスからストックへ追加しました（模擬）');return}
-     if(meta.type==='wish-to-stock'){const ids=d.done.filter(x=>x!==null);if(ids.length)send(wishFrame,'wish-remove',{ids});$('move-dialog').close();toast(ids.length+'件をストックへ移動しました。'+(d.refused?' 移動できない品目はマイウィッシュに保持しました。':''));return}
+     if(meta.type==='plus-to-stock'){send(wishFrame,'plus-result',{added:d.done.filter(x=>x!==null).length,refused:d.refused,doneIds:d.done});toast('アイテムプラスからストックへ追加しました（模擬）');return}
+     if(meta.type==='wish-to-stock'){const ids=d.done.filter(x=>x!==null);if(ids.length)send(wishFrame,'wish-remove',{ids});$('move-dialog').close();if($('duplicate-dialog').open)$('duplicate-dialog').close();toast(ids.length+'件をストックへ移動しました。'+(meta.duplicates||d.refused?' 重複品はマイウィッシュに保持しました。':''));return}
    }
    if(d.channel==='stock-updated'){const meta=requests.get(d.requestId);requests.delete(d.requestId);if(meta?.type==='stock-edit-update'){$('add-dialog').close();toast('ストックを更新しました（模擬）')}}
    if(d.channel==='stock-update-failed'){requests.delete(d.requestId);$('add-error').textContent='更新できませんでした。元の品目は保持しました。'}
