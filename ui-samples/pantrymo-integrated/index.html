@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#345d4b">
+<title>Pantrymo｜3画面統合・操作比較サンプル v1</title>
+<style>
+:root{font:15px system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#303932;background:#f5f7f3}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #477c5a;outline-offset:2px}[hidden]{display:none!important}
+.app{max-width:960px;margin:auto;padding:14px 15px 90px;background:#fbfcfa;min-height:100dvh}header{display:flex;align-items:center;justify-content:space-between;padding:3px 0 14px;border-bottom:1px solid #dbe6df}.brand{font-size:23px;font-weight:850;color:#37644d}.hint{color:#708075;font-size:11px}.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:13px 0 23px}.nav button{border:1px solid #cdded1;border-radius:10px;background:white;color:#4b725d;padding:11px 2px;font-size:clamp(10px,2.85vw,14px);min-width:0}.nav button.active{background:#e2efe7;color:#315f46;border-color:#a8cdb6;font-weight:750}
+.card{border:1px solid #dce7df;border-radius:12px;background:white;padding:15px;margin:13px 0;box-shadow:0 1px 3px #15331a0a}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.topbar h1{font-size:18px;margin:0;color:#345d4b}.link{border:0;background:transparent;color:#397052;font-weight:650;padding:7px}.primary{background:#356e51;color:white;border:1px solid #356e51;border-radius:9px;padding:10px 14px;font-weight:700}.secondary{background:#f1f7f3;border:1px solid #bfd2c4;border-radius:9px;color:#426950;padding:9px 13px}.notice{font-size:12px;color:#68786f;line-height:1.7;margin:10px 1px}.band{background:#e8f1e9;color:#365a46;padding:9px 12px;font-weight:750;border-radius:8px;margin:13px 0 0;display:flex;justify-content:space-between;gap:12px}.band small{color:#6f8a76;font-weight:500}.items{border:1px solid #e0e9e1;border-top:0;border-radius:0 0 9px 9px;overflow:hidden}.item{padding:10px 12px;border-bottom:1px solid #e9eee9;display:flex;align-items:center;gap:9px;min-width:0}.item:last-child{border-bottom:0}.item .name{flex:1;min-width:0;font-weight:650;overflow-wrap:anywhere}.item .meta{font-size:12px;color:#738177}.item .qty{min-width:45px;text-align:right;color:#6b756c;font-size:13px}.icon{border:0;background:transparent;padding:5px 1px;filter:grayscale(1);opacity:.35;font-size:17px}.icon.on{filter:none;opacity:1}.circle{border:1.5px solid #9ca8a0;background:white;border-radius:100%;width:25px;height:25px;color:#8a9d90;padding:0}.circle.checked{border-color:#3b835c;background:#3b835c;color:white}.checkedName{text-decoration:line-through;color:#82948a}.dots{border:0;background:transparent;color:#66846d;font-size:18px}
+.help{padding:12px 13px;background:#f4f9f5;border:1px solid #e0ece2;border-radius:9px;color:#617369;font-size:13px;line-height:1.7}.toolbar{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px}
+dialog{border:1px solid #ccdcd0;border-radius:14px;padding:0;width:min(calc(100% - 26px),510px);max-height:90dvh;box-shadow:0 12px 45px #0d221b35;color:inherit}dialog::backdrop{background:#13251c70}.dialoghead{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #e3eae4;color:#315f45;font-weight:800}.x{border:0;background:transparent;color:#65776c;font-size:22px}.dialogbody{padding:15px 16px 18px}.field{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:12px;font-weight:650;color:#5e7565}.field input,.field select,.field textarea{background:#fff;border:1px solid #cbd9ce;border-radius:8px;padding:9px 10px;width:100%;min-width:0;color:#2e3c34;font-size:15px}.field textarea{min-height:105px;resize:vertical}.row{display:grid;grid-template-columns:1.6fr .7fr .75fr;gap:9px;margin:10px 0}.row.two{grid-template-columns:1.5fr 1fr}.row.three{grid-template-columns:1.25fr 1fr}.toggles{display:flex;align-items:end;gap:7px}.switch{border:1px solid #d4dfd6;background:#fafcfa;border-radius:9px;padding:10px 9px;min-width:61px;color:#a6aaa8}.switch.on{color:#365f45;background:#eaf3e9;border-color:#a4cbaa}.switch.frozen.on{color:#246dae;background:#e7f4ff;border-color:#9bc1e5}.actions{display:flex;gap:9px;justify-content:flex-end;margin-top:17px}.error{font-size:12px;color:#b44636;min-height:17px;margin-top:9px}.status{font-size:13px;color:#417555;min-height:20px;margin:10px 3px}.plusTarget{display:flex;gap:9px;margin:12px 0}.plusTarget button{flex:1;padding:10px;border-radius:8px;background:white;border:1px solid #cddccd;color:#58745e}.plusTarget button.active{background:#e1f0e5;border-color:#8cb9a0;color:#32674a;font-weight:700}.pending{border-top:1px solid #e6eee6;padding-top:12px}.previewrow{display:grid;grid-template-columns:minmax(0,1fr) 90px 38px;gap:9px;align-items:center;border-bottom:1px solid #eaf0eb;padding:7px 2px}.previewrow input,.previewrow select{width:100%;min-width:0;padding:7px;border:1px solid #d2dfd4;border-radius:6px}.previewrow button{border:0;background:transparent;color:#af635c;font-size:18px}.small{font-size:12px;color:#738177}.listcols{display:grid;grid-template-columns:1fr;gap:0 15px}.badgetext{font-size:11px;color:#bf6846}.note{font-size:12px;color:#66796d}.topbar .right{display:flex;align-items:center;gap:6px}@media(min-width:750px){.listcols{grid-template-columns:1fr 1fr}.card{padding:18px 20px}}@media(max-width:380px){.row{grid-template-columns:1.4fr .65fr .65fr;gap:6px}.field input,.field select{padding:8px 6px}.switch{min-width:50px;padding:8px 4px}.topbar h1{font-size:17px}}
+
+.bulkBar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:#345d4b;color:white;border-radius:10px;padding:10px;margin-top:13px}.bulkBar .primary{background:#f8fcf8;color:#345d4b}.bulkBar strong{font-size:13px}.pick{width:20px;height:20px;accent-color:#477d58}.archline{margin:13px 0;padding:9px;border:1px solid #d7e0d7;border-radius:8px;background:#f2f5f2;color:#667a6b;font-size:13px}.archline button{border:0;background:transparent;color:#56715d;text-decoration:underline}.item{position:relative}.item .name small{display:block;font-size:10px;color:#a86448;font-weight:400}.moveItem{border:1px solid #dbe7dd;border-radius:10px;padding:9px;margin:9px 0;background:#fff}.moveItem .topline{display:flex;align-items:center;gap:7px}.moveItem .topline input{flex:1;min-width:0;border:1px solid #d3ded5;border-radius:7px;padding:7px 8px;font-weight:600}.moveItem .topline .remove{background:transparent;border:0;color:#ad716a;font-size:22px}.moveFields{display:grid;grid-template-columns:1fr .62fr .78fr;gap:7px;margin-top:7px;align-items:end}.moveFields label{font-size:11px;color:#627968}.moveFields input,.moveFields button{display:block;width:100%;min-width:0;padding:7px;border:1px solid #cbd9ce;background:white;border-radius:7px;font-size:13px;margin-top:3px}.moveOptions{display:flex;gap:6px;align-items:center;margin-top:8px}.moveOptions button{border:1px solid #d4e0d6;border-radius:7px;background:#f8faf8;padding:6px}.moveOptions button.on{border-color:#93bd9b;background:#e6f2e7}.moveFields .date{font-size:12px}.reg{font-size:11px;color:#b55c45;margin-top:3px}.invalid{border-color:#d79c8b;background:#fff8f5}.previewrow{grid-template-columns:minmax(0,1fr) 115px 28px}.previewrow select{font-size:12px}
+</style></head>
+<body><main class="app">
+<header><span class="brand">Pantrymo</span><span class="hint">3画面統合・操作サンプル v1</span></header>
+<nav class="nav"><button type="button" id="nav-stock" class="active">ストックリスト</button><button type="button" id="nav-wish">マイウィッシュ</button><button type="button" id="nav-plus">アイテムプラス</button><button type="button" id="nav-coco">CocoMemo</button></nav>
+<section id="view-stock"><div class="card"><div class="topbar"><h1>ストックリスト</h1><div class="right"><button type="button" class="link" id="stock-add">＋ 追加</button><button type="button" class="link" id="stock-select">選択</button></div></div><div class="help">家にある食材をココさんに伝えるリスト。数量は任意。1品追加・編集・マイウィッシュへの移動を試せます。</div><div id="stock-list" class="listcols"></div><div id="stock-bulk" class="bulkBar" hidden><strong id="stock-count">0件選択中</strong><button type="button" class="primary" id="stock-bulk-move">マイウィッシュへ移動</button><button type="button" class="secondary" id="stock-cancel">取消</button></div><div id="stock-status" class="status" role="status"></div></div></section>
+<section id="view-wish" hidden><div class="card"><div class="topbar"><h1>マイウィッシュ</h1><div class="right"><button type="button" class="link" id="wish-add">＋ 追加</button><button type="button" class="link" id="wish-select">選択</button></div></div><div class="help">その場で1品追加。○／✓は買い物チェック、右上の「選択」はまとめて移動するための操作です。</div><div id="wish-list" class="listcols"></div><div id="wish-bulk" class="bulkBar" hidden><strong id="wish-count">0件選択中</strong><button type="button" class="primary" id="wish-bulk-move">ストックへ移動</button><button type="button" class="secondary" id="wish-cancel">取消</button></div><div id="wish-status" class="status" role="status"></div></div></section>
+<section id="view-plus" hidden><div class="card"><div class="topbar"><h1>アイテムプラス</h1></div><label class="field">追加先</label><div class="plusTarget"><button id="plus-to-stock" type="button" class="active">ストックリスト</button><button id="plus-to-wish" type="button">マイウィッシュ</button></div><label class="field">複数のアイテムを入力<textarea id="plus-text" placeholder="例：かぼちゃ1個、玉ねぎ3個&#10;牛乳1本"></textarea></label><p class="small">区切りは「、」「,」または改行。「と」は区切りません。</p><div class="toolbar"><button id="plus-parse" class="primary" type="button">アイテムを確認</button></div></div><div class="card"><div class="topbar"><h1>確認リスト</h1></div><div id="plus-preview"></div><div class="toolbar"><button id="plus-save" class="primary" type="button">追加を確定</button></div><div id="plus-status" class="status" role="status"></div></div><p class="notice">複数入力と共通リストへの登録が試せる簡易版です。採用済みアイテムプラスv9の詳細なレイアウト・入力機能は、統合後の調整対象として保持しています。</p></section>
+<section id="view-coco" hidden><div class="card"><div class="topbar"><h1>CocoMemo</h1></div><p class="help">今回の比較対象はPantrymoの3画面です。CocoMemoのデザインやデータは変更していません。</p></div></section>
+<p class="notice">⚠️ 画面・操作の比較専用。データはページ内の架空データだけで変化し、再読み込みで初期状態に戻ります。端末保存・Firebase・本体アプリには書き込みません。</p>
+</main>
+<dialog id="add-dialog" aria-label="アイテムを1品追加"><div class="dialoghead"><span id="add-title">1品追加</span><button type="button" class="x" id="add-close" aria-label="閉じる">×</button></div><div class="dialogbody">
+<div class="row"><label class="field">品名<input id="add-name" autocomplete="off" placeholder="例：牛乳"></label><label class="field">数量（任意）<input id="add-qty" inputmode="decimal" placeholder="未指定"></label><label class="field">単位<input id="add-unit" placeholder="本"></label></div>
+<div class="row two"><label class="field">カテゴリ<select id="add-cat"></select></label><div id="stock-toggles" class="toggles"><button type="button" class="switch" id="add-priority">💫 OFF</button><button type="button" class="switch frozen" id="add-frozen">❄️ OFF</button></div></div>
+<div class="row three"><label class="field">メモ<input id="add-memo" placeholder="任意"></label><label class="field" id="date-field">ストック日<input id="add-date" type="date"></label></div>
+<div class="error" id="add-error" role="alert"></div><div class="actions"><button type="button" class="secondary" id="add-move" hidden>移動</button><button type="button" class="secondary" id="add-archive" hidden>アーカイブ</button><button type="button" class="secondary" id="add-delete" hidden>削除</button><button type="button" class="secondary" id="add-cancel">取消</button><button type="button" class="primary" id="add-confirm">登録</button></div></div></dialog>
+<dialog id="move-dialog" aria-label="ストックリストへ移動する品目を確認"><div class="dialoghead">ストックリストへ移動<button type="button" class="x" id="move-close">×</button></div><div class="dialogbody"><p class="note">数量は空欄から始まります。必要なら入力してください。単位は引き継ぎます。</p><div id="move-rows"></div><p class="note" id="move-summary"></p><div class="actions"><button type="button" class="secondary" id="move-cancel">取消</button><button type="button" class="primary" id="move-commit">移動を確定</button></div></div></dialog>
+<dialog id="category-dialog" aria-label="移動する品目のカテゴリを変更"><div class="dialoghead">カテゴリを変更<button type="button" class="x" id="category-close">×</button></div><div class="dialogbody"><label class="field">カテゴリ<select id="category-value"></select></label><div class="actions"><button class="primary" type="button" id="category-set">変更</button></div></div></dialog>
+<dialog id="alert-dialog" aria-label="登録のご案内"><div class="dialoghead">ご案内<button type="button" class="x" id="alert-close">×</button></div><div class="dialogbody"><p id="alert-text" style="line-height:1.8"></p><div class="actions"><button type="button" class="primary" id="alert-ok">OK</button></div></div></dialog>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const food=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
+const wCats=[...food.slice(0,-1),'日用品ほか','カテゴリ未定'];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const k=x=>x.name.trim()+'\u001f'+x.cat;
+const localToday=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const match=(arr,it)=>arr.some(x=>k(x)===k(it));
+let seq=1;
+const mk=(name,cat,qty='',unit='',memo='',extra={})=>({id:seq++,name,cat,qty,unit,memo,priority:false,frozen:false,date:'',checked:false,archived:false,...extra});
+let stock=[
+mk('玉ねぎ','野菜・きのこ','','個','',{date:'2026-11-07'}),
+mk('牛乳','卵・乳製品','1','本','',{date:'2026-11-08'}),
+mk('鶏もも肉','精肉・加工肉','','枚','',{date:'2026-11-06',frozen:true}),
+mk('じゃがいも','野菜・きのこ','3','個','',{priority:true,date:'2026-11-02'})
+],wish=[
+mk('牛乳','卵・乳製品','2','本','低脂肪タイプ'),
+mk('卵','卵・乳製品','1','パック','',{checked:true}),
+mk('食品用ラップ','日用品ほか','','','30cm幅'),
+mk('洗剤','日用品ほか','','本','詰め替え希望',{archived:true})
+];
+let mode='stock', target='stock', editing=null, prio=false, frozen=false, selecting={stock:false,wish:false}, selected={stock:new Set(),wish:new Set()}, plusTarget='stock',pending=[], moveList=[], movingOne=false,categoryIndex=-1;
+function fill(sel,cats){sel.replaceChildren(...cats.map(c=>{const opt=document.createElement('option');opt.value=c;opt.textContent=c;return opt}))}
+function activeView(v){mode=v;for(const x of ['stock','wish','plus','coco']){$('view-'+x).hidden=x!==v;$('nav-'+x).classList.toggle('active',x===v)}render();}
+for(const v of ['stock','wish','plus','coco'])$('nav-'+v).onclick=()=>activeView(v);
+function message(str){$('alert-text').textContent=str;if(!$('alert-dialog').open)$('alert-dialog').showModal()}
+$('alert-ok').onclick=$('alert-close').onclick=()=>$('alert-dialog').close();
+function qty(it){return it.qty!==''&&it.qty!=null&&Number(it.qty)!==0?it.qty+(it.unit||''):''}
+function clearSelection(v){selecting[v]=false;selected[v].clear();render()}
+function bar(v){const b=$(v+'-bulk');b.hidden=!selecting[v];$(v+'-count').textContent=selected[v].size+'件選択中';$(v+'-select').textContent=selecting[v]?'選択解除':'選択'}
+function toggleSelect(v,id){const s=selected[v];s.has(id)?s.delete(id):s.add(id);render()}
+function listRender(v){const a=v==='stock'?stock:wish,root=$(v+'-list');root.replaceChildren();const cats=v==='stock'?food:wCats;
+for(const cat of cats){let group=a.filter(x=>x.cat===cat&&!x.archived);if(!group.length)continue;if(v==='wish')group=[...group].sort((x,y)=>Number(x.checked)-Number(y.checked));
+const wrap=document.createElement('section'),band=document.createElement('div');band.className='band';band.innerHTML='<span>'+esc(cat)+'</span><small>'+(v==='wish'?group.filter(x=>!x.checked).length+'/'+group.length:group.length)+'件</small>';wrap.append(band);
+const box=document.createElement('div');box.className='items';
+for(const it of group){const row=document.createElement('div');row.className='item';
+const tick=selecting[v]?'<input type="checkbox" class="pick" data-pick="'+it.id+'" '+(selected[v].has(it.id)?'checked':'')+' aria-label="選択">':'';
+if(v==='stock'){row.innerHTML=tick+'<button class="icon '+(it.priority?'on':'')+'" data-icon="'+it.id+'" data-field="priority" '+(selecting[v]?'disabled':'')+'>💫</button><button class="icon '+(it.frozen?'on':'')+'" data-icon="'+it.id+'" data-field="frozen" '+(selecting[v]?'disabled':'')+'>❄️</button><span class="name">'+esc(it.name)+'</span><span class="qty">'+esc(qty(it))+'</span><button class="dots" data-edit="'+it.id+'" '+(selecting[v]?'disabled':'')+'>⋮</button>'}
+else{row.innerHTML=tick+'<button class="circle '+(it.checked?'checked':'')+'" data-check="'+it.id+'" '+(selecting[v]?'disabled':'')+'>'+(it.checked?'✓':'○')+'</button><span class="name '+(it.checked?'checkedName':'')+'">'+esc(it.name)+(it.memo?'<small>'+esc(it.memo)+'</small>':'')+'</span><span class="qty">'+esc(qty(it))+'</span><button class="dots" data-edit="'+it.id+'" '+(selecting[v]?'disabled':'')+'>⋮</button>'}
+box.append(row)}wrap.append(box);root.append(wrap)}
+if(v==='wish'){const archived=wish.filter(x=>x.archived),wrap=document.createElement('div');wrap.className='archline';wrap.innerHTML='<button type="button" id="arch-toggle">アーカイブ '+archived.length+'件 ▾</button><div id="arch-body" hidden></div>';root.append(wrap);wrap.querySelector('#arch-toggle').onclick=()=>{const body=wrap.querySelector('#arch-body');body.hidden=!body.hidden};for(const it of archived){const item=document.createElement('div');item.className='item';item.innerHTML='<span class="name" style="color:#9ba89e">'+esc(it.name)+'</span><button class="dots" data-edit="'+it.id+'">⋮</button>';wrap.querySelector('#arch-body').append(item)}}
+if(!a.filter(x=>!x.archived).length){const empty=document.createElement('p');empty.className='note';empty.textContent='登録済みの品目はありません。';root.prepend(empty)}
+root.querySelectorAll('[data-pick]').forEach(el=>el.onchange=()=>toggleSelect(v,Number(el.dataset.pick)));
+root.querySelectorAll('[data-check]').forEach(el=>el.onclick=()=>{const it=wish.find(x=>x.id===Number(el.dataset.check));it.checked=!it.checked;render()});
+root.querySelectorAll('[data-icon]').forEach(el=>el.onclick=()=>{const it=stock.find(x=>x.id===Number(el.dataset.icon));it[el.dataset.field]=!it[el.dataset.field];render()});
+root.querySelectorAll('[data-edit]').forEach(el=>el.onclick=()=>form(v,Number(el.dataset.edit)));
+bar(v);
+}
+function render(){listRender('stock');listRender('wish');renderPending()}
+$('stock-select').onclick=()=>{selecting.stock=!selecting.stock;selected.stock.clear();render()};
+$('wish-select').onclick=()=>{selecting.wish=!selecting.wish;selected.wish.clear();render()};
+$('stock-cancel').onclick=()=>clearSelection('stock');$('wish-cancel').onclick=()=>clearSelection('wish');
+function sw(){$('add-priority').textContent='💫 '+(prio?'ON':'OFF');$('add-priority').classList.toggle('on',prio);$('add-frozen').textContent='❄️ '+(frozen?'ON':'OFF');$('add-frozen').classList.toggle('on',frozen)}
+$('add-priority').onclick=()=>{prio=!prio;sw()};$('add-frozen').onclick=()=>{frozen=!frozen;sw()};
+function form(v,id=null){target=v;editing=id;const old=(v==='stock'?stock:wish).find(x=>x.id===id);prio=old?!!old.priority:false;frozen=old?!!old.frozen:false;sw();
+$('add-title').textContent=(v==='stock'?'ストックリスト':'マイウィッシュ')+(old?'を編集':'に1品追加');
+$('add-name').value=old?.name||'';$('add-qty').value=old?.qty||'';$('add-unit').value=old?.unit||'';$('add-memo').value=old?.memo||'';
+fill($('add-cat'),v==='stock'?food:wCats);$('add-cat').value=old?.cat||'カテゴリ未定';
+$('add-date').value=old?.date||localToday();$('stock-toggles').hidden=v!=='stock';$('date-field').hidden=v!=='stock';
+$('add-confirm').textContent=old?'変更':'登録';$('add-move').hidden=!old||(v==='wish'&&(old.archived||old.cat==='日用品ほか'));
+$('add-move').textContent=v==='stock'?'マイウィッシュへ移動':'ストックリストへ移動';
+$('add-delete').hidden=!old;$('add-archive').hidden=!old||v!=='wish';$('add-archive').textContent=old?.archived?'アーカイブ解除':'アーカイブ';
+$('add-error').textContent='';$('add-dialog').showModal();$('add-name').focus();
+}
+$('stock-add').onclick=()=>form('stock');$('wish-add').onclick=()=>form('wish');
+$('add-close').onclick=$('add-cancel').onclick=()=>$('add-dialog').close();
+function applyForm(){const a=target==='stock'?stock:wish;const old=a.find(x=>x.id===editing);
+const name=$('add-name').value.trim(),cat=$('add-cat').value,qty=$('add-qty').value.trim(),unit=$('add-unit').value.trim(),memo=$('add-memo').value.trim();
+if(!name){$('add-error').textContent='品名を入力してください。';return}
+if(qty&&!/^\d+(?:\.\d+)?$/.test(qty)){$('add-error').textContent='数量は0以上の数字、または空欄で入力してください。';return}
+if(a.some(x=>x.id!==editing&&k(x)===k({name,cat}))){if(target==='stock'){$('add-error').textContent='登録済みです。品名またはカテゴリを変更して下さい。';return}
+if(!old){const prev=a.find(x=>k(x)===k({name,cat}));prev.checked=false;$('add-dialog').close();render();$(target+'-status').textContent='すでに登録済みのため、買い物チェックをOFFにしました。';return}
+$('add-error').textContent='同じ品名・カテゴリの品目が登録済みです。';return}
+const val={name,cat,qty,unit,memo,priority:prio,frozen,date:target==='stock'?$('add-date').value:'',checked:old?.checked||false,archived:old?.archived||false};
+if(old)Object.assign(old,val);else a.unshift(mk(name,cat,qty,unit,memo,val));
+$('add-dialog').close();render();$(target+'-status').textContent='「'+name+'」を'+(old?'変更':'追加')+'しました（サンプル内だけ）。';
+}
+$('add-confirm').onclick=applyForm;
+$('add-delete').onclick=()=>{const a=target==='stock'?stock:wish,old=a.find(x=>x.id===editing);if(!old)return;if(!confirm('「'+old.name+'」を削除しますか？'))return;a.splice(a.indexOf(old),1);$('add-dialog').close();render()};
+$('add-archive').onclick=()=>{const it=wish.find(x=>x.id===editing);if(!it)return;it.archived=!it.archived;$('add-dialog').close();render()};
+$('add-move').onclick=()=>{const it=(target==='stock'?stock:wish).find(x=>x.id===editing);if(!it)return;$('add-dialog').close();target==='stock'?moveToWish([it.id]):startMove([it.id])};
+function moveToWish(ids){let moved=0;for(const id of ids){const x=stock.find(it=>it.id===id);if(!x)continue;const old=wish.find(it=>k(it)===k(x));if(old){old.qty='';old.checked=false;if(old.archived)old.archived=false;}else wish.unshift(mk(x.name,x.cat,'',x.unit,x.memo,{checked:false}));stock=stock.filter(it=>it.id!==id);moved++}clearSelection('stock');render();$('stock-status').textContent=moved+'件をマイウィッシュへ移動しました（数量は未指定）。';}
+$('stock-bulk-move').onclick=()=>{if(!selected.stock.size){message('移動する品目を選んでください。');return}moveToWish([...selected.stock])};
+let moveAnnounced=false;
+const duplicateAdvice='ストックリストに登録済みのものは、移動できません。\n確認リストから除外するか、品名またはカテゴリを変更して下さい。';
+function startMove(ids){moveList=ids.map(id=>wish.find(it=>it.id===id)).filter(x=>x&&!x.archived&&x.cat!=='日用品ほか').map(x=>({...x,originId:x.id,qty:'',priority:false,frozen:false,date:localToday(),excluded:false}));
+if(!moveList.length){message('移動可能な品目がありません。日用品・アーカイブ中は移動できません。');return}
+$('move-dialog').showModal();drawMove();if(moveList.some(x=>match(stock,x)))message(duplicateAdvice)}
+$('wish-bulk-move').onclick=()=>{if(!selected.wish.size){message('移動する品目を選んでください。');return}const ids=[...selected.wish];const excluded=ids.filter(id=>{const it=wish.find(x=>x.id===id);return !it||it.cat==='日用品ほか'||it.archived}).length;if(excluded){if(!confirm(ids.length-excluded+'件が移動可能、'+excluded+'件は日用品などのため対象外です。移動可能な品目を確認しますか？'))return}startMove(ids)};
+$('move-close').onclick=$('move-cancel').onclick=()=>$('move-dialog').close();
+function isDup(x,i){return match(stock,x)||moveList.some((y,j)=>j!==i&&!y.excluded&&k(y)===k(x))}
+function drawMove(){const root=$('move-rows');root.replaceChildren();moveList.forEach((x,i)=>{if(x.excluded)return;const dup=isDup(x,i);const div=document.createElement('div');div.className='moveItem'+(dup?' invalid':'');div.innerHTML='<div class="topline"><input data-mname="'+i+'" value="'+esc(x.name)+'" aria-label="品名"><button type="button" class="remove" data-mremove="'+i+'" aria-label="今回の移動から除外">×</button></div>'+(dup?'<div class="reg">登録済み：品名かカテゴリを変更すると移動できます</div>':'')+
+'<div class="moveFields"><label>カテゴリ<button type="button" data-mcat="'+i+'">'+esc(x.cat)+' ▾</button></label><label>数量<input inputmode="decimal" data-mqty="'+i+'" value="'+esc(x.qty)+'" placeholder="未指定"></label><label>単位<input data-munit="'+i+'" value="'+esc(x.unit)+'"></label></div>'+
+'<div class="moveOptions"><button data-mpriority="'+i+'" class="'+(x.priority?'on':'')+'">💫 '+(x.priority?'ON':'OFF')+'</button><button data-mfrozen="'+i+'" class="'+(x.frozen?'on':'')+'">❄️ '+(x.frozen?'ON':'OFF')+'</button><label class="note" style="margin-left:auto">ストック日<input type="date" data-mdate="'+i+'" value="'+esc(x.date)+'" style="width:125px;max-width:100%;display:block;border:1px solid #ccdacc;border-radius:5px"></label></div>';root.append(div)});
+root.querySelectorAll('[data-mname]').forEach(e=>e.oninput=()=>{moveList[+e.dataset.mname].name=e.value;refreshDuplicates()});
+root.querySelectorAll('[data-mqty]').forEach(e=>e.oninput=()=>moveList[+e.dataset.mqty].qty=e.value);
+root.querySelectorAll('[data-munit]').forEach(e=>e.oninput=()=>moveList[+e.dataset.munit].unit=e.value);
+root.querySelectorAll('[data-mdate]').forEach(e=>e.onchange=()=>moveList[+e.dataset.mdate].date=e.value);
+root.querySelectorAll('[data-mpriority]').forEach(e=>e.onclick=()=>{const x=moveList[+e.dataset.mpriority];x.priority=!x.priority;drawMove()});
+root.querySelectorAll('[data-mfrozen]').forEach(e=>e.onclick=()=>{const x=moveList[+e.dataset.mfrozen];x.frozen=!x.frozen;drawMove()});
+root.querySelectorAll('[data-mremove]').forEach(e=>e.onclick=()=>{moveList[+e.dataset.mremove].excluded=true;drawMove()});
+root.querySelectorAll('[data-mcat]').forEach(e=>e.onclick=()=>{categoryIndex=+e.dataset.mcat;fill($('category-value'),food);$('category-value').value=moveList[categoryIndex].cat;$('category-dialog').showModal()});
+$('move-summary').textContent='移動可能 '+moveList.filter((x,i)=>!x.excluded&&x.name.trim()&&!isDup(x,i)).length+'件／重複などで移動不可 '+moveList.filter((x,i)=>!x.excluded&&isDup(x,i)).length+'件';
+}
+function refreshDuplicates(){const inputs=[...$('move-rows').querySelectorAll('[data-mname]')];inputs.forEach(e=>{const i=+e.dataset.mname,x=moveList[i],dup=isDup(x,i);const box=e.closest('.moveItem');box.classList.toggle('invalid',dup);let note=box.querySelector('.reg');if(dup&&!note){note=document.createElement('div');note.className='reg';note.textContent='登録済み：品名かカテゴリを変更すると移動できます';box.querySelector('.topline').after(note)}if(!dup&&note)note.remove()});$('move-summary').textContent='移動可能 '+moveList.filter((x,i)=>!x.excluded&&x.name.trim()&&!isDup(x,i)).length+'件';}
+$('category-close').onclick=()=>$('category-dialog').close();
+$('category-set').onclick=()=>{moveList[categoryIndex].cat=$('category-value').value;$('category-dialog').close();drawMove()};
+$('move-commit').onclick=()=>{const eligible=moveList.filter((x,i)=>!x.excluded&&x.name.trim()&&!isDup(x,i)&&(!x.qty||(/^\d+(?:\.\d+)?$/.test(x.qty))));
+const moved=[];for(const x of eligible){if(match(stock,x))continue;stock.unshift(mk(x.name.trim(),x.cat,x.qty,x.unit,x.memo,{priority:x.priority,frozen:x.frozen,date:x.date}));moved.push(x.originId)}
+wish=wish.filter(x=>!moved.includes(x.id));const blocked=moveList.filter(x=>!x.excluded).length-moved.length;$('move-dialog').close();clearSelection('wish');render();$('wish-status').textContent=moved.length+'件をストックへ移動しました。'+(blocked?blocked+'件は移動できず、マイウィッシュに残しました。':'')};
+function setPlusTarget(v){plusTarget=v;$('plus-to-stock').classList.toggle('active',v==='stock');$('plus-to-wish').classList.toggle('active',v==='wish');pending=[];renderPending()}
+$('plus-to-stock').onclick=()=>setPlusTarget('stock');$('plus-to-wish').onclick=()=>setPlusTarget('wish');
+function parsePart(s){const t=s.trim();if(!t)return null;const m=t.match(/^(.*?)\s*(\d+(?:\.\d+)?)\s*(パック|ケース|ボトル|kg|ml|本|個|枚|束|缶|箱|袋|玉|丁|g|L)$/);const name=(m?m[1]:t).trim();if(!name)return null;const cat=name.includes('牛乳')||name==='卵'?'卵・乳製品':name.includes('肉')?'精肉・加工肉':name.includes('洗剤')?'日用品ほか':name.includes('玉ねぎ')||name.includes('かぼちゃ')||name.includes('じゃがいも')?'野菜・きのこ':'カテゴリ未定';return {name,cat,qty:m?m[2]:'',unit:m?m[3]:'',memo:'',priority:false,frozen:false,date:localToday()}}
+$('plus-parse').onclick=()=>{pending=$('plus-text').value.split(/[、,\r\n]+/).map(parsePart).filter(Boolean);renderPending();$('plus-status').textContent=pending.length+'件を確認リストに表示しました。';if(plusTarget==='stock'&&pending.some(x=>match(stock,x)))message(duplicateAdvice)};
+function renderPending(){const root=$('plus-preview');root.replaceChildren();if(!pending.length){root.innerHTML='<p class="small">「アイテムを確認」で複数品目を表示します。</p>';return}
+pending.forEach((x,i)=>{const dup=plusTarget==='stock'&&match(stock,x);const row=document.createElement('div');row.className='previewrow';row.innerHTML='<div><input aria-label="品名" data-pname="'+i+'" value="'+esc(x.name)+'">'+(dup?'<div class="reg">登録済み</div>':'')+'</div><select aria-label="カテゴリ" data-pcat="'+i+'">'+(plusTarget==='stock'?food:wCats).map(cat=>'<option value="'+esc(cat)+'" '+(x.cat===cat?'selected':'')+'>'+esc(cat)+'</option>').join('')+'</select><button data-prem="'+i+'">×</button>';root.append(row)});
+root.querySelectorAll('[data-pname]').forEach(el=>el.oninput=()=>{pending[+el.dataset.pname].name=el.value});
+root.querySelectorAll('[data-pcat]').forEach(el=>el.onchange=()=>{pending[+el.dataset.pcat].cat=el.value;renderPending()});
+root.querySelectorAll('[data-prem]').forEach(el=>el.onclick=()=>{pending.splice(+el.dataset.prem,1);renderPending()});
+}
+$('plus-save').onclick=()=>{if(!pending.length){$('plus-status').textContent='追加する品目がありません。';return}
+const dest=plusTarget==='stock'?stock:wish, seen=new Set(dest.map(k)),remain=[];let count=0,dupes=0;
+for(const x of pending){x.name=x.name.trim();if(!x.name){remain.push(x);continue}
+if(seen.has(k(x))){if(plusTarget==='wish'){const old=wish.find(y=>k(y)===k(x));if(old){old.checked=false;count++}else remain.push(x)}else{remain.push(x);dupes++}continue}
+if(plusTarget==='stock'&&x.cat==='日用品ほか'){remain.push(x);continue}
+dest.unshift(mk(x.name,x.cat,x.qty,x.unit,x.memo,{date:plusTarget==='stock'?x.date:'',priority:x.priority,frozen:x.frozen}));seen.add(k(x));count++}
+pending=remain;render();$('plus-status').textContent=count+'件を登録しました。'+(dupes?dupes+'件は登録済みのため保留しました。':'')+'（模擬）';if(count)viewAfterPlus();}
+function viewAfterPlus(){/* 登録後も入力・確認リストの位置を維持する */}
+render();activeView('stock');
+})();
+</script></body></html>
