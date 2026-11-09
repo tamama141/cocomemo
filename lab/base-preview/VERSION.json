@@ -2,7 +2,7 @@
   "id": "DEV-COCOMEMO-UI-20261102-001",
   "ui_base_commit": "1f38fc3f4e5eba3e9bb938abe71a8acd8671b85a",
   "publication_base_commit": "4e25093c5571056bd024612e7190f35aa0fd8162",
-  "branch": "dev/cocomemo-ui-20261102-001",
+  "branch": "dev/cocomemo-pantrymo-ui8-20261110-001",
   "mode": "fictional-memory-only; reload resets",
   "runtime": [
     "index.html",
@@ -16,8 +16,15 @@
     "ui.js",
     "ui.css",
     "pantry.js",
-    "pantry.css"
+    "pantry.css",
+    "ui8.js",
+    "ui8.css"
   ],
-  "revision": "DEV-PANTRYMO-UI-20261104-002",
-  "revision_base_commit": "0f0c9e28a33344f1006f9b88522f568ba2643484"
+  "revision": "DEV-COCOMEMO-PANTRYMO-UI8-20261110-001",
+  "revision_base_commit": "6fb05ac453d0eddfeea7d575753fae8dac37a39f",
+  "pantry_initial_items": {
+    "stock": 0,
+    "wish": 0,
+    "review": 0
+  }
 }

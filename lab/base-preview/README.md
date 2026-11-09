@@ -12,7 +12,7 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Open http://127.0.0.1:8765/ . The title is `CocoMemo｜画面仕様反映・確認用版`.
 
-The runtime consists of `index.html`, `original-core.js`, `fixtures.js`, `memory.js`, `adopted.js`, `adopted.css`, `lab.js`, `lab.css`, `ui.js`, `ui.css`, `pantry.js`, and `pantry.css`. Serve these files together. `tests/` and version/hash documents are not needed for the runtime. The existing root app is separate; do not replace its files with this directory.
+The runtime consists of `index.html`, `original-core.js`, `fixtures.js`, `memory.js`, `adopted.js`, `adopted.css`, `lab.js`, `lab.css`, `ui.js`, `ui.css`, `pantry.js`, `pantry.css`, `ui8.js`, and `ui8.css`. Serve these files together. `tests/` and version/hash documents are not needed for the runtime. The existing root app is separate; do not replace its files with this directory.
 
 The inherited brand images remain embedded in the original runtime source. No new app PNGs are included. The application has four main menu entries and includes the fictional-memory Pantrymo food, shopping, registration review and two-way transfer UI.
 
@@ -37,3 +37,36 @@ Real offline copies, authentication/UID isolation, synchronization, migration, J
 ## Pantrymo targeted development check
 
 Run `node tests/pantry20261104.cjs` with the same environment variables above and `PREVIEW_URL` pointing at this preview (default port 8775 for this check). It checks changed food/shopping flows, transfer failures and retries, and adjacent shared navigation. Transfers retain committed destination IDs so a failed source deletion retries without duplicate registration. Legacy hidden records are retained without conversion. Real persistence and synchronization remain unconnected.
+
+## Combined UI8 revision
+
+Revision `DEV-COCOMEMO-PANTRYMO-UI8-20261110-001` starts from fixed app
+`6fb05ac453d0eddfeea7d575753fae8dac37a39f` on dedicated branch
+`dev/cocomemo-pantrymo-ui8-20261110-001`. The root app and publication routes
+are separate. This branch is a handoff only and does not deploy either app.
+
+Both apps share the compact header, protected embedded PNGs, selection-only
+rows and memory-only controls. CocoMemo keeps its five fictional recipes.
+Pantrymo starts with zero stock, wish and review items. Add items during the
+session to try single forms, multi-item review, quantity panels, categories,
+archive and two-way transfers. Reload resets all session changes.
+
+Wish-to-stock and Plus-to-stock never overwrite an existing name/category
+pair. Blocked inputs remain available. Destination saves precede source
+deletions; a failed deletion retries only that deletion. Stock-to-wish
+unarchives a matching wish, blanks quantity, clears its shopping check, and
+preserves its existing unit/category/memo. No browser Storage is read or erased.
+
+For this revision run only the targeted development check with a local server:
+
+```sh
+PREVIEW_URL=http://127.0.0.1:8765/ node tests/ui8.cjs
+```
+
+Set `PLAYWRIGHT_MODULE` and `CHROMIUM_PATH` if required by your installation.
+The test defaults to port 8781; `ARTIFACT_DIR` selects an external output folder.
+Earlier tests remain as historical checks for earlier interfaces and are not
+an instruction to repeat the full earlier suite against renamed UI8 controls.
+Chromium viewport/Silk-UA checks are not Android, iPad, Safari or Echo real-device
+approval. Real save/sync, authentication, independent QA and deployment are not
+part of this revision. H01/old R2 recipe-date overflow and UI7-16 remain held.
