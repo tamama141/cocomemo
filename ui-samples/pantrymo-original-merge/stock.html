@@ -236,7 +236,7 @@ function setupStockDrag(){
         if(e.type==='pointercancel'){render();return}
         const ids=[...source.parentElement.children].filter(el=>el.classList.contains('food')).map(el=>Number(el.dataset.id));
         const byId=new Map(pantryData.map(item=>[item.id,item]));let j=0;
-        for(let i=0;i<pantryData.length;i++)if(pantryData[i].cat===cat)pantryData[i]=byId.get(ids[j++])||pantryData[i];
+        for(let i=0;i<pantryData.length;i++)if(pantryData[i].cat===cat&&ids.includes(pantryData[i].id))pantryData[i]=byId.get(ids[j++])||pantryData[i];
         expanded.add(cat);render();notifyStock();
         e.preventDefault();e.stopPropagation();
       };
