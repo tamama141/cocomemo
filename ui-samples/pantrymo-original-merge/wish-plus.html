@@ -340,6 +340,81 @@ dialog#wishBulkDialog{width:min(510px,calc(100vw - 30px));border-radius:17px;pad
 #rows .item-row .qty-editor,#wishRows .wish-entry .wish-quantity-editor.qty-editor{box-sizing:border-box!important;display:grid!important;grid-template-columns:44px 59px minmax(0,1fr) 44px!important;justify-content:initial!important;align-items:center!important;column-gap:5px!important;width:228px!important;min-width:228px!important;max-width:228px!important;height:39px!important;min-height:39px!important;padding:3px 5px!important;left:auto!important;right:18px!important}#rows .item-row .qty-editor button,#wishRows .wish-entry .wish-quantity-editor.qty-editor button{width:44px!important;min-width:44px!important;max-width:44px!important;height:31px!important;min-height:31px!important}#rows .item-row .qty-editor input,#wishRows .wish-entry .wish-quantity-editor.qty-editor input{box-sizing:border-box!important;width:59px!important;min-width:59px!important;height:31px!important}#rows .item-row .qty-editor .qty-unit,#wishRows .wish-entry .wish-quantity-editor.qty-editor .qty-unit{width:100%!important;min-width:0!important;max-width:none!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#rows .item-name{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;align-self:center;cursor:default}#wishRows [data-wish-edit]{cursor:default}
 /* Final unified stock-style quantity controls (Stock list is the visual baseline). */
 #rows .item-row .qty-editor,#wishRows .wish-entry .wish-quantity-editor.qty-editor{box-sizing:border-box!important;display:grid!important;grid-template-columns:44px 59px minmax(0,1fr) 44px!important;align-items:center!important;justify-content:initial!important;gap:5px!important;width:228px!important;min-width:228px!important;max-width:228px!important;height:39px!important;min-height:39px!important;padding:3px 5px!important;background:#fff!important;border:1px solid #a6cbb0!important;border-radius:9px!important;box-shadow:0 3px 9px #203c302a!important;font-size:12px!important;color:#104d32!important;white-space:nowrap}#rows .item-row .qty-editor button,#wishRows .wish-entry .wish-quantity-editor.qty-editor button{box-sizing:border-box!important;width:44px!important;min-width:44px!important;max-width:44px!important;height:31px!important;min-height:31px!important;padding:0!important;font-size:20px!important;font-weight:700!important;line-height:1!important;border:1px solid #afc9b5!important;border-radius:6px!important;background:#e4f1e5!important;color:#104d32!important}#rows .item-row .qty-editor input,#wishRows .wish-entry .wish-quantity-editor.qty-editor input{box-sizing:border-box!important;width:59px!important;min-width:59px!important;max-width:59px!important;height:31px!important;padding:2px!important;border:1px solid #c7d9ca!important;border-radius:5px!important;background:#fff!important;text-align:center!important;font-size:13px!important;font-weight:400!important;color:#2e4032!important;outline-offset:1px}#rows .item-row .qty-editor .qty-unit,#wishRows .wish-entry .wish-quantity-editor.qty-editor .qty-unit{box-sizing:border-box!important;min-width:0!important;width:100%!important;max-width:none!important;text-align:center!important;font-size:12px!important;font-weight:400!important;line-height:1.2!important;color:#104d32!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}#plusView #itemsText::placeholder{color:#9fa6a0!important;opacity:1!important}
+/* UI7 unified dialogs and orange-yellow selection bar.
+   Presentation only: retain existing DOM actions and data behavior. */
+#detailDialog,#wishEditDialog,#wishBulkDialog,#wishConfirmDialog,#wishCategoryDialog,#categoryPickerDialog,#wishMoveDialog,#datePickerDialog,#dateOptionDialog,#deleteDialog{
+ box-sizing:border-box!important;width:min(570px,calc(100vw - 22px))!important;max-width:calc(100vw - 22px)!important;border:0!important;
+ border-radius:14px!important;background:#fff!important;color:#304038!important;
+ box-shadow:0 20px 60px #17332255!important;padding:0!important;
+ overflow:auto!important;max-height:calc(var(--visible-height,700px) - 22px)!important;
+}
+dialog::backdrop{background:#162a2070!important}
+#detailDialog .modal-head,#wishEditDialog .modal-head,#wishBulkDialog .modal-head,
+#wishConfirmDialog .modal-head,#wishCategoryDialog .modal-head,#categoryPickerDialog .modal-head,
+#wishMoveDialog .modal-head,#datePickerDialog .modal-head,#dateOptionDialog .modal-head,#deleteDialog .modal-head{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+ gap:10px!important;background:#fff!important;border-bottom:1px solid #deeadf!important;
+ padding:14px 17px!important;min-height:62px!important;color:#104d32!important;
+ font-size:17px!important;font-weight:800!important;
+}
+#detailDialog .modal-head .close,#wishEditDialog .modal-head .close,#wishBulkDialog .modal-head .close,
+dialog .modal-head .close{font-size:26px!important;color:#718076!important;border:0!important;background:transparent!important;
+ width:38px!important;min-width:38px!important;height:38px!important;padding:0!important}
+#detailDialog .modal-body,#wishEditDialog .modal-body,#wishBulkDialog .modal-body,
+#wishConfirmDialog .modal-body,#wishCategoryDialog .modal-body,#categoryPickerDialog .modal-body,
+#wishMoveDialog .modal-body,#datePickerDialog .modal-body,#dateOptionDialog .modal-body,#deleteDialog .modal-body{
+ padding:15px 16px 19px!important;background:#fff!important;
+}
+#detailDialog .mini-field,#wishEditDialog .mini-field{font-size:12px!important;font-weight:650!important;color:#52715b!important}
+#detailDialog .mini-field input,#wishEditDialog .mini-field input,#detailDialog .mini-field select,
+#detailDialog .cat-trigger,#wishEditDialog .cat-trigger{
+ min-width:0!important;min-height:40px!important;height:40px!important;
+ border:1px solid #c7d7ca!important;border-radius:9px!important;background:#fff!important;
+ color:#304038!important;font-size:14px!important;box-sizing:border-box!important;
+}
+#detailDialog .edit-grid,#wishEditDialog .edit-grid{gap:10px!important}
+#detailDialog .edit-row.one,#wishEditDialog .edit-row.one{grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr) minmax(70px,.72fr)!important;gap:7px!important}
+#detailDialog .edit-row.one .form-counter,#wishEditDialog .edit-row.one .form-counter{width:100%!important;max-width:100%!important}
+#detailDialog .edit-row.one .form-counter input,#wishEditDialog .edit-row.one .form-counter input{min-width:0!important}
+#detailDialog .edit-row.two:not(.wish-mode){display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:8px!important;align-items:end!important}
+#detailDialog .edit-row.two:not(.wish-mode) .edit-switches{display:flex!important;width:auto!important;max-width:100%!important;
+ gap:6px!important;align-items:end!important}
+#detailDialog .edit-row.two:not(.wish-mode) .edit-switches button{flex:0 0 36px!important;width:36px!important;min-width:36px!important;
+ max-width:36px!important;min-height:36px!important;height:36px!important}
+#detailDialog .edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#detailDialog .edit-row.three:not(.wish-mode){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+#detailDialog .edit-row.two .cat-field{grid-column:auto!important}
+#detailDialog .edit-buttons,#wishEditDialog .wish-edit-actions{gap:8px!important;margin-top:14px!important}
+#detailDialog .edit-buttons button,#wishEditDialog .wish-edit-actions button,
+#wishBulkDialog .wish-bulk-commands button{
+ min-height:43px!important;border-radius:9px!important;padding:8px 10px!important;font-size:14px!important;font-weight:700!important;
+}
+#detailDialog #applyModal,#wishEditDialog #wishEditApply,#wishBulkDialog #wishBulkSave{
+ background:#e77b07!important;border:1px solid #e77b07!important;color:white!important;text-decoration:none!important}
+#detailDialog #cancelModal,#wishEditDialog #wishEditArchive,#wishEditDialog #wishEditMove,
+#wishBulkDialog #wishBulkMove{background:#fff5dd!important;border:1px solid #e1d0a9!important;color:#164631!important;text-decoration:none!important}
+#detailDialog #deleteInModal,#wishEditDialog #wishEditDelete,#wishBulkDialog #wishBulkDelete{
+ background:#fff6f5!important;border:1px solid #ead7d3!important;color:#b34c48!important;text-decoration:none!important}
+#wishBulkDialog .wish-bulk-head strong{font-size:17px!important;color:#104d32!important}
+#wishBulkDialog .wish-bulk-caption{font-size:12px!important;color:#728174!important;font-weight:400!important}
+#wishBulkDialog .wish-bulk-state{margin:10px 0!important}
+#wishBulkDialog .wish-bulk-category{background:#fffdfa!important;border-color:#c7d7ca!important;color:#104d32!important}
+#wishBulkDialog .wish-bulk-commands{display:grid!important;gap:8px!important}
+#wishView .wish-batch{
+ box-sizing:border-box!important;position:fixed!important;top:calc(var(--visible-top,0px) + var(--visible-height,700px) - 74px)!important;
+ bottom:auto!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;
+ width:max-content!important;max-width:calc(100% - 20px)!important;margin:0!important;
+ padding:8px 10px!important;display:flex!important;flex-wrap:nowrap!important;gap:8px!important;
+ align-items:center!important;justify-content:center!important;background:#e8a32f!important;
+ color:#273b2a!important;border:1px solid #d78b13!important;border-radius:12px!important;z-index:55!important;
+ box-shadow:0 5px 18px #593b1644!important
+}
+#wishView .wish-batch span{color:#263c2c!important;font-size:13px!important;font-weight:750!important;white-space:nowrap}
+#wishView .wish-batch .btn{border:1px solid #e9d4a9!important;background:#fff9e8!important;color:#17432e!important;
+ border-radius:8px!important;font-size:13px!important;min-height:39px!important;padding:7px 10px!important;white-space:nowrap!important}
+@media(max-width:390px){#wishView .wish-batch{gap:5px!important;padding:7px!important}
+ #wishView .wish-batch .btn{font-size:12px!important;padding:6px 8px!important}
+ #wishView .wish-batch span{font-size:12px!important}}
 </style>
 </head>
 <body>
@@ -359,7 +434,7 @@ dialog#wishBulkDialog{width:min(510px,calc(100vw - 30px));border-radius:17px;pad
 </div>
 <div id="wishView" hidden>
   <section class="card">
-    <div class="wish-top-actions"><button type="button" id="wishSelect" class="wish-link">選択</button><button type="button" id="wish-bridge-add">＋追加</button></div>
+    <div class="wish-top-actions"><button type="button" id="wish-bridge-add">＋追加</button><button type="button" id="wishSelect" class="wish-link">選択</button></div>
     <div id="wishRows" aria-live="polite"></div>
     <div id="wishBatch" class="wish-batch" hidden><span id="wishCount">0件選択中</span><button type="button" class="btn soft" id="wishBatchEdit">編集</button><button type="button" class="btn outline" id="wishSelectCancel">取消</button></div>
     <p id="wishStatus" class="status" role="status"></p>
