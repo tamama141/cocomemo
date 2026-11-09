@@ -451,6 +451,40 @@ dialog::backdrop{background:#162a2070!important}
  color:#fff!important;font-family:Arial,sans-serif!important;font-size:16px!important;
  font-weight:900!important;line-height:1!important
 }
+/* UI7 follow-up: consistent Wish category/memo rows, buttons, flags. */
+#wishEditDialog .edit-row.two.wish-mode,#detailDialog .edit-row.two.wish-mode{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important
+}
+#detailDialog .edit-row.three.wish-mode{
+ display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px!important
+}
+#wishEditDialog .edit-row.two.wish-mode .mini-field,
+#detailDialog .edit-row.two.wish-mode .mini-field,
+#detailDialog .edit-row.three.wish-mode .mini-field{width:100%!important;min-width:0!important}
+#wishEditDialog #wishEditCatButton,
+#detailDialog .edit-row.two.wish-mode #editCatButton,
+#wishEditDialog #wishEditMemo,#detailDialog .edit-row.three.wish-mode #memo{
+ box-sizing:border-box!important;width:100%!important;max-width:100%!important;
+ min-height:40px!important;height:40px!important
+}
+#detailDialog #stockSwitches[hidden]{display:none!important}
+#detailDialog .edit-row.two.wish-mode .cat-field{grid-column:1/-1!important}
+#detailDialog .edit-row.two.wish-mode .cat-picker{width:100%!important}
+#detailDialog .edit-row.two.wish-mode .cat-trigger{width:100%!important}
+#wishBulkDialog .wish-bulk-commands{display:grid!important;justify-items:center!important;gap:8px!important}
+#wishBulkDialog .wish-bulk-commands button{
+ box-sizing:border-box!important;width:min(100%,290px)!important;min-width:0!important;
+ max-width:290px!important;min-height:43px!important;height:auto!important;
+ margin:0 auto!important;padding:10px 12px!important;
+ font-size:14px!important;line-height:1.35!important;text-align:center!important;border-radius:9px!important
+}
+/* Custom SVG checkmark, not dependent on Android's native checkbox glyph. */
+#wishRows .wish-entry input.wish-bulk-check:checked{
+ background-color:#e8870b!important;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.5 8 15l8.8-10' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;
+ background-repeat:no-repeat!important;background-position:center!important;background-size:17px 17px!important;
+}
+#wishRows .wish-entry input.wish-bulk-check:checked::after{content:none!important}
 </style>
 </head>
 <body>
@@ -633,7 +667,7 @@ function openDetail(id){const it=find(id);if(!it)return;editing=id;qtyOpen=-1;re
 const r2=document.querySelector('.edit-row.two'),r3=document.querySelector('.edit-row.three');
 const memoField=$('memo').closest('label');
 r2.classList.toggle('wish-mode',dest==='wish');r3.classList.toggle('wish-mode',dest==='wish');
-if(dest==='wish')r2.append(memoField);else r3.insertBefore(memoField,r3.firstElementChild);
+r3.insertBefore(memoField,r3.firstElementChild);
 $('detailDialog').showModal()}
 function close(id){if($(id).open)$(id).close()}
 $('closeModal').onclick=$('cancelModal').onclick=()=>{close('detailDialog');editing=-1};$('clearDate').onclick=()=>{$('stockDate').value='';dateLabel()};
