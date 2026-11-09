@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#345d4b">
-<title>Pantrymo｜3画面統合・操作比較サンプル v1</title>
+<title>Pantrymo｜3画面統合・操作比較サンプル v2</title>
 <style>
 :root{font:15px system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#303932;background:#f5f7f3}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #477c5a;outline-offset:2px}[hidden]{display:none!important}
 .app{max-width:960px;margin:auto;padding:14px 15px 90px;background:#fbfcfa;min-height:100dvh}header{display:flex;align-items:center;justify-content:space-between;padding:3px 0 14px;border-bottom:1px solid #dbe6df}.brand{font-size:23px;font-weight:850;color:#37644d}.hint{color:#708075;font-size:11px}.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:13px 0 23px}.nav button{border:1px solid #cdded1;border-radius:10px;background:white;color:#4b725d;padding:11px 2px;font-size:clamp(10px,2.85vw,14px);min-width:0}.nav button.active{background:#e2efe7;color:#315f46;border-color:#a8cdb6;font-weight:750}
@@ -9,13 +9,51 @@
 dialog{border:1px solid #ccdcd0;border-radius:14px;padding:0;width:min(calc(100% - 26px),510px);max-height:90dvh;box-shadow:0 12px 45px #0d221b35;color:inherit}dialog::backdrop{background:#13251c70}.dialoghead{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #e3eae4;color:#315f45;font-weight:800}.x{border:0;background:transparent;color:#65776c;font-size:22px}.dialogbody{padding:15px 16px 18px}.field{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:12px;font-weight:650;color:#5e7565}.field input,.field select,.field textarea{background:#fff;border:1px solid #cbd9ce;border-radius:8px;padding:9px 10px;width:100%;min-width:0;color:#2e3c34;font-size:15px}.field textarea{min-height:105px;resize:vertical}.row{display:grid;grid-template-columns:1.6fr .7fr .75fr;gap:9px;margin:10px 0}.row.two{grid-template-columns:1.5fr 1fr}.row.three{grid-template-columns:1.25fr 1fr}.toggles{display:flex;align-items:end;gap:7px}.switch{border:1px solid #d4dfd6;background:#fafcfa;border-radius:9px;padding:10px 9px;min-width:61px;color:#a6aaa8}.switch.on{color:#365f45;background:#eaf3e9;border-color:#a4cbaa}.switch.frozen.on{color:#246dae;background:#e7f4ff;border-color:#9bc1e5}.actions{display:flex;gap:9px;justify-content:flex-end;margin-top:17px}.error{font-size:12px;color:#b44636;min-height:17px;margin-top:9px}.status{font-size:13px;color:#417555;min-height:20px;margin:10px 3px}.plusTarget{display:flex;gap:9px;margin:12px 0}.plusTarget button{flex:1;padding:10px;border-radius:8px;background:white;border:1px solid #cddccd;color:#58745e}.plusTarget button.active{background:#e1f0e5;border-color:#8cb9a0;color:#32674a;font-weight:700}.pending{border-top:1px solid #e6eee6;padding-top:12px}.previewrow{display:grid;grid-template-columns:minmax(0,1fr) 90px 38px;gap:9px;align-items:center;border-bottom:1px solid #eaf0eb;padding:7px 2px}.previewrow input,.previewrow select{width:100%;min-width:0;padding:7px;border:1px solid #d2dfd4;border-radius:6px}.previewrow button{border:0;background:transparent;color:#af635c;font-size:18px}.small{font-size:12px;color:#738177}.listcols{display:grid;grid-template-columns:1fr;gap:0 15px}.badgetext{font-size:11px;color:#bf6846}.note{font-size:12px;color:#66796d}.topbar .right{display:flex;align-items:center;gap:6px}@media(min-width:750px){.listcols{grid-template-columns:1fr 1fr}.card{padding:18px 20px}}@media(max-width:380px){.row{grid-template-columns:1.4fr .65fr .65fr;gap:6px}.field input,.field select{padding:8px 6px}.switch{min-width:50px;padding:8px 4px}.topbar h1{font-size:17px}}
 
 .bulkBar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;background:#345d4b;color:white;border-radius:10px;padding:10px;margin-top:13px}.bulkBar .primary{background:#f8fcf8;color:#345d4b}.bulkBar strong{font-size:13px}.pick{width:20px;height:20px;accent-color:#477d58}.archline{margin:13px 0;padding:9px;border:1px solid #d7e0d7;border-radius:8px;background:#f2f5f2;color:#667a6b;font-size:13px}.archline button{border:0;background:transparent;color:#56715d;text-decoration:underline}.item{position:relative}.item .name small{display:block;font-size:10px;color:#a86448;font-weight:400}.moveItem{border:1px solid #dbe7dd;border-radius:10px;padding:9px;margin:9px 0;background:#fff}.moveItem .topline{display:flex;align-items:center;gap:7px}.moveItem .topline input{flex:1;min-width:0;border:1px solid #d3ded5;border-radius:7px;padding:7px 8px;font-weight:600}.moveItem .topline .remove{background:transparent;border:0;color:#ad716a;font-size:22px}.moveFields{display:grid;grid-template-columns:1fr .62fr .78fr;gap:7px;margin-top:7px;align-items:end}.moveFields label{font-size:11px;color:#627968}.moveFields input,.moveFields button{display:block;width:100%;min-width:0;padding:7px;border:1px solid #cbd9ce;background:white;border-radius:7px;font-size:13px;margin-top:3px}.moveOptions{display:flex;gap:6px;align-items:center;margin-top:8px}.moveOptions button{border:1px solid #d4e0d6;border-radius:7px;background:#f8faf8;padding:6px}.moveOptions button.on{border-color:#93bd9b;background:#e6f2e7}.moveFields .date{font-size:12px}.reg{font-size:11px;color:#b55c45;margin-top:3px}.invalid{border-color:#d79c8b;background:#fff8f5}.previewrow{grid-template-columns:minmax(0,1fr) 115px 28px}.previewrow select{font-size:12px}
+
+/* v2 visual consistency with approved Stock v11 / Wish v14 */
+.app{max-width:980px;padding:12px 16px 115px;background:#fcfdfb}
+header{padding:4px 0 12px}.brand{color:#345d4b;letter-spacing:-.6px}
+.nav{gap:6px;margin:12px 0 15px}.nav button{background:#e7f0e9;border:0;border-radius:9px;color:#345d4b;font-size:clamp(10px,2.9vw,13px);padding:10px 3px;font-weight:650}
+.nav button.active{background:#345d4b;color:#fff;box-shadow:0 1px 4px #203b2b25}
+.card{padding:13px 14px;border-color:#d5e3d7;box-shadow:0 2px 7px #1e482808}
+.topbar{margin-bottom:11px}.topbar h1{font-size:20px}
+.link{font-size:13px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.band{background:#e7f0e9;color:#345d4b;font-size:14px;border-radius:8px;padding:8px 10px;margin-top:8px}
+.item{gap:6px;padding:5px 8px;min-height:42px;white-space:nowrap}
+.item .name{font-size:14px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .name small{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .qty{font-size:12px;min-width:0;color:#4b524b;flex-shrink:0}
+.item .qtyTap{border:0;background:transparent;color:#4b524b;min-width:24px;min-height:30px;font-size:12px;padding:3px}
+.item .qtyTap:hover,.item .qtyTap[aria-expanded="true"]{background:#eaf4ea;border-radius:6px}
+.icon{width:27px;min-width:27px;min-height:30px;padding:2px 0;font-size:16px}
+.circle{flex-shrink:0}
+.item .dateChip{font-size:10px;color:#85867d;flex-shrink:0;white-space:nowrap}
+.item .dots{min-width:27px;padding:3px 0}
+.cat-toggle{width:100%;border:0;background:transparent;color:inherit;text-align:left;font:inherit;display:flex;justify-content:space-between;gap:9px;padding:0}
+.cat-toggle small{font-size:11px;font-weight:500}
+.list-tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin:0 0 12px;align-items:center}
+.list-tools .searchField{height:40px;border:1px solid #d5e3d7;border-radius:9px;background:white;display:flex;align-items:center;padding:0 8px;gap:5px;min-width:0}
+.list-tools .searchField span{font-size:20px;color:#7d9786}
+.list-tools input,.list-tools select{width:100%;min-width:0;height:40px;border:1px solid #d5e3d7;border-radius:9px;background:white;color:#3d443e;font-size:13px;padding:0 9px}
+.list-tools .searchField input{border:0;padding:0;outline-offset:-2px;min-width:0}
+.list-tools #stock-sort{grid-column:1}
+.list-tools #stock-clear{justify-self:end}
+.intro-note{font-size:12px;color:#6b7b70;line-height:1.5;margin:0 0 10px}
+.inlineQuantity{margin:0 8px 7px 8px;padding:9px 12px;background:#fff;border:1px solid #9abda3;border-radius:9px;display:flex;align-items:center;gap:8px}
+.inlineQuantity .adjust{border:1px solid #c7ddca;border-radius:8px;background:#e7f0e9;color:#345d4b;min-width:34px;height:34px;font-weight:800;font-size:18px}
+.inlineQuantity input{width:76px;min-width:0;border:1px solid #cbdccb;border-radius:7px;padding:7px;text-align:center}
+.inlineQuantity .unitLabel{font-size:12px;color:#617869;flex:1;min-width:0;overflow:hidden}
+.inlineQuantity .smallClose{border:0;background:transparent;color:#587665}
+#view-plus .plusTarget button.active{background:#527b60;color:white}
+@media(min-width:750px){.listcols{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}.card{padding:16px 20px}}
+@media(max-width:400px){.app{padding-inline:12px}.item .dateChip{font-size:9px}.item{gap:4px;padding:5px}.icon{width:24px;min-width:24px}.hint{font-size:10px}}
 </style></head>
 <body><main class="app">
-<header><span class="brand">Pantrymo</span><span class="hint">3画面統合・操作サンプル v1</span></header>
+<header><span class="brand">Pantrymo</span><span class="hint">3画面統合・操作サンプル v2</span></header>
 <nav class="nav"><button type="button" id="nav-stock" class="active">ストックリスト</button><button type="button" id="nav-wish">マイウィッシュ</button><button type="button" id="nav-plus">アイテムプラス</button><button type="button" id="nav-coco">CocoMemo</button></nav>
-<section id="view-stock"><div class="card"><div class="topbar"><h1>ストックリスト</h1><div class="right"><button type="button" class="link" id="stock-add">＋ 追加</button><button type="button" class="link" id="stock-select">選択</button></div></div><div class="help">家にある食材をココさんに伝えるリスト。数量は任意。1品追加・編集・マイウィッシュへの移動を試せます。</div><div id="stock-list" class="listcols"></div><div id="stock-bulk" class="bulkBar" hidden><strong id="stock-count">0件選択中</strong><button type="button" class="primary" id="stock-bulk-move">マイウィッシュへ移動</button><button type="button" class="secondary" id="stock-cancel">取消</button></div><div id="stock-status" class="status" role="status"></div></div></section>
-<section id="view-wish" hidden><div class="card"><div class="topbar"><h1>マイウィッシュ</h1><div class="right"><button type="button" class="link" id="wish-add">＋ 追加</button><button type="button" class="link" id="wish-select">選択</button></div></div><div class="help">その場で1品追加。○／✓は買い物チェック、右上の「選択」はまとめて移動するための操作です。</div><div id="wish-list" class="listcols"></div><div id="wish-bulk" class="bulkBar" hidden><strong id="wish-count">0件選択中</strong><button type="button" class="primary" id="wish-bulk-move">ストックへ移動</button><button type="button" class="secondary" id="wish-cancel">取消</button></div><div id="wish-status" class="status" role="status"></div></div></section>
-<section id="view-plus" hidden><div class="card"><div class="topbar"><h1>アイテムプラス</h1></div><label class="field">追加先</label><div class="plusTarget"><button id="plus-to-stock" type="button" class="active">ストックリスト</button><button id="plus-to-wish" type="button">マイウィッシュ</button></div><label class="field">複数のアイテムを入力<textarea id="plus-text" placeholder="例：かぼちゃ1個、玉ねぎ3個&#10;牛乳1本"></textarea></label><p class="small">区切りは「、」「,」または改行。「と」は区切りません。</p><div class="toolbar"><button id="plus-parse" class="primary" type="button">アイテムを確認</button></div></div><div class="card"><div class="topbar"><h1>確認リスト</h1></div><div id="plus-preview"></div><div class="toolbar"><button id="plus-save" class="primary" type="button">追加を確定</button></div><div id="plus-status" class="status" role="status"></div></div><p class="notice">複数入力と共通リストへの登録が試せる簡易版です。採用済みアイテムプラスv9の詳細なレイアウト・入力機能は、統合後の調整対象として保持しています。</p></section>
+<section id="view-stock"><div class="card"><div class="topbar"><h1>ストックリスト</h1><div class="right"><button type="button" class="link" id="stock-add">＋ 追加</button><button type="button" class="link" id="stock-select">選択</button></div></div><div class="list-tools"><label class="searchField"><span aria-hidden="true">⌕</span><input id="stock-search" type="search" placeholder="食材名で探す" aria-label="食材名で探す"></label><select id="stock-filter" aria-label="カテゴリで絞り込む"><option value="">すべてのカテゴリ</option></select><select id="stock-sort" aria-label="並び替え"><option value="custom">並び替え：カスタム</option><option value="name">名前順</option><option value="date">ストック日が新しい順</option></select><button type="button" class="link" id="stock-clear">クリア</button></div><div id="stock-list" class="listcols"></div><div id="stock-bulk" class="bulkBar" hidden><strong id="stock-count">0件選択中</strong><button type="button" class="primary" id="stock-bulk-move">マイウィッシュへ移動</button><button type="button" class="secondary" id="stock-cancel">取消</button></div><div id="stock-status" class="status" role="status"></div></div></section>
+<section id="view-wish" hidden><div class="card"><div class="topbar"><h1>マイウィッシュ</h1><div class="right"><button type="button" class="link" id="wish-add">＋ 追加</button><button type="button" class="link" id="wish-select">選択</button></div></div><p class="intro-note">○／✓は買い物チェック。「＋追加」で1品登録できます。</p><div id="wish-list" class="listcols"></div><div id="wish-bulk" class="bulkBar" hidden><strong id="wish-count">0件選択中</strong><button type="button" class="primary" id="wish-bulk-move">ストックへ移動</button><button type="button" class="secondary" id="wish-cancel">取消</button></div><div id="wish-status" class="status" role="status"></div></div></section>
+<section id="view-plus" hidden><div class="card"><div class="topbar"><h1>アイテムプラス</h1></div><p class="intro-note">複数のアイテムをまとめて入力・確認できます。</p><label class="field">追加先</label><div class="plusTarget"><button id="plus-to-stock" type="button" class="active">ストックリスト</button><button id="plus-to-wish" type="button">マイウィッシュ</button></div><label class="field">複数のアイテムを入力<textarea id="plus-text" placeholder="例：かぼちゃ1個、玉ねぎ3個&#10;牛乳1本"></textarea></label><p class="small">区切りは「、」「,」または改行。「と」は区切りません。</p><div class="toolbar"><button id="plus-parse" class="primary" type="button">アイテムを確認</button></div></div><div class="card"><div class="topbar"><h1>確認リスト</h1></div><div id="plus-preview"></div><div class="toolbar"><button id="plus-save" class="primary" type="button">追加を確定</button></div><div id="plus-status" class="status" role="status"></div></div><p class="notice">複数入力と共通リストへの登録が試せる簡易版です。採用済みアイテムプラスv9の詳細なレイアウト・入力機能は、統合後の調整対象として保持しています。</p></section>
 <section id="view-coco" hidden><div class="card"><div class="topbar"><h1>CocoMemo</h1></div><p class="help">今回の比較対象はPantrymoの3画面です。CocoMemoのデザインやデータは変更していません。</p></div></section>
 <p class="notice">⚠️ 画面・操作の比較専用。データはページ内の架空データだけで変化し、再読み込みで初期状態に戻ります。端末保存・Firebase・本体アプリには書き込みません。</p>
 </main>
@@ -50,39 +88,86 @@ mk('食品用ラップ','日用品ほか','','','30cm幅'),
 mk('洗剤','日用品ほか','','本','詰め替え希望',{archived:true})
 ];
 let mode='stock', target='stock', editing=null, prio=false, frozen=false, selecting={stock:false,wish:false}, selected={stock:new Set(),wish:new Set()}, plusTarget='stock',pending=[], moveList=[], movingOne=false,categoryIndex=-1;
+let stockSearch='',stockFilter='',stockSort='custom',qtyPanel=null;const collapsed={stock:new Set(),wish:new Set()};
 function fill(sel,cats){sel.replaceChildren(...cats.map(c=>{const opt=document.createElement('option');opt.value=c;opt.textContent=c;return opt}))}
 function activeView(v){mode=v;for(const x of ['stock','wish','plus','coco']){$('view-'+x).hidden=x!==v;$('nav-'+x).classList.toggle('active',x===v)}render();}
 for(const v of ['stock','wish','plus','coco'])$('nav-'+v).onclick=()=>activeView(v);
 function message(str){$('alert-text').textContent=str;if(!$('alert-dialog').open)$('alert-dialog').showModal()}
 $('alert-ok').onclick=$('alert-close').onclick=()=>$('alert-dialog').close();
 function qty(it){return it.qty!==''&&it.qty!=null&&Number(it.qty)!==0?it.qty+(it.unit||''):''}
+function shortDate(value){if(!value)return '';const parts=value.split('-');return Number(parts[1])+'/'+Number(parts[2])}
 function clearSelection(v){selecting[v]=false;selected[v].clear();render()}
 function bar(v){const b=$(v+'-bulk');b.hidden=!selecting[v];$(v+'-count').textContent=selected[v].size+'件選択中';$(v+'-select').textContent=selecting[v]?'選択解除':'選択'}
 function toggleSelect(v,id){const s=selected[v];s.has(id)?s.delete(id):s.add(id);render()}
-function listRender(v){const a=v==='stock'?stock:wish,root=$(v+'-list');root.replaceChildren();const cats=v==='stock'?food:wCats;
-for(const cat of cats){let group=a.filter(x=>x.cat===cat&&!x.archived);if(!group.length)continue;if(v==='wish')group=[...group].sort((x,y)=>Number(x.checked)-Number(y.checked));
-const wrap=document.createElement('section'),band=document.createElement('div');band.className='band';band.innerHTML='<span>'+esc(cat)+'</span><small>'+(v==='wish'?group.filter(x=>!x.checked).length+'/'+group.length:group.length)+'件</small>';wrap.append(band);
-const box=document.createElement('div');box.className='items';
-for(const it of group){const row=document.createElement('div');row.className='item';
-const tick=selecting[v]?'<input type="checkbox" class="pick" data-pick="'+it.id+'" '+(selected[v].has(it.id)?'checked':'')+' aria-label="選択">':'';
-if(v==='stock'){row.innerHTML=tick+'<button class="icon '+(it.priority?'on':'')+'" data-icon="'+it.id+'" data-field="priority" '+(selecting[v]?'disabled':'')+'>💫</button><button class="icon '+(it.frozen?'on':'')+'" data-icon="'+it.id+'" data-field="frozen" '+(selecting[v]?'disabled':'')+'>❄️</button><span class="name">'+esc(it.name)+'</span><span class="qty">'+esc(qty(it))+'</span><button class="dots" data-edit="'+it.id+'" '+(selecting[v]?'disabled':'')+'>⋮</button>'}
-else{row.innerHTML=tick+'<button class="circle '+(it.checked?'checked':'')+'" data-check="'+it.id+'" '+(selecting[v]?'disabled':'')+'>'+(it.checked?'✓':'○')+'</button><span class="name '+(it.checked?'checkedName':'')+'">'+esc(it.name)+(it.memo?'<small>'+esc(it.memo)+'</small>':'')+'</span><span class="qty">'+esc(qty(it))+'</span><button class="dots" data-edit="'+it.id+'" '+(selecting[v]?'disabled':'')+'>⋮</button>'}
-box.append(row)}wrap.append(box);root.append(wrap)}
-if(v==='wish'){const archived=wish.filter(x=>x.archived),wrap=document.createElement('div');wrap.className='archline';wrap.innerHTML='<button type="button" id="arch-toggle">アーカイブ '+archived.length+'件 ▾</button><div id="arch-body" hidden></div>';root.append(wrap);wrap.querySelector('#arch-toggle').onclick=()=>{const body=wrap.querySelector('#arch-body');body.hidden=!body.hidden};for(const it of archived){const item=document.createElement('div');item.className='item';item.innerHTML='<span class="name" style="color:#9ba89e">'+esc(it.name)+'</span><button class="dots" data-edit="'+it.id+'">⋮</button>';wrap.querySelector('#arch-body').append(item)}}
-if(!a.filter(x=>!x.archived).length){const empty=document.createElement('p');empty.className='note';empty.textContent='登録済みの品目はありません。';root.prepend(empty)}
-root.querySelectorAll('[data-pick]').forEach(el=>el.onchange=()=>toggleSelect(v,Number(el.dataset.pick)));
-root.querySelectorAll('[data-check]').forEach(el=>el.onclick=()=>{const it=wish.find(x=>x.id===Number(el.dataset.check));it.checked=!it.checked;render()});
-root.querySelectorAll('[data-icon]').forEach(el=>el.onclick=()=>{const it=stock.find(x=>x.id===Number(el.dataset.icon));it[el.dataset.field]=!it[el.dataset.field];render()});
-root.querySelectorAll('[data-edit]').forEach(el=>el.onclick=()=>form(v,Number(el.dataset.edit)));
-bar(v);
+function listRender(v){
+ const arr=v==='stock'?stock:wish,root=$(v+'-list'),cats=v==='stock'?food:wCats;
+ root.replaceChildren();let visible=0;
+ for(const cat of cats){
+ let group=arr.filter(x=>x.cat===cat&&!x.archived);
+ if(v==='stock'){
+   if(stockFilter&&stockFilter!==cat)continue;
+   group=group.filter(x=>!stockSearch||x.name.toLocaleLowerCase('ja').includes(stockSearch.toLocaleLowerCase('ja')));
+   if(stockSort==='name')group.sort((a,b)=>a.name.localeCompare(b.name,'ja'));
+   if(stockSort==='date')group.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+ }else group.sort((a,b)=>Number(a.checked)-Number(b.checked));
+ if(!group.length)continue;visible+=group.length;
+ const section=document.createElement('section'),heading=document.createElement('div');heading.className='band';
+ const isCollapsed=collapsed[v].has(cat),count=v==='wish'?group.filter(x=>!x.checked).length+'/'+group.length:group.length;
+ heading.innerHTML='<button class="cat-toggle" type="button" data-collapse="'+esc(cat)+'" aria-expanded="'+(!isCollapsed)+'"><span>'+esc(cat)+'　'+(isCollapsed?'▸':'▾')+'</span><small>'+count+'件</small></button>';
+ section.append(heading);
+ const box=document.createElement('div');box.className='items';box.hidden=isCollapsed;
+ for(const it of group){
+ const row=document.createElement('div');row.className='item';
+ const tick=selecting[v]?'<input type="checkbox" class="pick" data-pick="'+it.id+'" '+(selected[v].has(it.id)?'checked':'')+' aria-label="選択">':'';
+ const number='<button type="button" class="qtyTap" data-qty="'+it.id+'" aria-expanded="'+(qtyPanel?.v===v&&qtyPanel.id===it.id)+'" '+(selecting[v]?'disabled':'')+' aria-label="'+esc(it.name)+'の数量を編集">'+(qty(it)?esc(qty(it)):'　')+'</button>';
+ if(v==='stock')row.innerHTML=tick+
+ '<button class="icon '+(it.priority?'on':'')+'" data-icon="'+it.id+'" data-field="priority" '+(selecting[v]?'disabled':'')+' aria-label="優先使用">💫</button>'+
+ '<button class="icon '+(it.frozen?'on':'')+'" data-icon="'+it.id+'" data-field="frozen" '+(selecting[v]?'disabled':'')+' aria-label="冷凍">❄️</button>'+
+ '<span class="name">'+esc(it.name)+'</span>'+number+
+ (it.date?'<span class="dateChip">'+shortDate(it.date)+'</span>':'')+
+ '<button class="dots" data-edit="'+it.id+'" '+(selecting[v]?'disabled':'')+' aria-label="編集">⋮</button>';
+ else row.innerHTML=tick+
+ '<button class="circle '+(it.checked?'checked':'')+'" data-check="'+it.id+'" '+(selecting[v]?'disabled':'')+' aria-label="買い物チェック">'+(it.checked?'✓':'○')+'</button>'+
+ '<span class="name '+(it.checked?'checkedName':'')+'">'+esc(it.name)+(it.memo?'<small>'+esc(it.memo)+'</small>':'')+'</span>'+number+
+ '<button class="dots" data-edit="'+it.id+'" '+(selecting[v]?'disabled':'')+' aria-label="編集">⋮</button>';
+ box.append(row);
+ if(qtyPanel?.v===v&&qtyPanel.id===it.id&&!selecting[v]){
+ const panel=document.createElement('div');panel.className='inlineQuantity';
+ panel.innerHTML='<button class="adjust" type="button" data-step="-1">−</button><input type="text" inputmode="decimal" data-qty-input="'+it.id+'" aria-label="数量" value="'+esc(it.qty)+'" placeholder="未指定"><span class="unitLabel">'+esc(it.unit||'単位なし')+'</span><button class="adjust" type="button" data-step="1">＋</button><button class="smallClose" type="button" data-close-qty aria-label="閉じる">×</button>';
+ box.append(panel);
+ }}
+ section.append(box);root.append(section);
+ heading.querySelector('[data-collapse]').onclick=()=>{isCollapsed?collapsed[v].delete(cat):collapsed[v].add(cat);listRender(v)};
+ }
+ if(v==='wish'){
+ const archived=wish.filter(x=>x.archived),wrap=document.createElement('div');wrap.className='archline';
+ wrap.innerHTML='<button type="button" id="arch-toggle">アーカイブ '+archived.length+'件 ▾</button><div id="arch-body" hidden></div>';
+ root.append(wrap);wrap.querySelector('#arch-toggle').onclick=()=>{const body=wrap.querySelector('#arch-body');body.hidden=!body.hidden};
+ for(const it of archived){const item=document.createElement('div');item.className='item';item.innerHTML='<span class="name" style="color:#9ba89e">'+esc(it.name)+'</span><button class="dots" data-edit="'+it.id+'">⋮</button>';wrap.querySelector('#arch-body').append(item)}
+ }
+ if(!visible){const p=document.createElement('p');p.className='note';p.textContent=v==='stock'?'該当する食材はありません。':'登録済みの品目はありません。';root.prepend(p)}
+ root.querySelectorAll('[data-pick]').forEach(el=>el.onchange=()=>toggleSelect(v,Number(el.dataset.pick)));
+ root.querySelectorAll('[data-check]').forEach(el=>el.onclick=()=>{const it=wish.find(x=>x.id===Number(el.dataset.check));it.checked=!it.checked;render()});
+ root.querySelectorAll('[data-icon]').forEach(el=>el.onclick=()=>{const it=stock.find(x=>x.id===Number(el.dataset.icon));it[el.dataset.field]=!it[el.dataset.field];render()});
+ root.querySelectorAll('[data-edit]').forEach(el=>el.onclick=()=>form(v,Number(el.dataset.edit)));
+ root.querySelectorAll('[data-qty]').forEach(el=>el.onclick=()=>{const id=Number(el.dataset.qty);qtyPanel=qtyPanel?.v===v&&qtyPanel.id===id?null:{v,id};listRender(v)});
+ root.querySelectorAll('[data-close-qty]').forEach(el=>el.onclick=()=>{qtyPanel=null;listRender(v)});
+ root.querySelectorAll('[data-qty-input]').forEach(el=>el.onchange=()=>{const it=arr.find(x=>x.id===Number(el.dataset.qtyInput));const val=el.value.trim();if(val!==''&&!/^\d+(?:\.\d+)?$/.test(val)){el.value=it.qty;return}it.qty=val;listRender(v)});
+ root.querySelectorAll('[data-step]').forEach(el=>el.onclick=()=>{const panel=el.closest('.inlineQuantity'),id=Number(panel.querySelector('[data-qty-input]').dataset.qtyInput),it=arr.find(x=>x.id===id);const input=panel.querySelector('[data-qty-input]');const current=input.value.trim();if(current&&!/^\d+(?:\.\d+)?$/.test(current)){input.value=it.qty;return}it.qty=String(Math.max(0,(Number(current)||0)+Number(el.dataset.step)));listRender(v)});
+ bar(v);
 }
 function render(){listRender('stock');listRender('wish');renderPending()}
+fill($('stock-filter'),['',...food]);$('stock-filter').options[0].textContent='すべてのカテゴリ';
+$('stock-search').oninput=e=>{stockSearch=e.target.value;listRender('stock')};
+$('stock-filter').onchange=e=>{stockFilter=e.target.value;listRender('stock')};
+$('stock-sort').onchange=e=>{stockSort=e.target.value;listRender('stock')};
+$('stock-clear').onclick=()=>{stockSearch='';stockFilter='';stockSort='custom';$('stock-search').value='';$('stock-filter').value='';$('stock-sort').value='custom';listRender('stock')};
 $('stock-select').onclick=()=>{selecting.stock=!selecting.stock;selected.stock.clear();render()};
 $('wish-select').onclick=()=>{selecting.wish=!selecting.wish;selected.wish.clear();render()};
 $('stock-cancel').onclick=()=>clearSelection('stock');$('wish-cancel').onclick=()=>clearSelection('wish');
 function sw(){$('add-priority').textContent='💫 '+(prio?'ON':'OFF');$('add-priority').classList.toggle('on',prio);$('add-frozen').textContent='❄️ '+(frozen?'ON':'OFF');$('add-frozen').classList.toggle('on',frozen)}
 $('add-priority').onclick=()=>{prio=!prio;sw()};$('add-frozen').onclick=()=>{frozen=!frozen;sw()};
-function form(v,id=null){target=v;editing=id;const old=(v==='stock'?stock:wish).find(x=>x.id===id);prio=old?!!old.priority:false;frozen=old?!!old.frozen:false;sw();
+function form(v,id=null){qtyPanel=null;target=v;editing=id;const old=(v==='stock'?stock:wish).find(x=>x.id===id);prio=old?!!old.priority:false;frozen=old?!!old.frozen:false;sw();
 $('add-title').textContent=(v==='stock'?'ストックリスト':'マイウィッシュ')+(old?'を編集':'に1品追加');
 $('add-name').value=old?.name||'';$('add-qty').value=old?.qty||'';$('add-unit').value=old?.unit||'';$('add-memo').value=old?.memo||'';
 fill($('add-cat'),v==='stock'?food:wCats);$('add-cat').value=old?.cat||'カテゴリ未定';
