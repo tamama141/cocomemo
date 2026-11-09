@@ -203,6 +203,24 @@ body.pantry,.app{--deep:#104d32;--accent:#e78714;--pale:#e4eee5;--border:#c5d6c8
 .app .food .check{accent-color:#e8870b!important}
 #bridge-add:disabled{opacity:.34!important;filter:grayscale(1)!important;color:#818781!important;cursor:not-allowed!important;text-decoration:none!important}
 #modalback:not([hidden]){touch-action:pan-y;overscroll-behavior:contain!important}
+/* Final review: identical backdrop color and explicitly white check glyph. */
+#modalback{background:#162a2070!important}
+.app .food input.check{
+ -webkit-appearance:none!important;appearance:none!important;display:inline-grid!important;
+ place-items:center!important;width:19px!important;height:19px!important;min-width:19px!important;
+ margin:0 3px!important;border:1.5px solid #9d9d9d!important;
+ border-radius:3px!important;background:#fff!important;position:relative!important;
+ cursor:pointer!important;vertical-align:middle!important
+}
+.app .food input.check:checked{
+ background:#e8870b!important;border-color:#e8870b!important
+}
+.app .food input.check:checked::after{
+ content:"✓"!important;position:absolute!important;inset:0!important;
+ display:flex!important;align-items:center!important;justify-content:center!important;
+ color:#fff!important;font-family:Arial,sans-serif!important;font-size:16px!important;
+ font-weight:900!important;line-height:1!important
+}
 </style></head><body><main id="app" class="app pantry"><header><div><div class="brand" id="brand">Pantrymo </div></div><div class="switch"><button id="pantryBtn" class="on">Pantrymo</button><button id="cocoBtn">CocoMemo</button></div></header><div class="nav" id="nav"><span>食材リスト</span><span>買物リスト</span><span>食材を追加</span><span>CocoMemo</span></div><div class="tools">
   <input id="search" placeholder="🔍 食材名で探す" aria-label="名前で探す">
   <div class="custom-picker category-picker" id="categoryPicker">
