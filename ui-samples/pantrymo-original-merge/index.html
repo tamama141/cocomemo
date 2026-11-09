@@ -46,6 +46,9 @@ body.child-modal-active::after{inset:0;background:linear-gradient(to right,
  transparent var(--modal-frame-left,0px) var(--modal-frame-right,100vw),
  #162a2070 var(--modal-frame-right,100vw) 100%)}
 
+/* Wish single-add: category and memo each occupy a full-width row. */
+#add-dialog .grid.third:has(#date-field[hidden]){grid-template-columns:minmax(0,1fr)!important}
+#add-dialog .grid.third:has(#date-field[hidden]) #add-memo{width:100%!important}
 </style></head><body><main>
 <header><span class="brand">Pantrymo</span><span class="tag">原本ベース・統合比較 v2</span></header>
 <nav aria-label="画面切り替え"><button type="button" class="active" data-nav="stock">ストックリスト</button><button type="button" data-nav="wish">マイウィッシュ</button><button type="button" data-nav="plus">アイテムプラス</button><button type="button" data-nav="coco">CocoMemo</button></nav>
