@@ -29,7 +29,7 @@ dialog{border:0;border-radius:14px;padding:0;width:min(570px,calc(100vw - 22px))
 <div class="grid"><label class="field">品名<input id="add-name" placeholder="例：牛乳" autocomplete="off"></label><label class="field">数量<input id="add-qty" inputmode="decimal" placeholder="未指定"></label><label class="field">単位<input id="add-unit" placeholder="本"></label></div>
 <div class="grid two"><label class="field">カテゴリ<select id="add-cat"></select></label><div class="switches" id="add-flags"><button id="add-priority" type="button">💫 OFF</button><button id="add-frozen" type="button">❄️ OFF</button></div></div>
 <div class="grid third"><label class="field">メモ<input id="add-memo" placeholder="任意"></label><label class="field" id="date-field">ストック日<input id="add-date" type="date"></label></div>
-<p class="error" id="add-error"></p><div class="actions"><button class="soft" id="add-cancel">取消</button><button class="primary" id="add-save">登録</button></div></div></dialog>
+<p class="error" id="add-error"></p><div class="actions"><button class="soft" id="stock-one-move" hidden>マイウィッシュへ移動</button><button class="soft" id="add-cancel">取消</button><button class="primary" id="add-save">登録</button></div></div></dialog>
 <dialog id="move-dialog" aria-label="ストックへの移動を確認"><div class="head">ストックリストへ移動<button class="x" id="move-x" aria-label="閉じる">×</button></div><div class="body"><p class="explain">数量は空欄から開始。必要なら入力してね。単位はマイウィッシュから引き継ぎます。右端の×は今回の移動から除外します。</p><div id="move-items"></div><p class="status" id="move-status"></p><div class="actions"><button class="soft" id="move-cancel">キャンセル</button><button class="primary" id="move-save">移動を確定</button></div></div></dialog>
 <dialog id="duplicate-dialog" aria-label="登録済みのご案内"><div class="head">ご案内</div><div class="body"><p class="explain">ストックリストに登録済みのものは、移動できません。<br>確認リストから除外するか、品名またはカテゴリを変更して下さい。</p><div class="actions"><button class="primary" id="duplicate-ok">OK</button></div></div></dialog>
 <script>
@@ -57,11 +57,12 @@ function openAdd(target,row=null){newTarget=target;editingStockId=row?.id??null;
  $('add-title').textContent=target==='stock'?(row?'ストックを編集':'ストックリストに1品追加'):'マイウィッシュに1品追加';
  $('add-name').value=row?.name||'';$('add-qty').value=row?.qty?String(row.qty).match(/^\d+(?:\.\d+)?/)?.[0]||'':'';$('add-unit').value=row?fmtUnit(row):'';$('add-memo').value=row?.memo||'';
  const el=$('add-cat');el.replaceChildren(...(target==='stock'?food:cats).map(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;return o}));el.value=row?.cat||'カテゴリ未定';
- $('add-date').value=row?.date?.match(/^\d{4}-/)?row.date:day();$('date-field').hidden=target!=='stock';$('add-flags').hidden=target!=='stock';$('add-error').textContent='';flip();$('add-save').textContent=row?'変更':'登録';$('add-dialog').showModal();$('add-x').focus({preventScroll:true})
+ $('add-date').value=row?.date?.match(/^\d{4}-/)?row.date:day();$('date-field').hidden=target!=='stock';$('add-flags').hidden=target!=='stock';$('add-error').textContent='';flip();$('add-save').textContent=row?'変更':'登録';$('stock-one-move').hidden=!(target==='stock'&&row);$('add-dialog').showModal();$('add-x').focus({preventScroll:true})
 }
 function flip(){$('add-priority').textContent='💫 '+(priority?'ON':'OFF');$('add-frozen').textContent='❄️ '+(frozen?'ON':'OFF');$('add-priority').classList.toggle('on',priority);$('add-frozen').classList.toggle('on',frozen)}
 $('add-priority').onclick=()=>{priority=!priority;flip()};$('add-frozen').onclick=()=>{frozen=!frozen;flip()};
 $('add-x').onclick=$('add-cancel').onclick=()=>$('add-dialog').close();
+$('stock-one-move').onclick=()=>{const row=stock.find(x=>x.id===editingStockId);if(!row)return;request('wish-from-stock',wishFrame,{rows:[row]},{type:'stock-to-wish',ids:[row.id]});$('add-dialog').close()};
 function request(op,frame,payload,meta){const requestId=sequence++;requests.set(requestId,meta);send(frame,op,{requestId,...payload})}
 $('add-save').onclick=()=>{
  const name=$('add-name').value.trim(),qty=$('add-qty').value.trim(),cat=$('add-cat').value;
