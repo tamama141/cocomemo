@@ -90,7 +90,7 @@ $('add-date').value=old?.date||localToday();$('stock-toggles').hidden=v!=='stock
 $('add-confirm').textContent=old?'変更':'登録';$('add-move').hidden=!old||(v==='wish'&&(old.archived||old.cat==='日用品ほか'));
 $('add-move').textContent=v==='stock'?'マイウィッシュへ移動':'ストックリストへ移動';
 $('add-delete').hidden=!old;$('add-archive').hidden=!old||v!=='wish';$('add-archive').textContent=old?.archived?'アーカイブ解除':'アーカイブ';
-$('add-error').textContent='';$('add-dialog').showModal();$('add-name').focus();
+$('add-error').textContent='';$('add-dialog').showModal();$('add-close').focus({preventScroll:true});
 }
 $('stock-add').onclick=()=>form('stock');$('wish-add').onclick=()=>form('wish');
 $('add-close').onclick=$('add-cancel').onclick=()=>$('add-dialog').close();
@@ -154,7 +154,7 @@ for(const x of pending){x.name=x.name.trim();if(!x.name){remain.push(x);continue
 if(seen.has(k(x))){if(plusTarget==='wish'){const old=wish.find(y=>k(y)===k(x));if(old){old.checked=false;count++}else remain.push(x)}else{remain.push(x);dupes++}continue}
 if(plusTarget==='stock'&&x.cat==='日用品ほか'){remain.push(x);continue}
 dest.unshift(mk(x.name,x.cat,x.qty,x.unit,x.memo,{date:plusTarget==='stock'?x.date:'',priority:x.priority,frozen:x.frozen}));seen.add(k(x));count++}
-pending=remain;render();$('plus-status').textContent=count+'件を登録しました。'+(dupes?dupes+'件は登録済みのため保留しました。':'')+'（模擬）';if(count)viewAfterPlus();}
+pending=remain;if(count>0&&remain.length===0){$('plus-text').value='';}render();$('plus-status').textContent=count+'件を登録しました。'+(dupes?dupes+'件は登録済みのため保留しました。':'')+(remain.length?' 未登録の品目が残っているため入力欄は保持しています。':' 入力欄をクリアしました。')+'（模擬）';if(count)viewAfterPlus();}
 function viewAfterPlus(){/* 登録後も入力・確認リストの位置を維持する */}
 render();activeView('stock');
 })();
