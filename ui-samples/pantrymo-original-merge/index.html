@@ -72,7 +72,7 @@ $('add-save').onclick=()=>{
   if(stock.some(y=>k(y)===k(x)&&y.id!==editingStockId)){$('add-error').textContent='登録済みです。品名またはカテゴリを変更して下さい。';return}
   if(editingStockId!==null){
     // Stock原本では編集画面が表示見本のみだったため、削除→新規登録の間を一連の模擬操作として扱う。
-    request('stock-remove',stockFrame,{ids:[editingStockId]},{type:'stock-edit-remove',newRow:x});return;
+    request('stock-update',stockFrame,{id:editingStockId,row:x},{type:'stock-edit-update'});return;
   }
   request('stock-add',stockFrame,{rows:[x]},{type:'single-stock'});return;
  }
@@ -129,6 +129,8 @@ window.addEventListener('message',e=>{
      if(meta.type==='plus-to-stock'){send(wishFrame,'plus-result',{added:d.done.filter(x=>x!==null).length,refused:d.refused});toast('アイテムプラスからストックへ追加しました（模擬）');return}
      if(meta.type==='wish-to-stock'){const ids=d.done.filter(x=>x!==null);if(ids.length)send(wishFrame,'wish-remove',{ids});$('move-dialog').close();toast(ids.length+'件をストックへ移動しました。'+(d.refused?' 移動できない品目はマイウィッシュに保持しました。':''));return}
    }
+   if(d.channel==='stock-updated'){const meta=requests.get(d.requestId);requests.delete(d.requestId);if(meta?.type==='stock-edit-update'){$('add-dialog').close();toast('ストックを更新しました（模擬）')}}
+   if(d.channel==='stock-update-failed'){requests.delete(d.requestId);$('add-error').textContent='更新できませんでした。元の品目は保持しました。'}
    if(d.channel==='stock-removed'){const meta=requests.get(d.requestId);requests.delete(d.requestId);if(meta?.type==='stock-edit-remove')request('stock-add',stockFrame,{rows:[meta.newRow]},{type:'stock-edit-add'});if(meta?.type==='stock-to-wish')toast('マイウィッシュへ移動しました（数量は未指定）。')}
  }
  if(e.source===wishFrame.contentWindow){
