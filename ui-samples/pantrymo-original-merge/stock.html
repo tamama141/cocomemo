@@ -241,7 +241,7 @@ function setupStockDrag(){
         }
         if(ghost){
           const r=ghost.getBoundingClientRect();
-          ghost.style.left=Math.max(2,Math.min(innerWidth-r.width-2,e.clientX-r.width/2))+'px';
+          ghost.style.left=Math.max(2,Math.min(innerWidth-r.width-2,e.clientX-(startX-source.getBoundingClientRect().left)))+'px';
           ghost.style.top=(e.clientY-r.height/2)+'px';
         }
         const el=document.elementFromPoint(e.clientX,e.clientY);
