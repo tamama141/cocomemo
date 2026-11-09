@@ -416,6 +416,23 @@ dialog .modal-head .close{font-size:26px!important;color:#718076!important;borde
 @media(max-width:390px){#wishView .wish-batch{gap:5px!important;padding:7px!important}
  #wishView .wish-batch .btn{font-size:12px!important;padding:6px 8px!important}
  #wishView .wish-batch span{font-size:12px!important}}
+/* Unified selected-item state / add-action lock. */
+#wishRows.wish-selecting .wish-entry.selected{background:#fff2d9!important;box-shadow:inset 4px 0 #eb900f!important}
+#wishRows .wish-bulk-check{accent-color:#e8870b!important}
+#wishView #wish-bridge-add:disabled{opacity:.34!important;filter:grayscale(1)!important;color:#818781!important;cursor:not-allowed!important;text-decoration:none!important}
+#detailDialog .edit-row.one,#wishEditDialog .edit-row.one{grid-template-columns:minmax(0,1.65fr) 122px minmax(70px,.72fr)!important}
+#detailDialog .edit-row.one .form-counter,#wishEditDialog .edit-row.one .form-counter{display:grid!important;grid-template-columns:25px minmax(0,1fr) 25px!important;gap:3px!important}
+#detailDialog .edit-row.one .form-counter button,#wishEditDialog .edit-row.one .form-counter button{width:25px!important;min-width:25px!important}
+#detailDialog .edit-row.one .form-counter input,#wishEditDialog .edit-row.one .form-counter input{font-size:14px!important}
+#detailDialog .edit-buttons{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;width:100%!important;gap:8px!important}
+#detailDialog .edit-buttons button{width:100%!important;min-width:0!important}
+#wishEditDialog .wish-edit-bottom,#wishEditDialog .wish-edit-top{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+#wishEditDialog .wish-edit-actions button{width:100%!important;min-width:0!important;white-space:normal!important;overflow-wrap:anywhere!important}
+#detailDialog .edit-row.two.wish-mode .edit-switches{display:none!important}
+#detailDialog .edit-row.two:not(.wish-mode) .edit-switches{display:flex!important;flex-wrap:nowrap!important}
+#detailDialog .edit-row.two .cat-field{min-width:0!important}
+#detailDialog .edit-row.two:not(.wish-mode) .cat-trigger{width:100%!important;max-width:100%!important}
+@media(max-width:420px){#detailDialog .edit-row.one,#wishEditDialog .edit-row.one{grid-template-columns:minmax(0,1.4fr) 116px minmax(60px,.65fr)!important}}
 </style>
 </head>
 <body>
@@ -674,7 +691,7 @@ function wishBand(title,count,key,archive=false){
  return {group,body};
 }
 function renderWish(){
- const root=$('wishRows');root.replaceChildren();
+ const root=$('wishRows');root.replaceChildren();$('wish-bridge-add').disabled=wishSelecting;$('wish-bridge-add').setAttribute('aria-disabled',String(wishSelecting));
  root.classList.toggle('wish-selecting',wishSelecting);
  const columns=document.createElement('div');columns.className='wish-columns';
  const col=[document.createElement('div'),document.createElement('div')];
@@ -890,7 +907,7 @@ if(d.op==='wish-view'){showView(d.view);notifyWish();return}
    else {const success=new Set(d.doneIds||[]);items=items.filter(x=>!success.has(x.id));for(const item of items)item.registrationStatus='登録済み';render();$('saveStatus').textContent=ok+'件登録、'+refused+'件は登録済みなどで未登録です。重複品を確認リストに残しました。';}
  }
 });
-$('wish-bridge-add').onclick=()=>window.parent.postMessage({channel:'open-add',target:'wish'},location.origin);
+$('wish-bridge-add').onclick=()=>{if(wishSelecting)return;window.parent.postMessage({channel:'open-add',target:'wish'},location.origin)};
 $('wishEditMove').onclick=()=>{
  const it=wishById(wishEditing);if(!canMoveWishItem(it))return;
  const name=clean($('wishEditName').value),cat=wishCategory;
