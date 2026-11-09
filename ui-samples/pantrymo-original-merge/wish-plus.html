@@ -880,6 +880,9 @@ const convertStockToWish=x=>{
  if(old){old.amount='';old.checked=false;/* existing unit, category, memo and archived flag remain */}
  else wishItems.push({id:wishNextId++,name:x.name,amount:'',unit:u,cat:x.cat,memo:x.memo||'',checked:false,archived:false});
 };
+function notifyDialogState(){window.parent.postMessage({channel:'frame-modal-state',active:[...document.querySelectorAll('dialog')].some(d=>d.open)},location.origin)}
+new MutationObserver(notifyDialogState).observe(document.body,{attributes:true,attributeFilter:['open'],subtree:true});
+notifyDialogState();
 window.addEventListener('message',e=>{
  if(e.origin!==location.origin)return;const d=e.data;if(!d||d.scope!=='pan-bridge')return;
  if(d.op==='viewport'){document.documentElement.style.setProperty('--visible-top',d.visibleTop+'px');document.documentElement.style.setProperty('--visible-height',d.visibleHeight+'px');return}
