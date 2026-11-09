@@ -921,7 +921,8 @@ $('saveButton').onclick=()=>{
  $('saveStatus').textContent='【サンプル】'+created+'件をマイウィッシュ一覧に反映しました（重複'+reset+'件）。実際の保存は行いません。';
 };
 
-items=[newItem('かぼちゃ1個'),newItem('玉ねぎ3個'),newItem('ひき肉1パック')];items[2].frozen=true;items[2].date='2026-11-07';render();
+// Item Plus starts with an empty confirmation list; user input populates it.
+render();
 
 const notifyWish=()=>window.parent.postMessage({channel:'wish-state',rows:wishItems.map(x=>({...x}))},location.origin);
 const renderWishBeforeBridge=renderWish;
