@@ -20,6 +20,20 @@ dialog{border:0;border-radius:14px;padding:0;width:min(570px,calc(100vw - 22px))
 :root{background:#fff9f0;color:#222b23}main{background:#fffaf4}.brand{color:#104d32}nav button{color:#15472f;border-color:#d5cbbd;background:#fffdf9}nav button.active{background:#104d32;color:#fff;border-color:#104d32}.head{color:#104d32}.primary{background:#e77b07;border-color:#e77b07;color:white}.soft{background:#fff5dd;color:#164631;border-color:#e1d0a9}input::placeholder,textarea::placeholder{color:#a0a6a0!important;opacity:1}.switches button,.move-extra button{min-width:78px;min-height:40px;white-space:nowrap}.switches button.on,.move-extra button.on{background:#ffda90;border-color:#e6a13b;color:#473017}.count-field{display:flex;align-items:center;gap:2px;min-width:0}.count-field input{flex:1;min-width:0;width:40px;text-align:center;padding:2px}.count-field .count-step{flex:none;border:1px solid #b4cbb6;background:#e4f1e5;color:#155238;border-radius:7px;width:27px;height:36px;padding:0;font-size:19px}.move-fields label .count-field{margin-top:3px}.move-fields label .count-field input{margin:0}.move-fields .count-field .count-step{width:25px;height:34px}.grid:not(.two):not(.third){grid-template-columns:minmax(0,1.15fr) minmax(97px,.95fr) minmax(57px,.6fr)}dialog:focus{outline:none}
 /* Revision ①②: icon toggles, blank form fields */
 .switches{min-width:0;justify-content:flex-end;gap:6px}.switches button,.move-extra button[data-mpriority],.move-extra button[data-mfrozen]{flex:none;width:36px;min-width:36px!important;max-width:36px;height:36px;min-height:36px!important;padding:0!important;font-size:18px;line-height:1;filter:grayscale(1);opacity:.5;background:#f4f6f3;border:1px solid #c6d6c9;color:#315a42}.switches button.on,.move-extra button.on{filter:none;opacity:1;background:#fff4de;border-color:#eba83c}.grid.two{grid-template-columns:minmax(0,1fr) auto}.move-extra button[data-mfrozen].on,.switches #add-frozen.on{background:#eaf6ff;border-color:#91cee9}.grid:not(.two):not(.third){grid-template-columns:minmax(0,1fr) minmax(119px,1fr) minmax(51px,.45fr)}.count-field{width:100%;gap:2px}.count-field .count-step{width:28px;min-width:28px;height:36px}.count-field input{width:100%;height:40px;min-width:0}.field input::placeholder,.move-fields input::placeholder{color:transparent!important}#add-dialog{max-width:calc(100vw - 18px)}
+/* Edit dialog: compact numeric column, keep surrounding fields and existing actions. */
+#add-dialog .grid:not(.two):not(.third){grid-template-columns:minmax(0,1.75fr) 142px minmax(70px,.78fr)!important}
+#add-dialog .count-field{display:grid!important;grid-template-columns:29px minmax(0,1fr) 29px!important;gap:3px!important}
+#add-dialog .count-field input{min-width:0!important;width:100%!important;height:40px!important;font-size:14px!important}
+#add-dialog .count-field .count-step{width:29px!important;min-width:29px!important}
+#add-dialog .actions{display:flex!important;flex-wrap:wrap!important;gap:8px!important;justify-content:flex-end!important}
+#add-dialog .actions button{min-height:43px!important;font-size:14px!important;white-space:normal}
+#add-dialog .actions button[hidden]{display:none!important}
+#add-dialog .danger-button,#stock-delete-confirm .danger-button{background:#fff6f5;color:#b34c48;border:1px solid #ead7d3;border-radius:9px;padding:9px 14px;font-weight:700}
+#add-dialog #stock-one-move{margin-right:auto;max-width:100%}
+#stock-delete-confirm{width:min(480px,calc(100vw - 22px))}
+@media(max-width:430px){#add-dialog .grid:not(.two):not(.third){grid-template-columns:minmax(0,1.5fr) 122px minmax(64px,.72fr)!important}#add-dialog .count-field{grid-template-columns:25px minmax(0,1fr) 25px!important}#add-dialog .count-field .count-step{width:25px!important;min-width:25px!important}}
+@media(max-width:360px){#add-dialog .grid:not(.two):not(.third){grid-template-columns:minmax(0,1fr) 112px minmax(54px,.5fr)!important}#add-dialog .grid{gap:4px!important}}
+body.child-modal-active nav,body.child-modal-active header{pointer-events:none!important}
 </style></head><body><main>
 <header><span class="brand">Pantrymo</span><span class="tag">原本ベース・統合比較 v2</span></header>
 <nav aria-label="画面切り替え"><button type="button" class="active" data-nav="stock">ストックリスト</button><button type="button" data-nav="wish">マイウィッシュ</button><button type="button" data-nav="plus">アイテムプラス</button><button type="button" data-nav="coco">CocoMemo</button></nav>
@@ -33,7 +47,8 @@ dialog{border:0;border-radius:14px;padding:0;width:min(570px,calc(100vw - 22px))
 <div class="grid"><label class="field">品名<input id="add-name"  autocomplete="off"></label><label class="field">数量<input id="add-qty" inputmode="decimal" ></label><label class="field">単位<input id="add-unit" ></label></div>
 <div class="grid two"><label class="field">カテゴリ<select id="add-cat"></select></label><div class="switches" id="add-flags"><button id="add-priority" type="button">💫 OFF</button><button id="add-frozen" type="button">❄️ OFF</button></div></div>
 <div class="grid third"><label class="field">メモ<input id="add-memo" ></label><label class="field" id="date-field">ストック日<input id="add-date" type="date"></label></div>
-<p class="error" id="add-error"></p><div class="actions"><button class="soft" id="stock-one-move" hidden>マイウィッシュへ移動</button><button class="soft" id="add-cancel">取消</button><button class="primary" id="add-save">登録</button></div></div></dialog>
+<p class="error" id="add-error"></p><div class="actions"><button class="soft" id="stock-one-move" hidden>マイウィッシュへ移動</button><button class="danger-button" id="stock-one-delete" type="button" hidden>削除</button><button class="soft" id="add-cancel">取消</button><button class="primary" id="add-save">登録</button></div></div></dialog>
+<dialog id="stock-delete-confirm" aria-label="ストック削除の確認"><div class="head"><span>削除の確認</span><button type="button" class="x" id="stock-delete-x">×</button></div><div class="body"><p id="stock-delete-text">このストックを削除しますか？</p><div class="actions"><button class="soft" id="stock-delete-cancel">戻る</button><button class="danger-button" id="stock-delete-ok">削除する</button></div></div></dialog>
 <dialog id="move-dialog" aria-label="ストックへの移動を確認"><div class="head">ストックリストへ移動<button class="x" id="move-x" aria-label="閉じる">×</button></div><div class="body"><div id="move-items"></div><p class="status" id="move-status"></p><div class="actions"><button class="soft" id="move-cancel">キャンセル</button><button class="primary" id="move-save">移動を確定</button></div></div></dialog>
 <dialog id="duplicate-dialog" aria-label="登録済みのご案内"><div class="head">ご案内</div><div class="body"><p class="explain">ストックリストに登録済みのものは、移動できません。<br>確認リストから除外するか、品名またはカテゴリを変更して下さい。</p><div class="actions"><button class="primary" id="duplicate-ok">OK</button></div></div></dialog>
 <script>
@@ -65,12 +80,15 @@ function openAdd(target,row=null){editingOriginalDate=row?.date||"";editingIniti
  $('add-title').textContent=target==='stock'?(row?'ストックを編集':'ストックリストに1品追加'):'マイウィッシュに1品追加';
  $('add-name').value=row?.name||'';$('add-qty').value=row?.qty?String(row.qty).match(/^\d+(?:\.\d+)?/)?.[0]||'':'';$('add-unit').value=row?fmtUnit(row):'';$('add-memo').value=row?.memo||'';
  const el=$('add-cat');el.replaceChildren(...(target==='stock'?food:cats).map(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;return o}));el.value=row?.cat||'カテゴリ未定';
- $('add-date').value=row?editingInitialISO:day();$('date-field').hidden=target!=='stock';$('add-flags').hidden=target!=='stock';$('add-error').textContent='';flip();$('add-save').textContent=row?'変更':'登録';$('stock-one-move').hidden=!(target==='stock'&&row);$('add-dialog').showModal();requestAnimationFrame(()=>$('add-dialog').focus({preventScroll:true}))
+ $('add-date').value=row?editingInitialISO:day();$('date-field').hidden=target!=='stock';$('add-flags').hidden=target!=='stock';$('add-error').textContent='';flip();$('add-save').textContent=row?'変更':'登録';$('stock-one-move').hidden=!(target==='stock'&&row);$('stock-one-delete').hidden=!(target==='stock'&&row);$('add-cancel').hidden=!!row;$('add-dialog').showModal();requestAnimationFrame(()=>$('add-dialog').focus({preventScroll:true}))
 }
 function flip(){for(const [id,glyph,on,label] of [['add-priority','💫',priority,'優先使用'],['add-frozen','❄️',frozen,'冷凍']]){const el=$(id);el.textContent=glyph;el.classList.toggle('on',on);el.setAttribute('aria-pressed',String(on));el.setAttribute('aria-label',label+(on?'オン':'オフ'))}}
 function addCounter(id){const input=$(id),box=document.createElement('span');box.className='count-field';input.parentNode.insertBefore(box,input);box.append(input);for(const [txt,step] of [['−',-1],['＋',1]]){const b=document.createElement('button');b.type='button';b.className='count-step';b.textContent=txt;b.onclick=()=>{input.value=String(Math.max(0,(Number(input.value)||0)+step));input.dispatchEvent(new Event('input',{bubbles:true}))};box.insertBefore(b,step<0?input:null)}}addCounter('add-qty');
 $('add-priority').onclick=()=>{priority=!priority;flip()};$('add-frozen').onclick=()=>{frozen=!frozen;flip()};
 $('add-x').onclick=$('add-cancel').onclick=()=>$('add-dialog').close();
+$('stock-one-delete').onclick=()=>{const row=stock.find(x=>x.id===editingStockId);if(!row)return;$('stock-delete-text').textContent='「'+row.name+'」をストックリストから削除しますか？';$('stock-delete-confirm').showModal()};
+$('stock-delete-x').onclick=$('stock-delete-cancel').onclick=()=>$('stock-delete-confirm').close();
+$('stock-delete-ok').onclick=()=>{const id=editingStockId;if(id===null)return;request('stock-remove',stockFrame,{ids:[id]},{type:'stock-edit-delete'});$('stock-delete-confirm').close();$('add-dialog').close()};
 $('stock-one-move').onclick=()=>{const row=stock.find(x=>x.id===editingStockId);if(!row)return;request('wish-from-stock',wishFrame,{rows:[row]},{type:'stock-to-wish',ids:[row.id]});$('add-dialog').close()};
 function request(op,frame,payload,meta){const requestId=sequence++;requests.set(requestId,meta);send(frame,op,{requestId,...payload})}
 $('add-save').onclick=()=>{
@@ -141,7 +159,7 @@ window.addEventListener('message',e=>{
    }
    if(d.channel==='stock-updated'){const meta=requests.get(d.requestId);requests.delete(d.requestId);if(meta?.type==='stock-edit-update'){$('add-dialog').close();toast('ストックを更新しました（模擬）')}}
    if(d.channel==='stock-update-failed'){requests.delete(d.requestId);$('add-error').textContent='更新できませんでした。元の品目は保持しました。'}
-   if(d.channel==='stock-removed'){const meta=requests.get(d.requestId);requests.delete(d.requestId);if(meta?.type==='stock-edit-remove')request('stock-add',stockFrame,{rows:[meta.newRow]},{type:'stock-edit-add'});if(meta?.type==='stock-to-wish')toast('マイウィッシュへ移動しました（数量は未指定）。')}
+   if(d.channel==='stock-removed'){const meta=requests.get(d.requestId);requests.delete(d.requestId);if(meta?.type==='stock-edit-remove')request('stock-add',stockFrame,{rows:[meta.newRow]},{type:'stock-edit-add'});if(meta?.type==='stock-to-wish')toast('マイウィッシュへ移動しました（数量は未指定）。');if(meta?.type==='stock-edit-delete')toast('ストックから削除しました（模擬）')}
  }
  if(e.source===wishFrame.contentWindow){
    if(d.channel==='wish-state')wish=d.rows||[];
