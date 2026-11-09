@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#345d4b">
+<title>Pantrymo｜アイテムプラス・UIサンプル v14</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#2e342f;background:#f5f7f3;font-size:15px}*{box-sizing:border-box}button,select,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #579879;outline-offset:2px}[hidden]{display:none!important}.wrap{max-width:920px;margin:auto;background:#fbfcfa;min-height:100dvh;padding:13px 15px 95px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dbe5dc;padding:5px 0 13px}.brand{color:#3c6550;font-weight:850;font-size:23px;letter-spacing:-.6px}.tiny{font-size:11px;color:#777}.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:13px 0 24px}.nav div{border:1px solid #cfdcd1;border-radius:10px;text-align:center;padding:11px 3px;font-size:clamp(11px,2.9vw,14px);color:#537260;background:white;min-width:0}.nav .active{background:#e1eee5;color:#2d6042;font-weight:700;border-color:#a8cfb4}.heading{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:0 0 12px}.heading h1{font-size:21px;margin:0;color:#365f48}.hint{color:#67756a;font-size:12px}.card{border:1px solid #dbe5da;border-radius:12px;background:#fff;padding:13px;margin:13px 0;box-shadow:0 2px 7px #1e482808}.lab{display:block;color:#42634e;font-size:13px;font-weight:700;margin-bottom:8px}.dest{display:grid;grid-template-columns:1fr 1fr;gap:8px}.dest button{background:#f8faf8;border:1px solid #cddbcf;border-radius:9px;padding:12px 6px;font-weight:650;color:#48614c}.dest button.active{color:white;background:#527b60;border-color:#527b60}.destnote{font-size:12px;color:#69776d;margin-top:9px}.inputbox{width:100%;min-height:120px;resize:vertical;border:1px solid #b9cbbd;border-radius:10px;background:#fff;padding:12px;line-height:1.7;font-size:15px;color:#263b2c}.inputbox::placeholder{color:#8c9890;opacity:1;font-size:13px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}.btn{border:none;border-radius:9px;padding:11px 15px;font-weight:700}.primary{background:#3f7452;color:#fff}.soft{color:#45694d;background:#e8f1e9}.outline{background:#fff;color:#55705a;border:1px solid #cbd9cd}.meta{color:#6c7d70;font-size:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.section-head h2{margin:0;font-size:16px;color:#365f48}.row{border:1px solid #d9e4da;background:white;border-radius:9px;margin:7px 0;overflow:hidden}.rowline{display:grid;grid-template-columns:25px minmax(75px,1.6fr) minmax(65px,.75fr) minmax(95px,1.25fr) 38px;gap:5px;align-items:center;min-height:50px;padding:5px 7px}.rowline input[type=checkbox]{width:17px;height:17px;accent-color:#4f7c5b}.rowline input:not([type=checkbox]),.rowline select{border:1px solid transparent;border-bottom:1px dashed #c9d8cc;border-radius:2px;background:#fff;color:#293a2d;padding:7px 2px;min-width:0;width:100%;font-size:14px}.rowline select{font-size:12px;color:#47624c}.rowline input:focus,.rowline select:focus{border-color:#85a996;border-radius:5px}.more{border:0;background:transparent;font-size:22px;font-weight:900;color:#466b50;width:36px;height:38px;border-radius:8px;line-height:1}.detail-line{background:#f0f6f0;color:#49684f;border-top:1px solid #e0eadf;padding:6px 12px 8px 34px;font-size:12px}.detail-line:empty{display:none}.save-row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}.notice{background:#f3f6e8;border:1px solid #d9e2c7;border-radius:8px;padding:10px;color:#636f40;font-size:12px;line-height:1.6}.footerline{color:#6e7f70;font-size:12px;padding:12px 2px}dialog{border:0;border-radius:14px;padding:0;width:min(440px,calc(100vw - 26px));box-shadow:0 14px 50px #132e2545}dialog::backdrop{background:#192d2460}.modal-head{display:flex;justify-content:space-between;align-items:center;background:#e8f1e8;padding:13px 17px;color:#315d41;font-weight:750}.close{background:transparent;border:0;font-size:26px;line-height:1;color:#486952}.modal-body{padding:16px}.field{display:block;font-size:13px;color:#435b49;font-weight:650;margin-bottom:13px}.field input,.field select{display:block;width:100%;padding:10px;margin-top:6px;border:1px solid #cadbcb;border-radius:8px;background:white;color:#303a30}.checkfield{display:flex;gap:10px;align-items:center;font-size:14px;margin:12px 0}.checkfield input{accent-color:#4c805e;width:18px;height:18px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.status{margin:10px 0 0;color:#3b754d;font-size:13px}.preview-badge{font-size:11px;background:#eef3ed;padding:3px 7px;border-radius:7px;color:#6c776d}.sample-name{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sample-cell{font-size:12px;color:#526657;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.empty{border:1px dashed #c9d9ca;border-radius:10px;padding:14px;color:#68786b;font-size:13px} @media (min-width:700px){.wrap{padding:18px 25px 100px}.nav{gap:12px}.nav div{padding:14px 5px}.inputbox{min-height:130px}.rowline{grid-template-columns:30px minmax(125px,1.75fr) minmax(90px,.8fr) minmax(130px,1.2fr) 48px;gap:12px}.rowline input:not([type=checkbox]),.rowline select{font-size:16px}.rowline select{font-size:14px}.more{font-size:23px}.heading h1{font-size:24px}}
+
+/* アイテムプラス v2：確認リストは1品1行・下線なし。詳細がある場合だけ2行目 */
+.nav{margin-bottom:13px}.row{margin:4px 0;border-radius:7px}.rowline{grid-template-columns:minmax(75px,1.6fr) minmax(55px,.75fr) minmax(90px,1.25fr) 38px;gap:5px;min-height:41px;padding:3px 5px}.rowline input:not([type=checkbox]),.rowline select{border:0;border-radius:5px;padding:6px 3px;font-size:13px;background:transparent;min-height:33px}.rowline select{font-size:12px}.rowline input:focus,.rowline select:focus{outline:1px solid #85a996}.more{font-size:23px;font-weight:900;line-height:1}.detail-line{padding:4px 9px 5px;font-size:12px}.save-row{justify-content:flex-end}.switches{display:flex;gap:8px;margin-bottom:16px}.switch{display:flex;align-items:center;gap:7px;justify-content:center;width:100px;border:1px solid #d6e1d7;border-radius:8px;padding:9px;background:#f5f6f5;color:#929c94;font-weight:750}.switch[aria-pressed=true]{border-color:#6ca77c;background:#e9f4ed;color:#3a8056}.switch#frozenToggle[aria-pressed=true]{background:#e9f2ff;border-color:#8fb5ea;color:#3277bf}.switch>span{font-size:12px}.menu-actions{display:grid;gap:8px}.menu-action{border:1px solid #d4e2d7;background:white;border-radius:8px;text-align:left;padding:12px;color:#385b47}.danger{color:#b34a4a}.danger-fill{background:#bb5353;color:white}#deleteMessage{line-height:1.7;margin:0 0 16px}
+@media (min-width:700px){.rowline{grid-template-columns:minmax(120px,1.75fr) minmax(90px,.8fr) minmax(130px,1.2fr) 44px;gap:10px}.rowline input:not([type=checkbox]),.rowline select{font-size:15px}.rowline select{font-size:14px}}
+
+
+/* v3: ストックリスト風のカテゴリ別確認リスト */
+.nav{margin-bottom:13px}.destnote{display:none}.card{margin:11px 0;padding:12px}.section-head{margin-bottom:8px}
+.cat-group{margin:8px 0 12px}.cat-band{background:#e9f1e9;color:#3a6749;font-size:12px;font-weight:750;border-radius:5px;padding:5px 9px;margin-bottom:3px;display:flex;justify-content:space-between;align-items:center}.cat-band small{font-size:11px;font-weight:500;color:#67836e}
+.item-row{position:relative;min-width:0;background:#fff;border-bottom:1px solid #eff3ec}.item-main{display:grid;grid-template-columns:23px 23px minmax(0,1fr) 89px 31px;align-items:center;gap:2px;min-height:37px;padding:2px 2px 2px 1px}.icon-toggle{height:31px;width:23px;border:0;background:transparent;padding:0;color:#cbd3cd;font-size:15px;line-height:31px;text-align:center;filter:grayscale(1);opacity:.45}.icon-toggle.active{filter:none;opacity:1}.item-name{min-width:0;width:100%;background:transparent;border:1px solid transparent;border-radius:4px;padding:4px 3px;font-size:13px;color:#304434;outline-offset:0}.item-name:focus{border-color:#a4c7aa;background:#f9fcf9}.item-qty{border:0;background:transparent;color:#425b47;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:right;font-size:12px;min-width:0;padding:5px 3px;min-height:32px}.item-more{border:0;background:transparent;color:#456d51;font-weight:900;font-size:19px;width:30px;height:34px;padding:0;line-height:1;border-radius:6px}.item-more:active,.item-qty:active{background:#eef4ee}.item-extra{color:#5a765f;font-size:11px;line-height:1.35;padding:1px 7px 5px 48px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.item-extra:empty{display:none}.qty-editor{position:absolute;right:29px;top:1px;z-index:2;display:flex;align-items:center;gap:3px;background:#fff;border:1px solid #a6cbb0;box-shadow:0 3px 9px #203c302a;border-radius:8px;padding:2px 4px;height:36px;max-width:calc(100% - 50px)}.qty-editor button{background:#ecf4ed;color:#315c41;border:0;border-radius:6px;width:29px;height:29px;font-size:20px;line-height:1}.qty-editor input{width:44px;min-width:0;border:0;text-align:right;font-size:14px;background:transparent}.qty-unit{font-size:11px;color:#56705b;max-width:52px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.qty-empty{font-size:11px;color:#799080}.save-row{margin-top:13px}.notice{margin:12px 0}
+/* Compact shared individual-edit panel */
+dialog#detailDialog{width:min(500px,calc(100vw - 20px));max-height:calc(100dvh - 30px);overflow:auto}.modal-head{padding:9px 12px;font-size:14px}.modal-body{padding:11px 12px 12px}.edit-grid{display:grid;gap:7px}.edit-row{display:grid;align-items:end;gap:7px;min-width:0}.edit-row.one{grid-template-columns:minmax(0,1fr) 52px 75px}.edit-row.two{grid-template-columns:auto minmax(0,1fr)}.edit-row.three{grid-template-columns:139px minmax(0,1fr)}.mini-field{display:block;min-width:0;font-size:11px;font-weight:700;color:#597260}.mini-field input,.mini-field select{display:block;margin-top:3px;width:100%;min-width:0;height:35px;padding:5px 6px;border:1px solid #cbdccc;border-radius:7px;color:#2b4633;background:white;font-size:13px}.mini-field input[type=date]{padding:5px 3px;font-size:12px;color-scheme:light;accent-color:#3f7452}.mini-field input[type=date]::-webkit-calendar-picker-indicator{opacity:.8}.edit-switches{display:flex;gap:5px;align-items:center;padding-bottom:1px}.edit-switch{border:1px solid #d3dfd4;background:#f6f8f6;color:#9daa9f;border-radius:7px;display:flex;align-items:center;gap:3px;padding:0 6px;min-width:58px;height:35px;justify-content:center;font-weight:750;font-size:11px}.edit-switch .glyph{font-size:14px;filter:grayscale(1);opacity:.65}.edit-switch[aria-pressed=true]{background:#e8f3eb;color:#367a4e;border-color:#91c4a0}.edit-switch[aria-pressed=true] .glyph{filter:none;opacity:1}.edit-switch.frozen[aria-pressed=true]{background:#e9f1ff;color:#3777b0;border-color:#98bbe0}.date-clear{font-size:11px;border:0;background:transparent;color:#597b61;margin-top:2px;padding:0;text-decoration:none}.edit-buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:11px}.edit-buttons button{height:36px;padding:6px;border:1px solid #cbdacb;background:#fff;color:#46614a;border-radius:8px;font-size:13px;font-weight:700}.edit-buttons .delete{color:#b54e4e;border-color:#e0cccc}.edit-buttons .commit{background:#477955;border-color:#477955;color:#fff}.small-disclaimer{font-size:11px;color:#748273}
+@media(min-width:650px){.item-main{grid-template-columns:27px 27px minmax(0,1fr) 125px 40px;min-height:41px;gap:4px}.item-name{font-size:15px}.item-qty{font-size:14px}.icon-toggle{font-size:17px;width:27px}.item-more{font-size:21px;width:38px}.cat-band{font-size:14px}.item-extra{padding-left:66px;font-size:12px}}
+
+/* v4: repeated alignment across stock dialog rows, compact two-row wish dialog */
+.edit-row.one{grid-template-columns:minmax(0,1fr) 52px 75px}
+.edit-row.two,.edit-row.three{grid-template-columns:134px minmax(0,1fr)}
+.edit-switches{width:134px;min-width:0;gap:5px}
+.edit-switch{width:calc((134px - 5px)/2);min-width:0;padding:0 3px}
+.edit-row.two.wish-mode{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.edit-row.three.wish-mode{display:none}
+.item-main.wish-mode{grid-template-columns:minmax(0,1fr) 89px 31px;padding-left:4px}
+@media(min-width:650px){.item-main.wish-mode{grid-template-columns:minmax(0,1fr) 125px 40px}}
+/* v5: confirmation categories in two columns on large screens, including portrait tablets */
+#rows{display:block}
+@media(min-width:700px){
+  #rows{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:start}
+  #rows .preview-column{min-width:0}
+  #rows .cat-group{margin:8px 0 12px}
+  #rows .item-main{grid-template-columns:25px 25px minmax(0,1fr) minmax(65px,95px) 31px;gap:2px}
+  #rows .item-main.wish-mode{grid-template-columns:minmax(0,1fr) minmax(65px,95px) 31px}
+  #rows .item-name{font-size:14px}
+  #rows .item-qty{font-size:13px}
+  #rows .item-more{width:30px}
+  #rows .icon-toggle{width:25px}
+  #rows .item-extra{padding-left:55px}
+}
+@media(min-width:1000px){#rows .item-main{grid-template-columns:27px 27px minmax(0,1fr) 105px 34px}#rows .item-main.wish-mode{grid-template-columns:minmax(0,1fr) 105px 34px}}
+
+/* v6: Echo Show 11 / kitchen distance viewing mode (opt-in; other devices unchanged) */
+.echo-switch{border:1px solid #a7c6ad;background:#edf5ef;color:#365f48;border-radius:9px;padding:8px 13px;font-weight:750;font-size:13px;min-height:38px}
+.echo-switch[aria-pressed=true]{background:#3f7452;color:white}
+body.echo-view{background:#f5f7f3}
+body.echo-view .wrap{max-width:none;width:100%;padding:12px 22px 45px}
+body.echo-view .top{padding:0 0 9px}
+body.echo-view .brand{font-size:28px}
+body.echo-view .nav{gap:12px;margin:9px 0}
+body.echo-view .nav div{font-size:19px;padding:12px 6px}
+body.echo-view .card{padding:13px 17px;margin:10px 0;border-radius:12px}
+body.echo-view .lab{font-size:19px;margin-bottom:7px}
+body.echo-view .dest button{font-size:21px;min-height:52px;padding:8px}
+body.echo-view .inputbox{font-size:22px;min-height:105px;line-height:1.45;padding:12px}
+body.echo-view .inputbox::placeholder{font-size:17px}
+body.echo-view .btn{font-size:19px;min-height:51px;padding:9px 17px}
+body.echo-view .section-head h2{font-size:22px}
+body.echo-view .status{font-size:17px}
+body.echo-view #rows{gap:22px}
+body.echo-view #rows .cat-band{font-size:19px;padding:8px 10px}
+body.echo-view #rows .cat-band small{font-size:16px}
+body.echo-view #rows .item-main{grid-template-columns:37px 37px minmax(0,1fr) 112px 48px;min-height:55px;gap:4px}
+body.echo-view #rows .item-main.wish-mode{grid-template-columns:minmax(0,1fr) 112px 48px}
+body.echo-view #rows .item-name{font-size:20px}
+body.echo-view #rows .item-qty{font-size:19px;min-height:45px}
+body.echo-view #rows .icon-toggle{width:36px;height:44px;line-height:44px;font-size:23px}
+body.echo-view #rows .item-more{width:46px;height:46px;font-size:27px}
+body.echo-view #rows .item-extra{font-size:17px;white-space:normal;padding:3px 7px 6px 82px}
+body.echo-view #rows .item-main.wish-mode + .item-extra{padding-left:8px}
+body.echo-view .qty-editor{height:49px;right:47px;top:2px}
+body.echo-view .qty-editor button{height:41px;width:44px;font-size:27px}
+body.echo-view .qty-editor input{font-size:21px;width:55px}
+body.echo-view .qty-unit{font-size:17px}
+body.echo-view dialog#detailDialog{width:min(820px,calc(100vw - 32px));max-height:calc(100dvh - 24px)}
+body.echo-view dialog#deleteDialog{width:min(620px,calc(100vw - 32px))}
+body.echo-view .modal-head{font-size:22px;padding:13px 18px}
+body.echo-view .close{font-size:34px;min-width:48px;min-height:44px}
+body.echo-view .modal-body{padding:17px 18px}
+body.echo-view .edit-grid{gap:12px}
+body.echo-view .edit-row{gap:12px}
+body.echo-view .edit-row.one{grid-template-columns:minmax(0,1fr) 95px 115px}
+body.echo-view .edit-row.two,body.echo-view .edit-row.three{grid-template-columns:205px minmax(0,1fr)}
+body.echo-view .edit-row.two.wish-mode{grid-template-columns:1fr 1fr}
+body.echo-view .edit-switches{width:205px;gap:8px}
+body.echo-view .edit-switch{width:calc((205px - 8px)/2);height:52px;font-size:18px}
+body.echo-view .edit-switch .glyph{font-size:23px}
+body.echo-view .mini-field{font-size:17px}
+body.echo-view .mini-field input,body.echo-view .mini-field select{height:52px;font-size:20px;padding:7px 10px}
+body.echo-view .mini-field input[type=date]{font-size:18px}
+body.echo-view .date-clear{font-size:16px;min-height:28px}
+body.echo-view .edit-buttons{gap:12px;margin-top:14px}
+body.echo-view .edit-buttons button{height:54px;font-size:20px}
+body.echo-view #deleteMessage{font-size:20px}
+body.echo-view .notice,body.echo-view .footerline{font-size:15px}
+@media(max-width:750px){body.echo-view #rows{grid-template-columns:1fr}body.echo-view .wrap{padding:10px 12px 45px}body.echo-view .nav div{font-size:14px}body.echo-view .edit-row.one{grid-template-columns:minmax(0,1fr) 65px 78px}body.echo-view .edit-row.two,body.echo-view .edit-row.three{grid-template-columns:140px minmax(0,1fr)}body.echo-view .edit-switches{width:140px}body.echo-view .edit-switch{width:67px;font-size:12px}}
+
+/* v7: same-page mock; category dropdown common layout, independent size mode */
+.edit-row.two{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}
+.edit-row.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+.edit-row.two .cat-field{grid-column:1}
+.edit-row.two .edit-switches{display:contents}
+.edit-row.two .edit-switches[hidden]{display:none!important}
+.edit-row.two .edit-switch{width:100%;min-width:0;height:35px;padding:0 3px;justify-self:stretch}
+.edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))}
+.edit-row.two.wish-mode .edit-switches{display:none!important}
+.edit-row.three.wish-mode{display:none}
+.cat-picker{position:relative;min-width:0}
+.cat-trigger{display:flex;align-items:center;justify-content:space-between;gap:7px;width:100%;min-width:0;max-width:100%;margin-top:3px;height:35px;border:1px solid #cbdccc;border-radius:7px;background:white;color:#2b4633;font-size:13px;padding:5px 7px;text-align:left;cursor:pointer}
+.cat-trigger span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cat-menu{position:absolute;z-index:40;top:100%;left:0;min-width:100%;max-width:min(420px,calc(100vw - 32px));max-height:min(300px,50vh);overflow:auto;background:#fff;border:2px solid #85b497;border-radius:8px;box-shadow:0 7px 25px #0002}
+.cat-menu[hidden]{display:none!important}
+.cat-option{display:block;width:100%;text-align:left;white-space:normal;overflow-wrap:anywhere;border:0;border-bottom:1px solid #e0e9e1;background:#fff;color:#2b4633;padding:10px 12px;font-size:14px;cursor:pointer}
+.cat-option[aria-selected=true],.cat-option:focus-visible{background:#e4f3e8}
+#dateWrap{min-width:0}
+#stockDate{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+.custom-date-open{display:block;width:100%;height:35px;min-width:0;margin-top:3px;border:1px solid #cbdccc;border-radius:7px;background:white;color:#2b4633;text-align:left;padding:5px 7px;font-size:13px}
+.date-picker-fields{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:8px}
+.date-picker-fields label{font-size:15px;color:#456c50;min-width:0}
+.date-picker-fields select{display:block;width:100%;min-width:0;margin-top:5px;height:46px;font-size:18px;background:#fff;border:1px solid #cbdccc;border-radius:7px}
+body.echo-view .edit-row.two{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}
+body.echo-view .edit-row.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.echo-view .edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.echo-view .edit-row.two .edit-switches{display:contents}
+body.echo-view .edit-row.two .edit-switches[hidden]{display:none!important}
+body.echo-view .edit-row.two .edit-switch{width:100%;min-width:0;height:52px;font-size:18px}
+body.echo-view .cat-trigger,body.echo-view .custom-date-open{height:52px;font-size:20px;padding:7px 10px}
+body.echo-view .cat-option{font-size:20px;padding:14px 16px}
+@media(max-width:750px){body.echo-view .edit-row.two{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}body.echo-view .edit-row.three{grid-template-columns:repeat(2,minmax(0,1fr))}body.echo-view .edit-row.two.wish-mode{grid-template-columns:repeat(2,minmax(0,1fr))}body.echo-view .edit-row.two .edit-switch{width:100%;font-size:12px}}
+
+/* v8: category options in their own top-layer modal, not clipped by edit dialog */
+dialog#categoryPickerDialog{width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 30px);overflow:hidden;}
+#categoryPickerDialog .modal-body{padding:10px;min-height:0}
+#categoryPickerDialog .cat-menu{position:static;top:auto;left:auto;right:auto;display:block;width:100%;max-width:none;min-width:0;max-height:calc(100dvh - 130px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #b3d0ba;box-shadow:none}
+#categoryPickerDialog .cat-option{font-size:17px;line-height:1.4;min-height:48px;padding:12px 16px}
+body.echo-view #categoryPickerDialog .cat-option{font-size:22px;min-height:62px;padding:15px 18px}
+body.echo-view dialog#categoryPickerDialog{width:min(660px,calc(100vw - 32px))}
+#stockDate:not([hidden]){display:block;height:35px!important;min-height:35px!important;max-height:35px!important;padding:3px 6px!important;line-height:1.2!important;box-sizing:border-box!important;vertical-align:middle}
+body.echo-view #stockDate:not([hidden]){height:52px!important;min-height:52px!important;max-height:52px!important;padding:5px 10px!important}
+
+/* v9: tighter category options, preserving font size and touch targets */
+#categoryPickerDialog .cat-option{min-height:40px;padding:7px 13px;line-height:1.3}
+body.echo-view #categoryPickerDialog .cat-option{min-height:50px;padding:9px 16px;line-height:1.3}
+/* Safari/iPad: isolate native date input from grid's intrinsic height */
+.date-native-box{display:block;position:relative;margin-top:3px;width:100%;height:35px;min-height:0;max-height:35px;overflow:hidden;border:1px solid #cbdccc;border-radius:7px;background:white}
+.date-native-box[hidden]{display:none!important}
+.date-native-box #stockDate,.mini-field .date-native-box #stockDate{position:absolute;inset:0;display:block!important;width:100%;height:100%!important;min-height:0!important;max-height:100%!important;box-sizing:border-box!important;margin:0!important;padding:0 6px!important;border:0!important;border-radius:0!important;line-height:normal!important;-webkit-appearance:auto;appearance:auto}
+body.echo-view .date-native-box{height:52px;max-height:52px}
+body.echo-view .date-native-box #stockDate{height:100%!important;max-height:100%!important;padding:0 9px!important}
+/* Silk keeps existing date dialog, while its three dropdowns are custom */
+.date-picker-fields .date-part{display:block;width:100%;min-width:0;margin-top:5px;height:46px;padding:5px 7px;border:1px solid #cbdccc;border-radius:7px;background:#fff;color:#2b4633;text-align:left;font-size:17px;white-space:nowrap}
+dialog#dateOptionDialog{width:min(480px,calc(100vw - 28px));max-height:calc(100dvh - 26px);overflow:hidden}
+#dateOptionDialog .modal-body{padding:9px}
+.date-option-list{max-height:calc(100dvh - 125px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #c7dacb;border-radius:7px}
+.date-option-list button{display:block;width:100%;min-height:45px;padding:9px 16px;background:#fff;border:0;border-bottom:1px solid #e0e8e0;color:#2b4633;font-size:19px;text-align:left;cursor:pointer}
+.date-option-list button[aria-selected=true]{background:#e3f2e7;font-weight:750}
+body.echo-view .date-part{height:52px;font-size:19px}
+body.echo-view .date-option-list button{min-height:52px;font-size:21px;padding:11px 17px}
+
+/* v10 My Wish view: reuse item-plus v9 compact wish rows */
+.wish-tools{display:flex;gap:7px}.wish-tools .btn{font-size:13px;padding:8px 10px}
+#wishRows .item-main.wish-mode{grid-template-columns:26px minmax(0,1fr) 89px 31px}
+#wishRows .wish-entry.checked{opacity:.65}
+#wishRows .wish-entry.checked .wish-name{text-decoration:line-through}
+#wishRows .wish-name{min-width:0;border:0;background:transparent;color:#304434;font-size:13px;text-align:left;padding:5px 3px;white-space:normal;overflow-wrap:anywhere}
+#wishRows .wish-tick{accent-color:#52845f;width:18px;height:18px;margin:0 4px}
+#wishRows .wish-sub{font-size:11px;color:#637966;padding:0 7px 5px 31px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
+#wishRows .wish-entry.checked .wish-sub{text-decoration:none}
+#wishRows .wish-heading{font-size:12px;color:#5b785f;background:#edf4ed;font-weight:750;padding:6px 9px;margin-top:12px;border-radius:6px}
+#wishRows .wish-entry{border-bottom:1px solid #e9efe9}
+#wishRows .wish-quantity-editor{margin:1px 0 6px 28px;display:flex;align-items:center;gap:6px;background:#f2f7f2;border-radius:7px;padding:5px;width:max-content;max-width:95%}
+#wishRows .wish-quantity-editor input{width:55px;min-width:0;text-align:right;border:1px solid #bdd1bf;border-radius:5px;padding:5px}
+#wishRows .wish-quantity-editor button{min-width:31px;min-height:31px;border:0;border-radius:6px;background:#dbeadd;color:#315c41;font-size:19px}
+#wishRows .wish-quantity-editor span{font-size:12px;color:#5d7661}
+.wish-batch{position:sticky;bottom:8px;z-index:5;background:#e8f1e8;border:1px solid #bfd4c2;box-shadow:0 3px 15px #173b2524;border-radius:10px;padding:9px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center;margin-top:10px}
+.wish-batch .btn{padding:8px 9px;font-size:12px}
+.wish-batch span{font-weight:750;color:#385b45;font-size:12px}
+.wish-category-list{max-height:65vh;overflow:auto;padding:8px!important}
+.wish-category-list button{display:block;width:100%;background:white;color:#315440;border:0;border-bottom:1px solid #dde7dd;text-align:left;min-height:40px;padding:8px 14px;font-size:16px}
+.wish-category-list button[aria-selected=true]{background:#e3f2e7;font-weight:750}
+#wishConfirmText{line-height:1.6}
+body.echo-view .wish-tools .btn{font-size:19px;min-height:50px}
+body.echo-view #wishRows .item-main.wish-mode{grid-template-columns:36px minmax(0,1fr) 112px 48px;min-height:55px}
+body.echo-view #wishRows .wish-name{font-size:20px}
+body.echo-view #wishRows .wish-tick{width:23px;height:23px}
+body.echo-view #wishRows .wish-sub{font-size:16px;padding-left:40px}
+body.echo-view #wishRows .wish-heading{font-size:19px}
+body.echo-view .wish-category-list button{font-size:22px;min-height:50px}
+@media(min-width:650px){#wishRows .item-main.wish-mode{grid-template-columns:30px minmax(0,1fr) 125px 40px}#wishRows .wish-name{font-size:15px}#wishRows .wish-sub{font-size:13px}}
+
+/* v11: category header grouping and an archive block after both columns */
+#wishRows .wish-columns{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+#wishRows .wish-column{min-width:0}
+#wishRows .wish-group{margin:9px 0 13px;min-width:0}
+#wishRows .wish-band{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#e9f1e9;color:#3a6749;border:0;border-radius:5px;padding:7px 9px;font-size:12px;font-weight:750;text-align:left;min-height:31px}
+#wishRows .wish-band small{font-size:11px;color:#67836e;font-weight:600;white-space:nowrap}
+#wishRows .wish-band .chevron{display:inline-block;width:15px;font-size:12px}
+#wishRows .wish-entry .item-main.wish-mode{grid-template-columns:26px minmax(0,1fr) 89px 31px}
+#wishRows .wish-entry.checked .wish-name{text-decoration:line-through;color:#8a998d}
+#wishRows .wish-entry .wish-sub{padding-left:31px}
+#wishRows .wish-archive{grid-column:1/-1;margin-top:8px}
+#wishRows .wish-archive .wish-band{background:#e6e8e6;color:#59665d}
+#wishRows .wish-archive .wish-band small{color:#68736d}
+#wishRows .wish-archive .wish-entry{background:#f7f8f7}
+#wishRows .wish-archive .wish-entry .item-main.wish-mode{grid-template-columns:minmax(0,1fr) 35px}
+#wishRows .wish-archive .wish-name{color:#929a95;font-weight:500;padding-left:10px}
+#wishRows .wish-archive .wish-name:disabled{opacity:1}
+#wishRows .wish-archive .item-more{color:#6e7972}
+#wishRows .wish-archive .wish-archived-list{display:grid;grid-template-columns:minmax(0,1fr)}
+#wishRows .wish-selecting .wish-entry{cursor:pointer}
+#wishRows .wish-selecting .wish-entry.selected{background:#e7f3ea}
+#wishRows .wish-selecting .wish-entry .wish-tick{accent-color:#52845f}
+@media(min-width:700px){
+ #wishRows .wish-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ #wishRows .wish-archive .wish-archived-list{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px}
+ #wishRows .wish-band{font-size:14px}
+ #wishRows .wish-band small{font-size:12px}
+ #wishRows .wish-entry .item-main.wish-mode{grid-template-columns:30px minmax(0,1fr) 95px 34px}
+}
+body.echo-view #wishRows .wish-band{font-size:19px;min-height:47px;padding:9px 13px}
+body.echo-view #wishRows .wish-band small{font-size:16px}
+body.echo-view #wishRows .wish-entry .item-main.wish-mode{grid-template-columns:36px minmax(0,1fr) 112px 48px}
+body.echo-view #wishRows .wish-archive .wish-entry .item-main.wish-mode{grid-template-columns:minmax(0,1fr) 48px}
+@media(max-width:699px){body.echo-view #wishRows .wish-columns{grid-template-columns:minmax(0,1fr)}}
+
+/* v12: compact My Wish controls, shopping check vs bulk selection */
+.wish-top-actions{display:flex;justify-content:flex-end;gap:16px;align-items:center;margin:0 0 9px}
+.wish-link{border:0;background:transparent;color:#42694d;padding:7px 2px;font-weight:700;font-size:14px;text-decoration:none}
+.wish-link:active{text-decoration:underline}
+#wishRows .wish-entry .item-main.wish-mode{grid-template-columns:26px minmax(0,1fr) 89px 31px;gap:2px;min-height:36px;padding-top:1px;padding-bottom:1px}
+#wishRows .wish-entry.selectable .item-main.wish-mode{grid-template-columns:24px minmax(0,1fr) 70px 31px 27px}
+#wishRows .wish-buy-toggle{width:25px;height:32px;background:transparent;border:0;color:#b9c2bb;font-size:21px;font-weight:900;padding:0;line-height:1;cursor:pointer}
+#wishRows .wish-buy-toggle.active{color:#3f7452}
+#wishRows .wish-buy-toggle:disabled{opacity:.4}
+#wishRows .wish-entry .wish-name{line-height:1.2;padding:4px 2px}
+#wishRows .wish-entry .wish-sub{padding:0 6px 3px 29px;line-height:1.2;font-size:11px;margin-top:-1px}
+#wishRows .wish-entry .wish-sub:empty{display:none}
+#wishRows .wish-entry .item-qty{min-height:29px;padding:2px}
+#wishRows .wish-entry .item-more{height:32px}
+#wishRows .wish-bulk-check{width:19px;height:19px;accent-color:#527b60;margin:0 3px}
+#wishRows .wish-entry.selectable .item-main{cursor:pointer}
+#wishRows .wish-entry.selectable .wish-name{pointer-events:none}
+#wishRows .wish-entry .wish-quantity-editor{margin:0 0 4px 26px;padding:2px 4px;display:flex;gap:3px;align-items:center;min-height:34px}
+#wishRows .wish-quantity-editor button{min-width:29px;min-height:29px}
+#wishRows .wish-quantity-editor input{width:45px;padding:2px 4px}
+.wish-batch{gap:10px}
+.wish-batch .btn{min-width:60px}
+.wish-bulk-state{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;font-size:15px;font-weight:700}
+.wish-bulk-choice{padding:8px 9px;border:1px solid #d7e1d7;background:white;border-radius:8px;color:#506554;font-weight:650}
+.wish-bulk-choice.active{background:#e0eee3;border-color:#80ad8c;color:#286040}
+.wish-bulk-category{display:block;margin:17px auto 12px;background:#f8faf8;color:#365b43;border:1px solid #d6e1d7;border-radius:9px;padding:12px 16px;font-weight:700;min-height:44px}
+.wish-bulk-divider{border-top:1px solid #dde5dd;margin:10px 0}
+.wish-bulk-commands{display:flex;flex-direction:column;gap:2px}
+.wish-bulk-commands button{border:0;background:transparent;min-height:50px;color:#426e50;font-weight:750;font-size:15px}
+.wish-bulk-commands button.danger{color:#b04e4e}
+body.echo-view .wish-top-actions .wish-link{font-size:20px}
+body.echo-view #wishRows .wish-buy-toggle{font-size:30px;width:35px;height:43px}
+body.echo-view #wishRows .wish-entry .wish-sub{font-size:15px;padding-left:37px}
+@media(min-width:650px){#wishRows .wish-entry .item-main.wish-mode{grid-template-columns:30px minmax(0,1fr) 95px 34px}#wishRows .wish-entry.selectable .item-main.wish-mode{grid-template-columns:30px minmax(0,1fr) 78px 32px 27px}}
+body.echo-view #wishRows .wish-entry .item-main.wish-mode{grid-template-columns:36px minmax(0,1fr) 112px 48px}
+body.echo-view #wishRows .wish-entry.selectable .item-main.wish-mode{grid-template-columns:36px minmax(0,1fr) 92px 45px 33px}
+
+/* v13 Wish screen refinements */
+#wishView .card{padding-top:7px}
+#wishView .wish-top-actions{justify-content:flex-end;gap:0;margin:0 0 2px;padding:0}
+#wishView .wish-link{min-height:35px;padding:5px 2px;font-size:14px}
+#wishRows .wish-group{margin-top:2px}
+#wishRows .wish-column .wish-group + .wish-group{margin-top:9px}
+#wishRows .wish-buy-toggle{font-size:20px;font-family:Arial,sans-serif;font-weight:500;color:#c6cfca;line-height:1}
+#wishRows .wish-buy-toggle.active{color:#3f7452;font-size:21px;font-weight:700}
+#wishRows .wish-entry{position:relative}
+#wishRows .wish-entry .wish-quantity-editor.qty-editor{position:absolute;top:1px;right:30px;z-index:8;margin:0;min-height:36px;height:36px;width:max-content;max-width:calc(100% - 35px);padding:2px 4px;background:#fff;border:1px solid #a6cbb0;border-radius:8px;box-shadow:0 3px 9px #203c302a;gap:3px}
+#wishRows .wish-entry .wish-quantity-editor.qty-editor button{width:29px;min-width:29px;height:29px;min-height:29px;border-radius:6px;background:#ecf4ed}
+#wishRows .wish-entry .wish-quantity-editor.qty-editor input{width:44px;height:29px;border:0;background:transparent;text-align:right;padding:2px 0}
+#wishRows .wish-entry .wish-quantity-editor.qty-editor span{white-space:nowrap;max-width:50px;overflow:hidden;text-overflow:ellipsis}
+#wishView .wish-batch{position:fixed;bottom:max(24px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:40;width:max-content;max-width:calc(100vw - 24px);margin:0;padding:10px 13px;display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:9px;background:#315d4a;border:0;border-radius:12px;box-shadow:0 5px 18px #16372944}
+#wishView .wish-batch span{color:#fff;font-size:14px;font-weight:750;white-space:nowrap}
+#wishView .wish-batch .btn{background:#fff;color:#315d4a;border:1px solid #d8ded8;border-radius:9px;min-height:40px;padding:8px 14px;min-width:auto;font-size:14px;font-weight:700;white-space:nowrap}
+#wishView .wish-batch .btn:active{background:#e9f1ea}
+#wishView:has(.wish-batch:not([hidden])){padding-bottom:75px}
+.wish-bulk-toggle{border:0;background:transparent;color:#6b7770;font-size:20px;font-weight:750;min-height:45px;padding:6px 14px}
+.wish-bulk-toggle.on{color:#315d4a}
+body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor{height:49px;right:47px;top:2px}
+body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor button{height:41px;width:44px;min-width:44px;font-size:27px}
+body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor input{width:55px;height:40px;font-size:21px}
+body.echo-view #wishView .wish-batch span,body.echo-view #wishView .wish-batch .btn{font-size:19px}
+@media(max-width:370px){#wishView .wish-batch{padding:8px;gap:6px}#wishView .wish-batch span{font-size:12px}#wishView .wish-batch .btn{padding:7px 10px;font-size:13px}}
+
+/* v14 unified quantity overlay */
+#rows .item-row .qty-editor,#wishRows .wish-entry .wish-quantity-editor.qty-editor{position:absolute;right:30px;top:1px;z-index:8;display:flex;justify-content:space-between;align-items:center;gap:5px;width:194px;max-width:calc(100% - 40px);height:37px;min-height:37px;margin:0;padding:2px 5px;border:1px solid #a6cbb0;border-radius:8px;background:#fff;box-shadow:0 3px 9px #203c302a}
+#rows .item-row .qty-editor button,#wishRows .wish-entry .wish-quantity-editor.qty-editor button{min-width:31px;width:31px;height:29px;min-height:29px;border:0;border-radius:6px;background:#ecf4ed;color:#315c41;font-size:20px;line-height:1}
+#rows .item-row .qty-editor input,#wishRows .wish-entry .wish-quantity-editor.qty-editor input{width:49px;min-width:0;height:29px;border:0;background:transparent;text-align:right;font-size:14px;padding:2px 0}
+#rows .item-row .qty-editor .qty-unit,#wishRows .wish-entry .wish-quantity-editor.qty-editor .qty-unit{font-size:11px;min-width:0;max-width:52px;color:#56705b;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+body.echo-view #rows .item-row .qty-editor,body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor{width:264px;max-width:calc(100% - 55px);height:49px;min-height:49px;right:47px;top:2px}
+body.echo-view #rows .item-row .qty-editor button,body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor button{width:43px;min-width:43px;height:41px;min-height:41px;font-size:27px}
+body.echo-view #rows .item-row .qty-editor input,body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor input{width:58px;height:41px;font-size:21px}
+body.echo-view #rows .item-row .qty-editor .qty-unit,body.echo-view #wishRows .wish-entry .wish-quantity-editor.qty-editor .qty-unit{font-size:17px;max-width:65px}
+/* Stock reference style: bulk modal */
+dialog#wishBulkDialog{width:min(510px,calc(100vw - 30px));border-radius:17px;padding:0;max-height:90dvh;overflow:auto}
+#wishBulkDialog .modal-head{padding:18px 18px 0;align-items:flex-start}
+#wishBulkDialog .modal-head strong{display:block;font-size:17px}
+#wishBulkDialog .wish-bulk-caption{font-size:12px;color:#797b75;margin-top:3px}
+#wishBulkDialog .modal-body{padding:2px 18px 16px}
+#wishBulkDialog .wish-bulk-state{margin:6px 0 10px}
+#wishBulkDialog .wish-bulk-toggle{min-height:32px;font-size:17px;padding:4px 13px}
+#wishBulkDialog .wish-bulk-category{width:100%;display:flex;justify-content:space-between;align-items:center;margin:0;min-height:43px;border:1px solid #ddd;border-radius:10px;background:#fafaf8;padding:10px 13px;text-align:left;font-size:15px}
+#wishBulkDialog .wish-bulk-divider{margin:10px 0 0;border-top:1px solid #e8e5df}
+#wishBulkDialog .wish-bulk-commands{gap:8px;padding-top:12px}
+#wishBulkDialog .wish-bulk-commands button{width:100%;min-height:43px;border-radius:9px;line-height:1.3;font-size:15px;padding:9px 12px}
+#wishBulkDialog #wishBulkSave{background:#345d4b;color:#fff}
+#wishBulkDialog #wishBulkMove{border:1px solid #d5e3d7;background:white;color:#345d4b}
+#wishBulkDialog #wishBulkDelete{color:#b23f39;text-decoration:underline;text-underline-offset:3px}
+#wishEditDialog .wish-edit-actions{display:grid;gap:8px;margin-top:12px}
+#wishEditDialog .wish-edit-top,#wishEditDialog .wish-edit-bottom{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#wishEditDialog .wish-edit-actions button{min-height:42px;border:1px solid #ccdccd;border-radius:8px;background:#f5f9f5;color:#315d4a;font-size:13px;font-weight:700;padding:7px 5px}
+#wishEditDialog .wish-edit-actions button.delete{border-color:#ead7d3;background:#fff6f5;color:#aa4949}
+#wishEditDialog .wish-edit-actions button.commit{background:#345d4b;color:#fff;border-color:#345d4b}
+#wishEditDialog .wish-edit-top:has(#wishEditMove[hidden]) #wishEditArchive{grid-column:1/-1}
+#wishMoveDialog{width:min(520px,calc(100vw - 28px));max-height:90dvh;overflow:auto;border-radius:14px}
+#wishMoveDialog #wishMoveSummary{color:#365640;font-size:13px;line-height:1.6}
+#wishMoveDialog .wish-move-items{display:grid;gap:8px;max-height:48dvh;overflow:auto}
+#wishMoveDialog .wish-move-item{display:grid;grid-template-columns:1fr 75px 75px;column-gap:8px;row-gap:5px;align-items:end;border-bottom:1px solid #e3ebe4;padding:8px 0}
+#wishMoveDialog .wish-move-item b{grid-column:1/-1;font-size:14px}
+#wishMoveDialog .wish-move-item small{font-size:11px;color:#68806b}
+#wishMoveDialog .wish-move-item label{font-size:11px;color:#56715c}
+#wishMoveDialog .wish-move-item input{display:block;width:100%;margin-top:3px;padding:5px;border:1px solid #cbdacb;border-radius:6px}
+#wishMoveDialog .wish-move-footer{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}
+#wishMoveDialog .wish-move-footer button{min-height:42px;border:1px solid #d1dfd3;border-radius:8px;background:white;color:#345d4b;font-weight:700}
+#wishMoveDialog #wishMoveCommit{background:#345d4b;color:white}
+#wishMoveDialog .wish-move-demo{font-size:11px;color:#6d7e70;margin:10px 0 0}
+.top,.nav{display:none!important}.wrap{padding:9px 10px 100px;max-width:none}.embedded-title{font-size:17px;font-weight:800;color:#365f48;margin:3px 0 13px;display:block}.wish-top-actions{display:flex;align-items:center;gap:12px;justify-content:flex-end}.wish-top-actions .embedded-title{margin:0 auto 0 0}.wish-top-actions #wish-bridge-add{background:#fff;border:1px solid #bfd5c5;color:#3c6c4c;border-radius:8px;font-weight:750;padding:8px 12px}.card{padding:12px}.inputbox{min-height:112px}@media(max-width:400px){.wrap{padding-inline:8px}}</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top"><span class="brand">Pantrymo</span><button class="echo-switch" type="button" id="echoSwitch" aria-pressed="false">拡大表示：OFF</button></header>
+<nav class="nav" aria-label="メインメニュー"><div>ストックリスト</div><div id="wishNav" role="button" tabindex="0">マイウィッシュ</div><div id="plusNav" class="active" role="button" tabindex="0">アイテムプラス</div><div>CocoMemo</div></nav>
+<div id="plusView"><h2 class="embedded-title">アイテムプラス</h2>
+<section class="card"><span class="lab">追加先を選択</span><div class="dest" role="group" aria-label="追加先"><button id="stockButton" class="active" type="button" aria-pressed="true">ストックリスト</button><button id="wishButton" type="button" aria-pressed="false">マイウィッシュ</button></div><div id="destnote" class="destnote">食材をストックリストへ追加します。</div></section>
+<section class="card"><label class="lab" for="itemsText">アイテムを入力</label><textarea class="inputbox" id="itemsText" placeholder="例：かぼちゃ1個、玉ねぎ␣3個、ひき肉1パック&#10;複数品目は「、」「,」または改行で区切ること。&#10;(␣はスペース)" spellcheck="false"></textarea><div class="toolbar"><button class="btn soft" id="exampleButton" type="button">入力例を試す</button><button class="btn primary" id="parseButton" type="button">アイテムを確認</button></div><div class="status" id="parseStatus" role="status"></div></section>
+<section class="card"><div class="section-head"><h2>確認リスト</h2></div><div id="rows">
+<!-- JSを実行できないプレビュー用の静的見本 -->
+<div class="cat-group"><div class="cat-band">野菜・きのこ <small>2件</small></div><div class="item-row"><div class="item-main"><span>💫</span><span>❄️</span><span class="sample-name">かぼちゃ</span><span class="sample-cell">1個</span><span>⋮</span></div></div><div class="item-row"><div class="item-main"><span>💫</span><span>❄️</span><span class="sample-name">玉ねぎ</span><span class="sample-cell">3個</span><span>⋮</span></div></div></div>
+<div class="cat-group"><div class="cat-band">精肉・加工肉 <small>1件</small></div><div class="item-row"><div class="item-main"><span>💫</span><span>❄️</span><span class="sample-name">ひき肉</span><span class="sample-cell">1パック</span><span>⋮</span></div><div class="item-extra">ストック日 11/7</div></div></div>
+</div><div class="save-row"><button class="btn primary" id="saveButton" type="button">ストックリストに追加</button></div><p class="status" id="saveStatus" role="status"></p></section>
+<p class="notice">このファイルは仕様検討用のサンプルです。保存ボタンは動作の見本で、実際のストックリスト・買物リスト・端末データ・クラウドには保存しません。確認リスト内で数量・アイコンを操作できます。</p>
+<p class="footerline">入力の区切り：読点「、」／半角カンマ「,」／改行。「と」は品目区切りとして扱いません。</p>
+</div>
+<div id="wishView" hidden>
+  <section class="card">
+    <div class="wish-top-actions"><strong class="embedded-title">マイウィッシュ</strong><button type="button" id="wish-bridge-add">＋ 追加</button><button type="button" id="wishSelect" class="wish-link">選択</button></div>
+    <div id="wishRows" aria-live="polite"></div>
+    <div id="wishBatch" class="wish-batch" hidden><span id="wishCount">0件選択中</span><button type="button" class="btn soft" id="wishBatchEdit">編集</button><button type="button" class="btn outline" id="wishSelectCancel">取消</button></div>
+    <p id="wishStatus" class="status" role="status"></p>
+  </section>
+  <p class="notice">これは架空データを使った画面操作のサンプルです。編集・削除・移動・追加はこのページの表示だけに反映されます。再読み込みで初期状態に戻り、実データ・端末保存・クラウド・本体アプリへは書き込みません。</p>
+</div>
+</main>
+<dialog id="wishEditDialog" aria-label="マイウィッシュのアイテムを編集"><div class="modal-head"><span>マイウィッシュを編集</span><button type="button" class="close" id="wishEditClose" aria-label="閉じる">×</button></div><div class="modal-body">
+<div class="edit-grid"><div class="edit-row one"><label class="mini-field">アイテム名<input id="wishEditName" type="text"></label><label class="mini-field">数量<input id="wishEditAmount" type="text" inputmode="decimal"></label><label class="mini-field">単位<input id="wishEditUnit" type="text"></label></div>
+<div class="edit-row two wish-mode"><label class="mini-field">カテゴリ<button type="button" class="cat-trigger" id="wishEditCatButton">カテゴリを選択 ▾</button></label><label class="mini-field">メモ<input id="wishEditMemo" type="text"></label></div></div>
+<div class="wish-edit-actions"><div class="wish-edit-top"><button type="button" id="wishEditArchive">アーカイブ</button><button type="button" id="wishEditMove">ストックリストへ移動</button></div><div class="wish-edit-bottom"><button type="button" class="delete" id="wishEditDelete">削除</button><button type="button" class="commit" id="wishEditApply">変更</button></div></div></div></dialog>
+<dialog id="wishCategoryDialog" aria-label="カテゴリを選択"><div class="modal-head"><span>カテゴリを選択</span><button type="button" class="close" id="wishCategoryClose">×</button></div><div class="modal-body wish-category-list" id="wishCategoryList"></div></dialog>
+<dialog id="wishBulkDialog" aria-label="一括編集"><div class="modal-head wish-bulk-head"><div><strong>一括編集</strong><div id="wishBulkCount" class="wish-bulk-caption"></div></div><button type="button" class="close" id="wishBulkClose">×</button></div><div class="modal-body">
+<div class="wish-bulk-state"><button type="button" id="wishBulkToggle" class="wish-bulk-toggle" aria-pressed="false">○：OFF</button></div>
+<button type="button" class="wish-bulk-category" id="wishBulkCategory"><span>🏷️ カテゴリを変更</span><span>▾</span></button>
+<div class="wish-bulk-divider"></div><div class="wish-bulk-commands"><button type="button" id="wishBulkSave">変更を保存</button><button type="button" id="wishBulkMove">ストックリストへ移動</button><button type="button" class="danger" id="wishBulkDelete">選択項目を削除</button></div>
+</div></dialog>
+<dialog id="wishMoveDialog" aria-label="ストックリストへ移動"><div class="modal-head"><strong>ストックリストへ移動</strong><button type="button" class="close" id="wishMoveClose">×</button></div><div class="modal-body"><p id="wishMoveSummary"></p><div class="wish-move-items" id="wishMoveItems"></div><div class="wish-move-footer"><button id="wishMoveCancel" type="button">キャンセル</button><button id="wishMoveCommit" type="button">移動を確定</button></div><p class="wish-move-demo">画面上の模擬操作です。実際のストックデータへ保存しません。</p></div></dialog><dialog id="wishConfirmDialog" aria-label="削除・移動を確認"><div class="modal-head"><span id="wishConfirmTitle">確認</span><button type="button" class="close" id="wishConfirmClose">×</button></div><div class="modal-body"><p id="wishConfirmText"></p><div class="edit-buttons" style="grid-template-columns:1fr 1fr"><button type="button" id="wishConfirmCancel">キャンセル</button><button type="button" class="commit" id="wishConfirmOK">実行する</button></div></div></dialog>
+<dialog id="detailDialog" aria-label="アイテムの編集"><div class="modal-head"><span id="modalTitle">アイテムを編集</span><button class="close" aria-label="閉じる" type="button" id="closeModal">×</button></div><div class="modal-body"><div class="edit-grid">
+<div class="edit-row one"><label class="mini-field">アイテム名<input id="editName" type="text"></label><label class="mini-field">数量<input id="editAmount" type="text" inputmode="decimal"></label><label class="mini-field">単位<input id="editUnit" type="text"></label></div>
+<div class="edit-row two"><label class="mini-field cat-field">カテゴリ<div class="cat-picker"><select id="editCat" hidden aria-hidden="true" tabindex="-1"></select><button type="button" id="editCatButton" class="cat-trigger" aria-expanded="false" aria-haspopup="listbox"><span id="editCatText">カテゴリ未定</span><span aria-hidden="true">⌄</span></button><div id="editCatMenu" class="cat-menu" role="listbox" hidden></div></div></label><div id="stockSwitches" class="edit-switches"><button id="priorityToggle" class="edit-switch" aria-pressed="false" type="button"><span class="glyph">💫</span><span class="state">OFF</span></button><button id="frozenToggle" class="edit-switch frozen" aria-pressed="false" type="button"><span class="glyph">❄️</span><span class="state">OFF</span></button></div></div>
+<div class="edit-row three"><label class="mini-field">メモ<input id="memo" type="text"></label><label class="mini-field" id="dateWrap">ストック日<span class="date-native-box"><input id="stockDate" type="date"></span><button id="customDateOpen" class="custom-date-open" type="button" hidden>日付を選択 ▾</button></label></div>
+</div><button id="clearDate" type="button" class="date-clear">日付を解除</button><div class="edit-buttons"><button type="button" id="cancelModal">取消</button><button type="button" class="delete" id="deleteInModal">削除</button><button type="button" class="commit" id="applyModal">変更</button></div></div></dialog>
+<dialog id="categoryPickerDialog" aria-label="カテゴリを選択"><div class="modal-head"><span>カテゴリを選択</span><button type="button" class="close" id="categoryPickerClose" aria-label="閉じる">×</button></div><div class="modal-body" id="categoryPickerBody"></div></dialog>
+<dialog id="dateOptionDialog" aria-label="年・月・日を選択"><div class="modal-head"><span id="dateOptionTitle">選択</span><button type="button" class="close" id="dateOptionClose" aria-label="閉じる">×</button></div><div class="modal-body"><div id="dateOptionList" class="date-option-list"></div></div></dialog>
+<dialog id="datePickerDialog" aria-label="ストック日を選択"><div class="modal-head">ストック日を選択<button class="close" id="datePickerClose" type="button" aria-label="閉じる">×</button></div><div class="modal-body"><div class="date-picker-fields"><label>年<button type="button" id="dateYear" class="date-part">年を選択 ▾</button></label><label>月<button type="button" id="dateMonth" class="date-part">月を選択 ▾</button></label><label>日<button type="button" id="dateDay" class="date-part">日を選択 ▾</button></label></div><div class="edit-buttons" style="grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px"><button id="datePickerCancel" type="button">取消</button><button id="datePickerClear" type="button">解除</button><button id="datePickerOK" type="button" class="commit">決定</button></div></div></dialog>
+<dialog id="deleteDialog"><div class="modal-head"><span>削除の確認</span><button class="close" aria-label="閉じる" type="button" id="closeDelete">×</button></div><div class="modal-body"><p id="deleteMessage">このアイテムを確認リストから削除します。削除すると元に戻せません。よろしいですか？</p><div class="edit-buttons" style="grid-template-columns:1fr 1fr"><button type="button" id="cancelDelete">キャンセル</button><button type="button" class="delete" id="confirmDelete">削除</button></div></div></dialog>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+function setEchoMode(on){document.body.classList.toggle('echo-view',on);$('echoSwitch').setAttribute('aria-pressed',String(on));$('echoSwitch').textContent='拡大表示：'+(on?'ON':'OFF')}
+$('echoSwitch').onclick=()=>setEchoMode(!document.body.classList.contains('echo-view'));
+setEchoMode(new URLSearchParams(location.search).get('echo')==='1');
+const categories=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
+const wishCategories=[...categories.slice(0,-1),'日用品ほか','カテゴリ未定'];
+const canMoveWishItem=x=>!!(x&&!x.archived&&x.cat!=='日用品ほか');
+const known={'かぼちゃ':0,'玉ねぎ':0,'たまねぎ':0,'トマト':0,'じゃがいも':0,'ひき肉':1,'豚肉':1,'鶏もも肉':1,'牛乳':4,'卵':4,'玉子':4,'りんご':5,'醤油':12};
+let dest='stock',items=[],editing=-1,qtyOpen=-1,deleteIndex=-1;
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clean=s=>String(s??'').trim();
+const guess=n=>categories[known[clean(n)]??16];
+const units=['パック','ケース','ボトル','キロ','グラム','リットル','切れ','袋','本','個','枚','束','缶','箱','玉','粒','丁','房','杯','kg','ml','g','L'];
+function parseAmount(str){const m=clean(str).match(/^([0-9０-９]+(?:[.．][0-9０-９]+)?)\s*(.*)$/);return m?{amount:m[1].replace(/[０-９]/g,c=>String(c.charCodeAt(0)-65296)).replace('．','.'),unit:m[2]}:{amount:'',unit:''}}
+function parsePart(text){const t=clean(text).replace(/\u3000/g,' ');if(!t)return null;const re=new RegExp('^(.*?)\\s*([0-9０-９]+(?:[.．][0-9０-９]+)?)\\s*('+units.join('|')+')\\s*$','i');const m=t.match(re);const name=m&&clean(m[1])?clean(m[1]):t;return {id:0,name,amount:m&&clean(m[1])?parseAmount(m[2]).amount:'',unit:m&&clean(m[1])?m[3]:'',cat:guess(name),priority:false,frozen:false,date:'',memo:''}}
+let nextId=1;function newItem(str){let it=parsePart(str);if(it)it.id=nextId++;return it}
+function setDest(v){dest=v;if(typeof syncPlusCategories==='function')syncPlusCategories();for(const [key,id] of [['stock','stockButton'],['wish','wishButton']]){$(id).classList.toggle('active',v===key);$(id).setAttribute('aria-pressed',String(v===key))}$('saveButton').textContent=(v==='stock'?'ストックリスト':'マイウィッシュ')+'に追加';$('saveStatus').textContent='';qtyOpen=-1;render()}
+$('stockButton').onclick=()=>setDest('stock');$('wishButton').onclick=()=>setDest('wish');
+$('exampleButton').onclick=()=>{$('itemsText').value='かぼちゃ1個、玉ねぎ 3個、ひき肉1パック';$('itemsText').focus()};
+$('parseButton').onclick=()=>{const list=$('itemsText').value.split(/[、,\r\n]+/).map(newItem).filter(Boolean);if(!list.length){$('parseStatus').textContent='アイテムを入力してください。';return}items=list;qtyOpen=-1;$('parseStatus').textContent=items.length+'件のアイテムを確認リストに表示しました。';$('saveStatus').textContent='';render()};
+function qtyText(it){return (it.amount?it.amount+(it.unit||''):'')}
+function extra(it){const out=[];if(dest==='stock'&&it.date){const d=it.date.split('-');out.push('ストック日 '+Number(d[1])+'/'+Number(d[2]))}if(it.memo)out.push('メモ：'+it.memo);return out.join(' ・ ')}
+function render(){const root=$('rows');const active=document.activeElement;const keepId=active?.dataset?.name;const start=active?.selectionStart??null;const end=active?.selectionEnd??null;
+root.innerHTML='';
+const columns=[document.createElement('div'),document.createElement('div')];
+columns.forEach(c=>{c.className='preview-column';root.append(c)});
+const categoryPlacement={'野菜・きのこ':0,'精肉・加工肉':1,'卵・乳製品':0,'魚介・海藻':1};
+let columnWeights=[0,0];let shown=0;for(const cat of categories){const groupItems=items.filter(x=>x.cat===cat);if(!groupItems.length)continue;shown+=groupItems.length;const group=document.createElement('div');group.className='cat-group';const head=document.createElement('div');head.className='cat-band';head.innerHTML=safe(cat)+' <small>'+groupItems.length+'件</small>';group.append(head);
+for(const it of groupItems){const row=document.createElement('div');row.className='item-row';row.dataset.id=String(it.id);const more=dest==='stock'?`<button type="button" class="icon-toggle ${it.priority?'active':''}" data-icon="priority" aria-label="優先使用 ${it.priority?'ON':'OFF'}">💫</button><button type="button" class="icon-toggle ${it.frozen?'active':''}" data-icon="frozen" aria-label="冷凍 ${it.frozen?'ON':'OFF'}">❄️</button>`:'';
+const q=qtyText(it);row.innerHTML=`<div class="item-main ${dest==='wish'?'wish-mode':''}">${more}<input class="item-name" data-name="${it.id}" value="${safe(it.name)}" aria-label="アイテム名"><button class="item-qty" type="button" data-qty="${it.id}" aria-label="数量を編集">${q?safe(q):'<span class="qty-empty">　</span>'}</button><button class="item-more" type="button" data-edit="${it.id}" aria-label="${safe(it.name)}を編集">⋮</button></div>${extra(it)?'<div class="item-extra">'+safe(extra(it))+'</div>':''}`;
+if(qtyOpen===it.id){const editor=document.createElement('div');editor.className='qty-editor';editor.innerHTML=`<button type="button" data-step="-1">−</button><input type="text" data-amount="${it.id}" inputmode="decimal" aria-label="数量" value="${safe(it.amount)}"><span class="qty-unit">${safe(it.unit)}</span><button type="button" data-step="1">＋</button>`;row.append(editor)}group.append(row)}
+const chosen=Object.prototype.hasOwnProperty.call(categoryPlacement,cat)?categoryPlacement[cat]:(columnWeights[0]<=columnWeights[1]?0:1);
+columns[chosen].append(group);columnWeights[chosen]+=groupItems.length+1;
+}if(!shown)root.innerHTML='<div class="empty">確認するアイテムがありません。上の入力欄から追加してください。</div>';
+root.querySelectorAll('[data-icon]').forEach(el=>el.onclick=()=>{const it=find(el.closest('.item-row').dataset.id);if(!it)return;it[el.dataset.icon]=!it[el.dataset.icon];render()});
+root.querySelectorAll('[data-name]').forEach(el=>{el.onchange=()=>{const it=find(el.dataset.name);if(!it)return;it.name=el.value;render()}});
+root.querySelectorAll('[data-qty]').forEach(el=>el.onclick=()=>{const id=Number(el.dataset.qty);qtyOpen=qtyOpen===id?-1:id;render();if(qtyOpen!==-1)root.querySelector(`[data-amount="${qtyOpen}"]`)?.focus()});
+root.querySelectorAll('[data-edit]').forEach(el=>el.onclick=()=>openDetail(Number(el.dataset.edit)));
+root.querySelectorAll('[data-step]').forEach(el=>el.onclick=()=>{const it=find(el.closest('.item-row').dataset.id);const inp=el.closest('.qty-editor').querySelector('[data-amount]');let n=Number(inp.value);if(!Number.isFinite(n))n=0;n=Math.max(0,n+Number(el.dataset.step));it.amount=String(n);render()});
+root.querySelectorAll('[data-amount]').forEach(el=>{el.onchange=()=>{const it=find(el.dataset.amount);if(!it)return;it.amount=clean(el.value);render()};el.onkeydown=e=>{if(e.key==='Enter'){el.blur();qtyOpen=-1;render()}}});
+}
+function find(id){return items.find(x=>x.id===Number(id))}
+document.addEventListener('pointerdown',e=>{if(qtyOpen!==-1&&!e.target.closest('.qty-editor,.item-qty')){qtyOpen=-1;render()}});
+function syncPlusCategories(){const prev=$('editCat').value,opts=dest==='wish'?wishCategories:categories;$('editCat').innerHTML=opts.map(c=>'<option value="'+safe(c)+'">'+safe(c)+'</option>').join('');$('editCat').value=opts.includes(prev)?prev:'カテゴリ未定'}
+syncPlusCategories();
+const catBtn=$('editCatButton'),catMenu=$('editCatMenu'),categoryDialog=$('categoryPickerDialog');
+$('categoryPickerBody').appendChild(catMenu);
+catMenu.hidden=false;
+function syncCategory(){ $('editCatText').textContent=$('editCat').value||'カテゴリ未定'; }
+function closeCategory(){if(categoryDialog.open)categoryDialog.close();catBtn.setAttribute('aria-expanded','false');}
+function chooseCategory(cat){$('editCat').value=cat;syncCategory();closeCategory();catBtn.focus();}
+categories.forEach(cat=>{const b=document.createElement('button');b.type='button';b.className='cat-option';b.setAttribute('role','option');b.textContent=cat;b.onclick=()=>chooseCategory(cat);catMenu.append(b)});
+function openCategory(){catMenu.querySelectorAll('[role=option]').forEach(b=>b.setAttribute('aria-selected',String(b.textContent===$('editCat').value)));if(!categoryDialog.open)categoryDialog.showModal();catBtn.setAttribute('aria-expanded','true');const current=[...catMenu.children].find(b=>b.textContent===$('editCat').value);if(current)current.scrollIntoView({block:'nearest'});}
+catBtn.onclick=openCategory;
+$('categoryPickerClose').onclick=closeCategory;
+categoryDialog.addEventListener('close',()=>catBtn.setAttribute('aria-expanded','false'));
+categoryDialog.addEventListener('click',e=>{if(e.target===categoryDialog)closeCategory();});
+catBtn.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='Enter'||e.key===' '){e.preventDefault();openCategory();const current=[...catMenu.children].find(b=>b.textContent===$('editCat').value);(current||catMenu.firstChild)?.focus()}});
+catMenu.addEventListener('keydown',e=>{const bs=[...catMenu.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(e.key==='Escape'){closeCategory();catBtn.focus()}if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();bs[Math.max(0,Math.min(bs.length-1,i+(e.key==='ArrowDown'?1:-1)))].focus()}});
+syncCategory();
+const silk=/Silk/i.test(navigator.userAgent);
+const dateInput=$('stockDate'),dateOpen=$('customDateOpen');
+if(silk){$('dateWrap').querySelector('.date-native-box').hidden=true;dateInput.hidden=true;dateOpen.hidden=false;}
+function dateLabel(){dateOpen.textContent=(dateInput.value?dateInput.value.replaceAll('-','/'):'日付未設定')+' ▾';}
+dateLabel();
+let draftDate={year:2026,month:11,day:7};
+function maxDays(year,month){return new Date(Number(year),Number(month),0).getDate();}
+function updateDateButtons(){
+  draftDate.day=Math.min(draftDate.day,maxDays(draftDate.year,draftDate.month));
+  $('dateYear').textContent=draftDate.year+'年 ▾';
+  $('dateMonth').textContent=draftDate.month+'月 ▾';
+  $('dateDay').textContent=draftDate.day+'日 ▾';
+}
+function openDatePart(part){
+  const dialog=$('dateOptionDialog'),list=$('dateOptionList');
+  const labels={year:'年',month:'月',day:'日'};
+  $('dateOptionTitle').textContent=labels[part]+'を選択';
+  list.replaceChildren();
+  const nowYear=new Date().getFullYear();
+  const options=part==='year'
+    ? Array.from({length:41},(_,i)=>nowYear-20+i)
+    : part==='month'
+      ? Array.from({length:12},(_,i)=>i+1)
+      : Array.from({length:maxDays(draftDate.year,draftDate.month)},(_,i)=>i+1);
+  for(const value of options){
+    const b=document.createElement('button');
+    b.type='button';
+    b.textContent=value+labels[part];
+    b.setAttribute('aria-selected',String(draftDate[part]===value));
+    b.onclick=()=>{
+      draftDate[part]=value;
+      updateDateButtons();
+      dialog.close();
+      $(part==='year'?'dateYear':part==='month'?'dateMonth':'dateDay').focus();
+    };
+    list.append(b);
+  }
+  dialog.showModal();
+  const selected=list.querySelector('[aria-selected="true"]');
+  if(selected)selected.scrollIntoView({block:'nearest'});
+}
+$('dateYear').onclick=()=>openDatePart('year');
+$('dateMonth').onclick=()=>openDatePart('month');
+$('dateDay').onclick=()=>openDatePart('day');
+$('dateOptionClose').onclick=()=>close('dateOptionDialog');
+$('dateOptionDialog').addEventListener('click',e=>{if(e.target===$('dateOptionDialog'))close('dateOptionDialog')});
+dateOpen.onclick=()=>{
+  const today=new Date();
+  const fallback=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  const vals=(dateInput.value||fallback).split('-').map(Number);
+  draftDate={year:vals[0],month:vals[1],day:vals[2]};
+  updateDateButtons();
+  $('datePickerDialog').showModal();
+};
+function closeDatePicker(){close('datePickerDialog')}
+$('datePickerClose').onclick=$('datePickerCancel').onclick=closeDatePicker;
+$('datePickerClear').onclick=()=>{dateInput.value='';dateLabel();closeDatePicker()};
+$('datePickerOK').onclick=()=>{
+  const y=String(draftDate.year),m=String(draftDate.month).padStart(2,'0'),d=String(draftDate.day).padStart(2,'0');
+  dateInput.value=y+'-'+m+'-'+d;
+  dateLabel();
+  closeDatePicker();
+};
+
+function toggleVisual(id,on){$(id).setAttribute('aria-pressed',String(on));$(id).querySelector('.state').textContent=on?'ON':'OFF'}
+$('priorityToggle').onclick=()=>toggleVisual('priorityToggle',$('priorityToggle').getAttribute('aria-pressed')!=='true');
+$('frozenToggle').onclick=()=>toggleVisual('frozenToggle',$('frozenToggle').getAttribute('aria-pressed')!=='true');
+function openDetail(id){const it=find(id);if(!it)return;editing=id;qtyOpen=-1;render();$('modalTitle').textContent='アイテムを編集';$('editName').value=it.name;$('editAmount').value=it.amount;$('editUnit').value=it.unit;$('editCat').value=it.cat;syncCategory();closeCategory();toggleVisual('priorityToggle',it.priority);toggleVisual('frozenToggle',it.frozen);$('stockDate').value=it.date;dateLabel();$('memo').value=it.memo;$('stockSwitches').hidden=dest!=='stock';$('dateWrap').hidden=dest!=='stock';$('clearDate').hidden=dest!=='stock';
+const r2=document.querySelector('.edit-row.two'),r3=document.querySelector('.edit-row.three');
+const memoField=$('memo').closest('label');
+r2.classList.toggle('wish-mode',dest==='wish');r3.classList.toggle('wish-mode',dest==='wish');
+if(dest==='wish')r2.append(memoField);else r3.insertBefore(memoField,r3.firstElementChild);
+$('detailDialog').showModal()}
+function close(id){if($(id).open)$(id).close()}
+$('closeModal').onclick=$('cancelModal').onclick=()=>{close('detailDialog');editing=-1};$('clearDate').onclick=()=>{$('stockDate').value='';dateLabel()};
+$('applyModal').onclick=()=>{const it=find(editing);if(!it)return;const name=clean($('editName').value);if(!name){alert('アイテム名を入力してください。');return}it.name=name;it.amount=clean($('editAmount').value);it.unit=clean($('editUnit').value);it.cat=$('editCat').value;if(dest==='stock'){it.priority=$('priorityToggle').getAttribute('aria-pressed')==='true';it.frozen=$('frozenToggle').getAttribute('aria-pressed')==='true';it.date=$('stockDate').value}it.memo=$('memo').value;close('detailDialog');editing=-1;render()};
+$('deleteInModal').onclick=()=>{if(editing<0)return;const it=find(editing);if(!it)return;deleteIndex=editing;$('deleteMessage').textContent='「'+it.name+'」を確認リストから削除します。削除すると元に戻せません。よろしいですか？';close('detailDialog');$('deleteDialog').showModal()};
+$('closeDelete').onclick=$('cancelDelete').onclick=()=>{close('deleteDialog');deleteIndex=-1};
+$('confirmDelete').onclick=()=>{items=items.filter(x=>x.id!==deleteIndex);deleteIndex=-1;editing=-1;close('deleteDialog');render();$('saveStatus').textContent='確認リスト内のアイテムを削除しました（デモ）。'};
+$('saveButton').onclick=()=>{if(!items.length){$('saveStatus').textContent='先にアイテムを確認してください。';return}if(items.some(x=>!clean(x.name))){$('saveStatus').textContent='アイテム名が空欄の行があります。';return}$('saveStatus').textContent='【サンプル】'+items.length+'件を確認しました。実際の保存は行いません。'};
+
+/* v10: in-page, no-persistence My Wish prototype */
+
+let wishNextId=1000, wishItems=[
+ {name:'卵',amount:'2',unit:'パック',cat:'卵・乳製品',memo:'週末の作り置き用',checked:false,archived:false},
+ {name:'牛乳',amount:'',unit:'本',cat:'卵・乳製品',memo:'',checked:false,archived:false},
+ {name:'玉ねぎ',amount:'3',unit:'個',cat:'野菜・きのこ',memo:'',checked:false,archived:false},
+ {name:'トマト',amount:'0',unit:'個',cat:'野菜・きのこ',memo:'サラダ用',checked:false,archived:false},
+ {name:'醤油',amount:'1',unit:'本',cat:'調味料',memo:'いつもの濃口',checked:true,archived:false},
+ {name:'食品用ラップ',amount:'1',unit:'本',cat:'日用品ほか',memo:'30cm幅',checked:false,archived:false},
+ {name:'洗剤',amount:'',unit:'本',cat:'日用品ほか',memo:'詰め替えがあれば優先',checked:false,archived:true}
+].map(x=>({...x,id:wishNextId++}));
+let wishMode=false,wishSelecting=false,wishSelected=new Set(),wishEditing=null,wishQuantityOpen=null,wishCategory='',wishConfirmFn=null,wishPointerTimer=null,wishActionId=null;
+const wishCollapsed=new Set();
+const wishById=id=>wishItems.find(x=>x.id===Number(id));
+function showView(mode){
+ wishMode=mode==='wish';
+ $('wishView').hidden=!wishMode;$('plusView').hidden=wishMode;
+ $('wishNav').classList.toggle('active',wishMode);$('plusNav').classList.toggle('active',!wishMode);
+ if(wishMode)renderWish();
+}
+$('wishNav').onclick=()=>showView('wish');
+$('plusNav').onclick=()=>showView('plus');
+for(const id of ['wishNav','plusNav'])$(id).onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();$(id).click()}};
+
+$('wishSelect').onclick=()=>{wishSelecting=!wishSelecting;wishQuantityOpen=null;wishSelected.clear();renderWish()};
+$('wishSelectCancel').onclick=()=>{wishSelecting=false;wishSelected.clear();renderWish()};
+function wishQty(it){const n=String(it.amount??'').trim();return n!==''&&Number(n)!==0?n+(it.unit||''):'';}
+function wishToggleSelected(id){id=Number(id);wishSelected.has(id)?wishSelected.delete(id):wishSelected.add(id);renderWish();}
+function wishMakeEntry(it,archived){
+ const row=document.createElement('div');
+ row.className='wish-entry'+(it.checked&&!archived?' checked':'')+(wishSelected.has(it.id)?' selected':'')+(wishSelecting&&!archived?' selectable':'');
+ row.dataset.id=it.id;
+ if(archived){
+  row.innerHTML='<div class="item-main wish-mode"><span class="wish-name">'+safe(it.name)+'</span><button type="button" class="item-more" data-wish-menu="'+it.id+'" aria-label="アーカイブ項目を編集">⋮</button></div>';
+ }else{
+  const toggle='<button class="wish-buy-toggle'+(it.checked?' active':'')+'" type="button" data-check="'+it.id+'" aria-pressed="'+it.checked+'" aria-label="カゴに入れた'+(it.checked?'：はい':'：いいえ')+'" '+(wishSelecting?'disabled':'')+'>'+(it.checked?'✓':'○')+'</button>';
+  const quantity=wishQty(it);
+  row.innerHTML='<div class="item-main wish-mode">'+toggle+
+    '<button type="button" class="wish-name" data-wish-edit="'+it.id+'">'+safe(it.name)+'</button>'+
+    '<button class="item-qty" type="button" data-wish-qty="'+it.id+'">'+(quantity?safe(quantity):'<span class="qty-empty">　</span>')+'</button>'+
+    '<button class="item-more" type="button" data-wish-menu="'+it.id+'" aria-label="編集">⋮</button>'+
+    (wishSelecting?'<input class="wish-bulk-check" type="checkbox" data-pick="'+it.id+'" aria-label="一括編集の対象" '+(wishSelected.has(it.id)?'checked':'')+'>':'')+'</div>'+
+    (it.memo?'<div class="wish-sub">'+safe(it.memo.length>70?it.memo.slice(0,70)+'…':it.memo)+'</div>':'');
+  if(wishQuantityOpen===it.id&&!wishSelecting){
+    const q=document.createElement('div');q.className='wish-quantity-editor qty-editor';
+    
+    q.innerHTML='<button type="button" data-wish-step="-1">−</button><input type="text" inputmode="decimal" data-wish-amount="'+it.id+'" value="'+safe(it.amount)+'" aria-label="数量"><span class="qty-unit">'+safe(it.unit)+'</span><button type="button" data-wish-step="1">＋</button>';
+    row.append(q);
+  }
+ }
+ return row;
+}
+function wishBand(title,count,key,archive=false){
+ const group=document.createElement('section');group.className='wish-group'+(archive?' wish-archive':'');
+ const band=document.createElement('button');band.type='button';band.className='wish-band';
+ const collapsed=wishCollapsed.has(key);
+ band.setAttribute('aria-expanded',String(!collapsed));
+ band.innerHTML='<span><span class="chevron">'+(collapsed?'▸':'▾')+'</span> '+safe(title)+'</span><small>'+safe(count)+'</small>';
+ band.onclick=()=>{wishCollapsed.has(key)?wishCollapsed.delete(key):wishCollapsed.add(key);renderWish()};
+ group.append(band);
+ const body=document.createElement('div');body.hidden=collapsed;group.append(body);
+ return {group,body};
+}
+function renderWish(){
+ const root=$('wishRows');root.replaceChildren();
+ root.classList.toggle('wish-selecting',wishSelecting);
+ const columns=document.createElement('div');columns.className='wish-columns';
+ const col=[document.createElement('div'),document.createElement('div')];
+ col.forEach(c=>{c.className='wish-column';columns.append(c)});
+ root.append(columns);
+ let weights=[0,0];
+ const pinned={'野菜・きのこ':0,'精肉・加工肉':1,'卵・乳製品':0,'魚介・海藻':1};
+ for(const cat of wishCategories){
+   const groupItems=wishItems.filter(x=>!x.archived&&x.cat===cat);
+   if(!groupItems.length)continue;
+   const missing=groupItems.filter(x=>!x.checked).length;
+   const block=wishBand(cat,missing+'/'+groupItems.length+'件',cat);
+   const sorted=[...groupItems].sort((a,b)=>Number(a.checked)-Number(b.checked)||a.name.localeCompare(b.name,'ja'));
+   for(const it of sorted)block.body.append(wishMakeEntry(it,false));
+   const side=Object.prototype.hasOwnProperty.call(pinned,cat)?pinned[cat]:(weights[0]<=weights[1]?0:1);
+   col[side].append(block.group);weights[side]+=groupItems.length+1;
+ }
+ const archive=wishItems.filter(x=>x.archived);
+ const archiveBlock=wishBand('アーカイブ',archive.length+'件','__archive__',true);
+ const archiveList=document.createElement('div');archiveList.className='wish-archived-list';
+ archive.sort((a,b)=>a.name.localeCompare(b.name,'ja')).forEach(it=>archiveList.append(wishMakeEntry(it,true)));
+ archiveBlock.body.append(archiveList);
+ root.append(archiveBlock.group);
+ if(!wishItems.length){root.innerHTML='<div class="empty">マイウィッシュは空です。アイテムプラスから登録できます。</div>'}
+ root.querySelectorAll('[data-check]').forEach(el=>el.onclick=()=>{const it=wishById(el.dataset.check);if(wishSelecting)return;it.checked=!it.checked;renderWish()});
+ root.querySelectorAll('[data-pick]').forEach(el=>el.onchange=()=>wishToggleSelected(el.dataset.pick));
+ root.querySelectorAll('[data-wish-edit]').forEach(el=>el.onclick=()=>wishSelecting?wishToggleSelected(el.dataset.wishEdit):openWishEdit(Number(el.dataset.wishEdit)));
+ root.querySelectorAll('[data-wish-menu]').forEach(el=>el.onclick=()=>wishSelecting?wishToggleSelected(el.dataset.wishMenu):openWishEdit(Number(el.dataset.wishMenu)));
+ root.querySelectorAll('[data-wish-qty]').forEach(el=>el.onclick=()=>{
+  const id=Number(el.dataset.wishQty);if(wishSelecting){wishToggleSelected(id);return}
+  wishQuantityOpen=wishQuantityOpen===id?null:id;renderWish();
+ });
+ root.querySelectorAll('[data-wish-step]').forEach(el=>el.onclick=()=>{
+  const it=wishById(el.closest('.wish-entry').dataset.id),n=Number(it.amount)||0;
+  it.amount=String(Math.max(0,n+Number(el.dataset.wishStep)));renderWish()
+ });
+ root.querySelectorAll('[data-wish-amount]').forEach(el=>{
+  el.onchange=()=>{const it=wishById(el.dataset.wishAmount),val=clean(el.value);
+   if(val!==''&&(!Number.isFinite(Number(val))||Number(val)<0)){alert('数量は0以上の数値を入力してください。');renderWish();return}
+   it.amount=val;renderWish()};
+  el.onkeydown=e=>{if(e.key==='Enter')el.blur()}
+ });
+ // Long-press a row (excluding controls) to start selection, as on Stock List.
+ root.querySelectorAll('.wish-entry').forEach(row=>{
+  row.addEventListener('pointerdown',e=>{
+   if(wishSelecting||e.target.closest('input,button')||row.closest('.wish-archive'))return;
+   clearTimeout(wishPointerTimer);wishPointerTimer=setTimeout(()=>{wishSelecting=true;wishSelected=new Set([Number(row.dataset.id)]);renderWish()},650)
+  });
+  ['pointerup','pointercancel','pointerleave'].forEach(t=>row.addEventListener(t,()=>clearTimeout(wishPointerTimer)));
+  if(wishSelecting&&!row.closest('.wish-archive'))row.onclick=e=>{if(e.target.closest('input,button'))return;wishToggleSelected(row.dataset.id)};
+ });
+ $('wishBatch').hidden=!wishSelecting;$('wishCount').textContent=wishSelected.size+'件選択中';$('wishSelect').textContent=wishSelecting?'選択解除':'選択';
+}
+function closeWishEdit(){close('wishEditDialog');wishEditing=null}
+$('wishEditClose').onclick=closeWishEdit;
+function openWishEdit(id){
+ const it=wishById(id);if(!it)return;wishEditing=id;wishQuantityOpen=null;renderWish();
+ $('wishEditName').value=it.name;$('wishEditAmount').value=it.amount;$('wishEditUnit').value=it.unit;$('wishEditMemo').value=it.memo;
+ wishCategory=it.cat;$('wishEditCatButton').textContent=wishCategory+' ▾';$('wishEditArchive').textContent=it.archived?'アーカイブ解除':'アーカイブ';$('wishEditMove').hidden=!canMoveWishItem(it);$('wishEditDialog').showModal();
+}
+$('wishEditCatButton').onclick=()=>{
+ const root=$('wishCategoryList');root.replaceChildren();
+ wishCategories.forEach(cat=>{const b=document.createElement('button');b.type='button';b.textContent=cat;b.setAttribute('aria-selected',String(wishCategory===cat));b.onclick=()=>{wishCategory=cat;$('wishEditCatButton').textContent=cat+' ▾';close('wishCategoryDialog')};root.append(b)});
+ $('wishCategoryDialog').showModal();
+};
+$('wishCategoryClose').onclick=()=>close('wishCategoryDialog');
+$('wishEditApply').onclick=()=>{
+ const it=wishById(wishEditing);if(!it)return;
+ const n=clean($('wishEditName').value);if(!n){alert('アイテム名を入力してください。');return}
+ const amount=clean($('wishEditAmount').value);if(amount!==''&&(!Number.isFinite(Number(amount))||Number(amount)<0)){alert('数量は0以上の数値を入力してください。');return}
+ const duplicate=wishItems.some(x=>x.id!==it.id&&x.name===n&&x.cat===wishCategory);
+ if(duplicate){alert('同じ名前とカテゴリのアイテムが既にあります。');return}
+ Object.assign(it,{name:n,amount,unit:clean($('wishEditUnit').value),cat:wishCategory,memo:$('wishEditMemo').value});
+ closeWishEdit();renderWish();$('wishStatus').textContent='';
+};
+function confirmWish(title,body,action){
+ $('wishConfirmTitle').textContent=title;$('wishConfirmText').textContent=body;wishConfirmFn=action;$('wishConfirmDialog').showModal();
+}
+$('wishConfirmClose').onclick=$('wishConfirmCancel').onclick=()=>{close('wishConfirmDialog');wishConfirmFn=null};
+$('wishConfirmOK').onclick=()=>{const fn=wishConfirmFn;close('wishConfirmDialog');wishConfirmFn=null;if(fn)fn()};
+$('wishEditArchive').onclick=()=>{
+ const it=wishById(wishEditing);if(!it)return;const was=it.archived;it.archived=!it.archived;if(it.archived)it.checked=false;
+ closeWishEdit();wishQuantityOpen=null;renderWish();$('wishStatus').textContent='';
+};
+$('wishEditDelete').onclick=()=>{const id=wishEditing,it=wishById(id);if(!it)return;closeWishEdit();confirmWish('削除の確認','「'+it.name+'」をマイウィッシュから削除しますか？',()=>{wishItems=wishItems.filter(x=>x.id!==id);renderWish();$('wishStatus').textContent='【サンプル】削除を画面に反映しました。'})};
+
+let wishBulkCheck='off',wishBulkCat=null;
+$('wishBatchEdit').onclick=()=>{
+ if(!wishSelected.size){$('wishStatus').textContent='編集するアイテムを選択してください。';return}
+ wishBulkCheck=wishItems.filter(x=>wishSelected.has(x.id)&&!x.archived).every(x=>x.checked)?'on':'off';wishBulkCat=null;
+ renderWishBulkToggle();
+ $('wishBulkCategory').innerHTML='<span>🏷️ カテゴリを変更</span><span>▾</span>';
+ $('wishBulkCount').textContent=wishSelected.size+'件のアイテムを選択中';
+ $('wishBulkDialog').showModal();
+};
+$('wishBulkClose').onclick=()=>close('wishBulkDialog');
+function renderWishBulkToggle(){const el=$('wishBulkToggle'),on=wishBulkCheck==='on';el.textContent=on?'✓：ON':'○：OFF';el.setAttribute('aria-pressed',String(on));el.classList.toggle('on',on)}
+$('wishBulkToggle').onclick=()=>{wishBulkCheck=wishBulkCheck==='on'?'off':'on';renderWishBulkToggle()};
+$('wishBulkCategory').onclick=()=>{
+ const root=$('wishCategoryList');root.replaceChildren();
+ const options=[null,...wishCategories];
+ options.forEach(cat=>{
+  const b=document.createElement('button');b.type='button';b.textContent=cat||'変更なし';
+  b.setAttribute('aria-selected',String(cat===wishBulkCat));
+  b.onclick=()=>{wishBulkCat=cat;$('wishBulkCategory').innerHTML='<span>🏷️ '+safe(cat||'カテゴリを変更')+'</span><span>▾</span>';close('wishCategoryDialog')};
+  root.append(b)
+ });
+ $('wishCategoryDialog').showModal();
+};
+$('wishBulkSave').onclick=()=>{
+ const selected=wishItems.filter(x=>wishSelected.has(x.id)&&!x.archived);
+ // Keep the current data intact if changing the category would create a duplicate.
+ if(wishBulkCat&&selected.some(x=>wishItems.some(other=>other.id!==x.id&&other.name===x.name&&(wishSelected.has(other.id)?wishBulkCat:other.cat)===wishBulkCat))){
+  alert('変更後に同じ名前・カテゴリのアイテムが重複します。');return
+ }
+ selected.forEach(it=>{it.checked=wishBulkCheck==='on';if(wishBulkCat)it.cat=wishBulkCat});
+ close('wishBulkDialog');wishSelecting=false;wishSelected.clear();renderWish();
+ $('wishStatus').textContent='【サンプル】一括編集を画面に反映しました。';
+};
+
+let wishMoveDraft=[];
+function beginWishMove(ids){
+ const eligible=ids.filter(id=>canMoveWishItem(wishById(id))),excluded=ids.length-eligible.length;
+ if(!eligible.length){alert('移動可能な品目がありません。日用品ほか・アーカイブ品は移動できません。');return}
+ wishMoveDraft=eligible.map(id=>{const x=wishById(id);return {id,name:x.name,amount:x.amount,unit:x.unit,cat:x.cat,memo:x.memo}});
+ $('wishMoveSummary').textContent='移動可能：'+eligible.length+'件'+(excluded?'／対象外：'+excluded+'件（日用品ほか等はマイウィッシュに残ります）':'');
+ const root=$('wishMoveItems');root.replaceChildren();
+ for(const it of wishMoveDraft){
+  const row=document.createElement('div');row.className='wish-move-item';
+  row.innerHTML='<b>'+safe(it.name)+'</b><small>'+safe(it.cat)+'</small><label>数量<input data-move-amount="'+it.id+'" type="text" inputmode="decimal" value="'+safe(it.amount)+'"></label><label>単位<input data-move-unit="'+it.id+'" type="text" value="'+safe(it.unit)+'"></label>';
+  root.append(row)
+ }
+ $('wishMoveDialog').showModal();
+}
+$('wishEditMove').onclick=()=>{
+ const it=wishById(wishEditing);if(!canMoveWishItem(it))return;
+ const name=clean($('wishEditName').value),amount=clean($('wishEditAmount').value);
+ if(!name){alert('アイテム名を入力してください。');return}
+ if(amount!==''&&(!Number.isFinite(Number(amount))||Number(amount)<0)){alert('数量は0以上にしてください。');return}
+ if(wishCategory==='日用品ほか'){alert('日用品ほかは移動できません。');return}
+ if(wishItems.some(x=>x.id!==it.id&&x.name===name&&x.cat===wishCategory)){alert('同名・同カテゴリの項目があります。');return}
+ const id=it.id;beginWishMove([id]);
+ // Draft changes are only for the move review; cancelling never changes the Wish item.
+ if($('wishMoveDialog').open&&wishMoveDraft.length){
+   Object.assign(wishMoveDraft[0],{name,amount,unit:clean($('wishEditUnit').value),cat:wishCategory,memo:$('wishEditMemo').value});
+   $('wishMoveItems').querySelector('b').textContent=name;
+   $('wishMoveItems').querySelector('small').textContent=wishCategory;
+   $('wishMoveItems').querySelector('[data-move-amount]').value=amount;
+   $('wishMoveItems').querySelector('[data-move-unit]').value=clean($('wishEditUnit').value);
+   closeWishEdit()
+ }
+};
+$('wishMoveClose').onclick=$('wishMoveCancel').onclick=()=>close('wishMoveDialog');
+$('wishMoveCommit').onclick=()=>{
+ const root=$('wishMoveItems');
+ for(const it of wishMoveDraft){
+  it.amount=clean(root.querySelector('[data-move-amount="'+it.id+'"]').value);
+  it.unit=clean(root.querySelector('[data-move-unit="'+it.id+'"]').value);
+  if(it.amount!==''&&(!Number.isFinite(Number(it.amount))||Number(it.amount)<0)){alert('数量は0以上にしてください。');return}
+ }
+ const ids=new Set(wishMoveDraft.filter(x=>canMoveWishItem(wishById(x.id))).map(x=>x.id));
+ close('wishMoveDialog');wishItems=wishItems.filter(x=>!ids.has(x.id));wishSelecting=false;wishSelected.clear();renderWish();
+ $('wishStatus').textContent='【サンプル】'+ids.size+'件をストックへ移動した表示です（実保存なし）。'
+};
+$('wishBulkMove').onclick=()=>{if(!wishSelected.size)return;const ids=[...wishSelected];close('wishBulkDialog');beginWishMove(ids)};
+const sampleSave=$('saveButton').onclick;
+$('saveButton').onclick=()=>{
+ if(dest!=='wish'){sampleSave();return}
+ if(!items.length){$('saveStatus').textContent='先にアイテムを確認してください。';return}
+ if(items.some(x=>!clean(x.name))){$('saveStatus').textContent='アイテム名が空欄の行があります。';return}
+ let created=0,reset=0;
+ for(const it of items){
+   const existing=wishItems.find(x=>x.name===it.name&&x.cat===it.cat);
+   if(existing){existing.checked=false;existing.archived=false;reset++;continue}
+   wishItems.push({id:wishNextId++,name:it.name,amount:it.amount,unit:it.unit,cat:it.cat,memo:it.memo,checked:false,archived:false});created++;
+ }
+ $('saveStatus').textContent='【サンプル】'+created+'件をマイウィッシュ一覧に反映しました（重複'+reset+'件）。実際の保存は行いません。';
+};
+
+items=[newItem('かぼちゃ1個'),newItem('玉ねぎ3個'),newItem('ひき肉1パック')];items[2].frozen=true;items[2].date='2026-11-07';render();
+
+const notifyWish=()=>window.parent.postMessage({channel:'wish-state',rows:wishItems.map(x=>({...x}))},location.origin);
+const renderWishBeforeBridge=renderWish;
+renderWish=function(){renderWishBeforeBridge();notifyWish()};
+const convertStockToWish=x=>{
+ const u=x.unit||((x.qty||'').match(/(?:パック|ケース|ボトル|キロ|グラム|リットル|切れ|袋|本|個|枚|束|缶|箱|玉|粒|丁|房|杯|kg|ml|g|L)$/)?.[0]||'');
+ const old=wishItems.find(y=>y.name===x.name&&y.cat===x.cat);
+ if(old){old.amount='';old.checked=false;/* existing unit, category, memo and archived flag remain */}
+ else wishItems.push({id:wishNextId++,name:x.name,amount:'',unit:u,cat:x.cat,memo:x.memo||'',checked:false,archived:false});
+};
+window.addEventListener('message',e=>{
+ if(e.origin!==location.origin)return;const d=e.data;if(!d||d.scope!=='pan-bridge')return;
+ if(d.op==='wish-view'){showView(d.view);notifyWish();return}
+ if(d.op==='wish-get'){notifyWish();return}
+ if(d.op==='wish-from-stock'){
+   try{for(const x of d.rows||[])convertStockToWish(x);renderWish();window.parent.postMessage({channel:'wish-saved',requestId:d.requestId},location.origin)}
+   catch(error){window.parent.postMessage({channel:'wish-failed',requestId:d.requestId,error:String(error)},location.origin)}
+   return;
+ }
+ if(d.op==='wish-remove'){
+   const ids=new Set(d.ids||[]);wishItems=wishItems.filter(x=>!ids.has(x.id));wishSelected.clear();wishSelecting=false;renderWish();return;
+ }
+ if(d.op==='wish-add'){
+   for(const x of d.rows||[]){
+    const old=wishItems.find(y=>y.name===x.name&&y.cat===x.cat);
+    if(old){old.checked=false;continue}
+    wishItems.push({id:wishNextId++,name:x.name,amount:x.qty||'',unit:x.unit||'',cat:x.cat,memo:x.memo||'',checked:false,archived:false})
+   }
+   renderWish();return;
+ }
+ if(d.op==='plus-result'){
+   const ok=d.added||0,refused=d.refused||0;
+   if(ok>0&&!refused){$('itemsText').value='';items=[];render();$('saveStatus').textContent=ok+'件登録しました。入力欄をクリアしました（模擬）'}
+   else $('saveStatus').textContent=ok+'件登録、'+refused+'件は登録済みなどで未登録です。入力欄を保持しました。';
+ }
+});
+$('wish-bridge-add').onclick=()=>window.parent.postMessage({channel:'open-add',target:'wish'},location.origin);
+$('wishEditMove').onclick=()=>{
+ const it=wishById(wishEditing);if(!canMoveWishItem(it))return;
+ const name=clean($('wishEditName').value),cat=wishCategory;
+ if(!name||wishItems.some(x=>x.id!==it.id&&x.name===name&&x.cat===cat)){alert('品名・カテゴリを確認してください。');return}
+ const copy={...it,name,cat,unit:clean($('wishEditUnit').value),memo:$('wishEditMemo').value};
+ closeWishEdit();window.parent.postMessage({channel:'wish-to-stock',rows:[copy]},location.origin);
+};
+$('wishBulkMove').onclick=()=>{
+ if(!wishSelected.size)return;const rows=[...wishSelected].map(wishById).filter(canMoveWishItem).map(x=>({...x}));close('wishBulkDialog');
+ if(rows.length)window.parent.postMessage({channel:'wish-to-stock',rows},location.origin);
+};
+const plusSaveBeforeBridge=$('saveButton').onclick;
+$('saveButton').onclick=()=>{
+ if(!items.length){$('saveStatus').textContent='先にアイテムを確認してください。';return}
+ if(items.some(x=>!clean(x.name))){$('saveStatus').textContent='品名の空欄があります。';return}
+ if(dest==='stock'){
+  const rows=items.map(x=>({...x,qty:x.amount,originId:x.id}));window.parent.postMessage({channel:'plus-to-stock',rows},location.origin);return
+ }
+ plusSaveBeforeBridge();$('itemsText').value='';items=[];render();notifyWish();$('saveStatus').textContent='マイウィッシュに登録しました。入力欄をクリアしました（模擬）。'
+};
+notifyWish();
+
+})();
+</script>
+</body></html>
