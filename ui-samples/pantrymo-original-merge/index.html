@@ -35,6 +35,17 @@ dialog{border:0;border-radius:14px;padding:0;width:min(570px,calc(100vw - 22px))
 @media(max-width:360px){#add-dialog .grid:not(.two):not(.third){grid-template-columns:minmax(0,1fr) 112px minmax(54px,.5fr)!important}#add-dialog .grid{gap:4px!important}}
 body.child-modal-active nav,body.child-modal-active header,body.child-modal-active #global-status{pointer-events:none!important}
 body.child-modal-active{overscroll-behavior:none!important}
+/* Match child dialog backdrops across the *entire* parent viewport.
+   The iframe draws the center; these two layers darken only the exposed
+   header and side gutters, leaving the dialog itself untouched. */
+body.child-modal-active::before,body.child-modal-active::after{
+ content:"";position:fixed;pointer-events:none;z-index:70}
+body.child-modal-active::before{top:0;left:0;right:0;height:var(--modal-frame-top,0px);background:#162a2070}
+body.child-modal-active::after{inset:0;background:linear-gradient(to right,
+ #162a2070 0 var(--modal-frame-left,0px),
+ transparent var(--modal-frame-left,0px) var(--modal-frame-right,100vw),
+ #162a2070 var(--modal-frame-right,100vw) 100%)}
+
 </style></head><body><main>
 <header><span class="brand">Pantrymo</span><span class="tag">原本ベース・統合比較 v2</span></header>
 <nav aria-label="画面切り替え"><button type="button" class="active" data-nav="stock">ストックリスト</button><button type="button" data-nav="wish">マイウィッシュ</button><button type="button" data-nav="plus">アイテムプラス</button><button type="button" data-nav="coco">CocoMemo</button></nav>
@@ -149,6 +160,13 @@ window.addEventListener('message',e=>{
  if(d.channel==='frame-modal-state'){
   if(e.source===stockFrame.contentWindow||e.source===wishFrame.contentWindow){
    frameModalStates.set(e.source,!!d.active);const locked=[...frameModalStates.values()].some(Boolean);
+   if(locked){
+    const activeFrame=frameModalStates.get(stockFrame.contentWindow)?stockFrame:wishFrame;
+    const rect=activeFrame.getBoundingClientRect();
+    document.body.style.setProperty('--modal-frame-top',Math.max(0,rect.top)+'px');
+    document.body.style.setProperty('--modal-frame-left',Math.max(0,rect.left)+'px');
+    document.body.style.setProperty('--modal-frame-right',Math.min(innerWidth,rect.right)+'px');
+   }
    document.body.classList.toggle('child-modal-active',locked);document.body.style.overflow=locked?'hidden':'';
   }return;
  }
