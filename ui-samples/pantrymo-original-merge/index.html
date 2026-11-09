@@ -48,7 +48,7 @@ function toast(t){$('global-status').textContent=t}
 function setMode(v){mode=v;stockFrame.hidden=v!=='stock';wishFrame.hidden=v!=='wish'&&v!=='plus';$('coco-placeholder').hidden=v!=='coco';document.querySelectorAll('[data-nav]').forEach(b=>b.classList.toggle('active',b.dataset.nav===v));if(v==='wish'||v==='plus')send(wishFrame,'wish-view',{view:v});}
 document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>setMode(b.dataset.nav));
 function resizeFrame(frame){
- try{const doc=frame.contentDocument;if(!doc)return;const resize=()=>{const h=Math.max(doc.documentElement.scrollHeight,doc.body.scrollHeight);frame.style.height=Math.max(650,h+8)+'px'};new ResizeObserver(resize).observe(doc.body);resize()}catch(e){console.warn('Frame resize unavailable',e)}
+ try{const doc=frame.contentDocument;if(!doc)return;const resize=()=>{const box=doc.querySelector('.app,.wrap')||doc.body;const h=box.scrollHeight;const next=Math.max(650,h+8);if(Math.abs(parseFloat(frame.style.height||0)-next)>3)frame.style.height=next+'px'};new ResizeObserver(resize).observe(doc.body);resize()}catch(e){console.warn('Frame resize unavailable',e)}
 }
 stockFrame.onload=()=>{resizeFrame(stockFrame);send(stockFrame,'stock-get')};
 wishFrame.onload=()=>{resizeFrame(wishFrame);send(wishFrame,'wish-view',{view:mode==='wish'?'wish':'plus'});send(wishFrame,'wish-get')};
