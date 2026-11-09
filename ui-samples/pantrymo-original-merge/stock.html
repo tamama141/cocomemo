@@ -1,0 +1,228 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#345d4b" id="browserThemeColor"><title>CocoMemo / Pantrymo 共通UI8 レビューサンプル</title><style>
+[hidden]{display:none!important}:root{font-family:system-ui,-apple-system,'Noto Sans JP',sans-serif;color:#302e29;background:#f7f7f4}*{box-sizing:border-box}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #508d83;outline-offset:2px}.app{--accent:#648473;--deep:#345d4b;--pale:#e7f0e9;--surface:#fcfdfb;--border:#d5e3d7;max-width:980px;margin:auto;min-height:100dvh;padding:12px 16px 115px}.app.coco{--accent:#b16d52;--deep:#804732;--pale:#f6e8dd;--surface:#fffdfb;--border:#e8d5c7}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);padding:4px 0 12px;gap:8px}.brand{font-weight:800;font-size:23px;color:var(--deep);letter-spacing:-.6px}.tag{font-size:11px;color:#777;border:1px solid #ddd;border-radius:30px;padding:3px 7px}.switch{display:flex;gap:4px;background:#eeefeb;border-radius:11px;padding:4px}.switch button{border:0;background:transparent;border-radius:8px;padding:8px 12px;font-weight:700;color:#50524e}.switch button.on{background:#fff;color:var(--deep);box-shadow:0 1px 4px #0001}.note{font-size:12px;color:#776e61;line-height:1.55;margin:12px 0}.nav{display:flex;gap:6px;margin:12px 0 14px}.nav span{flex:1;text-align:center;background:var(--pale);padding:9px 4px;border-radius:9px;font-size:12px;font-weight:700;color:var(--deep)}.tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;margin-bottom:12px}.tools input,.tools select{width:100%;min-width:0;height:40px;border:1px solid var(--border);border-radius:9px;padding:0 10px;background:white;color:#3d443e;font-size:13px}.toolrow{display:flex;gap:6px;align-items:center;min-width:0}.toolrow .sort{flex:1;min-width:0;position:relative}.toolrow .sort select{padding-right:18px}.link{background:none;border:0;color:var(--deep);font-size:13px;padding:8px 5px;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}.category{margin:8px 0;border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--surface)}.cathead{display:flex;align-items:center;justify-content:space-between;background:var(--pale);border:0;width:100%;padding:8px 10px;font-size:14px;color:var(--deep);font-weight:700;text-align:left}.catcount{opacity:.7;font-size:12px}.food{display:flex;align-items:center;gap:6px;min-height:41px;padding:5px 8px;border-top:1px solid #eaece8;white-space:nowrap}.food.selected{background:#eff6ed;box-shadow:inset 3px 0 var(--accent)}.food button{border:0;background:none}.drag{font-size:14px;color:#859187;min-width:15px;padding:4px 0}.mark{width:27px;min-width:27px;padding:5px 0;font-size:15px;filter:grayscale(1);opacity:.35}.mark.active{filter:none;opacity:1}.name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;flex:1;padding:5px 2px;color:#353630;font-weight:600;font-size:14px}.qty{font-size:12px;flex-shrink:0;color:#4b524b;padding:5px 2px}.qty-controls{display:flex;align-items:center;gap:3px}.qty-controls button{border:1px solid var(--border);border-radius:7px;background:var(--pale);width:27px;height:27px}.date{font-size:11px;color:#83837a;flex-shrink:0}.dots{font-weight:800;font-size:18px;color:#52675a;min-width:27px;padding:2px}.check{width:19px;height:19px;accent-color:var(--accent);flex-shrink:0}.bottom{position:fixed;bottom:0;left:0;right:0;background:color-mix(in srgb,var(--surface) 96%,white);box-shadow:0 -5px 22px #0002;z-index:4;border-top:1px solid var(--border);padding:10px 14px max(10px,env(safe-area-inset-bottom))}.bar{max-width:950px;margin:auto;display:flex;align-items:center;gap:10px}.bar strong{margin-right:auto;font-size:14px}.primary{background:var(--deep);border:1px solid var(--deep);color:white;border-radius:9px;padding:10px 19px;font-weight:700}.secondary{border:1px solid var(--border);border-radius:9px;padding:10px 16px;background:white;color:var(--deep);font-weight:700}.modalback{position:fixed;inset:0;background:#0008;z-index:10;display:flex;align-items:center;justify-content:center;padding:15px}.modal{width:min(100%,510px);background:#fff;border-radius:17px;padding:18px;max-height:90dvh;overflow:auto;box-shadow:0 15px 45px #0003}.modal h2{font-size:19px;margin:1px 0 5px}.muted{color:#797b75;font-size:12px}.toggleline{display:flex;gap:8px;margin:16px 0}.state{flex:1;min-width:0;border:1px solid var(--border);background:var(--pale);border-radius:10px;padding:10px 7px;font-size:13px;font-weight:700}.state b{font-size:18px}.fold{width:100%;text-align:left;padding:12px;background:#fafaf8;border-radius:10px;border:1px solid #ddd;font-weight:700;display:flex;justify-content:space-between}.foldbody{border:1px solid #e4e4df;border-top:0;border-radius:0 0 9px 9px;padding:12px}.foldbody label{display:block;padding:6px 0;font-size:13px}.actions{border-top:1px solid #e8e5df;margin-top:15px;padding-top:15px;display:grid;gap:9px}.danger{color:#b23f39;border:0;background:none;text-decoration:underline;text-underline-offset:3px;font-weight:700;padding:9px}.hint{font-size:12px;color:#777;line-height:1.6}.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);padding:10px 16px;background:#333;color:white;border-radius:10px;font-size:13px;z-index:30;max-width:92vw;text-align:center}.empty{padding:20px;text-align:center;color:#888}.demoBadge{font-size:11px;border-radius:20px;background:#f3ebbd;color:#61551d;padding:4px 8px}@media(min-width:650px){.tools{grid-template-columns:1.2fr 1fr 1.1fr auto}.toolrow{display:contents}.toolrow .sort{min-width:0}.nav span{font-size:14px}.app{padding-inline:24px}.food{min-height:43px}.name{font-size:15px}}@media(max-width:370px){.app{padding-inline:9px}.food{gap:3px;padding-inline:5px}.mark{min-width:23px;width:23px}.date{font-size:10px}.qty{font-size:11px}.tools{gap:5px}.link{font-size:12px}}
+
+/* Compact comparison revision - Nov 6 */
+header{padding-bottom:9px}.brand{font-size:22px}.nav{margin:10px 0 12px}
+.bottom{background:transparent;border:0;box-shadow:none;padding:0 14px max(24px,env(safe-area-inset-bottom));pointer-events:none}
+.bar{pointer-events:auto;width:max-content;max-width:100%;background:var(--deep);color:white;border-radius:14px;box-shadow:0 8px 20px #0002;padding:10px 12px;gap:9px;justify-content:center}
+.bar strong{margin:0 4px 0 0;font-size:13px;white-space:nowrap;font-weight:500}
+.bar .primary,.bar .secondary{background:var(--pale);color:var(--deep);border:0;padding:10px 13px;border-radius:9px;font-size:14px}
+.bar .primary:disabled{opacity:.5}
+.modal{padding:16px 17px;max-height:88dvh}
+.modalheading{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:11px}
+.modalheading h2{font-size:17px;margin:0;white-space:nowrap}
+.modalheading .muted{font-size:12px}
+.toggleline{margin:5px 0 10px;gap:8px}
+.state{font-size:15px;text-align:center;border:0;background:transparent;padding:7px 3px;white-space:nowrap}
+.state b{font-size:17px}
+.fold{font-size:15px;padding:10px 13px;background:#fafaf8}
+.foldbody{padding:8px 12px}
+.foldbody label{padding:5px 0;font-size:14px}
+.actions{margin-top:10px;padding-top:12px;gap:8px;border-top:1px solid #e8e5df}
+.actions #save,.actions #move,.actions #delete{width:100%;min-height:43px;border-radius:9px;text-align:center;font-size:15px;line-height:1.3;padding:10px 12px}
+.actions #save{background:var(--deep)!important;border:1px solid var(--deep)!important;color:#fff!important;opacity:1!important;display:block}
+.actions #move{background:var(--pale);border:1px solid var(--border);color:var(--deep);font-weight:700}
+.actions #delete{background:#fff5f3;border:1px solid #e9c9c3;color:#ac4c3b;text-decoration:none;font-weight:700}
+.actions #closeModal{font-size:14px;text-decoration:none;justify-self:center;margin-top:0;padding:5px 20px}
+@media(max-width:370px){.modalheading{gap:7px}.modalheading h2{font-size:16px}.state{font-size:13px}.fold{font-size:14px}}
+
+/* v3: denser approved visual layout; preview only */
+.tools{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:7px 8px}
+.tools input,.tools select{font-size:12px;text-overflow:ellipsis;padding-left:8px;padding-right:20px}
+.toolrow{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0}
+.toolrow .sort{flex:0 1 51%;margin-right:auto;min-width:0}
+.toolrow .sort select{font-size:12px;max-width:100%}
+.toolrow .link{padding:5px 2px;font-size:13px}
+.food{gap:2px;padding:3px 7px;min-height:38px}
+.food .mark{width:23px;min-width:23px;font-size:14px;padding:5px 0}
+.food .name{padding-inline:2px;font-size:13px}
+.food .drag{min-width:13px;font-size:13px}
+.food .check{margin-inline:3px}
+.food.coco-selected,.app.coco .food.selected{background:var(--surface);box-shadow:inset 3px 0 var(--accent)}
+.app.coco .food.selected .name{color:var(--deep)}
+/* Selected-state color is theme-specific, not Pantrymo green in CocoMemo. */
+.bar{background:var(--deep)!important;color:#fff!important}
+.bar strong{color:#fff!important}
+.bar .primary,.bar .secondary{background:#f8f4ed!important;color:var(--deep)!important;opacity:1!important}
+.bar .primary:disabled{opacity:.65!important}
+.modal{padding:13px 15px;max-height:90dvh}
+.modalheading{margin-bottom:4px;gap:8px}
+.modalheading h2{font-size:16px}
+.modalheading .muted{font-size:12px}
+.toggleline{gap:4px;margin:3px 0 5px}
+.state{font-size:14px;padding:5px 2px}
+.state b{font-size:16px}
+.fold,.actions #save,.actions #move,.actions #delete{width:55%;margin-left:auto;margin-right:auto;min-height:36px;max-width:330px;font-size:13px!important;padding:7px 9px!important;line-height:1.2}
+.fold{font-size:13px!important;min-height:38px;align-items:center}
+.foldbody{width:55%;max-width:330px;margin:0 auto;padding:5px 8px}
+.foldbody label{font-size:12px;padding:4px 0;display:flex;align-items:center;gap:5px;white-space:normal}
+.foldbody input{width:16px;height:16px;flex-shrink:0}
+.actions{margin-top:6px;padding-top:7px;gap:4px}
+.actions #save{display:block!important;background:var(--deep)!important;color:white!important;border:1px solid var(--deep)!important;visibility:visible!important;opacity:1!important}
+.actions #move,.actions #delete{background:transparent!important;border:0!important;box-shadow:none!important;text-decoration:none!important}
+.actions #move{color:var(--deep);font-weight:650}
+.actions #delete{color:#a8453d;font-weight:650}
+.actions #closeModal{font-size:13px;padding:5px}
+@media(min-width:650px){.tools{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.12fr) auto}.toolrow{grid-column:auto;display:contents}.toolrow .sort{margin-right:0;min-width:0;flex:initial}.modal{padding:16px 19px}}
+@media(max-width:370px){.fold,.foldbody,.actions #save,.actions #move,.actions #delete{width:62%}.toolrow .sort{flex-basis:54%}.toolrow{gap:5px}.tools input,.tools select{font-size:11px}}
+
+/* v4: shared theme variables must reach floating controls outside .app.
+   In v3 these variables only existed on .app, so bar and save button
+   had white text on transparent backgrounds. */
+body{--accent:#648473;--deep:#345d4b;--pale:#e7f0e9;--surface:#fcfdfb;--border:#d5e3d7}
+body.coco{--accent:#b16d52;--deep:#804732;--pale:#f6e8dd;--surface:#fffdfb;--border:#e8d5c7}
+body.pantry{--accent:#648473;--deep:#345d4b;--pale:#e7f0e9;--surface:#fcfdfb;--border:#d5e3d7}
+.bottom .bar{background-color:var(--deep,#345d4b)!important;color:#fff!important}
+.bottom .bar strong{color:#fff!important}
+.bottom .bar #edit,.bottom .bar #cancelSelect{background:#fffaf3!important;color:var(--deep,#345d4b)!important;border:1px solid #e5ded5!important;opacity:1!important}
+.bottom .bar #edit:disabled{opacity:.5!important}
+.modalback .actions #save{display:block!important;visibility:visible!important;opacity:1!important;position:relative;background-color:var(--deep,#345d4b)!important;border:1px solid var(--deep,#345d4b)!important;color:#ffffff!important;font-weight:700!important;text-decoration:none!important}
+.modalback .actions #save[hidden]{display:none!important}
+
+/* v5: November 6 review refinements */
+.modalback .actions #save{background:transparent!important;border:0!important;color:var(--deep)!important;box-shadow:none!important;font-weight:700!important}
+.modalback .actions #save:hover{background:var(--pale)!important}
+.food{gap:0!important}
+.food .mark{min-width:19px!important;width:19px!important;padding:4px 0!important;margin:0!important;font-size:14px!important}
+.food .name{margin-left:3px!important}
+/* Always reserve equal columns for count and month/day, including when one is absent. */
+.food .qty-slot{flex:0 0 67px;min-width:0;text-align:right;font-size:12px;color:#4b524b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.food .date-slot{flex:0 0 40px;min-width:0;text-align:right;font-size:11px;color:#83837a;white-space:nowrap}
+.food .qty-slot button.qty{width:100%;text-align:right;padding:3px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.food .qty-slot .qty-controls{justify-content:flex-end;gap:1px}
+.food .qty-slot .qty-controls button{width:22px;height:25px;font-size:12px}
+.food .qty-slot .qty-controls .qty{font-size:11px;padding:0 1px}
+/* Size the sorter to its longest option instead of filling the row. */
+.toolrow{justify-content:flex-end}
+.toolrow .sort{flex:0 1 auto!important;max-width:100%!important;width:auto!important;margin-right:auto!important}
+.toolrow .sort select{width:auto!important;max-width:100%!important;min-width:0!important;box-sizing:border-box;font-size:12px!important;padding-right:25px!important}
+@media(min-width:650px){.toolrow .sort{margin-right:0!important}}
+@media(max-width:370px){.food .qty-slot{flex-basis:54px}.food .date-slot{flex-basis:36px}.food .mark{min-width:17px!important;width:17px!important;font-size:13px!important}}
+
+/* v7: custom application-style choice menus and matched search/sort widths */
+.tools{display:grid;grid-template-columns:var(--sort-width,230px) minmax(0,1fr);gap:8px;margin-bottom:12px}
+.tools #search{width:100%;min-width:0;height:40px;border:1px solid var(--border);border-radius:9px;padding:0 10px;background:#fff;color:#3d443e;font-size:13px}
+.custom-picker{position:relative;min-width:0}
+.picker-toggle{display:flex;align-items:center;gap:5px;justify-content:space-between;text-align:left;width:100%;height:40px;background:#fff;border:1px solid var(--border);border-radius:9px;color:var(--deep);font-size:13px;padding:0 10px;white-space:nowrap;overflow:hidden}
+.picker-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.caret{font-size:12px;flex-shrink:0}
+.picker-menu{position:absolute;top:calc(100% + 4px);right:0;z-index:8;background:var(--surface);border:1px solid var(--border);border-radius:11px;box-shadow:0 7px 20px #0002;padding:5px;min-width:100%;max-height:min(56dvh,400px);overflow:auto}
+.sort-menu{left:0;right:auto;width:max-content;max-width:min(94vw,360px)}
+.category-menu{width:max-content;min-width:100%;max-width:min(90vw,360px)}
+.picker-option{display:flex;width:100%;align-items:center;gap:8px;border:0;background:transparent;border-radius:7px;color:var(--deep);font-size:13px;text-align:left;padding:9px 10px;white-space:nowrap}
+.picker-option[aria-selected="true"],.picker-option.is-checked{background:var(--pale);font-weight:700}
+.picker-option input{width:18px;height:18px;accent-color:var(--deep);pointer-events:none;flex-shrink:0}
+.toolrow{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0}
+.toolrow .sort{flex:none!important;width:var(--sort-width,230px)!important;max-width:100%;margin-right:auto!important}
+.toolrow .link{font-size:13px;text-decoration:none;padding:7px 3px}
+.toolrow .link:focus-visible,.picker-option:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+@media(min-width:650px){.tools{grid-template-columns:var(--sort-width,230px) minmax(160px,1fr) var(--sort-width,230px) auto;align-items:center}.toolrow{grid-column:auto;display:contents}.toolrow .sort{margin-right:0!important}.toolrow .link{justify-self:end}.tools{grid-template-columns:var(--sort-width,230px) minmax(155px,1fr) var(--sort-width,230px) auto auto}}
+@media(max-width:370px){.tools{gap:6px}.picker-toggle{padding-inline:7px;font-size:12px}.toolrow .link{font-size:12px}}
+/* compact shared bulk edit state switches, without losing tappable hit area */
+.toggleline{justify-content:center;gap:2px!important}
+.state{flex:0 0 auto!important;min-width:0;padding:7px 6px!important;margin:0 2px!important;font-size:14px}
+
+/* v8: quantity editor floats over fixed quantity/date columns; prevents long units clipping '+' */
+.food .qty-slot{position:relative;overflow:visible!important}
+.qty-popover{position:absolute;z-index:9;right:-12px;top:calc(100% + 5px);display:flex;align-items:center;justify-content:center;gap:7px;min-width:max-content;max-width:calc(100vw - 30px);padding:7px 9px;border-radius:11px;background:var(--surface);box-shadow:0 5px 20px #0003;border:1px solid var(--border);font-size:12px;color:var(--deep);white-space:nowrap}
+.qty-popover button{border:1px solid var(--border)!important;background:var(--pale)!important;border-radius:8px!important;width:35px;height:35px;flex-shrink:0;font-size:20px;font-weight:700;color:var(--deep)}
+.qty-popover span{min-width:3em;text-align:center}
+.modalheading{position:relative;padding-right:33px}
+.modal-close{position:absolute;right:0;top:-7px;border:0;background:none;color:#777;font-size:28px;line-height:1;padding:4px 7px;min-height:40px;min-width:40px}
+.modal-close:focus-visible{outline:2px solid var(--accent)}
+
+/* v11: keep controls compact and centered on the actual tapped item */
+.qty-popover{padding:3px 5px!important;gap:5px!important;border-radius:9px!important;}
+.qty-popover button{height:30px!important;width:32px!important;font-size:18px!important;}
+.qty-popover span{font-size:12px!important;}
+/* v10: quantity editor overlaps the tapped food row (not above or below it) */
+.qty-popover{position:fixed!important;top:0;left:0;right:auto!important;z-index:100!important;max-width:calc(100vw - 20px);transform:none;}
+.qty-popover button{touch-action:manipulation}
+.entryline{display:flex;align-items:center;justify-content:space-between;margin:1px 0 12px;color:#345d4b;font-weight:700}.entryline button{background:white;color:#345d4b;border:1px solid #c4d9ca;border-radius:9px;padding:9px 15px;font-weight:700}header,.nav,.note{display:none!important}.app{max-width:100%;padding:9px 10px 115px}.entryline span{font-size:15px}@media(max-width:400px){.app{padding-inline:8px}}</style></head><body><main id="app" class="app pantry"><header><div><div class="brand" id="brand">Pantrymo </div></div><div class="switch"><button id="pantryBtn" class="on">Pantrymo</button><button id="cocoBtn">CocoMemo</button></div></header><div class="nav" id="nav"><span>食材リスト</span><span>買物リスト</span><span>食材を追加</span><span>CocoMemo</span></div><div class="entryline"><button type="button" id="bridge-add">＋ 追加</button><span>ストックリスト</span></div><div class="tools">
+  <input id="search" placeholder="🔍 食材名で探す" aria-label="名前で探す">
+  <div class="custom-picker category-picker" id="categoryPicker">
+    <button type="button" class="picker-toggle" id="categoryToggle" aria-expanded="false" aria-haspopup="true">すべてのカテゴリ <span class="caret">▾</span></button>
+    <div class="picker-menu category-menu" id="categoryMenu" hidden></div>
+  </div>
+  <div class="toolrow">
+    <div class="custom-picker sort" id="sortPicker">
+      <button type="button" class="picker-toggle" id="sortToggle" aria-expanded="false" aria-haspopup="true">並び替え：カスタム <span class="caret">▾</span></button>
+      <div class="picker-menu sort-menu" id="sortMenu" hidden></div>
+    </div>
+    <button id="select" class="link">選択</button><button id="clear" class="link">クリア</button>
+  </div>
+</div><div id="list"></div></main><div id="bottom" class="bottom" hidden><div class="bar"><strong id="count">0件選択中</strong><button class="primary" id="edit">編集</button><button class="secondary" id="cancelSelect">取消</button></div></div><div id="modalback" class="modalback" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalheading"><h2 id="modalTitle">一括編集</h2><div class="muted" id="modalCount">選択した項目</div><button type="button" id="closeModal" class="modal-close" aria-label="一括編集を閉じる">×</button></div><div id="toggles" class="toggleline"></div><button class="fold" id="foldBtn" aria-expanded="false"><span id="foldTitle">🏷️ カテゴリを変更</span><span id="foldArrow">▾</span></button><div class="foldbody" id="foldBody" hidden></div><div class="actions"><button class="primary" id="save">変更を保存</button><button class="secondary" id="move" hidden>買物リストへ移動</button><button class="danger" id="delete">選択項目を削除</button></div></section></div><div id="toast" class="toast" hidden></div><script>
+/* Pantrymo initial 16 categories provided by the user; shown in the category selector and bulk edit. Sample inventory remains fictional. */
+const pantryCategories=["野菜・きのこ","精肉・加工肉","魚介・海藻","豆腐・こんにゃく類","卵・乳製品","果物","ジャム・シロップ類","漬物・保存食","加工食品・レトルト","米・麺類","粉類・製菓材料","乾物・その他","調味料","だし・スープの素","香辛料・ハーブ","酒類"];
+const pantryData=[{id:1,name:'かぼちゃ',cat:'野菜・きのこ',qty:'1個',date:'11/20',priority:true,frozen:false},{id:2,name:'柿',cat:'果物',qty:'',date:'',priority:false,frozen:false},{id:3,name:'牡蠣',cat:'魚介・海藻',qty:'2パック',date:'11/06',priority:false,frozen:true},{id:4,name:'カルピス',cat:'ジャム・シロップ類',qty:'1本',date:'',priority:false,frozen:false},{id:5,name:'北海道産じゃがいも（メークイン）',cat:'野菜・きのこ',qty:'4個',date:'11/02',priority:false,frozen:false},{id:6,name:'にんじん',cat:'野菜・きのこ',qty:'2本',date:'',priority:true,frozen:false},{id:7,name:'鶏もも肉',cat:'精肉・加工肉',qty:'3枚',date:'11/04',priority:false,frozen:true},{id:8,name:'牛乳',cat:'卵・乳製品',qty:'',date:'',priority:false,frozen:false}];
+const cocoData=[{id:101,name:'かぼちゃの煮物',cat:'副菜',qty:'',date:'11/05',star:true,bookmark:false},{id:102,name:'豚肉と白菜のうま煮',cat:'主菜',qty:'',date:'11/04',star:false,bookmark:true},{id:103,name:'ブロッコリーのごま和え',cat:'副菜',qty:'',date:'11/03',star:true,bookmark:true},{id:104,name:'レンジ茶碗蒸し',cat:'副菜',qty:'',date:'11/02',star:false,bookmark:false},{id:105,name:'鶏肉のクリーム煮',cat:'主菜',qty:'',date:'11/01',star:false,bookmark:false}];
+let selectedCategories=new Set(), sortChoice='custom', activePicker=null;let kind='pantry',selectMode=false,selected=new Set(),expanded=new Set(),qtyOpen=null,states=[0,0],foldOpen=false,toastTimer=null;const $=s=>document.querySelector(s);const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function normalize(s){return String(s).normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96));}function items(){return kind==='pantry'?pantryData:cocoData}function cats(){return kind==='pantry'?pantryCategories:[...new Set(items().map(x=>x.cat))]}const sortChoices={pantry:[['custom','並び替え：カスタム'],['new','並び替え：新しいものから'],['old','並び替え：古いものから'],['name','並び替え：あいうえお']],coco:[['new','登録日が新しいものから'],['old','登録日が古いものから'],['name','メインタグ']]};
+function closePicker(){activePicker=null;for(const typ of ['category','sort']){$('#'+typ+'Menu').hidden=true;$('#'+typ+'Toggle').setAttribute('aria-expanded','false')}}
+function togglePicker(typ){const was=activePicker===typ;closePicker();if(!was){activePicker=typ;$('#'+typ+'Menu').hidden=false;$('#'+typ+'Toggle').setAttribute('aria-expanded','true')}}
+function renderPickers(){
+ const opts=sortChoices[kind];
+ const sortText=opts.find(([k])=>k===sortChoice)?.[1]||opts[0][1];
+ $('#sortToggle').innerHTML='<span class="picker-title">'+escapeHTML(sortText)+'</span><span class="caret">▾</span>';
+ $('#sortMenu').innerHTML=opts.map(([k,t])=>'<button type="button" class="picker-option" data-sort-choice="'+k+'" aria-selected="'+(k===sortChoice)+'">'+escapeHTML(t)+'</button>').join('');
+ $('#sortMenu').querySelectorAll('[data-sort-choice]').forEach(b=>b.onclick=()=>{sortChoice=b.dataset.sortChoice;closePicker();render()});
+ const label=selectedCategories.size===0?'すべての'+(kind==='pantry'?'カテゴリ':'タグ'):selectedCategories.size===1?[...selectedCategories][0]:selectedCategories.size+(kind==='pantry'?'カテゴリ':'タグ')+'選択中';
+ $('#categoryToggle').innerHTML='<span class="picker-title">'+escapeHTML(label)+'</span><span class="caret">▾</span>';
+ $('#categoryMenu').innerHTML=cats().map(c=>'<button type="button" class="picker-option '+(selectedCategories.has(c)?'is-checked':'')+'" data-cat="'+escapeHTML(c)+'" role="checkbox" aria-checked="'+selectedCategories.has(c)+'"><input type="checkbox" tabindex="-1" '+(selectedCategories.has(c)?'checked':'')+' aria-hidden="true"/><span>'+escapeHTML(c)+'</span></button>').join('');
+ $('#categoryMenu').querySelectorAll('[data-cat]').forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const c=b.dataset.cat;selectedCategories.has(c)?selectedCategories.delete(c):selectedCategories.add(c);expanded.clear();const menu=$('#categoryMenu');const scroll=menu.scrollTop;render();menu.scrollTop=scroll;menu.hidden=false;activePicker='category';$('#categoryToggle').setAttribute('aria-expanded','true');});
+ // Use the actual longest option text. Keep room for the other column on narrow phones.
+ const ctx=document.createElement('canvas').getContext('2d');const st=getComputedStyle($('#sortToggle'));ctx.font=st.font;const widest=Math.max(...opts.map(([,t])=>ctx.measureText(t).width));const maxAllowed=Math.max(160,Math.floor($('#app').clientWidth*0.69));const px=Math.min(maxAllowed,Math.ceil(widest+39));$('#app').style.setProperty('--sort-width',px+'px');
+}
+function reset(){selectMode=false;selected.clear();qtyOpen=null;expanded.clear();selectedCategories.clear();sortChoice=kind==='pantry'?'custom':'new';$('#search').value='';$('#modalback').hidden=true;closePicker();render()}
+function changeKind(to){kind=to;document.body.classList.toggle('coco',kind==='coco');document.body.classList.toggle('pantry',kind==='pantry');$('#app').className='app '+(kind==='coco'?'coco':'pantry');$('#pantryBtn').classList.toggle('on',kind==='pantry');$('#cocoBtn').classList.toggle('on',kind==='coco');$('#brand').textContent=kind==='pantry'?'Pantrymo':'CocoMemo';$('#browserThemeColor').setAttribute('content',kind==='pantry'?'#345d4b':'#804732');$('#nav').innerHTML=(kind==='pantry'?['食材リスト','買物リスト','食材を追加','CocoMemo']:['レシピリスト','マイセレクト','レシピラボ','Pantrymo']).map(x=>'<span>'+x+'</span>').join('');$('#search').placeholder=kind==='pantry'?'🔍 食材名で探す':'🔍 レシピ名で探す';reset()}
+function positionQtyPopover(){
+  // Always position relative to the *same row* that owns this editor.
+  // Never find a global first quantity button (which belongs to the first item).
+  const pop=document.querySelector('.qty-popover');
+  if(!pop)return;
+  const row=pop.closest('.food');
+  if(!row)return;
+  const r=row.getBoundingClientRect();
+  const w=pop.offsetWidth, h=pop.offsetHeight;
+  const x=Math.max(8,Math.min(window.innerWidth-w-8,r.right-w-3));
+  const y=Math.max(8,Math.min(window.innerHeight-h-8,r.top+(r.height-h)/2));
+  pop.style.left=Math.round(x)+'px';
+  pop.style.top=Math.round(y)+'px';
+}
+function render(){renderPickers();$('#select').textContent=selectMode?'選択解除':'選択';const q=normalize($('#search').value.trim()),sort=sortChoice;let a=items().filter(x=>(selectedCategories.size===0||selectedCategories.has(x.cat))&&normalize(x.name).includes(q));if(sort==='name' && kind==='pantry')a.sort((x,y)=>x.name.localeCompare(y.name,'ja'));if(sort==='new'||sort==='old')a.sort((x,y)=> sort==='new'?y.date.localeCompare(x.date):x.date.localeCompare(y.date));let grouped=new Map();for(const x of a){if(!grouped.has(x.cat))grouped.set(x.cat,[]);grouped.get(x.cat).push(x)}const list=$('#list');list.innerHTML='';if(!a.length)list.innerHTML='<div class="empty">一致する項目はありません</div>';for(const cat of (kind==='pantry'?pantryCategories:[...grouped.keys()])){const rows=grouped.get(cat);if(!rows)continue;let open=q?true:expanded.has(cat);const block=document.createElement('section');block.className='category';block.innerHTML='<button class="cathead" data-cat="'+escapeHTML(cat)+'"><span>'+(open?'▾':'▸')+' '+escapeHTML(cat)+'</span><span class="catcount">'+rows.length+'件</span></button><div class="catrows" '+(open?'':'hidden')+'></div>';block.querySelector('.cathead').onclick=()=>{qtyOpen=null;expanded.has(cat)?expanded.delete(cat):expanded.add(cat);render()};const inner=block.querySelector('.catrows');for(const x of rows){const row=document.createElement('div');row.className='food'+(selected.has(x.id)?' selected':'');const drag=kind==='pantry'&&sort==='custom'&&!selectMode?'<span class="drag" title="長押しドラッグは実アプリで確認">≡</span>':'';const icons=kind==='pantry'?'<button class="mark '+(x.priority?'active':'')+'" data-i="priority" title="優先使用">💫</button><button class="mark '+(x.frozen?'active':'')+'" data-i="frozen" title="冷凍">❄️</button>':'<button class="mark '+(x.star?'active':'')+'" data-i="star" title="お気に入り">⭐</button><button class="mark '+(x.bookmark?'active':'')+'" data-i="bookmark" title="ブックマーク">🔖</button>';const quantity=x.qty?('<button class="qty" data-qty="1">'+escapeHTML(x.qty)+'</button>'):'';const controls=qtyOpen===x.id?'<button class="qty" data-qty="1" aria-expanded="true">'+escapeHTML(x.qty)+'</button><span class="qty-popover" role="group" aria-label="数量を増減"><button type="button" data-step="-1" aria-label="減らす">−</button><span>'+escapeHTML(x.qty)+'</span><button type="button" data-step="1" aria-label="増やす">＋</button></span>':quantity;const countDateSlots=(!selectMode&&kind==='pantry')?'<span class="qty-slot">'+controls+'</span><span class="date-slot">'+(x.date?escapeHTML(x.date):'')+'</span>':'';row.innerHTML=drag+icons+'<button class="name" title="'+escapeHTML(x.name)+'">'+escapeHTML(x.name)+'</button>'+countDateSlots+(selectMode?'<input class="check" type="checkbox" '+(selected.has(x.id)?'checked':'')+' aria-label="選択"/>':'<button class="dots" title="個別メニュー">⋮</button>');row.onclick=e=>{if(selectMode){selected.has(x.id)?selected.delete(x.id):selected.add(x.id);render();return}const t=e.target;if(t.closest('[data-qty]')){qtyOpen=qtyOpen===x.id?null:x.id;render()}else if(t.closest('[data-step]'))showToast('数量操作の表示見本です（保存しません）');else if(t.closest('.dots'))showToast('⋮ 個別メニューは表示見本です');else if(t.closest('.mark'))showToast('個別アイコンはこの見本では変更しません');else if(t.closest('.name'))showToast('個別編集画面はこのサンプルの対象外です')};inner.appendChild(row)}list.appendChild(block)}$('#bottom').hidden=!selectMode;$('#count').textContent=selected.size+'件選択中';$('#edit').disabled=!selected.size;if(qtyOpen!==null)requestAnimationFrame(positionQtyPopover)}
+function showToast(s){const t=$('#toast');t.textContent=s;t.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.hidden=true,2600)}function openModal(){if(!selected.size)return;states=[0,0];foldOpen=false;$('#modalback').hidden=false;$('#modalCount').textContent=selected.size+'件の'+(kind==='pantry'?'食材':'レシピ')+'を選択中';$('#foldTitle').textContent=kind==='pantry'?'🏷️ カテゴリを変更':'🏷️ タグを変更';$('#move').hidden=kind!=='pantry';makeToggle();makeFold()}const labels=['変更なし','ON','OFF'];function makeToggle(){$('#toggles').innerHTML=(kind==='pantry'?[['💫','優先使用'],['❄️','冷凍']]:[['⭐','お気に入り'],['🔖','ブックマーク']]).map((x,i)=>'<button class="state" data-state="'+i+'" aria-label="'+x[1]+' '+labels[states[i]]+'"><b>'+x[0]+'</b>：'+labels[states[i]]+'</button>').join('');document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{const i=+b.dataset.state;states[i]=(states[i]+1)%3;makeToggle()})}function makeFold(){$('#foldBtn').setAttribute('aria-expanded',String(foldOpen));$('#foldBody').hidden=!foldOpen;$('#foldArrow').textContent=foldOpen?'▴':'▾';if(!foldOpen)return;$('#foldBody').innerHTML=kind==='pantry'?'<label><input type="radio" name="categoryMove" checked> 変更しない</label>'+cats().map(c=>'<label><input type="radio" name="categoryMove"> '+escapeHTML(c)+'</label>').join(''):'<label><input type="checkbox" id="bulkTagEnable"> タグを変更する</label><div class="hint" style="margin:4px 0">選択するタグとメインタグを指定（表示見本）</div>'+['主菜','副菜','汁物','時短'].map((t,i)=>'<label style="display:flex;align-items:center;gap:6px"><input type="checkbox" name="bulkTag" value="'+t+'"> <span style="flex:1">'+t+'</span><input type="radio" name="mainTag" aria-label="'+t+'をメインタグに指定" '+(i===0?'':'')+'></label>').join('')}
+$('#pantryBtn').onclick=()=>changeKind('pantry');$('#cocoBtn').onclick=()=>changeKind('coco');$('#search').oninput=render;$('#sortToggle').onclick=()=>togglePicker('sort');$('#categoryToggle').onclick=()=>togglePicker('category');
+$('#clear').onclick=()=>{reset()};
+$('#select').onclick=()=>{selectMode=!selectMode;selected.clear();closePicker();render()};
+document.addEventListener('click',e=>{if(!e.target.closest('.custom-picker'))closePicker()});
+window.addEventListener('resize',()=>renderPickers());
+$('#cancelSelect').onclick=reset;$('#edit').onclick=openModal;$('#closeModal').onclick=()=>$('#modalback').hidden=true;$('#foldBtn').onclick=()=>{foldOpen=!foldOpen;makeFold()};$('#save').onclick=()=>{showToast('表示を確認しました。実データは変更されません');$('#modalback').hidden=true;selectMode=false;selected.clear();render()};$('#move').onclick=()=>{const rows=pantryData.filter(x=>selected.has(x.id)).map(x=>({...x}));if(rows.length){window.parent.postMessage({channel:'stock-to-wish',rows},location.origin);$('#modalback').hidden=true;selectMode=false;selected.clear();render()}};$('#delete').onclick=()=>{if(confirm('確認用：'+selected.size+'件を削除しますか？\n※実際のデータは変更しません'))showToast('確認用：削除の確認のみ。実際には削除しません')};$('#modalback').onclick=e=>{if(e.target===$('#modalback'))$('#modalback').hidden=true};document.addEventListener('pointerdown',e=>{if(qtyOpen!==null&&!e.target.closest('.qty-slot')&&!e.target.closest('.qty-popover')){qtyOpen=null;render()}});window.addEventListener('resize',positionQtyPopover);document.addEventListener('scroll',e=>{if(qtyOpen!==null&&!e.target.closest?.('.picker-menu')){qtyOpen=null;render()}},true);changeKind('pantry');
+;
+const notifyStock=()=>window.parent.postMessage({channel:'stock-state',rows:pantryData.map(x=>({...x}))},location.origin);
+$('#bridge-add').onclick=()=>window.parent.postMessage({channel:'open-add',target:'stock'},location.origin);
+window.addEventListener('message',e=>{
+ if(e.origin!==location.origin)return;const d=e.data;if(!d||d.scope!=='pan-bridge')return;
+ if(d.op==='stock-get'){notifyStock();return}
+ if(d.op==='stock-add'){
+  const done=[];let refused=0;
+  for(const entry of d.rows||[]){
+   if(!entry.name?.trim()||pantryData.some(x=>x.name===entry.name.trim()&&x.cat===entry.cat)){refused++;continue}
+   const item={id:Math.max(0,...pantryData.map(x=>x.id))+1,name:entry.name.trim(),cat:entry.cat,qty:(entry.qty||'')+(entry.qty?entry.unit||'':''),unit:entry.unit||'',date:entry.date||'',priority:!!entry.priority,frozen:!!entry.frozen,memo:entry.memo||''};
+   pantryData.push(item);done.push(entry.originId??null)
+  }
+  for(const entry of d.rows||[])if(pantryData.some(x=>x.name===entry.name?.trim()&&x.cat===entry.cat))expanded.add(entry.cat);
+  render();notifyStock();
+  window.parent.postMessage({channel:'stock-added',requestId:d.requestId,done,refused},location.origin);return
+ }
+ if(d.op==='stock-remove'){
+   for(const id of d.ids||[]){const idx=pantryData.findIndex(x=>x.id===id);if(idx>=0)pantryData.splice(idx,1)}
+   render();notifyStock();
+   window.parent.postMessage({channel:'stock-removed',requestId:d.requestId},location.origin);return
+ }
+ if(d.op==='stock-announce'){showToast(d.text);return}
+});
+document.addEventListener('click',e=>{
+ if(e.target.closest('.food .dots')&&!selectMode){const row=e.target.closest('.food');const name=row?.querySelector('.name')?.textContent;const it=pantryData.find(x=>x.name===name);if(it)window.parent.postMessage({channel:'stock-edit',row:{...it}},location.origin)}
+});
+notifyStock();
+</script></body></html>
