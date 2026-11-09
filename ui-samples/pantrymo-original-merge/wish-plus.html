@@ -332,31 +332,33 @@ dialog#wishBulkDialog{width:min(510px,calc(100vw - 30px));border-radius:17px;pad
 #wishMoveDialog .wish-move-footer button{min-height:42px;border:1px solid #d1dfd3;border-radius:8px;background:white;color:#345d4b;font-weight:700}
 #wishMoveDialog #wishMoveCommit{background:#345d4b;color:white}
 #wishMoveDialog .wish-move-demo{font-size:11px;color:#6d7e70;margin:10px 0 0}
-.wrap{min-height:0!important}dialog{top:25px!important;bottom:auto!important;margin-top:0!important}.top,.nav{display:none!important}.wrap{padding:9px 10px 100px;max-width:none}.embedded-title{font-size:17px;font-weight:800;color:#365f48;margin:3px 0 13px;display:block}.wish-top-actions{display:flex;align-items:center;gap:12px;justify-content:flex-end}.wish-top-actions .embedded-title{margin:0 auto 0 0}.wish-top-actions #wish-bridge-add{background:#fff;border:1px solid #bfd5c5;color:#3c6c4c;border-radius:8px;font-weight:750;padding:8px 12px}.card{padding:12px}.inputbox{min-height:112px}@media(max-width:400px){.wrap{padding-inline:8px}}</style>
+.wrap{min-height:0!important}dialog{top:25px!important;bottom:auto!important;margin-top:0!important}.top,.nav{display:none!important}.wrap{padding:9px 10px 100px;max-width:none}.embedded-title{font-size:17px;font-weight:800;color:#365f48;margin:3px 0 13px;display:block}.wish-top-actions{display:flex;align-items:center;gap:12px;justify-content:flex-end}.wish-top-actions .embedded-title{margin:0 auto 0 0}.wish-top-actions #wish-bridge-add{background:#fff;border:1px solid #bfd5c5;color:#3c6c4c;border-radius:8px;font-weight:750;padding:8px 12px}.card{padding:12px}.inputbox{min-height:112px}@media(max-width:400px){.wrap{padding-inline:8px}}/* Integrated design: stronger stock list hierarchy, selected forest-green/orange-yellow palette */
+:root{background:#fffaf4;color:#242b24}.wrap{background:#fffaf4}.card{border-color:#c4d6c7;background:#fffdfa}.cat-band,#wishRows .wish-band{background:#104d32!important;color:#fff!important;font-size:14px;font-weight:800}.cat-band small,#wishRows .wish-band small{color:#fff!important;font-weight:700}.item-name,.wish-name,#wishRows .wish-entry .wish-name{color:#202722!important;font-size:14px!important;font-weight:750!important}.item-qty,#wishRows .item-qty{color:#292c27!important;font-size:13px!important;font-weight:650!important}.item-extra,#wishRows .wish-sub{font-size:11px!important;color:#6d766d!important}.btn.primary,.dest button.active,#wishEditApply{background:#104d32;border-color:#104d32;color:white}.toolbar .btn.primary,.save-row .btn.primary{background:#e77b07;border-color:#e77b07;color:white}.wish-top-actions{justify-content:flex-end!important;gap:12px!important}.wish-top-actions #wish-bridge-add{border:0!important;background:transparent!important;padding:5px 2px!important;text-decoration:underline;color:#d27606!important;font-size:14px!important;min-height:35px!important}.wish-link{font-size:14px!important}.registered-flag{font-size:11px;font-weight:750;color:#b7501f;background:#fff1df;padding:3px 8px;border-radius:6px;margin:2px 0}.qty-editor button{background:#e4f1e5!important;border:1px solid #acc6b2!important}input::placeholder,textarea::placeholder{color:#a1a9a3!important;opacity:1}.form-counter{display:flex;align-items:center;min-width:0;gap:2px}.form-counter input{flex:1;min-width:0;width:100%!important;text-align:center;padding-inline:2px!important}.form-counter button{flex:none;width:27px;height:35px;border-radius:7px;border:1px solid #b4cbb6;background:#e4f1e5;color:#155238;font-size:19px;padding:0}.edit-row.one{grid-template-columns:minmax(0,1fr) minmax(92px,.75fr) 75px!important}dialog[open]{top:calc(var(--visible-top,0px) + var(--visible-height,700px)/2)!important;bottom:auto!important;transform:translateY(-50%);margin-top:0!important;max-height:calc(var(--visible-height,700px) - 20px)!important;overflow:auto}#wishView .wish-batch{position:absolute!important;top:calc(var(--visible-top,0px) + var(--visible-height,700px) - 75px)!important;bottom:auto!important;left:12px;right:12px;z-index:40}
+</style>
 </head>
 <body>
 <main class="wrap">
 <header class="top"><span class="brand">Pantrymo</span><button class="echo-switch" type="button" id="echoSwitch" aria-pressed="false">拡大表示：OFF</button></header>
 <nav class="nav" aria-label="メインメニュー"><div>ストックリスト</div><div id="wishNav" role="button" tabindex="0">マイウィッシュ</div><div id="plusNav" class="active" role="button" tabindex="0">アイテムプラス</div><div>CocoMemo</div></nav>
-<div id="plusView"><h2 class="embedded-title">アイテムプラス</h2>
+<div id="plusView">
 <section class="card"><span class="lab">追加先を選択</span><div class="dest" role="group" aria-label="追加先"><button id="stockButton" class="active" type="button" aria-pressed="true">ストックリスト</button><button id="wishButton" type="button" aria-pressed="false">マイウィッシュ</button></div><div id="destnote" class="destnote">食材をストックリストへ追加します。</div></section>
-<section class="card"><label class="lab" for="itemsText">アイテムを入力</label><textarea class="inputbox" id="itemsText" placeholder="例：かぼちゃ1個、玉ねぎ␣3個、ひき肉1パック&#10;複数品目は「、」「,」または改行で区切ること。&#10;(␣はスペース)" spellcheck="false"></textarea><div class="toolbar"><button class="btn soft" id="exampleButton" type="button">入力例を試す</button><button class="btn primary" id="parseButton" type="button">アイテムを確認</button></div><div class="status" id="parseStatus" role="status"></div></section>
+<section class="card"><label class="lab" for="itemsText">アイテムを入力</label><textarea class="inputbox" id="itemsText" placeholder="例：かぼちゃ1個、玉ねぎ␣3個、ひき肉1パック&#10;複数品目は「、」「,」または改行で区切ること。&#10;(␣はスペース)" spellcheck="false"></textarea><div class="toolbar"><button class="btn primary" id="parseButton" type="button">アイテムを確認</button></div><div class="status" id="parseStatus" role="status"></div></section>
 <section class="card"><div class="section-head"><h2>確認リスト</h2></div><div id="rows">
-<!-- JSを実行できないプレビュー用の静的見本 -->
-<div class="cat-group"><div class="cat-band">野菜・きのこ <small>2件</small></div><div class="item-row"><div class="item-main"><span>💫</span><span>❄️</span><span class="sample-name">かぼちゃ</span><span class="sample-cell">1個</span><span>⋮</span></div></div><div class="item-row"><div class="item-main"><span>💫</span><span>❄️</span><span class="sample-name">玉ねぎ</span><span class="sample-cell">3個</span><span>⋮</span></div></div></div>
-<div class="cat-group"><div class="cat-band">精肉・加工肉 <small>1件</small></div><div class="item-row"><div class="item-main"><span>💫</span><span>❄️</span><span class="sample-name">ひき肉</span><span class="sample-cell">1パック</span><span>⋮</span></div><div class="item-extra">ストック日 11/7</div></div></div>
+
+
+
 </div><div class="save-row"><button class="btn primary" id="saveButton" type="button">ストックリストに追加</button></div><p class="status" id="saveStatus" role="status"></p></section>
-<p class="notice">このファイルは仕様検討用のサンプルです。保存ボタンは動作の見本で、実際のストックリスト・買物リスト・端末データ・クラウドには保存しません。確認リスト内で数量・アイコンを操作できます。</p>
-<p class="footerline">入力の区切り：読点「、」／半角カンマ「,」／改行。「と」は品目区切りとして扱いません。</p>
+
+
 </div>
 <div id="wishView" hidden>
   <section class="card">
-    <div class="wish-top-actions"><strong class="embedded-title">マイウィッシュ</strong><button type="button" id="wish-bridge-add">＋ 追加</button><button type="button" id="wishSelect" class="wish-link">選択</button></div>
+    <div class="wish-top-actions"><button type="button" id="wish-bridge-add">＋ 追加</button><button type="button" id="wishSelect" class="wish-link">選択</button></div>
     <div id="wishRows" aria-live="polite"></div>
     <div id="wishBatch" class="wish-batch" hidden><span id="wishCount">0件選択中</span><button type="button" class="btn soft" id="wishBatchEdit">編集</button><button type="button" class="btn outline" id="wishSelectCancel">取消</button></div>
     <p id="wishStatus" class="status" role="status"></p>
   </section>
-  <p class="notice">これは架空データを使った画面操作のサンプルです。編集・削除・移動・追加はこのページの表示だけに反映されます。再読み込みで初期状態に戻り、実データ・端末保存・クラウド・本体アプリへは書き込みません。</p>
+  
 </div>
 </main>
 <dialog id="wishEditDialog" aria-label="マイウィッシュのアイテムを編集"><div class="modal-head"><span>マイウィッシュを編集</span><button type="button" class="close" id="wishEditClose" aria-label="閉じる">×</button></div><div class="modal-body">
@@ -385,7 +387,7 @@ const $=id=>document.getElementById(id);
 function setEchoMode(on){document.body.classList.toggle('echo-view',on);$('echoSwitch').setAttribute('aria-pressed',String(on));$('echoSwitch').textContent='拡大表示：'+(on?'ON':'OFF')}
 $('echoSwitch').onclick=()=>setEchoMode(!document.body.classList.contains('echo-view'));
 setEchoMode(new URLSearchParams(location.search).get('echo')==='1');
-const categories=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
+const categories=['野菜・きのこ','精肉・加工肉','魚介・海藻','豆腐・こんにゃく類','卵・乳製品','果物','ジャム・シロップ類','漬物・保存食','加工食品・レトルト','米・パン・麺類','粉類・製菓材料','乾物・その他','調味料','だし・スープの素','香辛料・ハーブ','酒類','カテゴリ未定'];
 const wishCategories=[...categories.slice(0,-1),'日用品ほか','カテゴリ未定'];
 const canMoveWishItem=x=>!!(x&&!x.archived&&x.cat!=='日用品ほか');
 const known={'かぼちゃ':0,'玉ねぎ':0,'たまねぎ':0,'トマト':0,'じゃがいも':0,'ひき肉':1,'豚肉':1,'鶏もも肉':1,'牛乳':4,'卵':4,'玉子':4,'りんご':5,'醤油':12};
@@ -399,7 +401,7 @@ function parsePart(text){const t=clean(text).replace(/\u3000/g,' ');if(!t)return
 let nextId=1;function newItem(str){let it=parsePart(str);if(it)it.id=nextId++;return it}
 function setDest(v){dest=v;if(typeof syncPlusCategories==='function')syncPlusCategories();for(const [key,id] of [['stock','stockButton'],['wish','wishButton']]){$(id).classList.toggle('active',v===key);$(id).setAttribute('aria-pressed',String(v===key))}$('saveButton').textContent=(v==='stock'?'ストックリスト':'マイウィッシュ')+'に追加';$('saveStatus').textContent='';qtyOpen=-1;render()}
 $('stockButton').onclick=()=>setDest('stock');$('wishButton').onclick=()=>setDest('wish');
-$('exampleButton').onclick=()=>{$('itemsText').value='かぼちゃ1個、玉ねぎ 3個、ひき肉1パック';$('itemsText').focus()};
+
 $('parseButton').onclick=()=>{const list=$('itemsText').value.split(/[、,\r\n]+/).map(newItem).filter(Boolean);if(!list.length){$('parseStatus').textContent='アイテムを入力してください。';return}items=list;qtyOpen=-1;$('parseStatus').textContent=items.length+'件のアイテムを確認リストに表示しました。';$('saveStatus').textContent='';render()};
 function qtyText(it){return (it.amount?it.amount+(it.unit||''):'')}
 function extra(it){const out=[];if(dest==='stock'&&it.date){const d=it.date.split('-');out.push('ストック日 '+Number(d[1])+'/'+Number(d[2]))}if(it.memo)out.push('メモ：'+it.memo);return out.join(' ・ ')}
@@ -411,6 +413,7 @@ const categoryPlacement={'野菜・きのこ':0,'精肉・加工肉':1,'卵・�
 let columnWeights=[0,0];let shown=0;for(const cat of categories){const groupItems=items.filter(x=>x.cat===cat);if(!groupItems.length)continue;shown+=groupItems.length;const group=document.createElement('div');group.className='cat-group';const head=document.createElement('div');head.className='cat-band';head.innerHTML=safe(cat)+' <small>'+groupItems.length+'件</small>';group.append(head);
 for(const it of groupItems){const row=document.createElement('div');row.className='item-row';row.dataset.id=String(it.id);const more=dest==='stock'?`<button type="button" class="icon-toggle ${it.priority?'active':''}" data-icon="priority" aria-label="優先使用 ${it.priority?'ON':'OFF'}">💫</button><button type="button" class="icon-toggle ${it.frozen?'active':''}" data-icon="frozen" aria-label="冷凍 ${it.frozen?'ON':'OFF'}">❄️</button>`:'';
 const q=qtyText(it);row.innerHTML=`<div class="item-main ${dest==='wish'?'wish-mode':''}">${more}<input class="item-name" data-name="${it.id}" value="${safe(it.name)}" aria-label="アイテム名"><button class="item-qty" type="button" data-qty="${it.id}" aria-label="数量を編集">${q?safe(q):'<span class="qty-empty">　</span>'}</button><button class="item-more" type="button" data-edit="${it.id}" aria-label="${safe(it.name)}を編集">⋮</button></div>${extra(it)?'<div class="item-extra">'+safe(extra(it))+'</div>':''}`;
+if(it.registrationStatus){const flag=document.createElement('div');flag.className='registered-flag';flag.textContent=it.registrationStatus;row.append(flag)}
 if(qtyOpen===it.id){const editor=document.createElement('div');editor.className='qty-editor';editor.innerHTML=`<button type="button" data-step="-1">−</button><input type="text" data-amount="${it.id}" inputmode="decimal" aria-label="数量" value="${safe(it.amount)}"><span class="qty-unit">${safe(it.unit)}</span><button type="button" data-step="1">＋</button>`;row.append(editor)}group.append(row)}
 const chosen=Object.prototype.hasOwnProperty.call(categoryPlacement,cat)?categoryPlacement[cat]:(columnWeights[0]<=columnWeights[1]?0:1);
 columns[chosen].append(group);columnWeights[chosen]+=groupItems.length+1;
@@ -536,6 +539,8 @@ let wishNextId=1000, wishItems=[
 let wishMode=false,wishSelecting=false,wishSelected=new Set(),wishEditing=null,wishQuantityOpen=null,wishCategory='',wishConfirmFn=null,wishPointerTimer=null,wishActionId=null;
 const wishCollapsed=new Set();
 const wishById=id=>wishItems.find(x=>x.id===Number(id));
+function addCounter(id){const el=$(id),box=document.createElement('span');box.className='form-counter';el.parentNode.insertBefore(box,el);box.append(el);for(const [txt,step] of [['−',-1],['＋',1]]){const b=document.createElement('button');b.type='button';b.className='counter-step';b.textContent=txt;b.onclick=()=>{el.value=String(Math.max(0,(Number(el.value)||0)+step));el.dispatchEvent(new Event('input',{bubbles:true}))};box.insertBefore(b,step<0?el:null)}}for(const id of ['editAmount','wishEditAmount'])addCounter(id);
+
 function showView(mode){
  wishMode=mode==='wish';
  $('wishView').hidden=!wishMode;$('plusView').hidden=wishMode;
@@ -599,7 +604,7 @@ function renderWish(){
    if(!groupItems.length)continue;
    const missing=groupItems.filter(x=>!x.checked).length;
    const block=wishBand(cat,missing+'/'+groupItems.length+'件',cat);
-   const sorted=[...groupItems].sort((a,b)=>Number(a.checked)-Number(b.checked)||a.name.localeCompare(b.name,'ja'));
+   const sorted=[...groupItems];
    for(const it of sorted)block.body.append(wishMakeEntry(it,false));
    const side=Object.prototype.hasOwnProperty.call(pinned,cat)?pinned[cat]:(weights[0]<=weights[1]?0:1);
    col[side].append(block.group);weights[side]+=groupItems.length+1;
@@ -683,6 +688,7 @@ $('wishBatchEdit').onclick=()=>{
  $('wishBulkDialog').showModal();
 };
 $('wishBulkClose').onclick=()=>close('wishBulkDialog');
+$('wishBulkDelete').onclick=()=>{const ids=[...wishSelected];if(!ids.length)return;close('wishBulkDialog');confirmWish('削除の確認',ids.length+'件の選択項目を削除しますか？',()=>{const selectedIds=new Set(ids);wishItems=wishItems.filter(x=>!selectedIds.has(x.id));wishSelecting=false;wishSelected.clear();renderWish();notifyWish();$('wishStatus').textContent=ids.length+'件を削除しました（模擬）。'})};
 function renderWishBulkToggle(){const el=$('wishBulkToggle'),on=wishBulkCheck==='on';el.textContent=on?'✓：ON':'○：OFF';el.setAttribute('aria-pressed',String(on));el.classList.toggle('on',on)}
 $('wishBulkToggle').onclick=()=>{wishBulkCheck=wishBulkCheck==='on'?'off':'on';renderWishBulkToggle()};
 $('wishBulkCategory').onclick=()=>{
@@ -779,7 +785,8 @@ const convertStockToWish=x=>{
 };
 window.addEventListener('message',e=>{
  if(e.origin!==location.origin)return;const d=e.data;if(!d||d.scope!=='pan-bridge')return;
- if(d.op==='wish-view'){showView(d.view);notifyWish();return}
+ if(d.op==='viewport'){document.documentElement.style.setProperty('--visible-top',d.visibleTop+'px');document.documentElement.style.setProperty('--visible-height',d.visibleHeight+'px');return}
+if(d.op==='wish-view'){showView(d.view);notifyWish();return}
  if(d.op==='wish-get'){notifyWish();return}
  if(d.op==='wish-from-stock'){
    try{for(const x of d.rows||[])convertStockToWish(x);renderWish();window.parent.postMessage({channel:'wish-saved',requestId:d.requestId},location.origin)}
@@ -800,7 +807,7 @@ window.addEventListener('message',e=>{
  if(d.op==='plus-result'){
    const ok=d.added||0,refused=d.refused||0;
    if(ok>0&&!refused){$('itemsText').value='';items=[];render();$('saveStatus').textContent=ok+'件登録しました。入力欄をクリアしました（模擬）'}
-   else $('saveStatus').textContent=ok+'件登録、'+refused+'件は登録済みなどで未登録です。入力欄を保持しました。';
+   else {const success=new Set(d.doneIds||[]);items=items.filter(x=>!success.has(x.id));for(const item of items)item.registrationStatus='登録済み';render();$('saveStatus').textContent=ok+'件登録、'+refused+'件は登録済みなどで未登録です。重複品を確認リストに残しました。';}
  }
 });
 $('wish-bridge-add').onclick=()=>window.parent.postMessage({channel:'open-add',target:'wish'},location.origin);
