@@ -226,6 +226,8 @@ function setupStockDrag(){
         source.classList.add('dragging');
         if(navigator.vibrate)try{navigator.vibrate(12)}catch(err){}
       },400);
+      const stopTouchScroll=e=>{if(active&&e.cancelable)e.preventDefault()};
+      document.addEventListener('touchmove',stopTouchScroll,{passive:false,capture:true});
       const clearTarget=()=>{
         if(drop){drop.classList.remove('drop-before','drop-after');drop=null;}
       };
@@ -252,6 +254,7 @@ function setupStockDrag(){
         e.preventDefault();
       };
       function detach(){
+        document.removeEventListener('touchmove',stopTouchScroll,true);
         document.removeEventListener('pointermove',move);
         document.removeEventListener('pointerup',endDrag);
         document.removeEventListener('pointercancel',endDrag);
