@@ -355,6 +355,9 @@ $('#cancelSelect').onclick=reset;$('#edit').onclick=openModal;$('#closeModal').o
 ;
 const notifyStock=()=>window.parent.postMessage({channel:'stock-state',rows:pantryData.map(x=>({...x}))},location.origin);
 $('#bridge-add').onclick=()=>{if(selectMode)return;window.parent.postMessage({channel:'open-add',target:'stock'},location.origin)};
+function notifyOverlayState(){window.parent.postMessage({channel:'frame-modal-state',active:!document.querySelector('#modalback').hidden},location.origin)}
+new MutationObserver(notifyOverlayState).observe(document.querySelector('#modalback'),{attributes:true,attributeFilter:['hidden']});
+notifyOverlayState();
 window.addEventListener('message',e=>{
  if(e.origin!==location.origin)return;const d=e.data;if(!d||d.scope!=='pan-bridge')return;
  if(d.op==='viewport'){document.documentElement.style.setProperty('--visible-top',d.visibleTop+'px');document.documentElement.style.setProperty('--visible-height',d.visibleHeight+'px');return}
