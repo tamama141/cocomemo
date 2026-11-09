@@ -144,6 +144,59 @@ body.pantry,.app{--deep:#104d32;--accent:#e78714;--pale:#e4eee5;--border:#c5d6c8
 #bridge-add,.toolrow #select,.toolrow #clear{border:0!important;background:transparent!important;color:#d47606!important;text-decoration:none!important;font-size:13px!important;font-weight:700!important;min-height:33px;padding:6px 3px!important;white-space:nowrap}.toolrow{gap:7px}.toolrow .sort{flex:1 1 0!important;width:auto!important;min-width:0!important;max-width:none!important}.qty-popover{width:220px!important;min-width:220px!important;max-width:220px!important;height:38px!important;min-height:38px!important;padding:3px 5px!important;gap:4px!important;right:-54px!important;top:50%!important;left:auto!important;transform:translateY(-50%)!important;background:#fff!important;border:1px solid #a6cbb0!important;border-radius:9px!important;box-shadow:0 3px 9px #203c302a!important;z-index:30!important}.qty-popover button{width:31px!important;min-width:31px!important;height:29px!important;min-height:29px!important;border-radius:6px!important;padding:0!important;font-size:20px!important}.qty-popover .qty-pop-input{width:49px!important;min-width:49px!important;height:29px!important;padding:2px!important;background:#fff!important;font-size:14px!important}.qty-popover .qty-unit{width:48px;max-width:48px!important;text-align:center;font-size:11px}.qty-slot{isolation:isolate}.food:has(.qty-popover){position:relative;z-index:10}.food .name{cursor:default}
 /* Same quantity overlay component dimensions as Wish/Item Plus; drag handles are interactive. */
 .food .qty-popover{box-sizing:border-box!important;display:grid!important;grid-template-columns:44px 59px minmax(0,1fr) 44px!important;align-items:center!important;justify-content:initial!important;column-gap:5px!important;width:228px!important;min-width:228px!important;max-width:228px!important;height:39px!important;min-height:39px!important;padding:3px 5px!important;right:-54px!important;top:50%!important;transform:translateY(-50%)!important}.food .qty-popover button{box-sizing:border-box!important;width:44px!important;min-width:44px!important;max-width:44px!important;height:31px!important;min-height:31px!important;padding:0!important}.food .qty-popover .qty-pop-input{box-sizing:border-box!important;width:59px!important;min-width:59px!important;max-width:59px!important;height:31px!important;padding:2px!important}.food .qty-popover .qty-unit{width:100%!important;min-width:0!important;max-width:none!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}.food .drag{touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;min-width:22px;min-height:32px;display:inline-flex;justify-content:center;align-items:center}.food.dragging{opacity:.38!important}.food.drag-ghost{position:fixed!important;z-index:99999!important;pointer-events:none!important;opacity:.83!important;background:#fffdf8!important;box-shadow:0 9px 24px #15352455!important;border:1px solid #d5ad54!important;border-radius:8px!important;transform:scale(1.015);margin:0!important}.food.drop-before,.food.drop-after{position:relative}.food.drop-before::before,.food.drop-after::after{content:'';position:absolute;left:3px;right:3px;height:3px;background:#e58d12;border-radius:3px;z-index:30;pointer-events:none}.food.drop-before::before{top:0}.food.drop-after::after{bottom:0}
+
+/* UI7: orange-yellow selection dock and visually unified bulk-edit panel.
+   Keep approved drag behavior and underlying click handlers unchanged. */
+#bottom.bottom{box-sizing:border-box!important;position:fixed!important;
+ top:calc(var(--visible-top,0px) + var(--visible-height,700px) - 75px)!important;
+ bottom:auto!important;left:0!important;right:0!important;width:100%!important;
+ display:flex!important;justify-content:center!important;align-items:center!important;
+ padding:0 10px!important;z-index:45!important;pointer-events:none!important;
+ border:0!important;box-shadow:none!important;background:transparent!important}
+#bottom.bottom[hidden]{display:none!important}
+#bottom .bar,body.pantry #bottom .bar{box-sizing:border-box!important;display:flex!important;
+ width:max-content!important;max-width:100%!important;min-width:0!important;margin:0 auto!important;
+ flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;
+ gap:8px!important;padding:8px 10px!important;border-radius:12px!important;
+ background:#e8a32f!important;border:1px solid #d78b13!important;color:#263c2c!important;
+ box-shadow:0 5px 18px #593b1644!important}
+#bottom .bar strong{color:#263c2c!important;font-weight:750!important;font-size:13px!important;white-space:nowrap!important}
+#bottom .bar #edit,#bottom .bar #cancelSelect{box-sizing:border-box!important;
+ background:#fff9e8!important;color:#17432e!important;border:1px solid #e9d4a9!important;
+ min-height:39px!important;border-radius:8px!important;font-size:13px!important;
+ font-weight:700!important;padding:7px 10px!important;white-space:nowrap!important}
+@media(max-width:390px){#bottom .bar{gap:5px!important;padding:7px!important}
+ #bottom .bar strong{font-size:12px!important}#bottom .bar #edit,#bottom .bar #cancelSelect{padding:6px 8px!important;font-size:12px!important}}
+#modalback{box-sizing:border-box!important}
+#modalback .modal{box-sizing:border-box!important;width:min(570px,calc(100% - 8px))!important;
+ max-width:calc(100% - 8px)!important;max-height:calc(var(--visible-height,700px) - 22px)!important;
+ background:#fff!important;border-radius:14px!important;
+ padding:0 0 16px!important;overflow:auto!important;box-shadow:0 20px 60px #17332255!important}
+#modalback .modalheading{box-sizing:border-box!important;display:flex!important;
+ align-items:center!important;gap:8px!important;min-height:62px!important;
+ padding:14px 53px 14px 17px!important;margin:0!important;
+ background:#fff!important;border-bottom:1px solid #deeadf!important;color:#104d32!important}
+#modalback .modalheading h2{font-size:17px!important;font-weight:800!important;color:#104d32!important}
+#modalback .modalheading .muted{font-size:12px!important;font-weight:400!important;color:#728174!important}
+#modalback .modal-close{right:12px!important;top:11px!important;color:#718076!important}
+#modalback .toggleline,#modalback .fold,#modalback .foldbody,#modalback .actions{
+ box-sizing:border-box!important;margin-left:16px!important;margin-right:16px!important}
+#modalback .toggleline{margin-top:12px!important;margin-bottom:12px!important;justify-content:center!important}
+#modalback .state{background:#f4f8f4!important;border:1px solid #d0dfd2!important;
+ color:#17432e!important;border-radius:8px!important;min-height:40px!important}
+#modalback .fold{width:calc(100% - 32px)!important;max-width:none!important;
+ min-height:43px!important;border:1px solid #c7d7ca!important;border-radius:9px!important;
+ background:#fffdfa!important;color:#104d32!important}
+#modalback .foldbody{width:calc(100% - 32px)!important;max-width:none!important}
+#modalback .actions{width:calc(100% - 32px)!important;max-width:none!important;
+ display:grid!important;gap:8px!important;margin-top:14px!important;padding-top:12px!important}
+#modalback .actions #save{display:block!important;background:#e77b07!important;
+ color:#fff!important;border:1px solid #e77b07!important;border-radius:9px!important;
+ text-decoration:none!important;min-height:43px!important}
+#modalback .actions #move{background:#fff5dd!important;color:#164631!important;
+ border:1px solid #e1d0a9!important;border-radius:9px!important;text-decoration:none!important;min-height:43px!important}
+#modalback .actions #delete{background:#fff6f5!important;color:#b34c48!important;
+ border:1px solid #ead7d3!important;border-radius:9px!important;text-decoration:none!important;min-height:43px!important}
 </style></head><body><main id="app" class="app pantry"><header><div><div class="brand" id="brand">Pantrymo </div></div><div class="switch"><button id="pantryBtn" class="on">Pantrymo</button><button id="cocoBtn">CocoMemo</button></div></header><div class="nav" id="nav"><span>食材リスト</span><span>買物リスト</span><span>食材を追加</span><span>CocoMemo</span></div><div class="tools">
   <input id="search" placeholder="🔍 食材名で探す" aria-label="名前で探す">
   <div class="custom-picker category-picker" id="categoryPicker">
