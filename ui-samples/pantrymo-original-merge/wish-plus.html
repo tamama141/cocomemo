@@ -430,7 +430,8 @@ root.querySelectorAll('[data-step]').forEach(el=>el.onclick=()=>{const it=find(e
 root.querySelectorAll('[data-amount]').forEach(el=>{el.onchange=()=>{const it=find(el.dataset.amount);if(!it)return;const value=clean(el.value);if(value!==''&&(!Number.isFinite(Number(value))||Number(value)<0)){el.value=it.amount;return}it.amount=value&&Number(value)!==0?value:'';if(!it.amount)it.unit='';const editor=el.closest('.qty-editor');editor.querySelector('.qty-unit').textContent=it.unit;const button=el.closest('.item-row').querySelector('[data-qty]');if(button)button.textContent=qtyText(it);};el.onkeydown=e=>{if(e.key==='Enter'){el.blur();qtyOpen=-1;render()}}});
 }
 function find(id){return items.find(x=>x.id===Number(id))}
-document.addEventListener('click',e=>{if(qtyOpen!==-1&&!e.target.closest('#rows .qty-editor,#rows .item-qty')){qtyOpen=-1;render()}if(wishQuantityOpen!==null&&!e.target.closest('#wishRows .wish-quantity-editor,#wishRows [data-wish-qty]')){wishQuantityOpen=null;renderWish()}});
+/* Outside taps are handled before the tapped row may be replaced by render().\n   Using click here closed an overlay immediately after it was opened. */
+document.addEventListener('pointerdown',e=>{const path=e.composedPath();const within=(root,selectors)=>path.some(node=>node?.nodeType===1&&node.matches?.(selectors)&&node.closest?.(root));if(qtyOpen!==-1&&!within('#rows','.qty-editor,.item-qty')){qtyOpen=-1;render()}if(wishQuantityOpen!==null&&!within('#wishRows','.wish-quantity-editor,[data-wish-qty]')){wishQuantityOpen=null;renderWish()}},true);
 function syncPlusCategories(){const prev=$('editCat').value,opts=dest==='wish'?wishCategories:categories;$('editCat').innerHTML=opts.map(c=>'<option value="'+safe(c)+'">'+safe(c)+'</option>').join('');$('editCat').value=opts.includes(prev)?prev:'カテゴリ未定'}
 syncPlusCategories();
 const catBtn=$('editCatButton'),catMenu=$('editCatMenu'),categoryDialog=$('categoryPickerDialog');
