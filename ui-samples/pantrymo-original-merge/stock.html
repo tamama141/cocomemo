@@ -143,7 +143,7 @@ body.pantry,.app{--deep:#104d32;--accent:#e78714;--pale:#e4eee5;--border:#c5d6c8
 /* Revision ①②: toolbar links and anchored, uniform quantity overlay */
 #bridge-add,.toolrow #select,.toolrow #clear{border:0!important;background:transparent!important;color:#d47606!important;text-decoration:none!important;font-size:13px!important;font-weight:700!important;min-height:33px;padding:6px 3px!important;white-space:nowrap}.toolrow{gap:7px}.toolrow .sort{flex:1 1 0!important;width:auto!important;min-width:0!important;max-width:none!important}.qty-popover{width:220px!important;min-width:220px!important;max-width:220px!important;height:38px!important;min-height:38px!important;padding:3px 5px!important;gap:4px!important;right:-54px!important;top:50%!important;left:auto!important;transform:translateY(-50%)!important;background:#fff!important;border:1px solid #a6cbb0!important;border-radius:9px!important;box-shadow:0 3px 9px #203c302a!important;z-index:30!important}.qty-popover button{width:31px!important;min-width:31px!important;height:29px!important;min-height:29px!important;border-radius:6px!important;padding:0!important;font-size:20px!important}.qty-popover .qty-pop-input{width:49px!important;min-width:49px!important;height:29px!important;padding:2px!important;background:#fff!important;font-size:14px!important}.qty-popover .qty-unit{width:48px;max-width:48px!important;text-align:center;font-size:11px}.qty-slot{isolation:isolate}.food:has(.qty-popover){position:relative;z-index:10}.food .name{cursor:default}
 /* Same quantity overlay component dimensions as Wish/Item Plus; drag handles are interactive. */
-.food .qty-popover{box-sizing:border-box!important;display:grid!important;grid-template-columns:44px 59px minmax(0,1fr) 44px!important;align-items:center!important;justify-content:initial!important;column-gap:5px!important;width:228px!important;min-width:228px!important;max-width:228px!important;height:39px!important;min-height:39px!important;padding:3px 5px!important;right:-54px!important;top:50%!important;transform:translateY(-50%)!important}.food .qty-popover button{box-sizing:border-box!important;width:44px!important;min-width:44px!important;max-width:44px!important;height:31px!important;min-height:31px!important;padding:0!important}.food .qty-popover .qty-pop-input{box-sizing:border-box!important;width:59px!important;min-width:59px!important;max-width:59px!important;height:31px!important;padding:2px!important}.food .qty-popover .qty-unit{width:100%!important;min-width:0!important;max-width:none!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}.food .drag{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;min-width:16px}.food.dragging{background:#fff1d6!important;box-shadow:inset 0 0 0 2px #e79b23;position:relative;z-index:6}.food.dragging .drag{cursor:grabbing}
+.food .qty-popover{box-sizing:border-box!important;display:grid!important;grid-template-columns:44px 59px minmax(0,1fr) 44px!important;align-items:center!important;justify-content:initial!important;column-gap:5px!important;width:228px!important;min-width:228px!important;max-width:228px!important;height:39px!important;min-height:39px!important;padding:3px 5px!important;right:-54px!important;top:50%!important;transform:translateY(-50%)!important}.food .qty-popover button{box-sizing:border-box!important;width:44px!important;min-width:44px!important;max-width:44px!important;height:31px!important;min-height:31px!important;padding:0!important}.food .qty-popover .qty-pop-input{box-sizing:border-box!important;width:59px!important;min-width:59px!important;max-width:59px!important;height:31px!important;padding:2px!important}.food .qty-popover .qty-unit{width:100%!important;min-width:0!important;max-width:none!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}.food .drag{touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;min-width:22px;min-height:32px;display:inline-flex;justify-content:center;align-items:center}.food.dragging{opacity:.38!important}.food.drag-ghost{position:fixed!important;z-index:99999!important;pointer-events:none!important;opacity:.83!important;background:#fffdf8!important;box-shadow:0 9px 24px #15352455!important;border:1px solid #d5ad54!important;border-radius:8px!important;transform:scale(1.015);margin:0!important}.food.drop-before,.food.drop-after{position:relative}.food.drop-before::before,.food.drop-after::after{content:'';position:absolute;left:3px;right:3px;height:3px;background:#e58d12;border-radius:3px;z-index:30;pointer-events:none}.food.drop-before::before{top:0}.food.drop-after::after{bottom:0}
 </style></head><body><main id="app" class="app pantry"><header><div><div class="brand" id="brand">Pantrymo </div></div><div class="switch"><button id="pantryBtn" class="on">Pantrymo</button><button id="cocoBtn">CocoMemo</button></div></header><div class="nav" id="nav"><span>食材リスト</span><span>買物リスト</span><span>食材を追加</span><span>CocoMemo</span></div><div class="tools">
   <input id="search" placeholder="🔍 食材名で探す" aria-label="名前で探す">
   <div class="custom-picker category-picker" id="categoryPicker">
@@ -207,42 +207,79 @@ function setupStockDrag(){
   document.querySelectorAll('#list .food .drag').forEach(handle=>{
     handle.addEventListener('pointerdown',ev=>{
       if(ev.button!==0||qtyOpen!==null)return;
-      const source=handle.closest('.food'),cat=source?.dataset.cat;
+      const source=handle.closest('.food');
       if(!source)return;
-      const pid=ev.pointerId,startingY=ev.clientY;
-      let moving=false;
-      ev.preventDefault();ev.stopPropagation();
-      const onMove=e=>{
-        if(e.pointerId!==pid)return;
-        if(!moving&&Math.abs(e.clientY-startingY)<5)return;
-        moving=true;source.classList.add('dragging');
-        source.style.pointerEvents='none';
-        const under=document.elementFromPoint(e.clientX,e.clientY);
-        source.style.pointerEvents='';
-        const target=under?.closest('.food');
-        if(target&&target!==source&&target.dataset.cat===cat&&target.parentElement===source.parentElement){
-          const after=e.clientY>target.getBoundingClientRect().top+target.offsetHeight/2;
-          target.parentElement.insertBefore(source,after?target.nextSibling:target);
-        }
-        e.preventDefault();e.stopPropagation();
+      const cat=source.dataset.cat,pid=ev.pointerId,startX=ev.clientX,startY=ev.clientY;
+      let active=false,ghost=null,drop=null,after=false,finished=false;
+      // 400ms hold: an ordinary tap or initial scroll must not rearrange a row.
+      let timer=setTimeout(()=>{
+        if(finished)return;
+        active=true;
+        const rect=source.getBoundingClientRect();
+        ghost=source.cloneNode(true);ghost.classList.remove('dragging');
+        ghost.classList.add('drag-ghost');
+        ghost.style.width=rect.width+'px';
+        ghost.style.left=rect.left+'px';
+        ghost.style.top=(startY-rect.height/2)+'px';
+        ghost.querySelectorAll('input,button').forEach(el=>el.tabIndex=-1);
+        document.body.appendChild(ghost);
+        source.classList.add('dragging');
+        if(navigator.vibrate)try{navigator.vibrate(12)}catch(err){}
+      },400);
+      const clearTarget=()=>{
+        if(drop){drop.classList.remove('drop-before','drop-after');drop=null;}
       };
-      const end=e=>{
-        if(e.pointerId!==pid)return;
-        document.removeEventListener('pointermove',onMove);
-        document.removeEventListener('pointerup',end);
-        document.removeEventListener('pointercancel',end);
+      const move=e=>{
+        if(e.pointerId!==pid||finished)return;
+        if(!active){
+          if(Math.abs(e.clientX-startX)>9||Math.abs(e.clientY-startY)>9){
+            clearTimeout(timer);finished=true;detach();
+          }
+          return;
+        }
+        if(ghost){
+          const r=ghost.getBoundingClientRect();
+          ghost.style.left=Math.max(2,Math.min(innerWidth-r.width-2,e.clientX-r.width/2))+'px';
+          ghost.style.top=(e.clientY-r.height/2)+'px';
+        }
+        const el=document.elementFromPoint(e.clientX,e.clientY);
+        const candidate=el?.closest('.food');
+        clearTarget();
+        if(candidate&&candidate!==source&&candidate.dataset.cat===cat&&candidate.parentElement===source.parentElement){
+          drop=candidate;after=e.clientY>candidate.getBoundingClientRect().top+candidate.offsetHeight/2;
+          drop.classList.add(after?'drop-after':'drop-before');
+        }
+        e.preventDefault();
+      };
+      function detach(){
+        document.removeEventListener('pointermove',move);
+        document.removeEventListener('pointerup',endDrag);
+        document.removeEventListener('pointercancel',endDrag);
+      }
+      function endDrag(e){
+        if(e.pointerId!==pid||finished)return;
+        finished=true;clearTimeout(timer);detach();
+        const target=drop,placeAfter=after;
+        clearTarget();
         source.classList.remove('dragging');
-        if(!moving)return;
-        if(e.type==='pointercancel'){render();return}
-        const ids=[...source.parentElement.children].filter(el=>el.classList.contains('food')).map(el=>Number(el.dataset.id));
-        const byId=new Map(pantryData.map(item=>[item.id,item]));let j=0;
-        for(let i=0;i<pantryData.length;i++)if(pantryData[i].cat===cat&&ids.includes(pantryData[i].id))pantryData[i]=byId.get(ids[j++])||pantryData[i];
+        ghost?.remove();
+        if(!active||!target||e.type==='pointercancel')return;
+        const parent=source.parentElement;
+        parent.insertBefore(source,placeAfter?target.nextSibling:target);
+        const order=[...parent.children].filter(el=>el.classList.contains('food')).map(el=>Number(el.dataset.id));
+        const byId=new Map(pantryData.map(item=>[item.id,item]));
+        let j=0;
+        for(let i=0;i<pantryData.length;i++){
+          if(pantryData[i].cat===cat&&order.includes(pantryData[i].id)){
+            pantryData[i]=byId.get(order[j++])||pantryData[i];
+          }
+        }
         expanded.add(cat);render();notifyStock();
         e.preventDefault();e.stopPropagation();
-      };
-      document.addEventListener('pointermove',onMove,{passive:false});
-      document.addEventListener('pointerup',end);
-      document.addEventListener('pointercancel',end);
+      }
+      document.addEventListener('pointermove',move,{passive:false});
+      document.addEventListener('pointerup',endDrag);
+      document.addEventListener('pointercancel',endDrag);
     });
   });
 }
