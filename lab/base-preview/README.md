@@ -70,3 +70,25 @@ an instruction to repeat the full earlier suite against renamed UI8 controls.
 Chromium viewport/Silk-UA checks are not Android, iPad, Safari or Echo real-device
 approval. Real save/sync, authentication, independent QA and deployment are not
 part of this revision. H01/old R2 recipe-date overflow and UI7-16 remain held.
+
+## UI8 R1 focused repair
+
+`DEV-COCOMEMO-PANTRYMO-UI8-20261110-001-R1` starts from fixed
+`7b9f9645590483a34fe0cffc0f2e1f84dfb1d6ca` on the same dedicated branch.
+Help buttons retain their expanded touch area, anchored to each button rather
+than the viewport or tab row. This prevents outside taps and My Select tabs
+from triggering help. Initial theme metadata now uses the existing CocoMemo
+color, consistent with returning from Pantrymo. Runtime files remain the same 14.
+
+Run the focused check with the existing Playwright/Chromium environment:
+
+```sh
+PREVIEW_URL=http://127.0.0.1:8765/ node tests/ui8-r1.cjs
+```
+
+It covers explicit help/outside click and touch, close/refocus, sorting/filter
+and manual-order boundaries, favorite/bookmark tabs, neighboring search/cooking,
+a tablet hit check and theme metadata. It does not repeat the earlier full UI8
+checks. Chromium metadata/viewport checks do not certify the physical Chrome
+toolbar color or Android/iPad hardware. Deployment and independent QA remain
+separate. H01/old R2, UI7-16 and wide-list photo/title overlap remain held.

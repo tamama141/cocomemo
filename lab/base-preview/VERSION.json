@@ -20,8 +20,8 @@
     "ui8.js",
     "ui8.css"
   ],
-  "revision": "DEV-COCOMEMO-PANTRYMO-UI8-20261110-001",
-  "revision_base_commit": "6fb05ac453d0eddfeea7d575753fae8dac37a39f",
+  "revision": "DEV-COCOMEMO-PANTRYMO-UI8-20261110-001-R1",
+  "revision_base_commit": "7b9f9645590483a34fe0cffc0f2e1f84dfb1d6ca",
   "pantry_initial_items": {
     "stock": 0,
     "wish": 0,
