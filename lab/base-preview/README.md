@@ -1,11 +1,12 @@
-# CocoMemo and Pantrymo product candidate — development checkpoint
+# CocoMemo and Pantrymo product candidate
 
-This branch starts from `bcd622483c53a21c4645793b968df51503e1188b`.
-The adopted screens remain the basis. This checkpoint connects the local book
-to actual browser Storage and photo drafts to a separate IndexedDB database.
-It is not a completed cloud product and has not been deployed.
+The adopted UI baseline is `bcd622483c53a21c4645793b968df51503e1188b`.
+This candidate connects the existing screens to actual local Storage/IndexedDB,
+and to an injectable persistent Auth/Firestore implementation. Development uses
+isolated fictional data and SDK doubles. No actual Firebase configuration,
+connection, deployment, independent QA or owner-device acceptance is included.
 
-## Run
+## Run locally
 
 From this directory:
 
@@ -13,75 +14,83 @@ From this directory:
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8765/ in an isolated development browser profile.
-Local saves persist on that origin. First launch has no recipe/stock/wish items;
-fictional recipes are never automatically injected. Changing host/port or profile
-creates a different local book. Do not test against an existing personal-data
-profile. The root app and prior checkouts are separate and remain unchanged.
+Open http://127.0.0.1:8765/ in an isolated browser profile. Local saves persist on
+that exact origin. No fictional recipes, stock or wish records are seeded.
+Changing host/port/profile creates a separate local book. Never use a personal
+browser profile for development tests. `VERSION.json` defines the execution set;
+`SHA256SUMS.txt` covers every delivered file except itself. The manifest itself
+is verified separately against the fixed Git SHA. Root, older entrances and the
+adopted PNGs in unchanged original-core.js remain protected.
 
-The exact execution files are listed in `VERSION.json`. `SHA256SUMS.txt` covers
-all checkpoint files except itself. A fixed Git commit identifies the delivery.
-The adopted embedded PNGs are retained in `original-core.js` unchanged.
+## Connected behavior
 
-## Connected in this checkpoint
+- The adopted UI, all 21 changes, protected import buffers, duplicates, tags,
+  flags, ordering, reviews, quantities/dates, archives and common item editing.
+- Local v5 keys, missing/corrupt separation, verified journal rollback, startup
+  recovery under Web Locks and an actual IndexedDB revision coordinator. The
+  coordinator rejects stale tabs even when their localStorage cache is delayed;
+  journal recovery distinguishes a committed head from an aborted transaction. UI callers
+  await actual outcomes; a Promise is never treated as synchronous success.
+  Browsers without Web Locks stop saving rather than silently risk a write race.
+- Photo/text drafts in their own IndexedDB database, environment/book/UID scope,
+  ten per subject, JPEG 512 KiB / UTF-8 form 64 KiB, explicit saves, pre-send cloud
+  retreat, thirty-second unknown state with no resend, pending-result review and
+  version-matched cleanup after two seconds. Older databases remain untouched.
+- Persistent email/password Auth, initial restore guidance, password reset,
+  same-UID recovery, separate local/cloud books and guarded logout. Login does
+  not upload local data. No real SDK/config is loaded in the default local mode.
+- Cloud recipes retain legacy schema 1 and binary JPEG photos. Stock/wish and
+  metadata share a revision-checked transaction boundary. Changes propagate
+  through a server-origin manifest observer; active editors/forms defer refresh.
+  Old responses cannot overwrite another book/UID. A read-only/unknown cloud
+  session can return to the local book through the unsaved-input guard.
+- Current-book v5 JSON export and selected restore: missing preserves, empty
+  replaces only selected fields. Cloud restore preflights all changes/photos,
+  refuses non-atomic size, saves a real IDB before-backup, and commits one
+  transaction. Unknown outcomes stop writes until server reconciliation;
+  conflicting outcomes need explicit backups and either guarded adoption of the
+  current server content or revision-guarded rollback. New recipe IDs are reserved
+  before send and retained in drafts, so confirmed unknown saves never duplicate.
+- Explicit one/multiple/all copy UI, same-name candidates, original retained,
+  new target IDs, version-keyed atomic copy markers, partial-result reporting and
+  retry without duplicate registration. Templates are book-specific and cloud
+  templates share only within the same UID. Login never transfers local templates.
+- Transfers durably record confirmed destination plus original source before
+  source deletion. Reopening the book can finish source deletion without creating
+  the destination again; changed source/target stops automatic deletion.
+- Device view/order choices and Pantrymo display preferences use separate local
+  settings; display slots and IDB drafts never enter ordinary JSON/cloud sharing.
 
-- Site10 UI changes: compact common help, editor/duplicate/bulk tags, protected
-  import-tab buffers, a touch/keyboard textarea resize handle, Pantrymo review
-  selection, stock-date keep/set/clear, rightmost reorder handle, shared item
-  forms, wishlist archive, and current management labels/colors.
-- Existing local v5 keys, missing/corrupt separation, journaled multi-key save,
-  rollback verification, stale snapshot rejection and fail-closed recovery.
-- Photo/text drafts with actual IndexedDB: separate product database, distinct
-  local/cloud subjects, ten per subject, existing-version updates, 30-second
-  unknown outcomes without automatic resending, click-time snapshot retention,
-  and version-matched cleanup after two seconds. Legacy draft databases are not
-  migrated or erased. The JPEG/512 KiB and form UTF-8/64 KiB limits remain.
-- Current local-book JSON v5 backup and selected restore. Missing fields preserve
-  data; empty arrays clear only selected fields. Drafts/authentication and display
-  settings are not exported. Unknown recipe fields survive normal local saves.
+## Limits and later acceptance
 
-The inherited UI requires string identifiers without control/markup escape
-characters. Unsafe/nonstandard imported identifiers are refused before rendering
-or writing, with original data retained; arbitrary custom-ID v5 compatibility
-still needs review. Normal IDs generated by the existing app remain unchanged.
+The inherited inline-handler UI accepts normal app-generated string IDs. Unsafe
+or nonstandard identifiers stop before rendering/writing; arbitrary custom-ID v5
+files are not universally supported. Source bytes remain untouched on rejection.
+Local JSON retains legacy photo data; cloud accepts legacy JPEG, up to 512 KiB,
+without silently converting non-JPEG records. Protected PNG UI assets are unchanged.
 
-A localStorage journal is not a cross-process database transaction. The async
-repository entry uses Web Locks where available; the inherited synchronous UI
-bridge also checks the saved snapshot/journal. Concurrent multi-tab write races,
-legacy-client coexistence, quota recovery and platform storage eviction require
-further integrated validation. A failed recovery blocks further writes.
-
-## Still unfinished
-
-Cloud/auth screen integration, complete Firestore book repositories and Rules,
-server update observation, cloud JSON preflight/atomic restore, copy confirmation
-and transaction markers are not connected to the product UI yet. Those actions
-are explicitly unavailable rather than simulated successful actions.
-
-Prepared modules contain book/UID/operation boundary checks, injected persistent
-SDK auth, selected-restore capacity gates, unknown-outcome reconciliation, and
-idempotent copy contracts. Their mock tests are not Firebase/Rules certification.
-No real Firebase configuration or credentials are included. No SDK is fetched or
-initialized at startup. Real configuration, Rules/index application, deployment,
-independent QA and device acceptance are separate authorized operations.
-
-Chrome password-suggestion and toolbar-color behavior on owner devices, touch
-edge interactions, full concurrent/late-response cases and the end-to-end cloud
-acceptance flows remain on the integration checklist. Do not treat this checkpoint
-as a final product or as a replacement for the current hosted version.
+Read [config/README.md](config/README.md) for injection, schema, conservative
+platform-size budgets, retained restore backups, candidate Rules/index differences,
+legacy-writer freeze and apply/rollback prerequisites. Rules are prepared, never
+applied or certified by SDK doubles. Actual SDK/Rules, free-tier capacity,
+three physical devices, storage eviction and long suspension remain separate SYS
+and independent QA acceptance. Chrome toolbar color/password suggestions require
+owner devices. This candidate does not replace or alter the hosted version.
 
 ## Development checks
-
-With Node, an installed Playwright Core module and Chromium:
 
 ```sh
 node tests/local-repository.test.mjs
 node tests/book-safety.test.mjs
 node tests/auth-runtime.test.mjs
+node tests/cloud-repository.test.mjs
 PREVIEW_URL=http://127.0.0.1:8765/ node tests/complete-ui.cjs
 ```
 
-Set `PLAYWRIGHT_MODULE`, `CHROMIUM_PATH` and `ARTIFACT_DIR` as appropriate.
-Use an isolated origin/profile; the browser check creates fictional test data.
-Older test files remain as historical checks for earlier memory-only interfaces;
-do not repeat them blindly against this persistence checkpoint.
+Use installed Playwright Core/Chromium; set `PLAYWRIGHT_MODULE`, `CHROMIUM_PATH`,
+`ARTIFACT_DIR` and `CASE_MATCH` as needed. `tests/cloud-ui.cjs` uses only SDK-shaped
+fictional doubles; serve this directory at `/app/` on a loopback test server for
+its module fixtures, then set PREVIEW_URL. It covers actual browser Storage/IDB
+and Web Locks alongside mocked cloud operations. No real Firebase request occurs.
+Historical test files remain references to prior memory-only interfaces; do not
+repeat them blindly or treat their old assumptions as current acceptance.

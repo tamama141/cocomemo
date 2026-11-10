@@ -1,0 +1,10 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    {"collectionGroup":"recipes","fieldPath":"formJson","indexes":[]},
+    {"collectionGroup":"recipes","fieldPath":"photo","indexes":[]},
+    {"collectionGroup":"stock","fieldPath":"json","indexes":[]},
+    {"collectionGroup":"wish","fieldPath":"json","indexes":[]},
+    {"collectionGroup":"product","fieldPath":"metadataJson","indexes":[]}
+  ]
+}

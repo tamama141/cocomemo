@@ -3,7 +3,7 @@
   "ui_base_commit": "1f38fc3f4e5eba3e9bb938abe71a8acd8671b85a",
   "publication_base_commit": "4e25093c5571056bd024612e7190f35aa0fd8162",
   "branch": "dev/cocomemo-pantrymo-complete-20261110-001",
-  "mode": "product candidate checkpoint: actual local Storage/IDB; cloud UI not connected",
+  "mode": "product candidate: actual local Storage/IDB and injectable persistent Auth/Firestore; not connected or deployed",
   "runtime": [
     "adopted.css",
     "adopted.js",
@@ -14,11 +14,21 @@
     "lab.css",
     "lab.js",
     "memory.js",
+    "modules/auth-runtime.mjs",
+    "modules/book-context.mjs",
+    "modules/book-ui.mjs",
+    "modules/cloud-repository.mjs",
+    "modules/copy-service.mjs",
     "modules/drafts.mjs",
+    "modules/legacy/connect-recipes.mjs",
+    "modules/legacy/firebase-auth.mjs",
+    "modules/legacy/firebase-recipes.mjs",
     "modules/legacy/photo.mjs",
     "modules/legacy/store.mjs",
     "modules/local-repository.js",
     "modules/local-repository.mjs",
+    "modules/operation-journal.mjs",
+    "modules/restore-copy.mjs",
     "original-core.js",
     "pantry.css",
     "pantry.js",
@@ -28,21 +38,25 @@
     "ui8.css",
     "ui8.js"
   ],
-  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-CHECKPOINT-1",
+  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-CANDIDATE-1",
   "revision_base_commit": "bcd622483c53a21c4645793b968df51503e1188b",
   "pantry_initial_items": {
     "stock": 0,
     "wish": 0,
     "review": 0
   },
-  "checkpoint": {
-    "overall_complete": false,
-    "local": "development connected",
-    "drafts": "actual IDB development connected",
-    "auth": "injected module mock-tested; UI integration pending",
-    "cloud": "repository/Rules and UI integration pending",
-    "json": "local connected; cloud pending",
-    "copy": "contract mock-tested; UI and cloud transaction pending",
-    "deployment": "not performed"
+  "delivery": {
+    "development_scope": "implemented and development tested with actual local APIs and injected cloud SDK doubles",
+    "overall_project_complete": false,
+    "local": "async Web Locks, journal rollback and stale-tab rejection",
+    "drafts": "actual scoped IndexedDB and guarded unknown outcomes",
+    "auth": "persistent SDK adapter and product UI; actual Firebase acceptance pending",
+    "cloud": "transactional all-group repository and update observer; actual service acceptance pending",
+    "json": "local and cloud selected restore, preflight, retained IDB before-backup and guarded recovery",
+    "copy": "explicit UI and atomic version markers with source retained",
+    "rules": "candidates prepared; not applied or emulator-certified",
+    "deployment": "not performed",
+    "independent_qa": "not performed",
+    "owner_devices": "pending"
   }
 }

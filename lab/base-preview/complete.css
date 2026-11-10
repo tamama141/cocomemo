@@ -18,3 +18,7 @@ body:not(.pantry-theme) .sticky-action button,body:not(.pantry-theme) #pageTopBu
 .p8-field-date input{width:128px}.p8-date-clear{font-size:11px!important}
 
 body:not(.pantry-theme) .help-button::before{content:"";position:absolute;box-sizing:border-box;width:24px;height:24px;border:1px solid #a85235;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
+/* Saving blocks new mutations until confirmation or the 30-second unknown state. */
+body.product-saving{cursor:progress}body.product-saving button{opacity:.7}.product-sync{background:transparent;color:inherit;min-height:30px;font-size:12px;padding:2px 8px}#productBook{font-size:12px;min-height:34px;padding:4px 7px}#productLogin{display:grid;gap:12px}#productLogin label{display:grid;gap:5px}#accountStatus>button{margin:3px;font-size:12px}#accountStatus p{overflow-wrap:anywhere}
+/* Landscape inherited a 112px image while UI8 kept its 58px column. */
+@media(orientation:landscape) and (min-width:700px){:is(#cards,#favoriteCards):not(.view-grid) .card .thumb{width:58px!important;height:58px!important;aspect-ratio:1}}

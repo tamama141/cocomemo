@@ -1,4 +1,4 @@
-/* Shared UI8 presentation and accessible dialogs; memory-only data remains inherited. */
+/* Shared UI8 presentation and accessible dialogs; product persistence is connected separately. */
 const UI8=(()=>{
 'use strict';
 const $=id=>document.getElementById(id), previous={renderDetail,showEditor,page,updatePantryHeader,smallMenu};

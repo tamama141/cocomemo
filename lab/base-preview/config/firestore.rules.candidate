@@ -1,0 +1,66 @@
+rules_version = '2';
+// Candidate only. Never deploy without SYS review, an exact owner UID, backup,
+// legacy-writer freeze and emulator/real-project acceptance at the fixed SHA.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) {
+      return request.auth != null && request.auth.uid == uid
+        && uid == 'REPLACE_WITH_OWNER_UID';
+    }
+    function nextRevision() {
+      return request.resource.data.rev is int
+        && request.resource.data.rev == resource.data.rev + 1;
+    }
+    function recipeShape() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['schemaVersion','formJson','photo','rev','updatedAtMillis','lastOperationId'])
+        && d.schemaVersion == 1 && d.formJson is string
+        && d.formJson.size() <= 65536 && d.updatedAtMillis is int
+        && d.lastOperationId is string && d.lastOperationId.size() > 0
+        && (d.photo == null || (d.photo is map
+          && d.photo.keys().hasOnly(['bytes','mime','width','height'])
+          && d.photo.bytes is bytes && d.photo.bytes.size() <= 524288
+          && d.photo.mime == 'image/jpeg' && d.photo.width is int
+          && d.photo.width > 0 && d.photo.height is int && d.photo.height > 0));
+    }
+    function itemShape() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['schemaVersion','json','rev','operationId'])
+        && d.schemaVersion == 1 && d.json is string
+        && d.json.size() <= 983040 && d.operationId is string
+        && d.operationId.size() > 0;
+    }
+    function manifestShape() {
+      let d = request.resource.data;
+      return d.keys().hasOnly(['schemaVersion','rev','operationId','metadataJson','snapshotHash'])
+        && d.schemaVersion == 1 && d.metadataJson is string
+        && d.metadataJson.size() <= 983040 && d.operationId is string
+        && d.operationId.size() > 0 && d.snapshotHash is string
+        && d.snapshotHash.size() == 64;
+    }
+    // New product writers advance this manifest in the same transaction. No
+    // per-record getAfter checks: 500 writes would exceed Rules access limits.
+    // Atomicity/CAS is enforced in the SDK transaction; access is one owner.
+    match /users/{uid}/recipes/{id} {
+      allow read: if owner(uid);
+      allow create: if owner(uid) && recipeShape() && request.resource.data.rev == 1;
+      allow update: if owner(uid) && recipeShape() && nextRevision();
+      allow delete: if owner(uid);
+    }
+    match /users/{uid}/{collection}/{id} {
+      allow read: if owner(uid) && collection in ['stock','wish'];
+      allow create: if owner(uid) && collection in ['stock','wish']
+        && itemShape() && request.resource.data.rev == 1;
+      allow update: if owner(uid) && collection in ['stock','wish']
+        && itemShape() && nextRevision();
+      allow delete: if owner(uid) && collection in ['stock','wish'];
+    }
+    match /users/{uid}/product/state {
+      allow read: if owner(uid);
+      allow create: if owner(uid) && manifestShape() && request.resource.data.rev == 1;
+      allow update: if owner(uid) && manifestShape() && nextRevision();
+      allow delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

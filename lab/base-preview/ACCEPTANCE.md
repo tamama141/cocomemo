@@ -1,30 +1,45 @@
 # Integrated acceptance checklist
 
-This checkpoint is local-only in operation. It has not passed independent QA or
-owner-device acceptance. Use an isolated browser/profile and fictional records.
-The cloud sections are blocked until the later UI/repository/Rules integration
-and a concrete SYS configuration are delivered at a new fixed SHA.
+Use the fixed delivery SHA, both apps together, an isolated profile and fictional
+data. Development results are not independent QA or actual Firebase acceptance.
+Default local startup does not load a Firebase SDK. A concrete private config and
+reviewed Rules/index application require the separate SYS authorization.
 
-| Area | Minimum acceptance flow | Current checkpoint |
+| Area | Minimum acceptance flow | Development boundary |
 |---|---|---|
-| CocoMemo | Create with photo, explicit save, reload, edit, duplicate to a distinct ID, search, My Select and cooking | Local connected; independent QA pending |
-| Import | Raw/form roundtrip, edited parsed values/photo preserved, replacement cancel, resize with mouse/touch | Development tested; owner devices pending |
-| Pantrymo | Single/multiple entry, quantity zero/blank, stock-date keep/set/clear, review edit before commit | Local connected; broader failure regression pending |
-| Transfer | Name/category duplicate blocked, archive/non-food restriction, destination-save failure, source-delete failure and retry | Existing safeguards retained; new persistence failure matrix pending |
-| Categories | Rename keeps ID, deletion preserves items in fallback, fixed display choices, protected fallback | Connected local metadata; independent QA pending |
-| Local save | Existing v5 keys/unknown fields/photo retained, missing/corrupt distinction, denied write, rollback and interrupted recovery | Journal adapter tested; true concurrent multi-tab races still open |
-| Drafts | Text/photo one IDB transaction, reopen, ten per subject, update at capacity, other UID invisible | Local IDB connected; browser/eviction QA pending |
-| Draft timing | 30-second unknown without resend, input edits during save remain dirty, matched version only after two seconds | Logic and targeted tests; long real-device suspension pending |
-| Authentication | Persistent restore, 10-second unknown, login/logout failure, same-UID recovery, reset password, no login migration | SDK-injected module mock-tested; product UI pending |
-| Cloud record | Save/read/update/delete/bulk/order from one UID on three devices, stale revision, old response after book/UID change | UI/complete repository/Rules integration pending |
-| Cloud restore | All selected data/photos measured first; reject before any mutation if not atomic; unknown server reconcile; guarded recovery | Preflight/reconciliation contract mock-tested; actual driver pending |
-| Copy | Explicit one/many/all confirmation, original retained, new IDs/photos, duplicate candidates, partial success/retry | Idempotency contract mock-tested; transaction/UI pending |
-| Templates | Book separation and same-UID cloud sharing without automatic local migration | Local definitions saved; cloud sharing pending |
-| Display settings | Retained device settings excluded from shared data/JSON; fixed display slots protected on restore | Slot exclusion implemented; full preference persistence pending |
-| Devices | 360/390, iPad portrait/landscape, Echo-equivalent; long name/date/photo/enlarged forms and close/refocus | Representative development viewports; owner hardware pending |
-| Chrome | Toolbar actual color and password-suggestion behavior, native vs custom resize, right-edge touch drag/scroll | Metadata/search mitigation/code changes; actual device result pending |
+| CocoMemo | Create/photo/save/reload/edit/duplicate/new ID/search/My Select/cooking | Actual local APIs; cloud UI with SDK double |
+| Import | Raw/form roundtrip, parsed edits/photo, replacement cancel, resize | Browser mouse/touch; physical devices pending |
+| Pantrymo | Single/bulk/review, zero vs blank, date keep/set/clear, archive/unarchive | Async selected repository; local/browser and cloud double |
+| Transfer | Duplicate/archive/non-food protection, destination failure, source failure/reopen/retry, changed source | Durable destination ledger; source-only retry tested |
+| Tags/categories | Main membership, mixed/unchanged bulk, IDs/order/fallback/fixed slots | Save failure preserves records and filters; Q02 protected |
+| Local save | Existing v5 keys, missing/corrupt, quota/rollback/recovery, two concurrent tabs | Real Web Locks/Storage/IDB head, three concurrent races, native abort and committed-journal recovery; fake Storage failure matrix |
+| Drafts | Text/photo IDB transaction, reopen, ten/subject, update at capacity, UID/environment isolation | Actual IDB; old DBs untouched |
+| Draft timing | 30s unknown, no resend, captured data while typing, matching-version 2s cleanup | Logic/fake clock and browser; long suspension pending |
+| Auth | Persistent restore, actual initial observer/10s, login/reset/logout failure, same UID resume | Injected SDK and UI double; actual Auth pending |
+| Book separation | Login no upload, local/cloud roundtrip, unknown cloud return local, old response guard | Browser SDK double; local data never replaced by cloud reconciliation |
+| Cloud records | Save/read/update/delete/bulk/order, stale rev, server observer, no background input overwrite | Full SDK-shaped driver and same-UID peer double; real 3 devices pending |
+| Templates | Book-specific explicit save; same UID cloud peer update; no login migration | Repository metadata and observer connected |
+| Cloud restore | Data/photo size, one atomic transaction, missing/empty, before-backup, denied/unknown/conflict/current-server adoption/guarded rollback | Driver failure tests and actual IDB before-backup/browser UI |
+| Copy | One/multiple/all, same-name confirmation, new IDs/photo, source retained, partial retry | UI and atomic version markers tested with cloud double |
+| Device settings | View/sort/enlargement/fixed slots persist locally, excluded from cloud/JSON | Separate device settings connected |
+| Layout | 360/390/768/iPad portrait-landscape/Echo-equivalent, long name/date/photo, help hit/refocus | Representative viewport checks; hardware acceptance pending |
+| Chrome | Toolbar actual color and password suggestions, edge drag/scroll/resize | Search isolation/theme/handle code; actual devices pending |
+| Rules/config | Exact UID/project/origin, no provider removal, backup/freeze, indices, rollback | Candidates/instructions prepared; emulator/service acceptance not claimed |
 
-Never use a successful mock/viewport test as proof of Firebase Rules, real Auth,
-physical toolbar color, three-device updates or final product completion.
-Use the task's private plan/results for the current per-item completion ledger,
-known limits, exact fixed SHA, configuration prerequisites and recovery steps.
+Core product flow: local recipe/photo → save → reload → edit/duplicate → search →
+cooking; stock → wish → checked selection → stock → archive/unarchive; then the
+same flow on a separately selected cloud book. Verify all groups, not recipes
+alone. Keep a second signed-in client and an unauthorised UID for update/conflict
+and non-mixing checks. Test while editing, while the network is interrupted and
+with a delayed old response. Confirm no automatic local/cloud migration occurs.
+
+For restore, export current and before snapshots, select only one group, compare
+unselected groups and photos, induce a lost response, reconcile before any retry,
+then force a different server revision and verify rollback refuses a stale rev.
+Check retained IDB restore-before backups after a successful restore. For copy,
+repeat the same source/version and confirm only its original target ID exists;
+change the source version and explicitly confirm a separate copy.
+
+Do not substitute this checklist or mock PASS for actual Firebase, owner hardware,
+independent QA or permission to publish. The private task ledger records fixed
+source/report SHAs, exact tests, retained limitations and the authorised boundary.

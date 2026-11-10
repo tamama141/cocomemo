@@ -1,4 +1,6 @@
+// Do not expose the inherited staging-only handlers while product modules load.
+for(const event of ['click','pointerdown','keydown','submit'])document.addEventListener(event,e=>{if(!window.Product?.ready){e.preventDefault();e.stopImmediatePropagation();}},true);
 // Product startup: existing local data only, no fictional recipe injection.
-const ProductBoot=(()=>{let repository=null,data={version:5},error=null;try{repository=new ProductStorage.LocalRepository(localStorage);data=repository.load()}catch(e){error=e.code||e.name}return {repository,data,error}})();
+const ProductBoot=(()=>{let repository=null,data={version:5},error=null;try{repository=new ProductStorage.LocalRepository(localStorage);data=repository.load({recover:false})}catch(e){error=e.code||e.name}return {repository,data,error}})();
 // Legacy handlers stage writes in memory; the product boundary commits complete groups.
 const demoMemory=(()=>{const m=new Map();for(const [field,key]of Object.entries(ProductStorage.FIELDS))if(Object.hasOwn(ProductBoot.data,field))m.set(key,JSON.stringify(ProductBoot.data[field]));if(!m.has('coco-recipes-v1'))m.set('coco-recipes-v1','[]');if(ProductBoot.data.productMeta)m.set(ProductStorage.META,JSON.stringify(ProductBoot.data.productMeta));return {getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k),snapshot:()=>new Map(m),restore:previous=>{m.clear();for(const [k,v]of previous)m.set(k,v)}}})();
