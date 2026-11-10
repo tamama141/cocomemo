@@ -1,3 +1,4 @@
+import {resolveCloudTarget,validateTarget,cloudCollectionPath,cloudDocumentPath} from '../cloud-target.mjs';
 import {ConnectError,recipePath,estimateDocumentSize,SIZE_RESERVE,DOCUMENT_LIMIT} from './connect-recipes.mjs';
 const clone=value=>structuredClone(value);
 // Defined storage-size calculation for the fixed schema, before SDK Bytes conversion.
@@ -24,21 +25,22 @@ export function firestoreError(error){
  if(code==='invalid-argument')return new ConnectError('invalid-document');
  return new ConnectError(code==='unavailable'?'unavailable':'network');
 }
-export function createFirebaseRecipeDriver({sdk,db,auth,authInstance,ownerUid,now=()=>Date.now(),online=()=>globalThis.navigator?.onLine!==false}){
+export function createFirebaseRecipeDriver({sdk,db,auth,authInstance,ownerUid,target,now=()=>Date.now(),online=()=>globalThis.navigator?.onLine!==false}){
+ const scope=target?validateTarget(target):resolveCloudTarget();
  function authorize(context){
   const current=auth.identity();
   if(!current||current.uid!==ownerUid||context.uid!==ownerUid||context.identity?.uid!==current.uid||context.identity?.generation!==current.generation||authInstance.currentUser?.uid!==ownerUid)throw new ConnectError('permission-denied');
   if(!online())throw new ConnectError('unavailable');
   if(Number.isFinite(context.deadlineAt)&&now()>=context.deadlineAt)throw new ConnectError('network');
  }
- const reference=context=>sdk.doc(db,recipePath(context.uid,context.recipeId));
+ const reference=context=>sdk.doc(db,cloudDocumentPath(scope,context.uid,'recipes',context.recipeId));
  return {
   async read(context){
    try{authorize(context);const result=await sdk.getDoc(reference(context));authorize(context);return result.exists()?fromFirestoreDocument(result.data(),sdk.Bytes):null;}
    catch(error){throw firestoreError(error);}
   },
   async list(context){
-   try{authorize(context);recipePath(context.uid,'validate-path');const result=await sdk.getDocs(sdk.collection(db,'users',context.uid,'recipes'));authorize(context);
+   try{authorize(context);recipePath(context.uid,'validate-path');const result=await sdk.getDocs(sdk.collection(db,cloudCollectionPath(scope,context.uid,'recipes')));authorize(context);
     return result.docs.map(row=>({recipeId:row.id,document:fromFirestoreDocument(row.data(),sdk.Bytes)}));
    }catch(error){throw firestoreError(error);}
   },

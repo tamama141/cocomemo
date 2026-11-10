@@ -1,0 +1,90 @@
+rules_version = '2';
+// Review candidate only. Not a deploy patch for uncollected live Rules.
+// Owner placeholder denies all; database and namespace remain exact.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) {
+      return database == '(default)'
+        && !'REPLACE_WITH_OWNER_UID'.matches('REPLACE_.*')
+        && request.auth != null && request.auth.uid == uid
+        && uid == 'REPLACE_WITH_OWNER_UID';
+    }
+    function positiveSafeInt(value) {
+      return value is int && value > 0 && value <= 9007199254740991;
+    }
+    function operation(value) {
+      return value is string && value.toUtf8().size() > 0
+        && value.toUtf8().size() <= 1500;
+    }
+    function nextRevision() {
+      return positiveSafeInt(resource.data.rev)
+        && positiveSafeInt(request.resource.data.rev)
+        && request.resource.data.rev == resource.data.rev + 1;
+    }
+    function validPhoto(p) {
+      return p == null || (p is map
+        && p.keys().hasAll(['bytes','mime','width','height'])
+        && p.keys().hasOnly(['bytes','mime','width','height'])
+        && p.bytes is bytes && p.bytes.size() > 0 && p.bytes.size() <= 524288
+        && p.mime == 'image/jpeg'
+        && positiveSafeInt(p.width) && positiveSafeInt(p.height));
+    }
+    function recipeShape() {
+      let d = request.resource.data;
+      return d.keys().hasAll(['schemaVersion','formJson','photo','rev','updatedAtMillis','lastOperationId'])
+        && d.keys().hasOnly(['schemaVersion','formJson','photo','rev','updatedAtMillis','lastOperationId'])
+        && d.schemaVersion is int && d.schemaVersion == 1
+        && d.formJson is string && d.formJson.toUtf8().size() > 0
+        && d.formJson.toUtf8().size() <= 65536
+        && positiveSafeInt(d.rev)
+        && d.updatedAtMillis is int && d.updatedAtMillis >= 0
+        && d.updatedAtMillis <= 9007199254740991
+        && operation(d.lastOperationId) && validPhoto(d.photo)
+        && d.formJson.toUtf8().size() + (d.photo == null ? 0 : d.photo.bytes.size()) <= 1048576;
+    }
+    function itemShape() {
+      let d = request.resource.data;
+      // 983040 is the UTF-8 byte budget of this JSON field, not item count.
+      return d.keys().hasAll(['schemaVersion','json','rev','operationId'])
+        && d.keys().hasOnly(['schemaVersion','json','rev','operationId'])
+        && d.schemaVersion is int && d.schemaVersion == 1
+        && d.json is string && d.json.toUtf8().size() > 0
+        && d.json.toUtf8().size() <= 983040
+        && positiveSafeInt(d.rev) && operation(d.operationId);
+    }
+    function manifestShape() {
+      let d = request.resource.data;
+      // The same 960 KiB UTF-8 field budget leaves document overhead room.
+      return d.keys().hasAll(['schemaVersion','rev','operationId','metadataJson','snapshotHash'])
+        && d.keys().hasOnly(['schemaVersion','rev','operationId','metadataJson','snapshotHash'])
+        && d.schemaVersion is int && d.schemaVersion == 1
+        && d.metadataJson is string && d.metadataJson.toUtf8().size() > 0
+        && d.metadataJson.toUtf8().size() <= 983040
+        && positiveSafeInt(d.rev) && operation(d.operationId)
+        && d.snapshotHash is string && d.snapshotHash.size() == 64;
+    }
+    match /sysTrials/SYS-COMPLETE-20261111/users/{uid} {
+      match /recipes/{id} {
+        allow read: if owner(uid);
+        allow create: if owner(uid) && recipeShape() && request.resource.data.rev == 1;
+        allow update: if owner(uid) && recipeShape() && nextRevision();
+        allow delete: if owner(uid);
+      }
+      match /{collection}/{id} {
+        allow read: if owner(uid) && collection in ['stock','wish'];
+        allow create: if owner(uid) && collection in ['stock','wish']
+          && itemShape() && request.resource.data.rev == 1;
+        allow update: if owner(uid) && collection in ['stock','wish']
+          && itemShape() && nextRevision();
+        allow delete: if owner(uid) && collection in ['stock','wish'];
+      }
+      match /product/state {
+        allow read: if owner(uid);
+        allow create: if owner(uid) && manifestShape() && request.resource.data.rev == 1;
+        allow update: if owner(uid) && manifestShape() && nextRevision();
+        allow delete: if false;
+      }
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

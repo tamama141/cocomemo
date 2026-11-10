@@ -13,3 +13,12 @@ The old memory-auth runtime is not the product auth configuration. Real auth
 persistence is prepared separately in `auth-runtime.mjs` and requires later
 integration and verification. Retained verification does not certify the new UI
 or full-book synchronization.
+
+## R1 scoped-path additions
+
+The retained copies of connect-recipes.mjs and firebase-recipes.mjs now accept an
+optional validated product/trial target for decode-size paths and all legacy
+driver IO. The normal users path remains the default. No document field, recipe
+ID or codec payload format changed. Their original retained files and prior
+confirmation entrance outside this directory are untouched. The other four
+retained module copies remain byte-identical to the earlier candidate.

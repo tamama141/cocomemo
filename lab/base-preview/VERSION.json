@@ -1,9 +1,9 @@
 {
-  "id": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001",
+  "id": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-R1",
   "ui_base_commit": "1f38fc3f4e5eba3e9bb938abe71a8acd8671b85a",
   "publication_base_commit": "4e25093c5571056bd024612e7190f35aa0fd8162",
   "branch": "dev/cocomemo-pantrymo-complete-20261110-001",
-  "mode": "product candidate: actual local Storage/IDB and injectable persistent Auth/Firestore; not connected or deployed",
+  "mode": "R1 UTF8 field budgets and explicit fixed trial root; no live Firebase or deployment",
   "runtime": [
     "adopted.css",
     "adopted.js",
@@ -17,7 +17,9 @@
     "modules/auth-runtime.mjs",
     "modules/book-context.mjs",
     "modules/book-ui.mjs",
+    "modules/cloud-payload.mjs",
     "modules/cloud-repository.mjs",
+    "modules/cloud-target.mjs",
     "modules/copy-service.mjs",
     "modules/drafts.mjs",
     "modules/legacy/connect-recipes.mjs",
@@ -38,15 +40,15 @@
     "ui8.css",
     "ui8.js"
   ],
-  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-CANDIDATE-1",
-  "revision_base_commit": "bcd622483c53a21c4645793b968df51503e1188b",
+  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-R1-LOCAL-PRECHECK",
+  "revision_base_commit": "67bafa311986f22a1adca433b8b1050fbaa84eec",
   "pantry_initial_items": {
     "stock": 0,
     "wish": 0,
     "review": 0
   },
   "delivery": {
-    "development_scope": "implemented and development tested with actual local APIs and injected cloud SDK doubles",
+    "development_scope": "R1 local checks complete; official emulator blocked pending environment network setting",
     "overall_project_complete": false,
     "local": "async Web Locks, journal rollback and stale-tab rejection",
     "drafts": "actual scoped IndexedDB and guarded unknown outcomes",
@@ -58,5 +60,14 @@
     "deployment": "not performed",
     "independent_qa": "not performed",
     "owner_devices": "pending"
+  },
+  "r1": {
+    "normal_root": "users",
+    "trial_root": "sysTrials/SYS-COMPLETE-20261111/users",
+    "trial_activation": "explicit reviewed private cloudMode/cloudRoot/databaseId only",
+    "official_rules_emulator": "pending; do not treat as accepted",
+    "live_settings_comparison": "pending separate IT/SYS",
+    "live_firebase": "not connected",
+    "deployment": "not performed"
   }
 }

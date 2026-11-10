@@ -1,3 +1,4 @@
+import {cloudDocumentPath} from '../cloud-target.mjs';
 // Portable document values: an SDK bridge must map Uint8Array to Firestore Bytes.
 export const DOCUMENT_LIMIT=1024*1024, SIZE_RESERVE=16*1024;
 export class ConnectError extends Error {constructor(code){super(code);this.code=code;}}
@@ -49,8 +50,8 @@ function validateDocument(document){
  if(Object.keys(document).some(key=>!allowed.includes(key)))throw new ConnectError('invalid-document');
  let form;try{form=JSON.parse(document.formJson);}catch{throw new ConnectError('invalid-document');}formJSON(form);validPhoto(document.photo);return form;
 }
-export function decodeRecipe(uid,recipeId,document){
- const path=recipePath(uid,recipeId),form=validateDocument(document);checkDocumentSize(path,document);
+export function decodeRecipe(uid,recipeId,document,{target}={}){
+ const path=target?cloudDocumentPath(target,uid,'recipes',recipeId):recipePath(uid,recipeId),form=validateDocument(document);checkDocumentSize(path,document);
  const photo=document.photo?{blob:new Blob([document.photo.bytes],{type:'image/jpeg'}),width:document.photo.width,height:document.photo.height}:null;
  return {recipeId,rev:document.rev,lastOperationId:document.lastOperationId,snapshot:{form,photo,mode:'edit',targetRecipeId:recipeId,baseRecipeRev:document.rev}};
 }
