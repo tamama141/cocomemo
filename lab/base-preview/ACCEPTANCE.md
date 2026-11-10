@@ -43,3 +43,14 @@ change the source version and explicitly confirm a separate copy.
 Do not substitute this checklist or mock PASS for actual Firebase, owner hardware,
 independent QA or permission to publish. The private task ledger records fixed
 source/report SHAs, exact tests, retained limitations and the authorised boundary.
+
+## R1 targeted acceptance
+
+Keep the independent SYS 13/26/27 failures unchanged. Reproduce those old allows
+on the baseline Rules, then check ASCII/Japanese/emoji/mixed UTF-8 lower/exact/over
+boundaries with the official evaluator. Recheck old numeric/required-field/photo
+protections, fixed target/database rejection, exact trial Rules, normal sentinels
+and manifest, scoped journal/pending/backup/drafts, copy/observer and transfer
+resume. Normal mode must refuse trial-tagged JSON before changing data.
+Use isolated profiles and fictional data; a same-origin URL path is not local
+isolation. The emulator step is pending in the current LOCAL-PRECHECK revision.

@@ -94,3 +94,12 @@ its module fixtures, then set PREVIEW_URL. It covers actual browser Storage/IDB
 and Web Locks alongside mocked cloud operations. No real Firebase request occurs.
 Historical test files remain references to prior memory-only interfaces; do not
 repeat them blindly or treat their old assumptions as current acceptance.
+
+## R1 validation work
+
+R1 changes byte enforcement and introduces only an explicitly configured fixed
+trial target. See [config/R1-REVIEW.md](config/R1-REVIEW.md) for the private-config
+contract, normal/trial scope separation, retained protections and live-settings
+comparison still required. The current R1 LOCAL-PRECHECK revision is a backup of
+ongoing work; official Rules-emulator before/after checks are pending environment
+network access. It is not a final R1 acceptance or permission to apply settings.
