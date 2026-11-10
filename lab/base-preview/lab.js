@@ -13,14 +13,14 @@ function selectFromDialog(){if(dialogTemplateId===null)return;selected=dialogTem
 function hideDialog(){el('overlay').classList.add('hidden')}function closeDialog(e){if(e.target===el('overlay'))hideDialog()}
 function openMenu(t,event){
  const menu=el('menu'),box=el('menuBox');box.replaceChildren();
- const options=t.standard?[['複製',()=>openEditor(t,'copy')]]:[['編集',()=>openEditor(t,'edit')],['複製',()=>openEditor(t,'copy')],['削除',async()=>{if(await UI.ask('依頼文を削除','『'+t.name+'』を削除しますか？\nこの操作は取り消せません。','削除する')){templates=templates.filter(x=>x.id!==t.id);if(selected===t.id)selected=0;render()}}]];
+ const options=t.standard?[['複製',()=>openEditor(t,'copy')]]:[['編集',()=>openEditor(t,'edit')],['複製',()=>openEditor(t,'copy')],['削除',async()=>{if(await UI.ask('依頼文を削除','『'+t.name+'』を削除しますか？\nこの操作は取り消せません。','削除する')){const before=structuredClone(templates),old=selected;templates=templates.filter(x=>x.id!==t.id);if(selected===t.id)selected=0;if(!persist()){templates=before;selected=old;return;}render()}}]];
  for(const [label,action] of options){const b=document.createElement('button');b.textContent=label;b.setAttribute('role','menuitem');b.onclick=()=>{closeMenu();action()};box.append(b)}
  const rect=event.currentTarget.getBoundingClientRect();menu.style.top=Math.min(rect.bottom+3,window.innerHeight-(options.length*40+14))+'px';menu.style.left=Math.max(8,Math.min(rect.right-125,window.innerWidth-135))+'px';menu.classList.remove('hidden');
 }
 function closeMenu(){el('menu').classList.add('hidden')}
 function showLab(){templateEditing=false;el('editor').classList.add('hidden');el('lab').classList.remove('hidden');render();scrollTo(0,0)}
 function openEditor(t,mode){editing=mode==='edit'?t.id:null;el('editName').value=t?(mode==='copy'?t.name+'（コピー）':t.name):'';el('editBody').value=t?t.body:'';el('editorTitle').textContent=mode==='edit'?'依頼文を編集':'依頼文を追加';el('lab').classList.add('hidden');el('editor').classList.remove('hidden');templateEditing=true;UI.syncClears();scrollTo(0,0)}
-function saveEditor(){const name=el('editName').value.trim(),body=el('editBody').value.trim();if(!name||!body){appAlert('依頼文の名前と本文を入力してください。');return}if(editing!==null){const t=templates.find(x=>x.id===editing);if(t&&!t.standard){t.name=name;t.body=body}}else templates.push({id:nextId++,name,body});showLab()}
+function saveEditor(){const before=structuredClone({templates,selected,nextId});const name=el('editName').value.trim(),body=el('editBody').value.trim();if(!name||!body){appAlert('依頼文の名前と本文を入力してください。');return}if(editing!==null){const t=templates.find(x=>x.id===editing);if(t&&!t.standard){t.name=name;t.body=body}}else templates.push({id:nextId++,name,body});if(!persist()){templates=before.templates;selected=before.selected;nextId=before.nextId;return;}showLab()}
 function clearPaste(){el('recipePaste').value=''}
 function importRecipe(){importLabRecipe(el('recipePaste').value)}
 async function copyTextSafely(value){
@@ -50,8 +50,8 @@ async function copyTextSafely(value){
   return ok;
 }
 async function copyFormatPrompt(){const ok=await copyTextSafely(el('formatPrompt').textContent);showToast(ok?'コピーしました':'コピーできませんでした')}
-async function copyPrompt(){if(el('copy').disabled)return;if(el('attach').checked&&!await UI.ask('架空の食材を添付しますか？','端末コピー・クラウド同期は未接続です。クラウドの最新情報ではなく、この画面の架空メモリ内の食材を使います。','この食材で続ける','キャンセル'))return;const t=templates.find(x=>x.id===selected)||templates[0];const content=compose(t,getLatestPantrySample());const ok=await copyTextSafely(content);showToast(ok?'コピーしました':'コピーできませんでした')}
+async function copyPrompt(){if(el('copy').disabled)return;if(el('attach').checked&&!await UI.ask('ストックを添付しますか？','現在の端末内ストックを依頼文に含めます。','添付する','取消'))return;const t=templates.find(x=>x.id===selected)||templates[0];const content=compose(t,getLatestPantrySample());const ok=await copyTextSafely(content);showToast(ok?'コピーしました':'コピーできませんでした')}
 let toastTimer;function showToast(message){const t=el('toast');t.textContent=message;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2000)}
 document.addEventListener('pointerdown',e=>{if(!el('menu').classList.contains('hidden')&&!el('menu').contains(e.target)&&!e.target.closest('.dots'))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();hideDialog()}});el('foods').addEventListener('input',updateValid);el('wish').addEventListener('input',updateValid);render();
 
-return {switchTab,clearField,updateValid,openEditor,showLab,saveEditor,clearPaste,importRecipe,copyPrompt,copyFormatPrompt,closeDialog,hideDialog,selectFromDialog,isEditing:()=>templateEditing,refresh:render};})();
+return {snapshotTemplates:()=>({templates:structuredClone(templates),nextId}),loadTemplates:value=>{templates=structuredClone(value.templates);selected=templates.some(t=>t.id===selected)?selected:0;nextId=value.nextId;render();},switchTab,clearField,updateValid,openEditor,showLab,saveEditor,clearPaste,importRecipe,copyPrompt,copyFormatPrompt,closeDialog,hideDialog,selectFromDialog,isEditing:()=>templateEditing,refresh:render};})();

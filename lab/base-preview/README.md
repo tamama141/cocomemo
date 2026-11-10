@@ -1,94 +1,82 @@
-# CocoMemo UI preview
+# CocoMemo and Pantrymo product candidate — development checkpoint
 
-This independent preview uses fictional recipes and a volatile memory adapter. Reloading resets recipes, settings, photos, drafts, ordering and display choices. Do not enter personal recipes, photos or credentials. Real authentication, cloud sync, JSON import/export, Storage, IndexedDB and service workers are not connected.
+This branch starts from `bcd622483c53a21c4645793b968df51503e1188b`.
+The adopted screens remain the basis. This checkpoint connects the local book
+to actual browser Storage and photo drafts to a separate IndexedDB database.
+It is not a completed cloud product and has not been deployed.
 
 ## Run
 
 From this directory:
 
 ```sh
-python -m http.server 8765 --bind 127.0.0.1
+python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Open http://127.0.0.1:8765/ . The title is `CocoMemo｜画面仕様反映・確認用版`.
+Open http://127.0.0.1:8765/ in an isolated development browser profile.
+Local saves persist on that origin. First launch has no recipe/stock/wish items;
+fictional recipes are never automatically injected. Changing host/port or profile
+creates a different local book. Do not test against an existing personal-data
+profile. The root app and prior checkouts are separate and remain unchanged.
 
-The runtime consists of `index.html`, `original-core.js`, `fixtures.js`, `memory.js`, `adopted.js`, `adopted.css`, `lab.js`, `lab.css`, `ui.js`, `ui.css`, `pantry.js`, `pantry.css`, `ui8.js`, and `ui8.css`. Serve these files together. `tests/` and version/hash documents are not needed for the runtime. The existing root app is separate; do not replace its files with this directory.
+The exact execution files are listed in `VERSION.json`. `SHA256SUMS.txt` covers
+all checkpoint files except itself. A fixed Git commit identifies the delivery.
+The adopted embedded PNGs are retained in `original-core.js` unchanged.
 
-The inherited brand images remain embedded in the original runtime source. No new app PNGs are included. The application has four main menu entries and includes the fictional-memory Pantrymo food, shopping, registration review and two-way transfer UI.
+## Connected in this checkpoint
 
-## Source and checks
+- Site10 UI changes: compact common help, editor/duplicate/bulk tags, protected
+  import-tab buffers, a touch/keyboard textarea resize handle, Pantrymo review
+  selection, stock-date keep/set/clear, rightmost reorder handle, shared item
+  forms, wishlist archive, and current management labels/colors.
+- Existing local v5 keys, missing/corrupt separation, journaled multi-key save,
+  rollback verification, stale snapshot rejection and fail-closed recovery.
+- Photo/text drafts with actual IndexedDB: separate product database, distinct
+  local/cloud subjects, ten per subject, existing-version updates, 30-second
+  unknown outcomes without automatic resending, click-time snapshot retention,
+  and version-matched cleanup after two seconds. Legacy draft databases are not
+  migrated or erased. The JPEG/512 KiB and form UTF-8/64 KiB limits remain.
+- Current local-book JSON v5 backup and selected restore. Missing fields preserve
+  data; empty arrays clear only selected fields. Drafts/authentication and display
+  settings are not exported. Unknown recipe fields survive normal local saves.
 
-The UI implementation starts from `1f38fc3f4e5eba3e9bb938abe71a8acd8671b85a`. The publication branch starts separately from public commit `4e25093c5571056bd024612e7190f35aa0fd8162`. Only selected runtime files were copied; previous private documents and history are not part of this branch.
+A localStorage journal is not a cross-process database transaction. The async
+repository entry uses Web Locks where available; the inherited synchronous UI
+bridge also checks the saved snapshot/journal. Concurrent multi-tab write races,
+legacy-client coexistence, quota recovery and platform storage eviction require
+further integrated validation. A failed recovery blocks further writes.
 
-`VERSION.json` identifies both bases and the exact runtime set. `SHA256SUMS.txt` covers the runtime, tests, README and VERSION; it excludes itself to avoid self-reference. The resulting commit SHA identifies the delivered version.
+## Still unfinished
 
-Browser checks require Node, Playwright Core and Chromium. No runtime package installation is required. With a locally running preview, set `PLAYWRIGHT_MODULE` to your installed module, optionally `CHROMIUM_PATH`, `PREVIEW_URL`, and `ARTIFACT_DIR`:
+Cloud/auth screen integration, complete Firestore book repositories and Rules,
+server update observation, cloud JSON preflight/atomic restore, copy confirmation
+and transaction markers are not connected to the product UI yet. Those actions
+are explicitly unavailable rather than simulated successful actions.
+
+Prepared modules contain book/UID/operation boundary checks, injected persistent
+SDK auth, selected-restore capacity gates, unknown-outcome reconciliation, and
+idempotent copy contracts. Their mock tests are not Firebase/Rules certification.
+No real Firebase configuration or credentials are included. No SDK is fetched or
+initialized at startup. Real configuration, Rules/index application, deployment,
+independent QA and device acceptance are separate authorized operations.
+
+Chrome password-suggestion and toolbar-color behavior on owner devices, touch
+edge interactions, full concurrent/late-response cases and the end-to-end cloud
+acceptance flows remain on the integration checklist. Do not treat this checkpoint
+as a final product or as a replacement for the current hosted version.
+
+## Development checks
+
+With Node, an installed Playwright Core module and Chromium:
 
 ```sh
-node tests/ui.cjs
-node tests/boundaries.cjs
-node tests/viewports.cjs
+node tests/local-repository.test.mjs
+node tests/book-safety.test.mjs
+node tests/auth-runtime.test.mjs
+PREVIEW_URL=http://127.0.0.1:8765/ node tests/complete-ui.cjs
 ```
 
-The boundary checks optionally accept `ORIENTED_PHOTO`, a generated JPEG with EXIF orientation, to exercise image orientation. The viewport checks optionally accept `BASELINE_URL`, a separate local memory-only baseline, for before/after captures. Checks write artifacts outside the source tree by default. They are development checks, not independent QA or real-device certification.
-
-Real offline copies, authentication/UID isolation, synchronization, migration, JSON compatibility and failure recovery require separate implementation and validation. A memory update or simulated account error is not proof of cloud persistence or successful authentication.
-
-## Pantrymo targeted development check
-
-Run `node tests/pantry20261104.cjs` with the same environment variables above and `PREVIEW_URL` pointing at this preview (default port 8775 for this check). It checks changed food/shopping flows, transfer failures and retries, and adjacent shared navigation. Transfers retain committed destination IDs so a failed source deletion retries without duplicate registration. Legacy hidden records are retained without conversion. Real persistence and synchronization remain unconnected.
-
-## Combined UI8 revision
-
-Revision `DEV-COCOMEMO-PANTRYMO-UI8-20261110-001` starts from fixed app
-`6fb05ac453d0eddfeea7d575753fae8dac37a39f` on dedicated branch
-`dev/cocomemo-pantrymo-ui8-20261110-001`. The root app and publication routes
-are separate. This branch is a handoff only and does not deploy either app.
-
-Both apps share the compact header, protected embedded PNGs, selection-only
-rows and memory-only controls. CocoMemo keeps its five fictional recipes.
-Pantrymo starts with zero stock, wish and review items. Add items during the
-session to try single forms, multi-item review, quantity panels, categories,
-archive and two-way transfers. Reload resets all session changes.
-
-Wish-to-stock and Plus-to-stock never overwrite an existing name/category
-pair. Blocked inputs remain available. Destination saves precede source
-deletions; a failed deletion retries only that deletion. Stock-to-wish
-unarchives a matching wish, blanks quantity, clears its shopping check, and
-preserves its existing unit/category/memo. No browser Storage is read or erased.
-
-For this revision run only the targeted development check with a local server:
-
-```sh
-PREVIEW_URL=http://127.0.0.1:8765/ node tests/ui8.cjs
-```
-
-Set `PLAYWRIGHT_MODULE` and `CHROMIUM_PATH` if required by your installation.
-The test defaults to port 8781; `ARTIFACT_DIR` selects an external output folder.
-Earlier tests remain as historical checks for earlier interfaces and are not
-an instruction to repeat the full earlier suite against renamed UI8 controls.
-Chromium viewport/Silk-UA checks are not Android, iPad, Safari or Echo real-device
-approval. Real save/sync, authentication, independent QA and deployment are not
-part of this revision. H01/old R2 recipe-date overflow and UI7-16 remain held.
-
-## UI8 R1 focused repair
-
-`DEV-COCOMEMO-PANTRYMO-UI8-20261110-001-R1` starts from fixed
-`7b9f9645590483a34fe0cffc0f2e1f84dfb1d6ca` on the same dedicated branch.
-Help buttons retain their expanded touch area, anchored to each button rather
-than the viewport or tab row. This prevents outside taps and My Select tabs
-from triggering help. Initial theme metadata now uses the existing CocoMemo
-color, consistent with returning from Pantrymo. Runtime files remain the same 14.
-
-Run the focused check with the existing Playwright/Chromium environment:
-
-```sh
-PREVIEW_URL=http://127.0.0.1:8765/ node tests/ui8-r1.cjs
-```
-
-It covers explicit help/outside click and touch, close/refocus, sorting/filter
-and manual-order boundaries, favorite/bookmark tabs, neighboring search/cooking,
-a tablet hit check and theme metadata. It does not repeat the earlier full UI8
-checks. Chromium metadata/viewport checks do not certify the physical Chrome
-toolbar color or Android/iPad hardware. Deployment and independent QA remain
-separate. H01/old R2, UI7-16 and wide-list photo/title overlap remain held.
+Set `PLAYWRIGHT_MODULE`, `CHROMIUM_PATH` and `ARTIFACT_DIR` as appropriate.
+Use an isolated origin/profile; the browser check creates fictional test data.
+Older test files remain as historical checks for earlier memory-only interfaces;
+do not repeat them blindly against this persistence checkpoint.
