@@ -24,7 +24,7 @@ reviewed Rules/index application require the separate SYS authorization.
 | Device settings | View/sort/enlargement/fixed slots persist locally, excluded from cloud/JSON | Separate device settings connected |
 | Layout | 360/390/768/iPad portrait-landscape/Echo-equivalent, long name/date/photo, help hit/refocus | Representative viewport checks; hardware acceptance pending |
 | Chrome | Toolbar actual color and password suggestions, edge drag/scroll/resize | Search isolation/theme/handle code; actual devices pending |
-| Rules/config | Exact UID/project/origin, no provider removal, backup/freeze, indices, rollback | Candidates/instructions prepared; emulator/service acceptance not claimed |
+| Rules/config | Exact UID/project/origin, no provider removal, backup/freeze, indices, rollback | Candidates prepared; R1 official emulator development checks passed; live service acceptance pending |
 
 Core product flow: local recipe/photo → save → reload → edit/duplicate → search →
 cooking; stock → wish → checked selection → stock → archive/unarchive; then the
@@ -53,4 +53,7 @@ protections, fixed target/database rejection, exact trial Rules, normal sentinel
 and manifest, scoped journal/pending/backup/drafts, copy/observer and transfer
 resume. Normal mode must refuse trial-tagged JSON before changing data.
 Use isolated profiles and fictional data; a same-origin URL path is not local
-isolation. The emulator step is pending in the current LOCAL-PRECHECK revision.
+isolation. R1 development result: baseline three unexpected allows reproduced; corrected
+official emulator checks 74/74 passed, related Node checks 28/28 and isolated
+Chromium scenarios 4/4 passed. Independent SYS and live service acceptance remain
+separate. See config/R1-REVIEW.md and the private R1 results report.

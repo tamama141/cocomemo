@@ -40,7 +40,7 @@
     "ui8.css",
     "ui8.js"
   ],
-  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-R1-LOCAL-PRECHECK",
+  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-R1-CANDIDATE-1",
   "revision_base_commit": "67bafa311986f22a1adca433b8b1050fbaa84eec",
   "pantry_initial_items": {
     "stock": 0,
@@ -48,7 +48,7 @@
     "review": 0
   },
   "delivery": {
-    "development_scope": "R1 local checks complete; official emulator blocked pending environment network setting",
+    "development_scope": "R1 verified local/emulator development handoff",
     "overall_project_complete": false,
     "local": "async Web Locks, journal rollback and stale-tab rejection",
     "drafts": "actual scoped IndexedDB and guarded unknown outcomes",
@@ -65,7 +65,7 @@
     "normal_root": "users",
     "trial_root": "sysTrials/SYS-COMPLETE-20261111/users",
     "trial_activation": "explicit reviewed private cloudMode/cloudRoot/databaseId only",
-    "official_rules_emulator": "pending; do not treat as accepted",
+    "official_rules_emulator": "development verified",
     "live_settings_comparison": "pending separate IT/SYS",
     "live_firebase": "not connected",
     "deployment": "not performed"

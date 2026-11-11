@@ -127,3 +127,40 @@ reviewed emulator tooling. Do not inherit real Firebase/GCP credentials.
 Development output and independent SYS revalidation remain separate. The later
 SYS must receive one fixed SHA, recheck capacity/trial boundaries, collect live
 configuration, and specify actual backup/apply/rollback operations before use.
+
+## Executed R1 development evidence
+
+Baseline 67bafa311986f22a1adca433b8b1050fbaa84eec reproduced SYS cases
+13/26/27 as unexpected allows. Corrected Rules passed 74/74 targeted checks;
+Node suites passed 11+13+4 and isolated Chromium scenarios passed 4/4. Emulator
+tests use the actual Firebase SDK and a memory journal; browser tests separately
+exercise native Storage/IDB with SDK-shaped cloud doubles. No live Firebase ran.
+
+Official distribution metadata:
+https://dl.google.com/dl/cloudsdk/channels/rapid/components-v590.0.0.json
+
+Official component:
+https://dl.google.com/dl/cloudsdk/channels/rapid/components/google-cloud-sdk-cloud-firestore-emulator-20260717053915.tar.gz
+
+Archive: 70115087 bytes; SHA256
+`e962450b637827664094959571fd92c3680de863936bd481bd0a050f76ca91ba`.
+Extracted emulator 1.22.0 jar: 76397398 bytes; SHA256
+`6262939c48d3d6b08495931706b8920399e57d5f5918e6af133a3d30cb3ae369`.
+Same emulator version as SYS, different Google Cloud SDK packaging from the
+Firebase CLI jar; no byte-identity claim. The archive matched official metadata.
+The existing package-manager network allowance permitted this official source;
+no extra domain or unrestricted access was enabled by development.
+
+Launch with Java 21 classpath (the component jar has no Main-Class manifest):
+
+```sh
+java -Duser.language=en -cp /path/firestore-1.22.0.jar \
+ com.google.cloud.datastore.emulator.firestore.CloudFirestore \
+ --host 127.0.0.1 --port 8191 --project_id demo-cocomemo-r1-20261111 \
+ --single_project_mode true --single_project_mode_error true \
+ --rules /path/isolated-start.rules
+```
+
+Use an environment without real Firebase/GCP credentials. Keep logs/results
+outside this public delivery. The private R1 report records the fixed delivery
+SHA and complete re-fetch byte/hash verification.

@@ -72,7 +72,7 @@ without silently converting non-JPEG records. Protected PNG UI assets are unchan
 Read [config/README.md](config/README.md) for injection, schema, conservative
 platform-size budgets, retained restore backups, candidate Rules/index differences,
 legacy-writer freeze and apply/rollback prerequisites. Rules are prepared, never
-applied or certified by SDK doubles. Actual SDK/Rules, free-tier capacity,
+applied or certified by SDK doubles. Live Firebase, free-tier capacity,
 three physical devices, storage eviction and long suspension remain separate SYS
 and independent QA acceptance. Chrome toolbar color/password suggestions require
 owner devices. This candidate does not replace or alter the hosted version.
@@ -95,11 +95,12 @@ and Web Locks alongside mocked cloud operations. No real Firebase request occurs
 Historical test files remain references to prior memory-only interfaces; do not
 repeat them blindly or treat their old assumptions as current acceptance.
 
-## R1 validation work
+## R1 development verification
 
-R1 changes byte enforcement and introduces only an explicitly configured fixed
-trial target. See [config/R1-REVIEW.md](config/R1-REVIEW.md) for the private-config
-contract, normal/trial scope separation, retained protections and live-settings
-comparison still required. The current R1 LOCAL-PRECHECK revision is a backup of
-ongoing work; official Rules-emulator before/after checks are pending environment
-network access. It is not a final R1 acceptance or permission to apply settings.
+R1 enforces UTF-8 byte budgets and explicitly configured fixed trial targets.
+See [config/R1-REVIEW.md](config/R1-REVIEW.md) for configuration and precautions.
+Official Firestore Emulator 1.22.0 reproduced the three baseline unexpected allows;
+the corrected candidate passed 74/74 targeted checks. Related Node checks passed
+28/28; isolated Chromium scope scenarios passed 4/4 with actual Storage/IDB and
+SDK-shaped cloud doubles. These are development checks, not independent SYS QA.
+Live Rules/configuration comparison, actual Firebase and deployment remain pending.

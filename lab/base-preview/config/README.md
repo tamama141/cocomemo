@@ -120,3 +120,10 @@ after positive confirmation instead of creating a duplicate. Closed login UI
 does not automatically switch books on a late response; logout locks mutations
 only until confirmation or the thirty-second unknown deadline, then preserves
 input without applying a late logout to another editor.
+
+## R1 development verification update
+
+The earlier emulator-pending descriptions record the original candidate stage.
+R1 now passed 74/74 targeted official Firestore Emulator 1.22.0 checks after
+reproducing the baseline three unexpected allows. This does not certify live
+configuration or independent SYS acceptance. See R1-REVIEW.md for exact scope.
