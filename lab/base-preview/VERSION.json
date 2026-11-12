@@ -1,8 +1,8 @@
 {
-  "id": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-R1",
+  "id": "DEV-AUTH-DIAG-UI-20261112-001",
   "ui_base_commit": "1f38fc3f4e5eba3e9bb938abe71a8acd8671b85a",
   "publication_base_commit": "4e25093c5571056bd024612e7190f35aa0fd8162",
-  "branch": "dev/cocomemo-pantrymo-complete-20261110-001",
+  "branch": "dev/auth-diag-20261112-001",
   "mode": "R1 UTF8 field budgets and explicit fixed trial root; no live Firebase or deployment",
   "runtime": [
     "adopted.css",
@@ -40,8 +40,8 @@
     "ui8.css",
     "ui8.js"
   ],
-  "revision": "DEV-COCOMEMO-PANTRYMO-COMPLETE-20261110-001-R1-CANDIDATE-1",
-  "revision_base_commit": "67bafa311986f22a1adca433b8b1050fbaa84eec",
+  "revision": "DEV-AUTH-DIAG-UI-20261112-001-CANDIDATE-1",
+  "revision_base_commit": "e9e9ff824b9a21d84f4a89e87f5814b97af74f83",
   "pantry_initial_items": {
     "stock": 0,
     "wish": 0,
@@ -68,6 +68,17 @@
     "official_rules_emulator": "development verified",
     "live_settings_comparison": "pending separate IT/SYS",
     "live_firebase": "not connected",
+    "deployment": "not performed"
+  },
+  "auth_diagnostic": {
+    "mode": "enabled config and sys-trial only; memory-only allowlisted diagnostic",
+    "changed_runtime": [
+      "modules/legacy/firebase-auth.mjs",
+      "modules/book-ui.mjs"
+    ],
+    "runtime_count": 34,
+    "auth_logic": "unchanged; fictional development verification only",
+    "live_auth": "not performed",
     "deployment": "not performed"
   }
 }

@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>Fictional auth diagnostic development fixture</title>
+<div id="accountStatus"></div><button id="productBook"></button><span id="productSync"></span>
+<script type="module">
+import {createBookUI} from '../../modules/book-ui.mjs';
+import {createProductAuth} from '../../modules/auth-runtime.mjs';
+const q=new URL(location.href).searchParams,scenario=q.get('case')||'failure';
+const trial=q.get('mode')!=='normal',enabled=q.get('enabled')!=='false';
+window.calls=[];window.phaseTrace=[];
+const config={enabled,allowedOrigin:location.origin,ownerUid:'fictional-owner',firebase:{apiKey:'fictional-key',authDomain:'fictional.invalid',projectId:'fictional-project',appId:'fictional-app'},...(trial?{cloudMode:'sys-trial',cloudRoot:'sysTrials/SYS-COMPLETE-20261111/users',databaseId:'(default)'}:{})};
+window.CocoMemoProductConfig=config;
+let notify;const instance={currentUser:null};const sdk={app:{SDK_VERSION:'13.1.0',getApps:()=>[],initializeApp:()=>({options:{projectId:'fictional-project'}}),deleteApp:async()=>{}},auth:{indexedDBLocalPersistence:{},initializeAuth:()=>instance,setPersistence:async()=>calls.push('persistence'),onAuthStateChanged(_instance,next){notify=next;queueMicrotask(()=>next(null));return ()=>{};},async signInWithEmailAndPassword(){calls.push('sign-in');if(scenario==='success'||scenario==='post'||scenario==='owner'){instance.currentUser={uid:scenario==='owner'?'fictional-other':'fictional-owner'};notify(instance.currentUser);return {user:instance.currentUser};}throw {code:scenario==='poison'?'<img src=x onerror=alert(1)>PRIVATE_DIAGNOSTIC_SENTINEL':'auth/invalid-credential',message:'PRIVATE_DIAGNOSTIC_SENTINEL token/email/password/apiKey',stack:'PRIVATE_DIAGNOSTIC_SENTINEL'};},async signOut(){calls.push('sign-out');instance.currentUser=null;notify(null);}},firestore:{getFirestore:()=>({}),terminate:async()=>{}}};
+window.CocoMemoProductRuntimeFactory=async({onState})=>{const r=await createProductAuth({config:{...config,enabled:true},sdkLoader:async()=>sdk,onState:state=>{phaseTrace.push(state.auth.phase);onState(state);}});window.fixtureRuntime=r;return r;};
+window.UI8={popup(title,html){const element=document.createElement('dialog'),body=document.createElement('div');body.innerHTML=html;element.append(body);document.body.append(element);element.showModal();return {element,body,close:()=>element.remove()};},info(){calls.push('info');}};
+window.navigate=fn=>fn();
+const bridge={context:{kind:'local',uid:null,authEpoch:0},identity(){},isUnresolved:()=>false,isBusy:()=>false,switchLock(){},async prepareChange(){if(scenario==='post')throw {code:'auth/wrong-password',message:'PRIVATE_DIAGNOSTIC_SENTINEL'};return false;},problem(){calls.push('problem');}};
+window.controller=createBookUI(bridge);await controller.initialize();controller.account();window.fixtureReady=true;
+</script>

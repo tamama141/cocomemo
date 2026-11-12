@@ -1,0 +1,111 @@
+{
+  "task": "DEV-AUTH-DIAG-UI-20261112-001",
+  "scope": "fictional development only; no real Firebase, credentials, deployment or owner action",
+  "adapter": {
+    "result": "pass",
+    "cases": 15,
+    "checks": [
+      "11 explicit SDK codes, arbitrary code unknown",
+      "SDK success vs owner mismatch, no UID",
+      "local validation does not invent SDK code",
+      "one sign-in / no automatic retry, unchanged required owner sign-out",
+      "observer failure sanitized",
+      "single-read code guard, no message/stack/credentials in diagnostic"
+    ],
+    "limit": "fictional SDK only; no real Firebase"
+  },
+  "differential": {
+    "result": "pass",
+    "checks": [
+      "SDK action order and exact args",
+      "observer/state/user event trace",
+      "identity/generation/success/owner/local-validation result",
+      "logout/dispose sequence"
+    ],
+    "scenarios": 4,
+    "limit": "fictional adapter differential against fixed original; diagnostic field excluded from existing snapshots"
+  },
+  "browser": {
+    "result": "pass",
+    "checks": [
+      {
+        "case": "failure",
+        "mode": "trial",
+        "enabled": true,
+        "signIn": 1,
+        "diagnosticVisible": true,
+        "inputPreserved": true
+      },
+      {
+        "case": "poison",
+        "mode": "trial",
+        "enabled": true,
+        "signIn": 1,
+        "diagnosticVisible": true,
+        "inputPreserved": true
+      },
+      {
+        "case": "owner",
+        "mode": "trial",
+        "enabled": true,
+        "signIn": 1,
+        "diagnosticVisible": true,
+        "inputPreserved": true
+      },
+      {
+        "case": "post",
+        "mode": "trial",
+        "enabled": true,
+        "signIn": 1,
+        "diagnosticVisible": true,
+        "inputPreserved": null
+      },
+      {
+        "case": "success",
+        "mode": "trial",
+        "enabled": true,
+        "signIn": 1,
+        "diagnosticVisible": true,
+        "inputPreserved": null
+      },
+      {
+        "case": "failure",
+        "mode": "normal",
+        "enabled": true,
+        "signIn": 1,
+        "diagnosticVisible": false,
+        "inputPreserved": true
+      },
+      {
+        "case": "failure",
+        "mode": "trial",
+        "enabled": false,
+        "signIn": 1,
+        "diagnosticVisible": false,
+        "inputPreserved": true
+      },
+      {
+        "normalAccountDOM": "identical to fixed baseline"
+      }
+    ],
+    "jsErrors": [],
+    "externalRequests": [],
+    "limit": "real local Chromium + fictional SDK; no real auth or deployment"
+  },
+  "syntax": [
+    {
+      "path": "modules/legacy/firebase-auth.mjs",
+      "ok": true
+    },
+    {
+      "path": "modules/book-ui.mjs",
+      "ok": true
+    }
+  ],
+  "limitations": [
+    "No real SDK/network classification or root-cause confirmation",
+    "No recovery of prior login error; reload loses memory diagnostic",
+    "Browser uses real product UI/controller/adapter/auth runtime with fictional SDK; not full-app or independent QA",
+    "Post/success close the form through the unchanged original success path; input-retention assertion applies to failed credential/owner cases"
+  ]
+}
