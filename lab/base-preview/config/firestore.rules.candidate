@@ -63,25 +63,40 @@ service cloud.firestore {
         && positiveSafeInt(d.rev) && operation(d.operationId)
         && d.snapshotHash is string && d.snapshotHash.size() == 64;
     }
+    // Every record mutation must share a new state revision in this atomic request.
+    // Same path reads are cached by Rules; <=3 distinct pre/after calls after same-path caching.
+    function coupledState(uid) {
+      let path = /databases/$(database)/documents/users/$(uid)/product/state;
+      let after = getAfter(path).data;
+      return positiveSafeInt(after.rev) && operation(after.operationId)
+        && (exists(path)
+          ? (after.rev == get(path).data.rev + 1
+            && after.operationId != get(path).data.operationId)
+          : after.rev == 1);
+    }
+    function sameOperation(uid, value) {
+      return coupledState(uid)
+        && value == getAfter(/databases/$(database)/documents/users/$(uid)/product/state).data.operationId;
+    }
     match /users/{uid} {
       match /recipes/{id} {
         allow read: if owner(uid);
-        allow create: if owner(uid) && recipeShape() && request.resource.data.rev == 1;
-        allow update: if owner(uid) && recipeShape() && nextRevision();
-        allow delete: if owner(uid);
+        allow create: if owner(uid) && sameOperation(uid, request.resource.data.lastOperationId) && recipeShape() && request.resource.data.rev == 1;
+        allow update: if owner(uid) && sameOperation(uid, request.resource.data.lastOperationId) && recipeShape() && nextRevision();
+        allow delete: if owner(uid) && coupledState(uid);
       }
       match /{collection}/{id} {
         allow read: if owner(uid) && collection in ['stock','wish'];
         allow create: if owner(uid) && collection in ['stock','wish']
-          && itemShape() && request.resource.data.rev == 1;
+          && sameOperation(uid, request.resource.data.operationId) && itemShape() && request.resource.data.rev == 1;
         allow update: if owner(uid) && collection in ['stock','wish']
-          && itemShape() && nextRevision();
-        allow delete: if owner(uid) && collection in ['stock','wish'];
+          && sameOperation(uid, request.resource.data.operationId) && itemShape() && nextRevision();
+        allow delete: if owner(uid) && collection in ['stock','wish'] && coupledState(uid);
       }
       match /product/state {
         allow read: if owner(uid);
-        allow create: if owner(uid) && manifestShape() && request.resource.data.rev == 1;
-        allow update: if owner(uid) && manifestShape() && nextRevision();
+        allow create: if owner(uid) && coupledState(uid) && manifestShape() && request.resource.data.rev == 1;
+        allow update: if owner(uid) && coupledState(uid) && manifestShape() && nextRevision();
         allow delete: if false;
       }
     }

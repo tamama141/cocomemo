@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "cocomemo-isolated-safety-r1-tests",
+  "version": "1.0.0",
+  "devDependencies": {
+    "firebase": "13.1.0",
+    "@firebase/rules-unit-testing": "6.0.0",
+    "firebase-tools": "15.36.0",
+    "esbuild": "0.28.2",
+    "playwright-core": "1.61.1"
+  }
+}

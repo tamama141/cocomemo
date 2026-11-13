@@ -1,0 +1,2610 @@
+[
+  {
+    "mode": "normal",
+    "fault": "after",
+    "seeded": {
+      "sdk": "13.1.0",
+      "mode": "normal",
+      "root": "users",
+      "transactions": 1,
+      "pending": null,
+      "backups": [],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "63eca533-8906-42f5-aab6-3622d6ab5f23"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+          "draftId": "63eca533-8906-42f5-aab6-3622d6ab5f23",
+          "versionId": "c407755d-0ac0-44d5-8cc4-675d88bbffd8",
+          "updatedAt": 1794569264605,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "unknown": {
+      "outcome": {
+        "kind": "unknown",
+        "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8"
+      },
+      "sdk": "13.1.0",
+      "mode": "normal",
+      "root": "users",
+      "transactions": 2,
+      "pending": {
+        "version": 1,
+        "uid": "safety-fictional-owner",
+        "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+        "expectedRev": 1,
+        "retainBackup": true,
+        "before": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "BASELINE",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "after": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+      },
+      "backups": [
+        {
+          "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+          "createdAt": 1794569264936,
+          "snapshot": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          }
+        }
+      ],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "63eca533-8906-42f5-aab6-3622d6ab5f23"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+          "draftId": "63eca533-8906-42f5-aab6-3622d6ab5f23",
+          "versionId": "c407755d-0ac0-44d5-8cc4-675d88bbffd8",
+          "updatedAt": 1794569264605,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "foreign": {
+      "errors": [
+        "journal-identity",
+        "journal-identity"
+      ],
+      "state": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 2,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+            "createdAt": 1794569264936,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "63eca533-8906-42f5-aab6-3622d6ab5f23"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "63eca533-8906-42f5-aab6-3622d6ab5f23",
+            "versionId": "c407755d-0ac0-44d5-8cc4-675d88bbffd8",
+            "updatedAt": 1794569264605,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "result": {
+      "blocked": "outcome-unresolved",
+      "result": {
+        "kind": "complete",
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 2
+      },
+      "server": {
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 2,
+        "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8"
+      },
+      "before": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 0,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+            "createdAt": 1794569264936,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "63eca533-8906-42f5-aab6-3622d6ab5f23"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "63eca533-8906-42f5-aab6-3622d6ab5f23",
+            "versionId": "c407755d-0ac0-44d5-8cc4-675d88bbffd8",
+            "updatedAt": 1794569264605,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      },
+      "after": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 0,
+        "pending": null,
+        "backups": [
+          {
+            "operationId": "46aeabc3-64f5-44e8-9ebe-ce6b6c1592d8",
+            "createdAt": 1794569264936,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "63eca533-8906-42f5-aab6-3622d6ab5f23"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "63eca533-8906-42f5-aab6-3622d6ab5f23",
+            "versionId": "c407755d-0ac0-44d5-8cc4-675d88bbffd8",
+            "updatedAt": 1794569264605,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "limit": "SDK transaction result hidden by isolated wrapper; not real internet response loss"
+  },
+  {
+    "mode": "normal",
+    "fault": "before",
+    "seeded": {
+      "sdk": "13.1.0",
+      "mode": "normal",
+      "root": "users",
+      "transactions": 1,
+      "pending": null,
+      "backups": [],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "86b53ea5-cf30-40c0-bbe2-4f9473028dad"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+          "draftId": "86b53ea5-cf30-40c0-bbe2-4f9473028dad",
+          "versionId": "56f923ee-dc24-412c-b2e4-4d07ffba7b9a",
+          "updatedAt": 1794569266828,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "unknown": {
+      "outcome": {
+        "kind": "unknown",
+        "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c"
+      },
+      "sdk": "13.1.0",
+      "mode": "normal",
+      "root": "users",
+      "transactions": 2,
+      "pending": {
+        "version": 1,
+        "uid": "safety-fictional-owner",
+        "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+        "expectedRev": 1,
+        "retainBackup": true,
+        "before": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "BASELINE",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "after": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+      },
+      "backups": [
+        {
+          "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+          "createdAt": 1794569267054,
+          "snapshot": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          }
+        }
+      ],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "86b53ea5-cf30-40c0-bbe2-4f9473028dad"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+          "draftId": "86b53ea5-cf30-40c0-bbe2-4f9473028dad",
+          "versionId": "56f923ee-dc24-412c-b2e4-4d07ffba7b9a",
+          "updatedAt": 1794569266828,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "foreign": {
+      "errors": [
+        "journal-identity",
+        "journal-identity"
+      ],
+      "state": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 2,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+            "createdAt": 1794569267054,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "86b53ea5-cf30-40c0-bbe2-4f9473028dad"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "86b53ea5-cf30-40c0-bbe2-4f9473028dad",
+            "versionId": "56f923ee-dc24-412c-b2e4-4d07ffba7b9a",
+            "updatedAt": 1794569266828,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "result": {
+      "blocked": "outcome-unresolved",
+      "result": {
+        "kind": "not-applied",
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "BASELINE",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 1
+      },
+      "server": {
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "BASELINE",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 1,
+        "operationId": "c992cf22-6683-444e-be98-ed2785e670c3"
+      },
+      "before": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 0,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+            "createdAt": 1794569267054,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "86b53ea5-cf30-40c0-bbe2-4f9473028dad"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "86b53ea5-cf30-40c0-bbe2-4f9473028dad",
+            "versionId": "56f923ee-dc24-412c-b2e4-4d07ffba7b9a",
+            "updatedAt": 1794569266828,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      },
+      "after": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 0,
+        "pending": null,
+        "backups": [
+          {
+            "operationId": "ad516ac7-8e6a-4bd4-be90-b9f278af0b6c",
+            "createdAt": 1794569267054,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "86b53ea5-cf30-40c0-bbe2-4f9473028dad"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "86b53ea5-cf30-40c0-bbe2-4f9473028dad",
+            "versionId": "56f923ee-dc24-412c-b2e4-4d07ffba7b9a",
+            "updatedAt": 1794569266828,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "limit": "SDK transaction result hidden by isolated wrapper; not real internet response loss"
+  },
+  {
+    "mode": "normal",
+    "fault": "conflict",
+    "seeded": {
+      "sdk": "13.1.0",
+      "mode": "normal",
+      "root": "users",
+      "transactions": 1,
+      "pending": null,
+      "backups": [],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "71f3b1c4-2937-406f-930b-8415b026ffdc"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+          "draftId": "71f3b1c4-2937-406f-930b-8415b026ffdc",
+          "versionId": "da9c5078-5e6a-4f20-92d8-3fccc4293e63",
+          "updatedAt": 1794569268593,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "unknown": {
+      "outcome": {
+        "kind": "unknown",
+        "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395"
+      },
+      "sdk": "13.1.0",
+      "mode": "normal",
+      "root": "users",
+      "transactions": 2,
+      "pending": {
+        "version": 1,
+        "uid": "safety-fictional-owner",
+        "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+        "expectedRev": 1,
+        "retainBackup": true,
+        "before": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "BASELINE",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "after": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+      },
+      "backups": [
+        {
+          "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+          "createdAt": 1794569268848,
+          "snapshot": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          }
+        }
+      ],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "71f3b1c4-2937-406f-930b-8415b026ffdc"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+          "draftId": "71f3b1c4-2937-406f-930b-8415b026ffdc",
+          "versionId": "da9c5078-5e6a-4f20-92d8-3fccc4293e63",
+          "updatedAt": 1794569268593,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "foreign": {
+      "errors": [
+        "journal-identity",
+        "journal-identity"
+      ],
+      "state": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 2,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+            "createdAt": 1794569268848,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "71f3b1c4-2937-406f-930b-8415b026ffdc"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "71f3b1c4-2937-406f-930b-8415b026ffdc",
+            "versionId": "da9c5078-5e6a-4f20-92d8-3fccc4293e63",
+            "updatedAt": 1794569268593,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "result": {
+      "blocked": "outcome-unresolved",
+      "result": {
+        "kind": "conflict",
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "OTHER_CLIENT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 3
+      },
+      "server": {
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "OTHER_CLIENT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 3,
+        "operationId": "2b4d001e-2f61-4f22-ba7b-b2dee7735f88"
+      },
+      "before": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 0,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+            "createdAt": 1794569268848,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "71f3b1c4-2937-406f-930b-8415b026ffdc"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "71f3b1c4-2937-406f-930b-8415b026ffdc",
+            "versionId": "da9c5078-5e6a-4f20-92d8-3fccc4293e63",
+            "updatedAt": 1794569268593,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      },
+      "after": {
+        "sdk": "13.1.0",
+        "mode": "normal",
+        "root": "users",
+        "transactions": 0,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "e4583c63-5c18-4f84-8896-7ca22bba8395",
+            "createdAt": 1794569268848,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+              "71f3b1c4-2937-406f-930b-8415b026ffdc"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default):safety-fictional-owner",
+            "draftId": "71f3b1c4-2937-406f-930b-8415b026ffdc",
+            "versionId": "da9c5078-5e6a-4f20-92d8-3fccc4293e63",
+            "updatedAt": 1794569268593,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "limit": "SDK transaction result hidden by isolated wrapper; not real internet response loss"
+  },
+  {
+    "mode": "trial",
+    "fault": "after",
+    "seeded": {
+      "sdk": "13.1.0",
+      "mode": "trial",
+      "root": "sysTrials/SYS-COMPLETE-20261111/users",
+      "transactions": 1,
+      "pending": null,
+      "backups": [],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+            "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+          "draftId": "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27",
+          "versionId": "abbb4034-b0ed-4fa0-9363-5fd971aa5493",
+          "updatedAt": 1794569271368,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "unknown": {
+      "outcome": {
+        "kind": "unknown",
+        "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284"
+      },
+      "sdk": "13.1.0",
+      "mode": "trial",
+      "root": "sysTrials/SYS-COMPLETE-20261111/users",
+      "transactions": 2,
+      "pending": {
+        "version": 1,
+        "uid": "safety-fictional-owner",
+        "cloudRoot": "sysTrials/SYS-COMPLETE-20261111/users",
+        "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+        "expectedRev": 1,
+        "retainBackup": true,
+        "before": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "BASELINE",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "after": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+      },
+      "backups": [
+        {
+          "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+          "createdAt": 1794569271541,
+          "snapshot": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          }
+        }
+      ],
+      "drafts": [
+        {
+          "schemaVersion": 1,
+          "key": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+            "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27"
+          ],
+          "group": [
+            "CocoMemoProduct",
+            "product-v1",
+            "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner"
+          ],
+          "uid": "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+          "draftId": "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27",
+          "versionId": "abbb4034-b0ed-4fa0-9363-5fd971aa5493",
+          "updatedAt": 1794569271368,
+          "snapshot": {
+            "form": {
+              "record": {
+                "id": "same",
+                "title": "INPUT_KEPT"
+              },
+              "editorKind": "fields"
+            },
+            "photo": {
+              "blob": {
+                "type": "Blob",
+                "mime": "image/jpeg",
+                "bytes": 759,
+                "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+              },
+              "width": 2,
+              "height": 2
+            }
+          },
+          "attemptId": null,
+          "cloudState": "未送信"
+        }
+      ]
+    },
+    "foreign": {
+      "errors": [
+        "journal-identity",
+        "journal-identity"
+      ],
+      "state": {
+        "sdk": "13.1.0",
+        "mode": "trial",
+        "root": "sysTrials/SYS-COMPLETE-20261111/users",
+        "transactions": 2,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "cloudRoot": "sysTrials/SYS-COMPLETE-20261111/users",
+          "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+            "createdAt": 1794569271541,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+              "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+            "draftId": "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27",
+            "versionId": "abbb4034-b0ed-4fa0-9363-5fd971aa5493",
+            "updatedAt": 1794569271368,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "result": {
+      "blocked": "outcome-unresolved",
+      "result": {
+        "kind": "complete",
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 2
+      },
+      "server": {
+        "snapshot": {
+          "version": 5,
+          "recipes": [
+            {
+              "id": "same",
+              "title": "PENDING_INPUT",
+              "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+            }
+          ],
+          "labels": [],
+          "labelIcons": {},
+          "pantryInventory": [
+            {
+              "id": "same",
+              "name": "STOCK",
+              "qty": "1"
+            }
+          ],
+          "pantryCategories": [],
+          "shoppingItems": [
+            {
+              "id": "same",
+              "name": "WISH"
+            }
+          ],
+          "productMeta": {}
+        },
+        "rev": 2,
+        "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284"
+      },
+      "before": {
+        "sdk": "13.1.0",
+        "mode": "trial",
+        "root": "sysTrials/SYS-COMPLETE-20261111/users",
+        "transactions": 0,
+        "pending": {
+          "version": 1,
+          "uid": "safety-fictional-owner",
+          "cloudRoot": "sysTrials/SYS-COMPLETE-20261111/users",
+          "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+          "expectedRev": 1,
+          "retainBackup": true,
+          "before": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "BASELINE",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "after": {
+            "version": 5,
+            "recipes": [
+              {
+                "id": "same",
+                "title": "PENDING_INPUT",
+                "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+              }
+            ],
+            "labels": [],
+            "labelIcons": {},
+            "pantryInventory": [
+              {
+                "id": "same",
+                "name": "STOCK",
+                "qty": "1"
+              }
+            ],
+            "pantryCategories": [],
+            "shoppingItems": [
+              {
+                "id": "same",
+                "name": "WISH"
+              }
+            ],
+            "productMeta": {}
+          },
+          "afterHash": "b90fe22be264ce6ce5658bcea49232ae6436af2e204d139998b995fdf7d200be"
+        },
+        "backups": [
+          {
+            "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+            "createdAt": 1794569271541,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+              "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+            "draftId": "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27",
+            "versionId": "abbb4034-b0ed-4fa0-9363-5fd971aa5493",
+            "updatedAt": 1794569271368,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      },
+      "after": {
+        "sdk": "13.1.0",
+        "mode": "trial",
+        "root": "sysTrials/SYS-COMPLETE-20261111/users",
+        "transactions": 0,
+        "pending": null,
+        "backups": [
+          {
+            "operationId": "41c57b96-6950-407c-a1bd-ffc707dac284",
+            "createdAt": 1794569271541,
+            "snapshot": {
+              "version": 5,
+              "recipes": [
+                {
+                  "id": "same",
+                  "title": "BASELINE",
+                  "photo": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAACAAIDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJUAB//Z"
+                }
+              ],
+              "labels": [],
+              "labelIcons": {},
+              "pantryInventory": [
+                {
+                  "id": "same",
+                  "name": "STOCK",
+                  "qty": "1"
+                }
+              ],
+              "pantryCategories": [],
+              "shoppingItems": [
+                {
+                  "id": "same",
+                  "name": "WISH"
+                }
+              ],
+              "productMeta": {}
+            }
+          }
+        ],
+        "drafts": [
+          {
+            "schemaVersion": 1,
+            "key": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+              "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27"
+            ],
+            "group": [
+              "CocoMemoProduct",
+              "product-v1",
+              "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner"
+            ],
+            "uid": "cloud:demo-cocomemo-safety-r1%3A(default)%3Aroot%3DsysTrials%2FSYS-COMPLETE-20261111%2Fusers:safety-fictional-owner",
+            "draftId": "4bcdd39f-4cae-4eb4-8ccd-6a981c80cf27",
+            "versionId": "abbb4034-b0ed-4fa0-9363-5fd971aa5493",
+            "updatedAt": 1794569271368,
+            "snapshot": {
+              "form": {
+                "record": {
+                  "id": "same",
+                  "title": "INPUT_KEPT"
+                },
+                "editorKind": "fields"
+              },
+              "photo": {
+                "blob": {
+                  "type": "Blob",
+                  "mime": "image/jpeg",
+                  "bytes": 759,
+                  "sha256": "26692ab10df83e4f8c95c6fef8242f495776564322234f97af6b473f1bff71c4"
+                },
+                "width": 2,
+                "height": 2
+              }
+            },
+            "attemptId": null,
+            "cloudState": "未送信"
+          }
+        ]
+      }
+    },
+    "limit": "SDK transaction result hidden by isolated wrapper; not real internet response loss"
+  }
+]

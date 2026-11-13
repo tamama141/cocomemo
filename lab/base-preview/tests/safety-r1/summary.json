@@ -1,0 +1,30 @@
+{
+  "task": "DEV-THREE-DEVICE-SAFETY-R1-20261113-001",
+  "sdk": "13.1.0",
+  "emulator": "1.22.0",
+  "project": "demo-cocomemo-safety-r1",
+  "owner": "fictional only",
+  "groupedChecks": {
+    "orders": 8,
+    "emulator": 14,
+    "supplement": 8
+  },
+  "recoveryCases": 4,
+  "syntax": [
+    "pantry.js",
+    "modules/restore-copy.mjs",
+    "tests/safety-r1/emulator.mjs",
+    "tests/safety-r1/orders.mjs",
+    "tests/safety-r1/rules-supplement.mjs",
+    "tests/safety-r1/sdk-recovery.mjs"
+  ],
+  "runtimeUnchanged": [
+    "modules/cloud-repository.mjs",
+    "modules/auth-runtime.mjs",
+    "modules/book-ui.mjs",
+    "modules/legacy/firebase-auth.mjs",
+    "modules/operation-journal.mjs",
+    "modules/drafts.mjs"
+  ],
+  "limit": "isolated development; no real Firebase/owner data/terminal/deployment; no live internet-loss proof"
+}

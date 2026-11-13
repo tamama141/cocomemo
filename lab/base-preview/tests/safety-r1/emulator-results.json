@@ -1,0 +1,76 @@
+{
+  "result": "pass",
+  "sdk": "13.1.0",
+  "project": "demo-cocomemo-safety-r1",
+  "emulator": "127.0.0.1:8193",
+  "checks": [
+    {
+      "mode": "normal",
+      "case": "concrete legacy recipe transaction + standalone stock create denied without state"
+    },
+    {
+      "mode": "normal",
+      "case": "legacy standalone update/delete, another UID read, state deletion denied"
+    },
+    {
+      "mode": "normal",
+      "case": "state absent bootstrap, regular multi-group create/update/delete + selected recipes restore keep other groups"
+    },
+    {
+      "mode": "normal",
+      "case": "record without state advance / different operation rejected"
+    },
+    {
+      "mode": "normal",
+      "case": "24 new records + shared state (25 writes) accepted beyond 20 uncached-access threshold",
+      "accessBudget": "<=3 distinct pre/after state access calls per rule; shared path cache reused; no per-record getAfter loop"
+    },
+    {
+      "mode": "normal",
+      "case": "real SDK/native IDB page reload recovery after",
+      "expected": "complete",
+      "transactionRetries": 0
+    },
+    {
+      "mode": "normal",
+      "case": "real SDK/native IDB page reload recovery before",
+      "expected": "not-applied",
+      "transactionRetries": 0
+    },
+    {
+      "mode": "normal",
+      "case": "real SDK/native IDB page reload recovery conflict",
+      "expected": "conflict",
+      "transactionRetries": 0
+    },
+    {
+      "mode": "trial",
+      "case": "concrete legacy recipe transaction + standalone stock create denied without state"
+    },
+    {
+      "mode": "trial",
+      "case": "legacy standalone update/delete, another UID read, state deletion denied"
+    },
+    {
+      "mode": "trial",
+      "case": "state absent bootstrap, regular multi-group create/update/delete + selected recipes restore keep other groups"
+    },
+    {
+      "mode": "trial",
+      "case": "record without state advance / different operation rejected"
+    },
+    {
+      "mode": "trial",
+      "case": "24 new records + shared state (25 writes) accepted beyond 20 uncached-access threshold",
+      "accessBudget": "<=3 distinct pre/after state access calls per rule; shared path cache reused; no per-record getAfter loop"
+    },
+    {
+      "mode": "trial",
+      "case": "real SDK/native IDB page reload recovery after",
+      "expected": "complete",
+      "transactionRetries": 0
+    }
+  ],
+  "recoveryCases": 4,
+  "limit": "isolated emulator development only; candidates not deployed"
+}

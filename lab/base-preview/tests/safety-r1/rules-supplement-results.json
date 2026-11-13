@@ -1,0 +1,38 @@
+{
+  "result": "pass",
+  "checks": [
+    {
+      "mode": "normal",
+      "case": "existing legacy records with absent state upgraded atomically without schema/root migration"
+    },
+    {
+      "mode": "normal",
+      "case": "other UID update/delete rejected for all three collections"
+    },
+    {
+      "mode": "normal",
+      "case": "regular atomic recipe/stock/wish deletes with state accepted"
+    },
+    {
+      "mode": "normal",
+      "case": "coupled record JSON 983040 bytes accepted, 983041 rejected; existing capacity preserved"
+    },
+    {
+      "mode": "trial",
+      "case": "existing legacy records with absent state upgraded atomically without schema/root migration"
+    },
+    {
+      "mode": "trial",
+      "case": "other UID update/delete rejected for all three collections"
+    },
+    {
+      "mode": "trial",
+      "case": "regular atomic recipe/stock/wish deletes with state accepted"
+    },
+    {
+      "mode": "trial",
+      "case": "coupled record JSON 983040 bytes accepted, 983041 rejected; existing capacity preserved"
+    }
+  ],
+  "limit": "new rejection/capacity edges only; prior successful suite not replayed"
+}

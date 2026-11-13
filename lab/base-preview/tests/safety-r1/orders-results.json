@@ -1,0 +1,14 @@
+{
+  "result": "pass",
+  "checks": [
+    "read/import/export does not silently persist/migrate historical order",
+    "single delete removes deleted/unknown/duplicate IDs and retains live relative order",
+    "failed persist rolls back stock, orders and metadata together",
+    "bulk delete uses same atomic pruning",
+    "category move preserves category order and relocates one live ID",
+    "wish-only stage does not normalize stock orders; move source-delete rollback and later pruning",
+    "explicit pantry restore prunes; recipes-only restore leaves unselected pantry metadata exact",
+    "large duplicate/stale order never expands metadata budget"
+  ],
+  "limit": "actual transaction/restore functions in isolated VM; no existing stored data touched"
+}
